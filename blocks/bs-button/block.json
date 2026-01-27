@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "tagName": {
+      "type": "string",
+      "default": "button"
+    },
+    "textHtml": {
+      "type": "string",
+      "default": ""
+    },
+    "href": {
+      "type": "string",
+      "default": ""
+    },
+    "linkRole": {
+      "type": "string",
+      "default": ""
+    },
+    "linkTabIndex": {
+      "type": "string",
+      "default": ""
+    },
+    "dataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "ariaAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "autofocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "form": {
+      "type": "string",
+      "default": ""
+    },
+    "formenctype": {
+      "type": "string",
+      "default": ""
+    },
+    "formmethod": {
+      "type": "string",
+      "default": ""
+    },
+    "formnovalidate": {
+      "type": "boolean",
+      "default": false
+    },
+    "formtarget": {
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "type": {
+      "type": "string",
+      "default": "button"
+    },
+    "value": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "category": "design",
+  "description": "Render Bootstrap button. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "example": {
+    "attributes": {
+      "className": "btn btn-primary",
+      "textHtml": "Button"
+    },
+    "viewportWidth": 350
+  },
+  "icon": "button",
+  "keywords": [
+    "bootstrap",
+    "button",
+    "link"
+  ],
+  "name": "bbfse-plugin/blocks-bs-button",
+  "supports": {
+    "html": false,
+    "className": true,
+    "anchor": true
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap button",
+  "version": "0.0.1"
+}
