@@ -1,0 +1,635 @@
+# Copyright (C) 2026 Vee Winch
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-27T15:07:41+07:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: bbfse-plugin\n"
+
+#. Plugin Name of the plugin
+#: bbfse-plugin.php
+msgid "Bootstrap Basic FSE Plugin"
+msgstr ""
+
+#. Description of the plugin
+#: bbfse-plugin.php
+msgid "A plugin that contain blocks for Bootstrap Basic FSE theme. All blocks based on Bootstrap CSS."
+msgstr ""
+
+#. Author of the plugin
+#: bbfse-plugin.php
+msgid "Vee Winch"
+msgstr ""
+
+#. Author URI of the plugin
+#: bbfse-plugin.php
+msgid "https://rundiz.com"
+msgstr ""
+
+#: App/Libraries/BootstrapNavbarNavigationWalker.php:120
+msgid "Home"
+msgstr ""
+
+#: App/Libraries/BootstrapNavbarNavigationWalker.php:523
+msgid "(Untitled)"
+msgstr ""
+
+#. translators: %s: Template path.
+#: App/Libraries/Loader.php:120
+#, php-format
+msgid "The views file was not found (%s)."
+msgstr ""
+
+#: blocks/bs-navbar-navigation/render.php:43
+#: blocks/bs-navbar-navigation/render.php:56
+msgid "This navigation is empty."
+msgstr ""
+
+#: blocks/bs-pagination/render.php:105
+#: blocks/bs-pagination/index.js:1
+msgid "Next »"
+msgstr ""
+
+#: blocks/bs-pagination/render.php:108
+msgid "Next"
+msgstr ""
+
+#: blocks/bs-pagination/render.php:264
+#: blocks/bs-pagination/index.js:1
+msgid "« Previous"
+msgstr ""
+
+#: blocks/bs-pagination/render.php:267
+msgid "Previous"
+msgstr ""
+
+#: blocks/bs-pagination/render.php:379
+msgid "Pagination"
+msgstr ""
+
+#: blocks/bs-search/render.php:20
+#: blocks/bs-search/render.php:25
+#: blocks/bs-search/index.js:1
+msgid "Search"
+msgstr ""
+
+#: blocks/bs-column/index.js:1
+#: blocks/bs-container/index.js:1
+#: blocks/bs-row/index.js:1
+msgid "HTML element"
+msgstr ""
+
+#: blocks/bs-column/index.js:1
+#: blocks/bs-container/index.js:1
+#: blocks/bs-row/index.js:1
+msgid "Default (<div>)"
+msgstr ""
+
+#: blocks/bs-column/index.js:1
+msgid "Please add a Bootstrap column class (e.g. \"col\", \"col-md-6\") in the \"Additional CSS class(es)\" field under Advanced settings."
+msgstr ""
+
+#: blocks/bs-container/index.js:1
+msgid "Please add a Bootstrap container class (e.g. \"container\", \"container-fluid\") in the \"Additional CSS class(es)\" field under Advanced settings."
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Key"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Value"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Remove"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Add attribute"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Navbar Settings"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Tag Name"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Data attributes"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Aria attributes"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Container Settings"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Container Tag Name"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Container Class"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Default is container-fluid. You can change to container, container-lg, etc."
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Container data attributes"
+msgstr ""
+
+#: blocks/bs-navbar-container/index.js:1
+msgid "Container aria attributes"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Auto: first available"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "(no title)"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Navigation Settings"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Navigation"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Select a Navigation post or leave auto to use the first available."
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Create a new navigation"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Manage all navigations"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "No Navigation posts found. Create one in the Site Editor > Navigation."
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Dropdown menu class"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Additional classes for dropdown menu. The base class `dropdown-menu` is always applied."
+msgstr ""
+
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "No Navigation posts found to preview."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Navbar responsive wrapper Settings"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Navbar responsive wrapper"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Please note that the preview will not display with styles so that editing can work."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Wrapper style"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Offcanvas Settings"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Navbar responsive offcanvas"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+msgid "Offcanvas header Class"
+msgstr ""
+
+#. translators: %1$s the offcanvas default class name.
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+#, js-format
+msgid "Default is %1$s."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Offcanvas header title ID"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "HTML id attribute on offcanvas header title"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Offcanvas header title Class"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Offcanvas header title text"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "You can use text or HTML. This will be display inside offcanvas title."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Close button additional Class"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "This will be additional class next to main close button class."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Close button data attributes"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Close button aria attributes"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/index.js:2
+msgid "Offcanvas body Class"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Button Settings"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Icon Settings"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Icon Additional Class(es)"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Add additional classes to the icon span."
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Icon data attributes"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/index.js:1
+msgid "Icon aria attributes"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Default (Start)"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Center"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "End"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+#: blocks/bs-search/index.js:1
+msgid "Settings"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Show previous/next buttons"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Previous button text"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Previous button text/HTML"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "You can use HTML for icons, e.g. <i class=\"bi bi-chevron-left\"></i>"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Next button text"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Next button text/HTML"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "You can use HTML for icons, e.g. <i class=\"bi bi-chevron-right\"></i>"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Show page numbers"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Number of adjacent pages"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible."
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Alignment"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Additional CSS class"
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Add extra CSS classes to the pagination container."
+msgstr ""
+
+#: blocks/bs-pagination/index.js:1
+msgid "Page navigation preview"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button outside"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button group with input"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "No button"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Show label"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button position"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button use icon"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button classes"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Optional placeholder text"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Optional placeholder…"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Button text"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Add button text…"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Label text"
+msgstr ""
+
+#: blocks/bs-search/index.js:1
+msgid "Add label…"
+msgstr ""
+
+#: blocks/bs-column/block.json
+msgctxt "block description"
+msgid "Render Bootstrap column. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-column/block.json
+#: blocks/bs-container/block.json
+#: blocks/bs-navbar-container/block.json
+#: blocks/bs-navbar-navigation/block.json
+#: blocks/bs-navbar-responsive-wrapper/block.json
+#: blocks/bs-navbar-toggler-button/block.json
+#: blocks/bs-pagination/block.json
+#: blocks/bs-row/block.json
+#: blocks/bs-search/block.json
+msgctxt "block keyword"
+msgid "bootstrap"
+msgstr ""
+
+#: blocks/bs-column/block.json
+msgctxt "block keyword"
+msgid "column"
+msgstr ""
+
+#: blocks/bs-column/block.json
+#: blocks/bs-container/block.json
+#: blocks/bs-row/block.json
+msgctxt "block keyword"
+msgid "layout"
+msgstr ""
+
+#: blocks/bs-column/block.json
+#: blocks/bs-container/block.json
+#: blocks/bs-navbar-responsive-wrapper/block.json
+#: blocks/bs-row/block.json
+msgctxt "block keyword"
+msgid "wrapper"
+msgstr ""
+
+#: blocks/bs-column/block.json
+msgctxt "block title"
+msgid "Bootstrap layout column"
+msgstr ""
+
+#: blocks/bs-container/block.json
+msgctxt "block description"
+msgid "Render Bootstrap container. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-container/block.json
+#: blocks/bs-navbar-container/block.json
+msgctxt "block keyword"
+msgid "container"
+msgstr ""
+
+#: blocks/bs-container/block.json
+msgctxt "block title"
+msgid "Bootstrap layout container"
+msgstr ""
+
+#: blocks/bs-navbar-container/block.json
+msgctxt "block description"
+msgid "Bootstrap navbar container. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-navbar-container/block.json
+#: blocks/bs-navbar-navigation/block.json
+#: blocks/bs-navbar-responsive-wrapper/block.json
+#: blocks/bs-navbar-toggler-button/block.json
+msgctxt "block keyword"
+msgid "navbar"
+msgstr ""
+
+#: blocks/bs-navbar-container/block.json
+msgctxt "block title"
+msgid "Bootstrap navbar container"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/block.json
+msgctxt "block description"
+msgid "Bootstrap navbar navigation items. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-navbar-navigation/block.json
+msgctxt "block keyword"
+msgid "navigation"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/block.json
+msgctxt "block keyword"
+msgid "menu"
+msgstr ""
+
+#: blocks/bs-navbar-navigation/block.json
+msgctxt "block title"
+msgid "Bootstrap navbar navigation"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/block.json
+msgctxt "block description"
+msgid "Wrap the navbar items with collapse or offcanvas. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/block.json
+msgctxt "block keyword"
+msgid "responsive"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/block.json
+msgctxt "block keyword"
+msgid "collapse"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/block.json
+msgctxt "block keyword"
+msgid "offcanvas"
+msgstr ""
+
+#: blocks/bs-navbar-responsive-wrapper/block.json
+msgctxt "block title"
+msgid "Bootstrap navbar responsive wrapper"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/block.json
+msgctxt "block description"
+msgid "Bootstrap navbar toggler button. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/block.json
+msgctxt "block keyword"
+msgid "toggler"
+msgstr ""
+
+#: blocks/bs-navbar-toggler-button/block.json
+msgctxt "block title"
+msgid "Bootstrap Navbar Toggler Button"
+msgstr ""
+
+#: blocks/bs-pagination/block.json
+msgctxt "block description"
+msgid "Display pagination in Bootstrap style. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-pagination/block.json
+msgctxt "block keyword"
+msgid "pager"
+msgstr ""
+
+#: blocks/bs-pagination/block.json
+msgctxt "block keyword"
+msgid "pages"
+msgstr ""
+
+#: blocks/bs-pagination/block.json
+msgctxt "block keyword"
+msgid "pagination"
+msgstr ""
+
+#: blocks/bs-pagination/block.json
+msgctxt "block title"
+msgid "Bootstrap pagination"
+msgstr ""
+
+#: blocks/bs-row/block.json
+msgctxt "block description"
+msgid "Render Bootstrap row. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-row/block.json
+msgctxt "block keyword"
+msgid "row"
+msgstr ""
+
+#: blocks/bs-row/block.json
+msgctxt "block title"
+msgid "Bootstrap layout row"
+msgstr ""
+
+#: blocks/bs-search/block.json
+msgctxt "block description"
+msgid "Display search form in Bootstrap style. This block is in the BBFSE plugin."
+msgstr ""
+
+#: blocks/bs-search/block.json
+msgctxt "block keyword"
+msgid "find"
+msgstr ""
+
+#: blocks/bs-search/block.json
+msgctxt "block title"
+msgid "Bootstrap search form"
+msgstr ""

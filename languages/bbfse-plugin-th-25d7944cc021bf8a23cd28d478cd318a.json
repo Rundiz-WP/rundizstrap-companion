@@ -1,0 +1,51 @@
+{
+    "translation-revision-date": "2026-01-27 15:07+0700",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "blocks\/bs-navbar-toggler-button\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "th",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Key": [
+                "\u0e04\u0e35\u0e22\u0e4c"
+            ],
+            "Value": [
+                "\u0e04\u0e48\u0e32"
+            ],
+            "Remove": [
+                "\u0e40\u0e2d\u0e32\u0e2d\u0e2d\u0e01"
+            ],
+            "Add attribute": [
+                "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c"
+            ],
+            "Data attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c data"
+            ],
+            "Aria attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c aria"
+            ],
+            "Button Settings": [
+                "\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e1b\u0e38\u0e48\u0e21"
+            ],
+            "Icon Settings": [
+                "\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e44\u0e2d\u0e04\u0e2d\u0e19"
+            ],
+            "Icon Additional Class(es)": [
+                "\u0e44\u0e2d\u0e04\u0e2d\u0e19 \u0e04\u0e25\u0e32\u0e2a\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21"
+            ],
+            "Add additional classes to the icon span.": [
+                "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e04\u0e25\u0e32\u0e2a\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e43\u0e2b\u0e49\u0e01\u0e31\u0e1a\u0e44\u0e2d\u0e04\u0e2d\u0e19 span."
+            ],
+            "Icon data attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c data \u0e02\u0e2d\u0e07\u0e44\u0e2d\u0e04\u0e2d\u0e19"
+            ],
+            "Icon aria attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c aria \u0e02\u0e2d\u0e07\u0e44\u0e2d\u0e04\u0e2d\u0e19"
+            ]
+        }
+    }
+}

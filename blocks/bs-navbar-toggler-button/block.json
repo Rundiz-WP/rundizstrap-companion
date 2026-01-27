@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "dataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "ariaAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "iconClassName": {
+      "type": "string",
+      "default": ""
+    },
+    "iconDataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "iconAriaAttributes": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "category": "theme",
+  "description": "Bootstrap navbar toggler button. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "example": false,
+  "icon": "menu",
+  "keywords": [
+    "bootstrap",
+    "navbar",
+    "toggler"
+  ],
+  "name": "bbfse-plugin/blocks-bs-navbar-toggler-button",
+  "parent": [
+    "bbfse-plugin/blocks-bs-navbar-container"
+  ],
+  "supports": {
+    "html": false,
+    "className": true,
+    "anchor": true
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap Navbar Toggler Button",
+  "version": "0.0.1"
+}

@@ -1,0 +1,87 @@
+{
+    "translation-revision-date": "2026-01-27 15:07+0700",
+    "generator": "WP-CLI\/2.12.0",
+    "source": "blocks\/bs-navbar-responsive-wrapper\/index.js",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "th",
+                "plural-forms": "nplurals=2; plural=(n != 1);"
+            },
+            "Key": [
+                "\u0e04\u0e35\u0e22\u0e4c"
+            ],
+            "Value": [
+                "\u0e04\u0e48\u0e32"
+            ],
+            "Remove": [
+                "\u0e40\u0e2d\u0e32\u0e2d\u0e2d\u0e01"
+            ],
+            "Add attribute": [
+                "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c"
+            ],
+            "Data attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c data"
+            ],
+            "Aria attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c aria"
+            ],
+            "Navbar responsive wrapper Settings": [
+                "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e41\u0e16\u0e1a\u0e19\u0e33\u0e17\u0e32\u0e07\u0e41\u0e1a\u0e1a\u0e15\u0e2d\u0e1a\u0e2a\u0e19\u0e2d\u0e07"
+            ],
+            "Navbar responsive wrapper": [
+                "\u0e15\u0e31\u0e27\u0e2b\u0e38\u0e49\u0e21\u0e41\u0e16\u0e1a\u0e19\u0e33\u0e17\u0e32\u0e07\u0e41\u0e1a\u0e1a\u0e15\u0e2d\u0e1a\u0e2a\u0e19\u0e2d\u0e07"
+            ],
+            "Please note that the preview will not display with styles so that editing can work.": [
+                "\u0e42\u0e1b\u0e23\u0e14\u0e17\u0e23\u0e32\u0e1a\u0e27\u0e48\u0e32\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e08\u0e30\u0e44\u0e21\u0e48\u0e41\u0e2a\u0e14\u0e07\u0e2a\u0e44\u0e15\u0e25\u0e4c \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e41\u0e01\u0e49\u0e44\u0e02\u0e44\u0e14\u0e49."
+            ],
+            "Wrapper style": [
+                "\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e15\u0e31\u0e27\u0e2b\u0e38\u0e49\u0e21"
+            ],
+            "Offcanvas Settings": [
+                "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32 offcanvas"
+            ],
+            "Navbar responsive offcanvas": [
+                "\u0e41\u0e16\u0e1a\u0e19\u0e33\u0e17\u0e32\u0e07\u0e41\u0e1a\u0e1a\u0e15\u0e2d\u0e1a\u0e2a\u0e19\u0e2d\u0e07 offcanvas"
+            ],
+            "Offcanvas header Class": [
+                "\u0e04\u0e25\u0e32\u0e2a\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27 offcanvas"
+            ],
+            "Default is %1$s.": [
+                "\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e04\u0e37\u0e2d %1$s."
+            ],
+            "Offcanvas header title ID": [
+                "\u0e44\u0e2d\u0e14\u0e35\u0e44\u0e15\u0e40\u0e15\u0e34\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27\u0e02\u0e2d\u0e07 offcanvas"
+            ],
+            "HTML id attribute on offcanvas header title": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c id \u0e02\u0e2d\u0e07 HTML \u0e1a\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27\u0e02\u0e2d\u0e07 offcanvas"
+            ],
+            "Offcanvas header title Class": [
+                "\u0e04\u0e25\u0e32\u0e2a\u0e44\u0e15\u0e40\u0e15\u0e34\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27\u0e02\u0e2d\u0e07 offcanvas"
+            ],
+            "Offcanvas header title text": [
+                "\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e44\u0e15\u0e40\u0e15\u0e34\u0e25\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27\u0e02\u0e2d\u0e07 offcanvas"
+            ],
+            "You can use text or HTML. This will be display inside offcanvas title.": [
+                "\u0e04\u0e38\u0e13\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e43\u0e0a\u0e49\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e2b\u0e23\u0e37\u0e2d HTML \u0e44\u0e14\u0e49. \u0e19\u0e35\u0e48\u0e08\u0e30\u0e41\u0e2a\u0e14\u0e07\u0e1c\u0e25\u0e20\u0e32\u0e22\u0e43\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e2b\u0e31\u0e27\u0e02\u0e2d\u0e07 offcanvas."
+            ],
+            "Close button additional Class": [
+                "\u0e04\u0e25\u0e32\u0e2a\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e02\u0e2d\u0e07\u0e1b\u0e38\u0e48\u0e21\u0e1b\u0e34\u0e14"
+            ],
+            "This will be additional class next to main close button class.": [
+                "\u0e19\u0e35\u0e48\u0e08\u0e30\u0e40\u0e1b\u0e47\u0e19\u0e04\u0e25\u0e32\u0e2a\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21\u0e17\u0e35\u0e48\u0e2d\u0e22\u0e39\u0e48\u0e16\u0e31\u0e14\u0e08\u0e32\u0e01\u0e04\u0e25\u0e32\u0e2a\u0e1b\u0e38\u0e48\u0e21\u0e1b\u0e34\u0e14\u0e2b\u0e25\u0e31\u0e01."
+            ],
+            "Close button data attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c data \u0e02\u0e2d\u0e07\u0e1b\u0e38\u0e48\u0e21\u0e1b\u0e34\u0e14"
+            ],
+            "Close button aria attributes": [
+                "\u0e41\u0e2d\u0e15\u0e17\u0e23\u0e34\u0e1a\u0e34\u0e27\u0e15\u0e4c aria \u0e02\u0e2d\u0e07\u0e1b\u0e38\u0e48\u0e21\u0e1b\u0e34\u0e14"
+            ],
+            "Offcanvas body Class": [
+                "\u0e04\u0e25\u0e32\u0e2a\u0e23\u0e48\u0e32\u0e07\u0e01\u0e32\u0e22 offcanvas"
+            ]
+        }
+    }
+}

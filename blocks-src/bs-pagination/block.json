@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "attributes": {
+        "showPreviousNext": {
+            "type": "boolean",
+            "default": true
+        },
+        "previousText": {
+            "type": "string",
+            "default": "« Previous",
+            "role": "content"
+        },
+        "nextText": {
+            "type": "string",
+            "default": "Next »",
+            "role": "content"
+        },
+        "showPageNumbers": {
+            "type": "boolean",
+            "default": true
+        },
+        "numberOfPages": {
+            "type": "number",
+            "default": 2
+        },
+        "additionalClass": {
+            "type": "string",
+            "default": ""
+        },
+        "alignment": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "category": "theme",
+    "description": "Display pagination in Bootstrap style. This block is in the BBFSE plugin.",
+    "editorScript": "file:./index.js",
+    "example": {
+        "viewportWidth": 600
+    },
+    "icon": "leftright",
+    "keywords": ["bootstrap", "pager", "pages", "pagination"],
+    "name": "bbfse-plugin/blocks-bs-pagination",
+    "render": "file:./render.php",
+    "supports": {
+        "className": true
+    },
+    "textdomain": "bbfse-plugin",
+    "title": "Bootstrap pagination",
+    "usesContext": ["queryId", "query", "enhancedPagination"],
+    "version": "0.0.1"
+}

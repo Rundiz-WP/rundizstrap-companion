@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "wrapperStyle": {
+      "type": "string",
+      "default": "collapse"
+    },
+    "dataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "ariaAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "offcanvasHeaderClassName": {
+      "type": "string",
+      "default": "offcanvas-header"
+    },
+    "offcanvasHeaderTitleIDName": {
+      "type": "string",
+      "default": ""
+    },
+    "offcanvasHeaderTitleClassName": {
+      "type": "string",
+      "default": "offcanvas-title"
+    },
+    "offcanvasHeaderTitleText": {
+      "type": "string",
+      "role": "content",
+      "default": ""
+    },
+    "offcanvasHeaderCloseBtnClassName": {
+      "type": "string",
+      "default": ""
+    },
+    "offcanvasHeaderCloseBtnDataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "offcanvasHeaderCloseBtnAriaAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "offcanvasBodyClassName": {
+      "type": "string",
+      "default": "offcanvas-body"
+    }
+  },
+  "category": "theme",
+  "description": "Wrap the navbar items with collapse or offcanvas. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "icon": "layout",
+  "keywords": [
+    "bootstrap",
+    "navbar",
+    "responsive",
+    "wrapper",
+    "collapse",
+    "offcanvas"
+  ],
+  "name": "bbfse-plugin/blocks-bs-navbar-responsive-wrapper",
+  "parent": [
+    "bbfse-plugin/blocks-bs-navbar-container"
+  ],
+  "supports": {
+    "align": true,
+    "anchor": true,
+    "html": false,
+    "className": true
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap navbar responsive wrapper",
+  "version": "0.0.1"
+}

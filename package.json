@@ -1,0 +1,37 @@
+{
+    "name": "bbfse-plugin",
+    "version": "0.0.1",
+    "description": "The WordPress Blocks for Bootstrap Basic FSE theme based on latest Bootstrap.",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "wpdev build",
+        "buildBlocks": "wp-scripts build --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
+        "watch": "wpdev watch",
+        "watchBlocks": "wp-scripts start --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
+        "pack": "wpdev pack --packtype=dev prod",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "",
+        "url": ""
+    },
+    "keywords": [
+        "bootstrap",
+        "wordpress",
+        "plugin"
+    ],
+    "author": "Vee W.",
+    "license": "MIT",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
+    "dependencies": {
+        "bootstrap": "^5.3.8",
+        "bootstrap-icons": "^1.13.1"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^31.3.0"
+    }
+}

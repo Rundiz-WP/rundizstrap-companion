@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "navigationRef": {
+      "type": "integer",
+      "default": 0
+    },
+    "dataAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "ariaAttributes": {
+      "type": "object",
+      "default": {}
+    },
+    "dropdownClassName": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "category": "theme",
+  "description": "Bootstrap navbar navigation items. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "example": {},
+  "icon": "menu",
+  "keywords": [
+    "bootstrap",
+    "navbar",
+    "navigation",
+    "menu"
+  ],
+  "name": "bbfse-plugin/blocks-bs-navbar-navigation",
+  "parent": [
+    "bbfse-plugin/blocks-bs-navbar-container",
+    "bbfse-plugin/blocks-bs-navbar-responsive-wrapper"
+  ],
+  "render": "file:./render.php",
+  "supports": {
+    "anchor": true,
+    "className": true,
+    "html": false
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap navbar navigation",
+  "version": "0.0.1"
+}

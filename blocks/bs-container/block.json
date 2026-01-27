@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "tagName": {
+      "type": "string",
+      "default": "div"
+    }
+  },
+  "category": "design",
+  "description": "Render Bootstrap container. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "example": false,
+  "icon": "layout",
+  "keywords": [
+    "bootstrap",
+    "container",
+    "layout",
+    "wrapper"
+  ],
+  "name": "bbfse-plugin/blocks-bs-container",
+  "supports": {
+    "anchor": true,
+    "ariaLabel": true,
+    "className": true,
+    "html": false,
+    "color": false,
+    "typography": false,
+    "spacing": false,
+    "layout": false,
+    "__experimentalBorder": false,
+    "position": false,
+    "shadow": false,
+    "dimensions": false,
+    "background": false
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap layout container",
+  "version": "0.0.1"
+}

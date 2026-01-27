@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "attributes": {
+    "showLabel": {
+      "type": "boolean",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "role": "content"
+    },
+    "buttonPosition": {
+      "type": "string",
+      "default": "button-outside"
+    },
+    "buttonUseIcon": {
+      "type": "boolean",
+      "default": false
+    },
+    "buttonClass": {
+      "type": "string",
+      "default": "btn btn-primary"
+    },
+    "buttonText": {
+      "type": "string",
+      "role": "content"
+    },
+    "placeholderText": {
+      "type": "string",
+      "default": "",
+      "role": "content"
+    }
+  },
+  "category": "widgets",
+  "description": "Display search form in Bootstrap style. This block is in the BBFSE plugin.",
+  "editorScript": "file:./index.js",
+  "example": {
+    "viewportWidth": 350
+  },
+  "icon": "search",
+  "keywords": [
+    "bootstrap",
+    "find"
+  ],
+  "name": "bbfse-plugin/blocks-bs-search",
+  "render": "file:./render.php",
+  "supports": {
+    "className": true
+  },
+  "textdomain": "bbfse-plugin",
+  "title": "Bootstrap search form",
+  "version": "0.0.1"
+}

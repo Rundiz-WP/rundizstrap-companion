@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "BBFSEPlugin\\": "./"
+        }
+    },
+    "config": {
+        "vendor-dir": "App/vendor"
+    }
+}
