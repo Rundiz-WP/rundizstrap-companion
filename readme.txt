@@ -41,7 +41,8 @@ The navbar consists of 4 parts.
 
 To use `navbar-brand`, you can use WordPress core row and add class `navbar-brand` to it. Then you can add site logo, site title into row.
 
-To use dropdown menu divider, add class `dropdown-divider` to sub menu item.
+To use dropdown menu divider, add class `dropdown-divider` to sub menu item.  
+To use dropdown menu header, add class `dropdown-header` to sub menu item.
 
 == Frequently Asked Questions ==
 
