@@ -294,13 +294,6 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
          */
         private static function getCurrentUrl(): string
         {
-            if (function_exists('wp_get_current_url')) {
-                $current = wp_get_current_url();
-                if (is_string($current)) {
-                    return $current;
-                }
-            }
-
             $scheme = (is_ssl() ? 'https' : 'http');
             $host = ($_SERVER['HTTP_HOST'] ?? wp_parse_url(home_url(), PHP_URL_HOST));
             $requestUri = ($_SERVER['REQUEST_URI'] ?? '/');
