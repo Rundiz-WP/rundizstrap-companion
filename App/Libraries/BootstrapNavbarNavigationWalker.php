@@ -590,6 +590,12 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
                         $dividerClass = trim($dividerClass);
                         $dividerClass = 'dropdown-divider' . (!empty($dividerClass) ? ' ' . $dividerClass : '');
                         $output .= '<li><hr class="' . esc_attr($dividerClass) . '"></li>' . PHP_EOL;
+                    } elseif (!empty($itemClassName) && preg_match('/(?<![\w\-%\^\$])(dropdown-header)(?![\w\-%\^\$])/i', $itemClassName)) {
+                        $headerClass = preg_replace('/(?<![\w\-%\^\$])(dropdown-header)(?![\w\-%\^\$])/i', '', $itemClassName);
+                        $headerClass = preg_replace('/\s{2,}/', ' ', $headerClass);
+                        $headerClass = trim($headerClass);
+                        $headerClass = 'dropdown-header' . (!empty($headerClass) ? ' ' . $headerClass : '');
+                        $output .= '<li><h6 class="' . esc_attr($headerClass) . '">' . $label . '</h6></li>' . PHP_EOL;
                     } else {
                         $output .= '<li>';
                         $output .= '<a class="' . esc_attr($linkClass) . '" href="' . $href . '"' . $titleAttr . $targetAttr . $relAttr . '>';
