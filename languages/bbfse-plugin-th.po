@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
-"POT-Creation-Date: 2026-01-28T02:23:21+07:00\n"
-"PO-Revision-Date: 2026-01-28 02:24+0700\n"
+"POT-Creation-Date: 2026-01-31T03:19:10+07:00\n"
+"PO-Revision-Date: 2026-01-31 03:19+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Home"
 msgstr "หน้าแรก"
 
-#: App/Libraries/BootstrapNavbarNavigationWalker.php:523
+#: App/Libraries/BootstrapNavbarNavigationWalker.php:516
 msgid "(Untitled)"
 msgstr "(ไม่มีไตเติล)"
 
@@ -81,27 +81,35 @@ msgstr "การแบ่งหน้า"
 msgid "Search"
 msgstr "ค้นหา"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:71 blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Key"
 msgstr "คีย์"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:76 blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Value"
 msgstr "ค่า"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:86 blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Remove"
 msgstr "เอาออก"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:91 blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Add attribute"
 msgstr "เพิ่มแอตทริบิวต์"
 
@@ -211,19 +219,22 @@ msgctxt "Button type"
 msgid "Type"
 msgstr "Type"
 
-#: blocks/bs-button/index.js:1
+#: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Data and Aria Attributes"
 msgstr "แอตทริบิวต์ของ Data และ Aria"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Data attributes"
 msgstr "แอตทริบิวต์ data"
 
-#: blocks/bs-button/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-row/index.js:1
 msgid "Aria attributes"
 msgstr "แอตทริบิวต์ aria"
 
