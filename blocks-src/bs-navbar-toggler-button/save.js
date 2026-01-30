@@ -8,24 +8,7 @@
 
 import { useBlockProps } from '@wordpress/block-editor';
 
-/**
- * Helper to convert attribute objects to props with prefixes.
- * 
- * @param {Object} attributes Key-value pairs.
- * @param {string} prefix Prefix like 'data-' or 'aria-'.
- * @returns {Object} Props object.
- */
-const attributesToProps = (attributes, prefix) => {
-    const props = {};
-    if (attributes) {
-        Object.entries(attributes).forEach(([key, value]) => {
-            if (key) {
-                props[`${prefix}${key}`] = value;
-            }
-        });
-    }
-    return props;
-};
+import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
 
 export default function Save({ attributes }) {
     const {
