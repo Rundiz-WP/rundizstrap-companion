@@ -53,7 +53,7 @@ export default function Edit({ attributes, setAttributes }) {
         }
         // default = collapse
         return 'collapse navbar-collapse';
-    };
+    };// keep it for example.
 
     // Additional props only for offcanvas
     const extraProps = wrapperStyle === 'offcanvas' 
@@ -62,6 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     const blockProps = useBlockProps({
         //className: getWrapperClasses(),// do not show styles on preview otherwise it can't edit the navigation menu inside it.
+        className: 'navbar-collapse',
         ...extraProps,
     });
 
