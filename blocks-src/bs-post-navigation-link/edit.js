@@ -99,7 +99,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                         <ToggleControl
                             __nextHasNoMarginBottom
                             label={__('Display the title as a link', 'bbfse-plugin')}
-                            help={__('If you have entered a custom label, it will be prepended before the title.', 'bbfse-plugin')}
+                            help={__('This will be replace custom label.', 'bbfse-plugin')}
                             checked={!!showTitle}
                             onChange={() => setAttributes({ showTitle: !showTitle })}
                         />
