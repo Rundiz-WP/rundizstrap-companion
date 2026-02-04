@@ -1,10 +1,9 @@
 /**
  * Bootstrap navbar navigation block JS.
  * 
- * This block was created by ChatGPT 5.2 Codex.
- * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * @author ChatGPT 5.2 Codex
  */
 
 

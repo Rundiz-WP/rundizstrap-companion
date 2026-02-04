@@ -1,10 +1,9 @@
 /**
  * Bootstrap navbar toggler button block JS.
  * 
- * This block was created by Google Antigravity model Gemini 3 Pro.
- * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * @author Gemini 3 Pro
  */
 
 

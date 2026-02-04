@@ -1,14 +1,9 @@
 /**
  * Bootstrap pagination block JS.
  * 
- * This block was created by Google Antigravity model Claude Opus 4.5.
- * 
- * Modified render.php, edit.js about loop display page numbers - by Vee W.  
- * Add an option toggler to show/hide page numbers instead of using zero - by Vee W.
- * Modify edit.js to use default values from constants - by Vee W.
- * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * @author Claude Opus 4.5
  */
 
 

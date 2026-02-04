@@ -11,7 +11,7 @@
 namespace BBFSEPlugin\App\Controllers\Blocks;
 
 
-if (!class_exists('\\BBFSEPlugin\App\Controllers\Blocks\\BsPagination')) {
+if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Blocks\\BsPagination')) {
     /**
      * Bootstrap pagination class.
      * 

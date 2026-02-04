@@ -1,10 +1,9 @@
 /**
  * Bootstrap layout row block JS.
  * 
- * This block was created by Google Antigravity model Claude Opus 4.5.
- * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * @author Claude Opus 4.5
  */
 
 
