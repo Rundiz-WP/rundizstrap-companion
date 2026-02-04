@@ -1,0 +1,11 @@
+/**
+ * Bootstrap comment form block style.
+ *
+ * @package bbfse-plugin
+ * @since 0.0.1
+ */
+
+
+.wp-block-bbfse-plugin-blocks-bs-comment-form .comment-reply-title small {
+    margin-left: 12px;
+}

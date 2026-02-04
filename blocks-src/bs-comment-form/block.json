@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "attributes": {
+        "buttonClassName": {
+            "type": "string",
+            "default": "btn btn-primary"
+        }
+    },
+    "category": "theme",
+    "description": "Display post comment form in Bootstrap style. This block is in the BBFSE plugin.",
+    "editorScript": "file:./index.js",
+    "example": {
+        "attributes": {
+            "buttonClassName": "btn btn-primary"
+        }
+    },
+    "icon": "admin-comments",
+    "keywords": ["bootstrap", "comment", "form"],
+    "name": "bbfse-plugin/blocks-bs-comment-form",
+    "render": "file:./render.php",
+    "style": "file:./style-index.css",
+    "supports": {
+        "html": false,
+        "className": true
+    },
+    "textdomain": "bbfse-plugin",
+    "title": "Bootstrap comment form",
+    "usesContext": ["postId", "postType"],
+    "version": "0.0.1"
+}
