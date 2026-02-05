@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Update\Manual;
 
+
 if (!interface_exists('\\BBFSEPlug\\App\\Update\\Manual\\ManualUpdateInterface')) {
     interface ManualUpdateInterface
     {

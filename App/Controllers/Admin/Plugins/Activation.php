@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Controllers\Admin\Plugins;
 
+
 if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Activation')) {
     /**
      * Plugin activation and new site activation hooks class.

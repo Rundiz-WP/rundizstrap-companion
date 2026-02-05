@@ -22,14 +22,15 @@ Blocks:
 * Layout container
 * Layout row
 * Layout column
-* Search
-* Pagination
+* Search (for navbar and anywhere else)
+* Pagination (for list posts)
 * Navbar container
 * Navbar toggler button (for responsive toggler)
 * Navbar responsive wrapper (collapse, offcanvas)
 * Navbar navigation (display menu items)
 * Button (link, or button)
 * Comment form
+* Post navigation (display next, previous post)
 
 Tested up to PHP 8.5.
 

@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Libraries;
 
+
 if (!class_exists('\\BBFSEPlug\\App\\Libraries\\Loader')) {
     /**
      * Loader class for load template, view file, etc.

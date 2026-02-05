@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App;
 
+
 if (!trait_exists('\\BBFSEPlug\\App\\AppTrait')) {
     trait AppTrait
     {

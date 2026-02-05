@@ -8,6 +8,8 @@
 
 
 namespace BBFSEPlug\App\Controllers\Admin\Plugins;
+
+
 if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
     /**
      * Plugin upgrader class.

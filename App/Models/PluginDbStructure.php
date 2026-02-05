@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Models;
 
+
 if (!class_exists('\\BBFSEPlug\\App\\Models\\PluginDbStructure')) {
     /**
      * The plugin's database structure class.

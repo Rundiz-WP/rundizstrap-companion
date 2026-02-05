@@ -9,12 +9,10 @@
 
 namespace BBFSEPlug\App\Libraries;
 
-/**
- * Rundiz Settings class for render pre-setup values. This will render tabs, form fields and content in each tabs.
- */
+
 if (!class_exists('\\BBFSEPlug\\App\\Libraries\\RundizSettings')) {
     /**
-     * Rundiz Settings class.
+     * Rundiz Settings class for render pre-setup values. This will render tabs, form fields and content in each tabs.
      */
     class RundizSettings
     {

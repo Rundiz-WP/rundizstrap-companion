@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Libraries;
 
+
 if (!class_exists('\\BBFSEPlug\\App\\Libraries\\StylesAndScripts')) {
     /**
      * Common use styles (CSS) and scripts (JS) class.

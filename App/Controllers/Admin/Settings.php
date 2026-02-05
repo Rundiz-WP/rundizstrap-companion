@@ -9,6 +9,7 @@
 
 namespace BBFSEPlug\App\Controllers\Admin;
 
+
 if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
     /**
      * Admin settings page.
