@@ -87,6 +87,9 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\WPOverride\\GeneralTemplate'))
                 $format = explode('?', str_replace('%_%', $args['format'], $args['base']));
                 $format_query = isset($format[1]) ? $format[1] : '';
                 wp_parse_str($format_query, $format_args);
+                if (!isset($format_args) || (!is_array($format_args) && !is_iterable($format_args))) {
+                    $format_args = [];
+                }
 
                 // Find the query args of the requested URL.
                 wp_parse_str($url_parts[1], $url_query_args);
@@ -184,10 +187,10 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\WPOverride\\GeneralTemplate'))
                 $link .= $args['add_fragment'];
 
                 $page_links[] = sprintf(
-                        '<a class="next page-link" href="%s">%s</a>',
-                        /** This filter is documented in wp-includes/general-template.php */
-                        esc_url(apply_filters('bbfse_plugin_paginate_links', $link)),
-                        $args['next_text']
+                    '<a class="next page-link" href="%s">%s</a>',
+                    /** This filter is documented in wp-includes/general-template.php */
+                    esc_url(apply_filters('bbfse_plugin_paginate_links', $link)),
+                    $args['next_text']
                 );
             endif;
 

@@ -5,6 +5,8 @@
  * @package bbfse-plugin
  * @since 0.0.1
  * @author Vee W.
+ * 
+ * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
 
 
@@ -72,7 +74,7 @@ if (true === $forNavbar && 'button-group-input' !== $buttonPosition && 'no-butto
     $input_field .= ' me-2';
 }
 $input_field .= '" type="search" name="s" value="' . get_search_query() . '" placeholder="' . esc_attr($placeholderText) . '"' .
-    ' aria-label="' . esc_attr__('Search', 'bootstrap-basic-fse') . '" required>';
+    ' aria-label="' . esc_attr__('Search', 'bbfse-plugin') . '" required>';
 $button_search = '<button class="' . esc_attr($buttonClass) . '" type="submit">' . wp_kses_post($buttonText) . '</button>';
 
 if ('button-group-input' === $buttonPosition) {
@@ -109,8 +111,8 @@ unset($button_search, $buttonClass, $buttonText, $input_col_class, $input_field,
 unset($forNavbar);
 
 printf(
-        '<form method="get" action="%1$s" role="search" %2$s>%3$s</form>',
-        esc_url(home_url('/')),
-        $wrapper_attributes,
-        $field_markup
+    '<form method="get" action="%1$s" role="search" %2$s>%3$s</form>',
+    esc_url(home_url('/')),
+    $wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    $field_markup // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 );

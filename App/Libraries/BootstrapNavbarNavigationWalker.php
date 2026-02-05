@@ -143,6 +143,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
          * 
          * @since 0.0.1
          * @param array $blocks Parsed blocks.
+         * @param array $visitedRefs Reference for check visited.
          * @return array
          */
         public static function buildItemsFromBlocks(array $blocks, array $visitedRefs = []): array
@@ -295,8 +296,8 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
         private static function getCurrentUrl(): string
         {
             $scheme = (is_ssl() ? 'https' : 'http');
-            $host = ($_SERVER['HTTP_HOST'] ?? wp_parse_url(home_url(), PHP_URL_HOST));
-            $requestUri = ($_SERVER['REQUEST_URI'] ?? '/');
+            $host = (isset($_SERVER['HTTP_HOST']) ? sanitize_text_field(wp_unslash($_SERVER['HTTP_HOST'])) : wp_parse_url(home_url(), PHP_URL_HOST));
+            $requestUri = (isset($_SERVER['REQUEST_URI']) ? sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])) : '/');
 
             if (!is_string($host) || '' === $host) {
                 return '';
@@ -323,10 +324,10 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
                 if (is_singular() && get_queried_object_id() === $id) {
                     return true;
                 }
-                if (is_front_page() && $id === (int) get_option('page_on_front')) {
+                if (is_front_page() && (int) get_option('page_on_front') === $id) {
                     return true;
                 }
-                if (is_home() && !is_front_page() && $id === (int) get_option('page_for_posts')) {
+                if (is_home() && !is_front_page() && (int) get_option('page_for_posts') === $id) {
                     return true;
                 }
             }

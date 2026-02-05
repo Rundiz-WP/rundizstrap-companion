@@ -4,6 +4,8 @@
  * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * 
+ * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
 
 
@@ -97,6 +99,6 @@ unset($wrapperAttributes);
 
 wp_enqueue_script('comment-reply');
 
-echo $form;
+echo $form;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 unset($form);

@@ -4,6 +4,8 @@
  * 
  * @package bbfse-plugin
  * @since 0.0.1
+ * 
+ * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
 
 
@@ -36,7 +38,9 @@ if (!$navigationPost) {
     }
     unset($navigationPosts);
 }
-$isBlockEditor = defined('REST_REQUEST') && REST_REQUEST && 'edit' === $_GET['context'];
+
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$isBlockEditor = (defined('REST_REQUEST') && REST_REQUEST && isset($_GET['context']) && 'edit' === $_GET['context']);
 
 if (!$navigationPost) {
     if ($isBlockEditor) {
@@ -56,6 +60,8 @@ if (empty($items)) {
         esc_html_e('This navigation is empty.', 'bbfse-plugin');
     }
     if (defined('WP_DEBUG') && WP_DEBUG === true) {
+        // if enabled debug.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo PHP_EOL . '    <!-- not found navbar contents at `posts`.`ID` \'' . ($navigationPost->ID ?? '') . '\'.  -->' . PHP_EOL;
     }
     unset($blocks, $items, $navigationPost);
@@ -65,7 +71,7 @@ if (empty($items)) {
 $className = 'navbar-nav';
 
 $wrapper_attributes = get_block_wrapper_attributes([
-    'class' => $className
+    'class' => $className,
 ]);
 $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString(($attributes['dataAttributes'] ?? []), 'data-');
 $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString(($attributes['ariaAttributes'] ?? []), 'aria-');
@@ -78,8 +84,8 @@ printf(
     '<ul %1$s>
         %2$s
     </ul>',
-    $wrapper_attributes,
-    $walker->render($items)
+    $wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    $walker->render($items)// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 );
 echo PHP_EOL;// keep new line.
 

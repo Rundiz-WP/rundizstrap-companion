@@ -6,6 +6,8 @@
  * @since 0.0.1
  * 
  * @link https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src/post-navigation-link Source reference.
+ * 
+ * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
 
 
@@ -18,29 +20,29 @@ if (!is_singular()) {
 }
 unset($block, $content);
 
-$type = (isset($attributes['type']) ? $attributes['type'] : 'next');
-if (!in_array($type, ['next', 'previous'], true)) {
+$attType = (isset($attributes['type']) ? $attributes['type'] : 'next');
+if (!in_array($attType, ['next', 'previous'], true)) {
     return '';
 }
 
-$taxonomy = (isset($attributes['taxonomy']) && is_string($attributes['taxonomy']) ? trim($attributes['taxonomy']) : '');
+$attTaxonomy = (isset($attributes['taxonomy']) && is_string($attributes['taxonomy']) ? trim($attributes['taxonomy']) : '');
 $adjacentPost = get_adjacent_post(
-    ('' !== $taxonomy),
+    ('' !== $attTaxonomy),
     '',
-    ('previous' === $type),
-    ('' !== $taxonomy ? $taxonomy : 'category')
+    ('previous' === $attType),
+    ('' !== $attTaxonomy ? $attTaxonomy : 'category')
 );
 
 if (!$adjacentPost instanceof \WP_Post) {
-    unset($adjacentPost, $attributes, $taxonomy, $type);
+    unset($adjacentPost, $attributes, $attTaxonomy, $attType);
     return '';
 }
-unset($taxonomy);
+unset($attTaxonomy);
 
 $linkText = '';
 $label = (isset($attributes['label']) && is_string($attributes['label']) ? $attributes['label'] : '');
 $showTitle = (isset($attributes['showTitle']) && is_bool($attributes['showTitle']) ? $attributes['showTitle'] : false);
-$defaultLabel = ('next' === $type ? _x('Next', 'label for next post link', 'bbfse-plugin') : _x('Previous', 'label for previous post link', 'bbfse-plugin'));
+$defaultLabel = ('next' === $attType ? _x('Next', 'label for next post link', 'bbfse-plugin') : _x('Previous', 'label for previous post link', 'bbfse-plugin'));
 
 if (true === $showTitle) {
     $postTitle = get_the_title($adjacentPost);
@@ -70,7 +72,7 @@ unset($appendTextHtml);
 
 $classes = [
     'wp-block-bbfse-plugin-blocks-bs-post-navigation-link',
-    'post-navigation-link-' . $type,
+    'post-navigation-link-' . $attType,
 ];
 if (isset($attributes['className']) && is_string($attributes['className']) && '' !== trim($attributes['className'])) {
     $classes[] = trim($attributes['className']);
@@ -78,9 +80,9 @@ if (isset($attributes['className']) && is_string($attributes['className']) && ''
 
 $rel = (isset($attributes['rel']) && is_string($attributes['rel']) ? trim($attributes['rel']) : '');
 if ('' === $rel) {
-    $rel = ('next' === $type ? 'next' : 'prev');
+    $rel = ('next' === $attType ? 'next' : 'prev');
 }
-unset($type);
+unset($attType);
 
 $tabindex = (isset($attributes['tabindex']) && is_string($attributes['tabindex']) ? trim($attributes['tabindex']) : '');
 
@@ -128,9 +130,9 @@ printf(
     esc_attr(implode(' ', $classes)),
     esc_attr($rel),
     ('' !== $tabindex ? ' tabindex="' . esc_attr($tabindex) . '"' : ''),
-    $dataAttributes,
-    $ariaAttributes,
-    $linkText
+    $dataAttributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    $ariaAttributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    $linkText // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 );
 
 unset($adjacentPost, $ariaAttributes, $attributes, $classes, $dataAttributes, $linkText, $rel, $tabindex);
