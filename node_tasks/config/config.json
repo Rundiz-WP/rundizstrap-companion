@@ -6,6 +6,12 @@
             "destinations": [
                 {
                     "patterns": [
+                        "assets/vendor/ace/**",
+                        "assets/vendor/ace"
+                    ]
+                },
+                {
+                    "patterns": [
                         "assets/vendor/bootstrap/**",
                         "assets/vendor/bootstrap"
                     ]
@@ -22,6 +28,31 @@
         },
         "copy": {
             "copyTasks": [
+                {
+                    "patterns": "node_modules/ace-builds/src-min-noconflict/ace.js",
+                    "destination": "assets/vendor/ace"
+                },
+                {
+                    "patterns": "node_modules/ace-builds/src-min-noconflict/*-css.js",
+                    "destination": "assets/vendor/ace"
+                },
+                {
+                    "patterns": "node_modules/ace-builds/src-min-noconflict/*-html.js",
+                    "destination": "assets/vendor/ace"
+                },
+                {
+                    "patterns": "node_modules/ace-builds/src-min-noconflict/*-javascript.js",
+                    "destination": "assets/vendor/ace"
+                },
+                {
+                    "patterns": "node_modules/ace-builds/src-min-noconflict/theme-monokai.js",
+                    "destination": "assets/vendor/ace"
+                },
+                {
+                    "patterns": "node_modules/ace-builds/LICENSE*",
+                    "destination": "assets/vendor/ace"
+                },
+
                 {
                     "patterns": "node_modules/bootstrap/dist/css/bootstrap.min.*",
                     "destination": "assets/vendor/bootstrap/css"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
-"POT-Creation-Date: 2026-02-05T20:26:09+07:00\n"
-"PO-Revision-Date: 2026-02-05 20:26+0700\n"
+"POT-Creation-Date: 2026-02-05T23:17:15+07:00\n"
+"PO-Revision-Date: 2026-02-05 23:17+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -38,6 +38,95 @@ msgstr ""
 msgid "https://rundiz.com"
 msgstr ""
 
+#: App/AppTrait.php:140
+msgid "Settings configuration file was not set."
+msgstr "ไฟล์การกำหนดค่าการตั้งค่าไม่ได้ถูกตั้งค่าไว้."
+
+#. translators: %s The DB version of this plugin.
+#: App/Controllers/Admin/Plugins.php:91
+#, php-format
+msgid "DB version %s"
+msgstr "รุ่นฐานข้อมูล %s"
+
+#: App/Controllers/Admin/Plugins.php:95
+msgid "Donate"
+msgstr "บริจาค"
+
+#. translators: %1$s Current WordPress version, %2$s Required WordPress version.
+#: App/Controllers/Admin/Plugins/Activation.php:41
+#, php-format
+msgid "Your WordPress version does not meet the minimum requirement. (%1$s < %2$s)."
+msgstr "เวอร์ชัน WordPress ของคุณไม่ตรงความต้องการขั้นต่ำ (%1$s < %2$s)."
+
+#: App/Controllers/Admin/Plugins/Activation.php:51
+msgid "Unable to network activate, please activate per site only."
+msgstr "ไม่สามารถเปิดใช้งานผ่านเครือข่ายได้, โปรดเปิดใช้งานทีละไซต์เท่านั้น."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:54
+msgid "Please reload this page and try again."
+msgstr "โปรดรีเฟรชหน้านี้แล้วลองใหม่อีกครั้ง."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:82
+msgid "An error has been occur, cannot continue manual update. Please contact plugin author."
+msgstr "เกิดข้อผิดพลาดขึ้น, ไม่สามารถดำเนินการอัปเดตด้วยตนเองต่อได้. โปรดติดต่อผู้พัฒนาปลั๊กอิน."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:99
+msgid "Success, please click next to continue update."
+msgstr "สำเร็จแล้ว โปรดคลิกถัดไปเพื่อดำเนินการอัปเดตต่อ."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:102
+msgid ""
+"All manual update completed successfully. This page will be no longer available until there is "
+"next manual update."
+msgstr ""
+"การอัปเดตด้วยตนเองทั้งหมดเสร็จสมบูรณ์แล้ว. "
+"หน้าเว็บนี้จะไม่สามารถใช้งานได้อีกต่อไปจนกว่าจะมีการอัปเดตด้วยตนเองครั้งต่อไป."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:121
+msgid "Unable to run update, there is no update classes to run."
+msgstr "ไม่สามารถดำเนินการอัปเดตได้, เนื่องจากไม่มีคลาสสำหรับการอัปเดตให้เรียกใช้."
+
+#. translators: %1$s Open link, %2$s Close link.
+#: App/Controllers/Admin/Plugins/Upgrader.php:171
+#, php-format
+msgid ""
+"The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please "
+"continue to the %1$splugin update page%2$s."
+msgstr ""
+"ปลั๊กอิน Bootstrap Basic FSE เพิ่งได้รับการอัปเกรดและจำเป็นต้องอัปเดตด้วยตนเอง. โปรดดำเนินการต่อที่ "
+"%1$sหน้าอัปเดตปลั๊กอิน%2$s."
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:214
+msgid "Bootstrap Basic FSE Plugin update"
+msgstr "อัปเดตปลั๊กอิน Bootstrap Basic FSE"
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:280
+msgid "Completed"
+msgstr "สำเร็จแล้ว"
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:281
+msgid "Dismiss"
+msgstr "รับทราบ"
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:282 blocks/bs-pagination/render.php:111
+#: blocks/bs-post-navigation-link/index.js:1
+msgid "Next"
+msgstr "ถัดไป"
+
+#: App/Controllers/Admin/Settings.php:52 App/Views/admin/settings_v.php:12
+msgid "Bootstrap Basic FSE Plugin settings"
+msgstr "ตั้งค่าปลั๊กอิน Bootstrap Basic FSE"
+
+#. translators: %1$s Open link, %2$s Close link.
+#: App/Controllers/Admin/Settings.php:78
+#, php-format
+msgid "The manual update is required, please %1$supdate first%2$s."
+msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรด %1$supdate ก่อน%2$s."
+
+#: App/Controllers/Admin/Settings.php:86
+msgid "The manual update is required, please tell administrator to update first."
+msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรดแจ้งให้ผู้ดูแลระบบทำการอัปเดตก่อน."
+
 #: App/Libraries/BootstrapNavbarNavigationWalker.php:120
 msgid "Home"
 msgstr "หน้าแรก"
@@ -47,10 +136,63 @@ msgid "(Untitled)"
 msgstr "(ไม่มีไตเติล)"
 
 #. translators: %s: Template path.
-#: App/Libraries/Loader.php:120
+#: App/Libraries/Loader.php:232
 #, php-format
 msgid "The views file was not found (%s)."
 msgstr "ไม่พบไฟล์ views (%s)."
+
+#: App/Libraries/RundizSettings.php:735
+msgid "Upload"
+msgstr "อัปโหลด"
+
+#: App/Libraries/RundizSettings.php:736 assets/js/blocks/shared/keyValueControl.js:86
+#: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
+msgid "Remove"
+msgstr "เอาออก"
+
+#: App/Views/admin/Plugins/Upgrader_v.php:12
+msgid "Manual update"
+msgstr "อัปเดตด้วยตนเอง"
+
+#. translators: %d Number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:20
+#, php-format
+msgid "There are total %d actions for this manual update, please continue step by step."
+msgstr "การอัปเดตด้วยตนเองครั้งนี้มีทั้งหมด %d ขั้นตอน, โปรดดำเนินการต่อทีละขั้นตอน."
+
+#. translators: %1$s The number of already run action, %2$d The number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:25
+#, php-format
+msgid "You are running %1$s of %2$d."
+msgstr "คุณกำลังใช้งาน %1$s ของ %2$d."
+
+#: App/Views/admin/Plugins/Upgrader_v.php:29
+msgid "Start"
+msgstr "เริ่ม"
+
+#: App/Views/admin/readsettings_v.php:10
+msgid "Example of how to access settings values in option db."
+msgstr "ตัวอย่างวิธีการเข้าถึงค่าการตั้งค่าในฐานข้อมูล option."
+
+#. translators: %s PHP code.
+#: App/Views/admin/readsettings_v.php:15
+#, php-format
+msgid "Call to %s"
+msgstr "เรียกไปยัง %s"
+
+#. translators: %s PHP code.
+#: App/Views/admin/readsettings_v.php:20
+#, php-format
+msgid ""
+"Access this variable as global %s. This variable will be change, up to config in AppTrait."
+msgstr "เข้าถึงตัวแปรนี้โดยใช้ global %s. ตัวแปรนี้จะเปลี่ยนแปลงไปตามการตั้งค่าใน AppTrait."
+
+#: App/Views/admin/readsettings_v.php:23
+msgid "Now, you can use this variable to access its array key anywhere."
+msgstr "ตอนนี้คุณสามารถใช้ตัวแปรนี้เพื่อเข้าถึงคีย์ของอาร์เรย์ได้ทุกที่."
 
 #: blocks/bs-comment-form/render.php:47
 msgid "Name"
@@ -83,10 +225,6 @@ msgstr "เมนูนำทางนี้ว่างเปล่า"
 #: blocks/bs-pagination/render.php:108 blocks/bs-pagination/index.js:1
 msgid "Next »"
 msgstr "ถัดไป »"
-
-#: blocks/bs-pagination/render.php:111 blocks/bs-post-navigation-link/index.js:1
-msgid "Next"
-msgstr "ถัดไป"
 
 #: blocks/bs-pagination/render.php:269 blocks/bs-pagination/index.js:1
 msgid "« Previous"
@@ -134,14 +272,6 @@ msgstr "คีย์"
 #: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
 msgid "Value"
 msgstr "ค่า"
-
-#: assets/js/blocks/shared/keyValueControl.js:86 blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
-msgid "Remove"
-msgstr "เอาออก"
 
 #: assets/js/blocks/shared/keyValueControl.js:91 blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
@@ -624,8 +754,8 @@ msgstr "กรองตามการแยกประเภท"
 
 #: blocks/bs-post-navigation-link/index.js:1
 msgid ""
-"Only link to posts that have the same taxonomy terms as the current post. For example the "
-"same tags or categories."
+"Only link to posts that have the same taxonomy terms as the current post. For example the same "
+"tags or categories."
 msgstr "ลิงก์เฉพาะโพสต์ที่มีหมวดหมู่หรือคำจัดหมวดหมู่เดียวกันกับโพสต์ปัจจุบันเท่านั้น. ตัวอย่างเช่น แท็กหรือหมวดหมู่เดียวกัน."
 
 #: blocks/bs-search/index.js:1
@@ -693,8 +823,7 @@ msgstr "แสดงผลปุ่ม Bootstrap. บล็อกนี้อย
 #: blocks/bs-container/block.json blocks/bs-navbar-container/block.json
 #: blocks/bs-navbar-navigation/block.json blocks/bs-navbar-responsive-wrapper/block.json
 #: blocks/bs-navbar-toggler-button/block.json blocks/bs-pagination/block.json
-#: blocks/bs-post-navigation-link/block.json blocks/bs-row/block.json
-#: blocks/bs-search/block.json
+#: blocks/bs-post-navigation-link/block.json blocks/bs-row/block.json blocks/bs-search/block.json
 msgctxt "block keyword"
 msgid "bootstrap"
 msgstr "bootstrap"
@@ -932,5 +1061,13 @@ msgctxt "block title"
 msgid "Bootstrap search form"
 msgstr "แบบฟอร์มค้นหา Bootstrap"
 
-#~ msgid "If you have entered a custom label, it will be prepended before the title."
-#~ msgstr "หากคุณได้ป้อนป้ายกำกับที่กำหนดเอง ระบบจะเพิ่มป้ายกำกับนั้นไว้ข้างหน้าชื่อเรื่อง."
+#, php-format
+#~ msgid ""
+#~ "You are using PHP %1$s which does not meet minimum requirement. Please consider upgrade PHP "
+#~ "version or contact plugin author for this help.<br><br>Minimum requirement:<br>PHP %2$s"
+#~ msgstr ""
+#~ "คุณกำลังใช้ PHP %1$s ซึ่งไม่ตรงตามข้อกำหนดขั้นต่ำ. โปรดพิจารณาอัปเกรดเวอร์ชัน PHP "
+#~ "หรือติดต่อผู้พัฒนาปลั๊กอินเพื่อขอความช่วยเหลือ.<br><br>ข้อกำหนดขั้นต่ำ:<br>PHP %2$s"
+
+#~ msgid "Minimum requirement of PHP version does not meet."
+#~ msgstr "รุ่นของ PHP ไม่ตรงตามความต้องการขั้นต่ำ."

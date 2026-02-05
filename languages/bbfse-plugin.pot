@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T20:26:09+07:00\n"
+"POT-Creation-Date: 2026-02-05T23:17:15+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bbfse-plugin\n"
@@ -34,6 +34,89 @@ msgstr ""
 msgid "https://rundiz.com"
 msgstr ""
 
+#: App/AppTrait.php:140
+msgid "Settings configuration file was not set."
+msgstr ""
+
+#. translators: %s The DB version of this plugin.
+#: App/Controllers/Admin/Plugins.php:91
+#, php-format
+msgid "DB version %s"
+msgstr ""
+
+#: App/Controllers/Admin/Plugins.php:95
+msgid "Donate"
+msgstr ""
+
+#. translators: %1$s Current WordPress version, %2$s Required WordPress version.
+#: App/Controllers/Admin/Plugins/Activation.php:41
+#, php-format
+msgid "Your WordPress version does not meet the minimum requirement. (%1$s < %2$s)."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Activation.php:51
+msgid "Unable to network activate, please activate per site only."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:54
+msgid "Please reload this page and try again."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:82
+msgid "An error has been occur, cannot continue manual update. Please contact plugin author."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:99
+msgid "Success, please click next to continue update."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:102
+msgid "All manual update completed successfully. This page will be no longer available until there is next manual update."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:121
+msgid "Unable to run update, there is no update classes to run."
+msgstr ""
+
+#. translators: %1$s Open link, %2$s Close link.
+#: App/Controllers/Admin/Plugins/Upgrader.php:171
+#, php-format
+msgid "The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s."
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:214
+msgid "Bootstrap Basic FSE Plugin update"
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:280
+msgid "Completed"
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:281
+msgid "Dismiss"
+msgstr ""
+
+#: App/Controllers/Admin/Plugins/Upgrader.php:282
+#: blocks/bs-pagination/render.php:111
+#: blocks/bs-post-navigation-link/index.js:1
+msgid "Next"
+msgstr ""
+
+#: App/Controllers/Admin/Settings.php:52
+#: App/Views/admin/settings_v.php:12
+msgid "Bootstrap Basic FSE Plugin settings"
+msgstr ""
+
+#. translators: %1$s Open link, %2$s Close link.
+#: App/Controllers/Admin/Settings.php:78
+#, php-format
+msgid "The manual update is required, please %1$supdate first%2$s."
+msgstr ""
+
+#: App/Controllers/Admin/Settings.php:86
+msgid "The manual update is required, please tell administrator to update first."
+msgstr ""
+
 #: App/Libraries/BootstrapNavbarNavigationWalker.php:120
 msgid "Home"
 msgstr ""
@@ -43,9 +126,67 @@ msgid "(Untitled)"
 msgstr ""
 
 #. translators: %s: Template path.
-#: App/Libraries/Loader.php:120
+#: App/Libraries/Loader.php:232
 #, php-format
 msgid "The views file was not found (%s)."
+msgstr ""
+
+#: App/Libraries/RundizSettings.php:735
+msgid "Upload"
+msgstr ""
+
+#: App/Libraries/RundizSettings.php:736
+#: assets/js/blocks/shared/keyValueControl.js:86
+#: blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1
+#: blocks/bs-container/index.js:1
+#: blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1
+#: blocks/bs-post-navigation-link/index.js:1
+#: blocks/bs-row/index.js:1
+msgid "Remove"
+msgstr ""
+
+#: App/Views/admin/Plugins/Upgrader_v.php:12
+msgid "Manual update"
+msgstr ""
+
+#. translators: %d Number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:20
+#, php-format
+msgid "There are total %d actions for this manual update, please continue step by step."
+msgstr ""
+
+#. translators: %1$s The number of already run action, %2$d The number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:25
+#, php-format
+msgid "You are running %1$s of %2$d."
+msgstr ""
+
+#: App/Views/admin/Plugins/Upgrader_v.php:29
+msgid "Start"
+msgstr ""
+
+#: App/Views/admin/readsettings_v.php:10
+msgid "Example of how to access settings values in option db."
+msgstr ""
+
+#. translators: %s PHP code.
+#: App/Views/admin/readsettings_v.php:15
+#, php-format
+msgid "Call to %s"
+msgstr ""
+
+#. translators: %s PHP code.
+#: App/Views/admin/readsettings_v.php:20
+#, php-format
+msgid "Access this variable as global %s. This variable will be change, up to config in AppTrait."
+msgstr ""
+
+#: App/Views/admin/readsettings_v.php:23
+msgid "Now, you can use this variable to access its array key anywhere."
 msgstr ""
 
 #: blocks/bs-comment-form/render.php:47
@@ -81,11 +222,6 @@ msgstr ""
 #: blocks/bs-pagination/render.php:108
 #: blocks/bs-pagination/index.js:1
 msgid "Next »"
-msgstr ""
-
-#: blocks/bs-pagination/render.php:111
-#: blocks/bs-post-navigation-link/index.js:1
-msgid "Next"
 msgstr ""
 
 #: blocks/bs-pagination/render.php:269
@@ -148,19 +284,6 @@ msgstr ""
 #: blocks/bs-post-navigation-link/index.js:1
 #: blocks/bs-row/index.js:1
 msgid "Value"
-msgstr ""
-
-#: assets/js/blocks/shared/keyValueControl.js:86
-#: blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1
-#: blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1
-msgid "Remove"
 msgstr ""
 
 #: assets/js/blocks/shared/keyValueControl.js:91

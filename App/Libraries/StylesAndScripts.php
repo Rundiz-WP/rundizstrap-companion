@@ -20,6 +20,36 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\StylesAndScripts')) {
 
 
         /**
+         * Enqueue admin styles and scripts.
+         *
+         * @since 0.0.1
+         * @return void
+         */
+        public function enqueueAdminStylesAndScripts()
+        {
+            // rundiz settings based styles
+            wp_register_style('bbfse-plugin-handle-rd-settings-based-css', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/css/Admin/rd-settings-based.css', [], BBFSEPLUGIN_VERSION);
+
+            // rundiz settings tabs
+            wp_register_style('bbfse-plugin-handle-rd-settings-tabs-css', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/css/Admin/rd-settings-tabs.css', [], BBFSEPLUGIN_VERSION);
+            wp_register_script('bbfse-plugin-handle-rd-settings-tabs-js', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/js/Admin/rd-settings-tabs.js', ['jquery'], BBFSEPLUGIN_VERSION, true);
+
+            // manual update
+            wp_register_script('bbfse-plugin-handle-rd-settings-manual-update', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/js/Admin/rd-settings-manual-update.js', ['jquery'], BBFSEPLUGIN_VERSION, true);
+
+            // you can remove some or all of the line below if you don't use it. ---------
+            // ace editor (code editor)
+            wp_register_style('bbfse-plugin-handle-rd-settings-ace-editor-css', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/css/Admin/rd-settings-ace-editor.css', [], BBFSEPLUGIN_VERSION);
+            wp_register_script('bbfse-plugin-handle-ace-editor-js', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/vendor/ace/ace.js', ['jquery'], '1.39.1-minnoconflict', false);
+            wp_register_script('bbfse-plugin-handle-rd-settings-ace-editor-js', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/js/Admin/rd-settings-ace-editor.js', ['bbfse-plugin-handle-ace-editor-js'], BBFSEPLUGIN_VERSION, true);
+
+            // media uploader
+            wp_register_style('bbfse-plugin-handle-rd-settings-media-css', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/css/Admin/rd-settings-media.css', [], BBFSEPLUGIN_VERSION);
+            wp_register_script('bbfse-plugin-handle-rd-settings-media-js', plugin_dir_url(BBFSEPLUGIN_FILE) . 'assets/js/Admin/rd-settings-media.js', ['jquery'], BBFSEPLUGIN_VERSION, true);
+        }// enqueueAdminStylesAndScripts
+
+
+        /**
          * Enqueue styles and scripts.
          *
          * @since 0.0.1
@@ -52,6 +82,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\StylesAndScripts')) {
         {
             // register stylesheets and scripts
             add_action('init', [$this, 'registerStylesAndScripts']);
+            add_action('admin_enqueue_scripts', [$this, 'enqueueAdminStylesAndScripts']);
             add_action('wp_enqueue_scripts', [$this, 'enqueueStylesAndScripts']);
         }// manualRegisterHooks
 

@@ -30,13 +30,13 @@ if (!defined('BBFSEPLUGIN_FILE')) {
 
 if (!defined('BBFSEPLUGIN_VERSION')) {
     // if not defined constant version.
-    $pluginData = (function_exists('get_file_data') ? get_file_data(__FILE__, ['Version' => 'Version']) : null);
-    $pluginVersion = (isset($pluginData['Version']) ? $pluginData['Version'] : date('Ym')); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
-    unset($pluginData);
+    $bbfsePluginData = (function_exists('get_file_data') ? get_file_data(__FILE__, ['Version' => 'Version']) : null);
+    $bbfsePluginVersion = (isset($bbfsePluginData['Version']) ? $bbfsePluginData['Version'] : date('Ym')); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+    unset($bbfsePluginData);
 
-    define('BBFSEPLUGIN_VERSION', $pluginVersion);
+    define('BBFSEPLUGIN_VERSION', $bbfsePluginVersion);
 
-    unset($pluginVersion);
+    unset($bbfsePluginVersion);
 }
 
 
@@ -45,6 +45,6 @@ require_once 'App/vendor/autoload.php';
 
 
 // initialize plugin app main class.
-$App = new \BBFSEPlugin\App\App();
-$App->run();
-unset($App);
+$bbfsePluginApp = new \BBFSEPlugin\App\App();
+$bbfsePluginApp->run();
+unset($bbfsePluginApp);
