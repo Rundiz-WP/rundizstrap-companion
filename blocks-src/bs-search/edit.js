@@ -240,10 +240,14 @@ export default function Edit({attributes, setAttributes}) {
 
     // render text field has been copied from WordPress core search block.
     const renderTextField = () => {
+        let classNameValue = 'form-control';
+        if (true === forNavbar && ('button-group-input' !== buttonPosition && 'no-button' !== buttonPosition)) {
+            classNameValue += ' me-2';
+        }
         return (
             <input
                 type="search"
-                className="form-control"
+                className={(classNameValue)}
                 aria-label={__('Optional placeholder text', 'bbfse-plugin')}
                 placeholder={
                     placeholderText ? undefined : __('Optional placeholder…', 'bbfse-plugin')
@@ -303,8 +307,12 @@ export default function Edit({attributes, setAttributes}) {
         );
     };// end const renderButton()
 
+    const blockProps = useBlockProps({
+        className: (forNavbar ? 'd-flex' : undefined),
+    });
+
     return (
-        <div { ...useBlockProps() }>
+        <div { ...blockProps }>
             {controls}
             {!forNavbar && showLabel && (
                 <>
@@ -322,29 +330,51 @@ export default function Edit({attributes, setAttributes}) {
                     </div>
                 </>
             )}
-            {('button-group-input' === buttonPosition) ? (
+            {!forNavbar ? (
                 <>
-                    <div class="input-group">
-                        {renderTextField()}
-                        {renderButton()}
-                    </div>
+                    {('button-group-input' === buttonPosition) ? (
+                        <>
+                            <div class="input-group">
+                                {renderTextField()}
+                                {renderButton()}
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div class="row g-3">
+                                <div
+                                    className={'no-button' === buttonPosition ? 'col-12' : 'col'}
+                                >
+                                    {renderTextField()}
+                                </div>
+                                {('no-button' !== buttonPosition) && (
+                                    <>
+                                        <div class="col-auto">
+                                            {renderButton()}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        </>
+                    )}
                 </>
             ) : (
                 <>
-                    <div class="row g-3">
-                        <div
-                            className={'no-button' === buttonPosition ? 'col-12' : 'col'}
-                        >
-                            {renderTextField()}
-                        </div>
-                        {('no-button' !== buttonPosition) && (
-                            <>
-                                <div class="col-auto">
-                                    {renderButton()}
-                                </div>
-                            </>
-                        )}
-                    </div>
+                    {('button-group-input' === buttonPosition) ? (
+                        <>
+                            <div class="input-group">
+                                {renderTextField()}
+                                {renderButton()}
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            {renderTextField()} 
+                            {('no-button' !== buttonPosition) && (
+                                <>{renderButton()}</>
+                            )}
+                        </>
+                    )}
                 </>
             )}
         </div>

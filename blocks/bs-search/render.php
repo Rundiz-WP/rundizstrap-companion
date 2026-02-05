@@ -38,9 +38,14 @@ if (isset($attributes)) {
         unset($searchLabel);
     }
 
+    $additionalClasses = (true === $forNavbar ? 'd-flex' : '');
     if (isset($attributes['className']) && is_string($attributes['className']) && '' !== $attributes['className']) {
-        $wrapper_attributes .= get_block_wrapper_attributes();
+        $wrapper_attributes .= get_block_wrapper_attributes(['class' => $additionalClasses]);
+    } else {
+        $wrapper_attributes .= get_block_wrapper_attributes(['class' => $additionalClasses]);
     }
+    unset($additionalClasses);
+
     if (isset($attributes['buttonClass']) && is_string($attributes['buttonClass']) && '' !== $attributes['buttonClass']) {
         $buttonClass = $attributes['buttonClass'];
     }
@@ -63,7 +68,7 @@ if (isset($attributes)) {
 }// endif; $attributes
 
 $input_field = '<input id="bbfse-plugin-blocks-bs-search-input" class="form-control';
-if (true === $forNavbar && 'button-group-input' !== $buttonPosition) {
+if (true === $forNavbar && 'button-group-input' !== $buttonPosition && 'no-button' !== $buttonPosition) {
     $input_field .= ' me-2';
 }
 $input_field .= '" type="search" name="s" value="' . get_search_query() . '" placeholder="' . esc_attr($placeholderText) . '"' .
@@ -101,16 +106,10 @@ if ('button-group-input' === $buttonPosition) {
     }
 }// endif; $buttonPosition
 unset($button_search, $buttonClass, $buttonText, $input_col_class, $input_field, $placeholderText);
-
-if (false === $forNavbar) {
-    $form_markup = '<form method="get" action="%1$s" role="search" %2$s>%3$s</form>';
-} else {
-    $form_markup = '<form class="d-flex" method="get" action="%1$s" role="search" %2$s>%3$s</form>';
-}
 unset($forNavbar);
 
 printf(
-        $form_markup,
+        '<form method="get" action="%1$s" role="search" %2$s>%3$s</form>',
         esc_url(home_url('/')),
         $wrapper_attributes,
         $field_markup
