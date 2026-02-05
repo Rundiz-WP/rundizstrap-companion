@@ -2,6 +2,10 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "attributes": {
+    "forNavbar": {
+      "type": "boolean",
+      "default": false
+    },
     "showLabel": {
       "type": "boolean",
       "default": false

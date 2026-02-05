@@ -67,6 +67,7 @@ import {
  */
 export default function Edit({attributes, setAttributes}) {
     const {
+        forNavbar,
         showLabel,
         label,
         buttonUseIcon,
@@ -77,6 +78,9 @@ export default function Edit({attributes, setAttributes}) {
     } = attributes;
 
     useEffect(() => {
+        if (forNavbar && showLabel) {
+            setAttributes({showLabel: false});
+        }
         if (!attributes.buttonClass) {
             setAttributes({buttonClass: 'btn btn-primary'});
         }
@@ -86,7 +90,7 @@ export default function Edit({attributes, setAttributes}) {
         if (!attributes.buttonText) {
             setAttributes({buttonText: __('Search', 'bbfse-plugin')});
         }
-    }, []);
+    }, [attributes, buttonClass, buttonText, forNavbar, showLabel, setAttributes]);
 
     const searchFieldRef = useRef();
     const buttonRef = useRef();
@@ -116,6 +120,7 @@ export default function Edit({attributes, setAttributes}) {
                     label={__('Settings', 'bbfse-plugin')}
                     resetAll={() => {
                         setAttributes({
+                            forNavbar: false,
                             showLabel: false,
                             buttonPosition: buttonDefaultPosition,
                             buttonUseIcon: buttonUseIconDefault,
@@ -123,25 +128,47 @@ export default function Edit({attributes, setAttributes}) {
                     }}
                 >
                     <ToolsPanelItem
-                        hasValue={() => showLabel}
-                        label={__('Show label', 'bbfse-plugin')}
+                        hasValue={() => forNavbar}
+                        label={__('For navbar', 'bbfse-plugin')}
                         onDeselect={() => {
                             setAttributes({
-                                showLabel: false,
+                                forNavbar: false,
                             });
                         }}
                         isShownByDefault
                     >
                         <ToggleControl
-                            checked={showLabel}
-                            label={__('Show label', 'bbfse-plugin')}
+                            checked={forNavbar}
+                            label={__('For navbar', 'bbfse-plugin')}
                             onChange={ (value) =>
                                 setAttributes({
-                                    showLabel: value,
+                                    forNavbar: value,
                                 })
                             }
                         />
                     </ToolsPanelItem>
+                    {!forNavbar && (
+                        <ToolsPanelItem
+                            hasValue={() => showLabel}
+                            label={__('Show label', 'bbfse-plugin')}
+                            onDeselect={() => {
+                                setAttributes({
+                                    showLabel: false,
+                                });
+                            }}
+                            isShownByDefault
+                        >
+                            <ToggleControl
+                                checked={showLabel}
+                                label={__('Show label', 'bbfse-plugin')}
+                                onChange={ (value) =>
+                                    setAttributes({
+                                        showLabel: value,
+                                    })
+                                }
+                            />
+                        </ToolsPanelItem>
+                    )}
                     <ToolsPanelItem
                         hasValue={() => buttonPosition !== buttonDefaultPosition}
                         label={__('Button position', 'bbfse-plugin')}
@@ -279,7 +306,7 @@ export default function Edit({attributes, setAttributes}) {
     return (
         <div { ...useBlockProps() }>
             {controls}
-            {showLabel && (
+            {!forNavbar && showLabel && (
                 <>
                     <div class="row">
                         <div class="col-12">

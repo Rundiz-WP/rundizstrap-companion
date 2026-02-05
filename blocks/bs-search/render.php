@@ -19,6 +19,7 @@ $buttonPosition = 'button-outside';
 $buttonUseIcon = false;
 $buttonText = __('Search', 'bbfse-plugin');
 $placeholderText = '';
+$forNavbar = (isset($attributes['forNavbar']) && true === $attributes['forNavbar'] ? true : false);
 
 if (isset($attributes)) {
     if (isset($attributes['showLabel']) && true === $attributes['showLabel']) {
@@ -27,11 +28,13 @@ if (isset($attributes)) {
             $searchLabel = $attributes['label'];
         }
 
-        $field_markup .= '<div class="row">';
-        $field_markup .= '<div class="col-12">';
-        $field_markup .= '<label class="form-label" for="bbfse-plugin-blocks-bs-search-input">' . wp_kses_post($searchLabel) . '</label>';
-        $field_markup .= '</div>';
-        $field_markup .= '</div><!-- .row -->';
+        if (false === $forNavbar) {
+            $field_markup .= '<div class="row">';
+            $field_markup .= '<div class="col-12">';
+            $field_markup .= '<label class="form-label" for="bbfse-plugin-blocks-bs-search-input">' . wp_kses_post($searchLabel) . '</label>';
+            $field_markup .= '</div>';
+            $field_markup .= '</div><!-- .row -->';
+        }
         unset($searchLabel);
     }
 
@@ -59,7 +62,12 @@ if (isset($attributes)) {
     }
 }// endif; $attributes
 
-$input_field = '<input id="bbfse-plugin-blocks-bs-search-input" class="form-control" type="search" name="s" value="' . get_search_query() . '" placeholder="' . esc_attr($placeholderText) . '" required>';
+$input_field = '<input id="bbfse-plugin-blocks-bs-search-input" class="form-control';
+if (true === $forNavbar && 'button-group-input' !== $buttonPosition) {
+    $input_field .= ' me-2';
+}
+$input_field .= '" type="search" name="s" value="' . get_search_query() . '" placeholder="' . esc_attr($placeholderText) . '"' .
+    ' aria-label="' . esc_attr__('Search', 'bootstrap-basic-fse') . '" required>';
 $button_search = '<button class="' . esc_attr($buttonClass) . '" type="submit">' . wp_kses_post($buttonText) . '</button>';
 
 if ('button-group-input' === $buttonPosition) {
@@ -68,25 +76,41 @@ if ('button-group-input' === $buttonPosition) {
     $field_markup .= $button_search;
     $field_markup .= '</div>';
 } else {
-    $field_markup .= '<div class="row g-3">';
-    $input_col_class = 'col';
-    if ('no-button' === $buttonPosition) {
-        $input_col_class = 'col-12';
-    }
-    $field_markup .= '<div class="' . $input_col_class . '">';
-    $field_markup .= $input_field;
-    $field_markup .= '</div>';
-    if ('no-button' !== $buttonPosition) {
-        $field_markup .= '<div class="col-auto">';
-        $field_markup .= $button_search;
+    if (false === $forNavbar) {
+        // if not for render in navbar.
+        $field_markup .= '<div class="row g-3">';
+        $input_col_class = 'col';
+        if ('no-button' === $buttonPosition) {
+            $input_col_class = 'col-12';
+        }
+        $field_markup .= '<div class="' . $input_col_class . '">';
+        $field_markup .= $input_field;
         $field_markup .= '</div>';
+        if ('no-button' !== $buttonPosition) {
+            $field_markup .= '<div class="col-auto">';
+            $field_markup .= $button_search;
+            $field_markup .= '</div>';
+        }
+        $field_markup .= '</div><!-- .row -->';
+    } else {
+        // if for render in navbar.
+        $field_markup .= $input_field;
+        if ('no-button' !== $buttonPosition) {
+            $field_markup .= PHP_EOL . $button_search;
+        }
     }
-    $field_markup .= '</div><!-- .row -->';
 }// endif; $buttonPosition
 unset($button_search, $buttonClass, $buttonText, $input_col_class, $input_field, $placeholderText);
 
+if (false === $forNavbar) {
+    $form_markup = '<form method="get" action="%1$s" role="search" %2$s>%3$s</form>';
+} else {
+    $form_markup = '<form class="d-flex" method="get" action="%1$s" role="search" %2$s>%3$s</form>';
+}
+unset($forNavbar);
+
 printf(
-        '<form role="search" method="get" action="%1$s" %2$s>%3$s</form>',
+        $form_markup,
         esc_url(home_url('/')),
         $wrapper_attributes,
         $field_markup
