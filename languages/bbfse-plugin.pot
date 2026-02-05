@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T14:29:58+07:00\n"
+"POT-Creation-Date: 2026-02-05T20:26:09+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bbfse-plugin\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: App/Libraries/BootstrapNavbarNavigationWalker.php:516
+#: App/Libraries/BootstrapNavbarNavigationWalker.php:517
 msgid "(Untitled)"
 msgstr ""
 
@@ -48,77 +48,78 @@ msgstr ""
 msgid "The views file was not found (%s)."
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:45
+#: blocks/bs-comment-form/render.php:47
 msgid "Name"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:49
+#: blocks/bs-comment-form/render.php:51
 msgid "Email"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:53
+#: blocks/bs-comment-form/render.php:55
 msgid "Website"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:63
+#: blocks/bs-comment-form/render.php:65
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:73
+#: blocks/bs-comment-form/render.php:75
 #: blocks/bs-comment-form/index.js:1
 msgid "Comment"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:80
+#: blocks/bs-comment-form/render.php:82
 msgid "Your email address will not be published."
 msgstr ""
 
-#: blocks/bs-navbar-navigation/render.php:43
-#: blocks/bs-navbar-navigation/render.php:56
+#: blocks/bs-navbar-navigation/render.php:47
+#: blocks/bs-navbar-navigation/render.php:60
 msgid "This navigation is empty."
 msgstr ""
 
-#: blocks/bs-pagination/render.php:105
+#: blocks/bs-pagination/render.php:108
 #: blocks/bs-pagination/index.js:1
 msgid "Next »"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:108
+#: blocks/bs-pagination/render.php:111
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:264
+#: blocks/bs-pagination/render.php:269
 #: blocks/bs-pagination/index.js:1
 msgid "« Previous"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:267
+#: blocks/bs-pagination/render.php:272
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Previous"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:379
+#: blocks/bs-pagination/render.php:384
 msgid "Pagination"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:43
+#: blocks/bs-post-navigation-link/render.php:45
 msgctxt "label for next post link"
 msgid "Next"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:43
+#: blocks/bs-post-navigation-link/render.php:45
 msgctxt "label for previous post link"
 msgid "Previous"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:48
+#: blocks/bs-post-navigation-link/render.php:50
 #: blocks/bs-navbar-navigation/index.js:1
 msgid "(no title)"
 msgstr ""
 
-#: blocks/bs-search/render.php:20
-#: blocks/bs-search/render.php:26
+#: blocks/bs-search/render.php:22
+#: blocks/bs-search/render.php:28
+#: blocks/bs-search/render.php:77
 #: blocks/bs-search/index.js:1
 msgid "Search"
 msgstr ""

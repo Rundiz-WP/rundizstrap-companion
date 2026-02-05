@@ -7,8 +7,8 @@
     "scripts": {
         "build": "wpdev build",
         "buildBlocks": "wp-scripts build --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
-        "makePot": "wp i18n make-pot . --exclude=\"assets/vendor,App/vendor,blocks-src,languages,node_modules,node_tasks,*.css,*.svg,*.eot,*.woff,*.woff2,*.ttf,*.txt,*.pot\"",
-        "makeJson": "wp i18n make-json languages/bbfse-plugin-th.po --no-purge --pretty-print",
+        "langPot": "wp i18n make-pot . --exclude=\"assets/vendor,App/vendor,blocks-src,languages,node_modules,node_tasks,*.css,*.svg,*.eot,*.woff,*.woff2,*.ttf,*.txt,*.pot\"",
+        "langJson": "wp i18n make-json languages/bbfse-plugin-th.po --no-purge --pretty-print",
         "watch": "wpdev watch",
         "watchBlocks": "wp-scripts start --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
         "pack": "wpdev pack --packtype=dev prod",
