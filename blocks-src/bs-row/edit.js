@@ -1,7 +1,7 @@
 /**
  * Bootstrap row block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -41,11 +41,11 @@ function GroupEditControls({ tagName, onSelectTagName }) {
         <InspectorControls group="advanced">
             <SelectControl
                 __nextHasNoMarginBottom
-                label={__('HTML element', 'bbfse-plugin')}
+                label={__('HTML element', 'bbfse-plug')}
                 value={tagName}
                 onChange={onSelectTagName}
                 options={[
-                    { label: __('Default (<div>)', 'bbfse-plugin'), value: 'div' },
+                    { label: __('Default (<div>)', 'bbfse-plug'), value: 'div' },
                     { label: '<header>', value: 'header' },
                     { label: '<main>', value: 'main' },
                     { label: '<section>', value: 'section' },
@@ -123,7 +123,7 @@ function GroupEdit({ attributes, setAttributes, clientId }) {
             />
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Data and Aria Attributes', 'bbfse-plugin')}
+                    label={__('Data and Aria Attributes', 'bbfse-plug')}
                     resetAll={() => setAttributes({
                         dataAttributes: {},
                         ariaAttributes: {},
@@ -131,24 +131,24 @@ function GroupEdit({ attributes, setAttributes, clientId }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plugin')}
+                        label={__('Data attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plugin') + ' '}
+                            label={__('Data attributes', 'bbfse-plug') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plugin')}
+                        label={__('Aria attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plugin') + ' '}
+                            label={__('Aria attributes', 'bbfse-plug') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />

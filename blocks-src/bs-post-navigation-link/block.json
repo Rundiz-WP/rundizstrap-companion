@@ -57,13 +57,13 @@
     },
     "icon": "arrow-right-alt2",
     "keywords": ["bootstrap", "post", "navigation", "next", "previous"],
-    "name": "bbfse-plugin/blocks-bs-post-navigation-link",
+    "name": "bbfse-plug/blocks-bs-post-navigation-link",
     "render": "file:./render.php",
     "supports": {
         "html": false,
         "className": true
     },
-    "textdomain": "bbfse-plugin",
+    "textdomain": "bbfse-plug",
     "title": "Bootstrap post navigation link",
     "usesContext": ["postType"],
     "version": "0.0.1"

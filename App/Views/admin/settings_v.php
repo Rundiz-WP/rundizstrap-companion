@@ -2,14 +2,18 @@
 /**
  * Setting's view file.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 ?>
 <div class="wrap rd-settings-page">
-    <h1><?php esc_html_e('Bootstrap Basic FSE Plugin settings', 'bbfse-plugin'); ?></h1>
+    <h1><?php esc_html_e('Bootstrap Basic FSE Plugin settings', 'bbfse-plug'); ?></h1>
 
     <?php 
     if (isset($form_result_class) && isset($form_result_msg)) {

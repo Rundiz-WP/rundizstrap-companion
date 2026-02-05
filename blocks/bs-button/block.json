@@ -87,13 +87,13 @@
     "button",
     "link"
   ],
-  "name": "bbfse-plugin/blocks-bs-button",
+  "name": "bbfse-plug/blocks-bs-button",
   "supports": {
     "html": false,
     "className": true,
     "anchor": true
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap button",
   "version": "0.0.1"
 }

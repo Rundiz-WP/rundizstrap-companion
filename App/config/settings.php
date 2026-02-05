@@ -5,9 +5,13 @@
  *
  * Restricted field id: rdsfw_plugin_db_version, rdsfw_manual_update_version.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
+
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 return [];

@@ -3,7 +3,7 @@
  * 
  * This block was created by Google Antigravity model Gemini 3 Pro.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 

@@ -2,24 +2,24 @@
 /**
  * Hooks into Plugins page.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Controllers\Admin;
+namespace BBFSEPlug\App\Controllers\Admin;
 
-if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins')) {
+if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins')) {
     /**
      * Plugin class that will work on admin list plugins page.
      * 
      * @since 0.0.1
      */
-    class Plugins implements \BBFSEPlugin\App\Controllers\ControllerInterface
+    class Plugins implements \BBFSEPlug\App\Controllers\ControllerInterface
     {
 
 
-        use \BBFSEPlugin\App\AppTrait;
+        use \BBFSEPlug\App\AppTrait;
 
 
         /**
@@ -36,15 +36,15 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins')) {
             static $plugin;
             
             if (!isset($plugin)) {
-                $plugin = plugin_basename(BBFSEPLUGIN_FILE);
+                $plugin = plugin_basename(BBFSEPLUG_FILE);
             }
             
             if ($plugin === $plugin_file) {
                 //$link = [];
-                //$link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=bbfse-plugin-settings')) . '">' . __('Settings') . '</a>';
+                //$link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=bbfse-plug-settings')) . '">' . __('Settings') . '</a>';
                 //$actions = array_merge($link, $actions);
                 //unset($link);
-                //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'bbfse-plugin') . '</a>';
+                //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'bbfse-plug') . '</a>';
             }
             
             return $actions;
@@ -79,7 +79,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins')) {
             static $plugin;
             
             if (!isset($plugin)) {
-                $plugin = plugin_basename(BBFSEPLUGIN_FILE);
+                $plugin = plugin_basename(BBFSEPLUG_FILE);
             }
             
             if ($plugin === $file) {
@@ -88,11 +88,11 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins')) {
                 $configValues = $this->getOptions();
                 if (is_array($configValues) && array_key_exists('rdsfw_plugin_db_version', $configValues) && is_scalar($configValues['rdsfw_plugin_db_version']) && !empty($configValues['rdsfw_plugin_db_version'])) {
                     /* translators: %s The DB version of this plugin. */
-                    $after_link[] = sprintf(__('DB version %s', 'bbfse-plugin'), $configValues['rdsfw_plugin_db_version']);
+                    $after_link[] = sprintf(__('DB version %s', 'bbfse-plug'), $configValues['rdsfw_plugin_db_version']);
                 }
                 unset($configValues);
 
-                $after_link[] = '<a href="https://rundiz.com/en/donate/">' . esc_html__('Donate', 'bbfse-plugin') . '</a>';
+                $after_link[] = '<a href="https://rundiz.com/en/donate/">' . esc_html__('Donate', 'bbfse-plug') . '</a>';
                 $links = array_merge($links, $after_link);
                 unset($after_link);
             }

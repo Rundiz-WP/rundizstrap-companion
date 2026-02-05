@@ -1,7 +1,7 @@
 /**
  * Bootstrap pagination block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -75,8 +75,8 @@ export default function Edit({attributes, setAttributes}) {
         alignment,
     } = attributes;
 
-    const paginationDefaultPreviousText = __('« Previous', 'bbfse-plugin');
-    const paginationDefaultNextText = __('Next »', 'bbfse-plugin');
+    const paginationDefaultPreviousText = __('« Previous', 'bbfse-plug');
+    const paginationDefaultNextText = __('Next »', 'bbfse-plug');
     const paginationDefaultNumberOfPages = 2;
 
     useEffect(() => {
@@ -90,15 +90,15 @@ export default function Edit({attributes, setAttributes}) {
 
     const alignmentOptions = [
         {
-            label: __('Default (Start)', 'bbfse-plugin'),
+            label: __('Default (Start)', 'bbfse-plug'),
             value: '',
         },
         {
-            label: __('Center', 'bbfse-plugin'),
+            label: __('Center', 'bbfse-plug'),
             value: 'justify-content-center',
         },
         {
-            label: __('End', 'bbfse-plugin'),
+            label: __('End', 'bbfse-plug'),
             value: 'justify-content-end',
         },
     ];
@@ -107,7 +107,7 @@ export default function Edit({attributes, setAttributes}) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plugin')}
+                    label={__('Settings', 'bbfse-plug')}
                     resetAll={() => {
                         setAttributes({
                             showPreviousNext: true,
@@ -122,7 +122,7 @@ export default function Edit({attributes, setAttributes}) {
                 >
                     <ToolsPanelItem
                         hasValue={() => !showPreviousNext}
-                        label={__('Show previous/next buttons', 'bbfse-plugin')}
+                        label={__('Show previous/next buttons', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 showPreviousNext: true,
@@ -132,7 +132,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={showPreviousNext}
-                            label={__('Show previous/next buttons', 'bbfse-plugin')}
+                            label={__('Show previous/next buttons', 'bbfse-plug')}
                             onChange={(value) =>
                                 setAttributes({
                                     showPreviousNext: value,
@@ -144,7 +144,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                                 hasValue={() => previousText !== paginationDefaultPreviousText}
-                                label={__('Previous button text', 'bbfse-plugin')}
+                                label={__('Previous button text', 'bbfse-plug')}
                                 onDeselect={() => {
                                     setAttributes({
                                         previousText: paginationDefaultPreviousText,
@@ -153,8 +153,8 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Previous button text/HTML', 'bbfse-plugin')}
-                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-left"></i>', 'bbfse-plugin')}
+                                    label={__('Previous button text/HTML', 'bbfse-plug')}
+                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-left"></i>', 'bbfse-plug')}
                                     value={previousText}
                                     onChange={
                                         (previousText) => setAttributes({previousText})
@@ -163,7 +163,7 @@ export default function Edit({attributes, setAttributes}) {
                             </ToolsPanelItem>
                             <ToolsPanelItem
                                 hasValue={() => nextText !== paginationDefaultNextText}
-                                label={__('Next button text', 'bbfse-plugin')}
+                                label={__('Next button text', 'bbfse-plug')}
                                 onDeselect={() => {
                                     setAttributes({
                                         nextText: paginationDefaultNextText,
@@ -172,8 +172,8 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Next button text/HTML', 'bbfse-plugin')}
-                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-right"></i>', 'bbfse-plugin')}
+                                    label={__('Next button text/HTML', 'bbfse-plug')}
+                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-right"></i>', 'bbfse-plug')}
                                     value={nextText}
                                     onChange={
                                         (nextText) => setAttributes({nextText})
@@ -184,7 +184,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => !showPageNumbers}
-                        label={__('Show page numbers', 'bbfse-plugin')}
+                        label={__('Show page numbers', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 showPageNumbers: true,
@@ -194,7 +194,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={showPageNumbers}
-                            label={__('Show page numbers', 'bbfse-plugin')}
+                            label={__('Show page numbers', 'bbfse-plug')}
                             onChange={(value) =>
                                 setAttributes({
                                     showPageNumbers: value,
@@ -206,7 +206,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                             hasValue={() => numberOfPages !== paginationDefaultNumberOfPages}
-                            label={__('Number of adjacent pages', 'bbfse-plugin')}
+                            label={__('Number of adjacent pages', 'bbfse-plug')}
                             onDeselect={() => {
                                 setAttributes({
                                     numberOfPages: paginationDefaultNumberOfPages,
@@ -215,8 +215,8 @@ export default function Edit({attributes, setAttributes}) {
                             isShownByDefault
                             >
                                 <RangeControl
-                                    label={__('Number of adjacent pages', 'bbfse-plugin')}
-                                    help={__('Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible.', 'bbfse-plugin')}
+                                    label={__('Number of adjacent pages', 'bbfse-plug')}
+                                    help={__('Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible.', 'bbfse-plug')}
                                     value={numberOfPages}
                                     onChange={(value) => setAttributes({numberOfPages: value})}
                                     min={0}
@@ -227,7 +227,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => '' !== alignment}
-                        label={__('Alignment', 'bbfse-plugin')}
+                        label={__('Alignment', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 alignment: '',
@@ -238,7 +238,7 @@ export default function Edit({attributes, setAttributes}) {
                         <SelectControl
                             value={alignment}
                             __next40pxDefaultSize
-                            label={__('Alignment', 'bbfse-plugin')}
+                            label={__('Alignment', 'bbfse-plug')}
                             onChange={(value) => {
                                 setAttributes({
                                     alignment: value,
@@ -249,7 +249,7 @@ export default function Edit({attributes, setAttributes}) {
                     </ToolsPanelItem>
                     <ToolsPanelItem
                         hasValue={() => '' !== additionalClass}
-                        label={__('Additional CSS class', 'bbfse-plugin')}
+                        label={__('Additional CSS class', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 additionalClass: '',
@@ -258,8 +258,8 @@ export default function Edit({attributes, setAttributes}) {
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Additional CSS class', 'bbfse-plugin')}
-                            help={__('Add extra CSS classes to the pagination container.', 'bbfse-plugin')}
+                            label={__('Additional CSS class', 'bbfse-plug')}
+                            help={__('Add extra CSS classes to the pagination container.', 'bbfse-plug')}
                             value={additionalClass}
                             onChange={
                                 (additionalClass) => setAttributes({additionalClass})
@@ -329,7 +329,7 @@ export default function Edit({attributes, setAttributes}) {
         }
 
         return (
-            <nav aria-label={__('Page navigation preview', 'bbfse-plugin')}>
+            <nav aria-label={__('Page navigation preview', 'bbfse-plug')}>
                 <ul className={paginationClasses}>
                     {pageItems}
                 </ul>

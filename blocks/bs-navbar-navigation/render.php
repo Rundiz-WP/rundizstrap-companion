@@ -2,18 +2,23 @@
 /**
  * Render contents for Bootstrap navbar navigation block.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * 
  * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 /* @var $attributes array Block attributes. */
 /* @var $content string Block default content. */
 /* @var $block \WP_Block Block instance. */
 
-use BBFSEPlugin\App\Libraries\BootstrapNavbarNavigationWalker;
+use BBFSEPlug\App\Libraries\BootstrapNavbarNavigationWalker;
 
 $navigationRef = (isset($attributes['navigationRef']) ? (int) $attributes['navigationRef'] : 0);
 
@@ -44,7 +49,7 @@ $isBlockEditor = (defined('REST_REQUEST') && REST_REQUEST && isset($_GET['contex
 
 if (!$navigationPost) {
     if ($isBlockEditor) {
-        esc_html_e('This navigation is empty.', 'bbfse-plugin');
+        esc_html_e('This navigation is empty.', 'bbfse-plug');
     }
     unset($navigationPost);
     return;
@@ -57,7 +62,7 @@ $items = BootstrapNavbarNavigationWalker::markActive($items);
 
 if (empty($items)) {
     if ($isBlockEditor) {
-        esc_html_e('This navigation is empty.', 'bbfse-plugin');
+        esc_html_e('This navigation is empty.', 'bbfse-plug');
     }
     if (defined('WP_DEBUG') && WP_DEBUG === true) {
         // if enabled debug.

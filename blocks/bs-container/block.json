@@ -26,7 +26,7 @@
     "layout",
     "wrapper"
   ],
-  "name": "bbfse-plugin/blocks-bs-container",
+  "name": "bbfse-plug/blocks-bs-container",
   "supports": {
     "anchor": true,
     "ariaLabel": true,
@@ -42,7 +42,7 @@
     "dimensions": false,
     "background": false
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap layout container",
   "version": "0.0.1"
 }

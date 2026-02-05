@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar navigation block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -54,14 +54,14 @@ export default function Edit({ attributes, setAttributes }) {
 
     const navigationOptions = [
         {
-            label: __('Auto: first available', 'bbfse-plugin'),
+            label: __('Auto: first available', 'bbfse-plug'),
             value: 0
         }
     ];
 
     if (Array.isArray(navigationPosts)) {
         navigationPosts.forEach((post) => {
-            const title = post?.title?.rendered ? decodeEntities(post.title.rendered) : __('(no title)', 'bbfse-plugin');
+            const title = post?.title?.rendered ? decodeEntities(post.title.rendered) : __('(no title)', 'bbfse-plug');
             navigationOptions.push({
                 label: title,
                 value: post.id
@@ -79,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Navigation Settings', 'bbfse-plugin')}
+                    label={__('Navigation Settings', 'bbfse-plug')}
                     resetAll={() => setAttributes({
                         navigationRef: 0,
                         dataAttributes: {},
@@ -89,7 +89,7 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => navigationRef !== 0}
-                        label={__('Navigation', 'bbfse-plugin')}
+                        label={__('Navigation', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ navigationRef: 0 })}
                         isShownByDefault
                     >
@@ -98,38 +98,38 @@ export default function Edit({ attributes, setAttributes }) {
                         )}
                         {navigationPosts !== null && (
                             <SelectControl
-                                label={__('Navigation', 'bbfse-plugin')}
+                                label={__('Navigation', 'bbfse-plug')}
                                 value={navigationRef}
                                 options={navigationOptions}
                                 onChange={(value) => setAttributes({ navigationRef: parseInt(value, 10) || 0 })}
-                                help={__('Select a Navigation post or leave auto to use the first available.', 'bbfse-plugin')}
+                                help={__('Select a Navigation post or leave auto to use the first available.', 'bbfse-plug')}
                             />
                         )}
                         <div>
                             <ExternalLink href={createNavigationUrl}>
-                                {__('Create a new navigation', 'bbfse-plugin')}
+                                {__('Create a new navigation', 'bbfse-plug')}
                             </ExternalLink>
                         </div>
                         <div>
                             <ExternalLink href={manageNavigationUrl}>
-                                {__('Manage all navigations', 'bbfse-plugin')}
+                                {__('Manage all navigations', 'bbfse-plug')}
                             </ExternalLink>
                         </div>
                         {Array.isArray(navigationPosts) && navigationPosts.length === 0 && (
                             <Notice status="warning" isDismissible={false}>
-                                {__('No Navigation posts found. Create one in the Site Editor > Navigation.', 'bbfse-plugin')}
+                                {__('No Navigation posts found. Create one in the Site Editor > Navigation.', 'bbfse-plug')}
                             </Notice>
                         )}
                     </ToolsPanelItem>
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plugin')}
+                        label={__('Data attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plugin') + ' '}
+                            label={__('Data attributes', 'bbfse-plug') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
@@ -137,12 +137,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plugin')}
+                        label={__('Aria attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plugin') + ' '}
+                            label={__('Aria attributes', 'bbfse-plug') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -150,15 +150,15 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !!dropdownClassName}
-                        label={__('Dropdown menu class', 'bbfse-plugin')}
+                        label={__('Dropdown menu class', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ dropdownClassName: '' })}
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Dropdown menu class', 'bbfse-plugin')}
+                            label={__('Dropdown menu class', 'bbfse-plug')}
                             value={dropdownClassName}
                             onChange={(value) => setAttributes({ dropdownClassName: value })}
-                            help={__('Additional classes for dropdown menu. The base class `dropdown-menu` is always applied.', 'bbfse-plugin')}
+                            help={__('Additional classes for dropdown menu. The base class `dropdown-menu` is always applied.', 'bbfse-plug')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
@@ -168,7 +168,7 @@ export default function Edit({ attributes, setAttributes }) {
                 {Array.isArray(navigationPosts) && navigationPosts.length === 0 ? (
                     <div className="nav-item">
                         <span className="nav-link">
-                            {__('No Navigation posts found to preview.', 'bbfse-plugin')}
+                            {__('No Navigation posts found to preview.', 'bbfse-plug')}
                         </span>
                     </div>
                 ) : (

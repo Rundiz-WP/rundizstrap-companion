@@ -3,10 +3,14 @@
  * RundizSettings framework configuration file.
  * Do not rename this file. Read the comment carefully before change any config values.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
+
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 return [
     // rundiz settings configuration file name. just file name without extension. for example: settings_sample will look up for settings_sample.php automatically.

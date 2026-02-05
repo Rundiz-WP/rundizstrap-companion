@@ -8,7 +8,7 @@
  * 
  * @returns {undefined}
  */
-function bbfse_plugin_manualUpdateAjax()
+function bbfse_plug_manualUpdateAjax()
 {
     var $ = jQuery.noConflict();
 
@@ -30,7 +30,7 @@ function bbfse_plugin_manualUpdateAjax()
     $.ajax({
         'url': ajaxurl,
         'method': 'POST',
-        'data': 'security='+RdSettingsManualUpdate.nonce+'&action=bbfse_plugin_manualUpdate&updateKey='+runUpdateKey,
+        'data': 'security='+RdSettingsManualUpdate.nonce+'&action=bbfse_plug_manualUpdate&updateKey='+runUpdateKey,
         'dataType': 'json'
     })
     .done(function(data, textStatus, jqXHR) {
@@ -76,13 +76,13 @@ function bbfse_plugin_manualUpdateAjax()
         }
 
         if (typeof(response) !== 'undefined' && typeof(response.formResultClass) !== 'undefined' && typeof(response.formResultMsg) !== 'undefined') {
-            var noticehtml = bbfse_plugin_GetNoticeElement(response.formResultClass, response.formResultMsg);
+            var noticehtml = bbfse_plug_GetNoticeElement(response.formResultClass, response.formResultMsg);
             $('.form-result-placeholder').html(noticehtml);
         }
 
         $('.manual-update-action-button').removeAttr('disabled');
     });
-}// bbfse_plugin_manualUpdateAjax
+}// bbfse_plug_manualUpdateAjax
 
 
 /**
@@ -92,7 +92,7 @@ function bbfse_plugin_manualUpdateAjax()
  * @param {string} notice_message
  * @returns {String}
  */
-function bbfse_plugin_GetNoticeElement(notice_class, notice_message) {
+function bbfse_plug_GetNoticeElement(notice_class, notice_message) {
     var output = '<div class="'+notice_class+' notice is-dismissible">';
 
     if (typeof(notice_message) === 'string') {
@@ -107,13 +107,13 @@ function bbfse_plugin_GetNoticeElement(notice_class, notice_message) {
         +'</div>';
 
     return output;
-}// bbfse_plugin_GetNoticeElement
+}// bbfse_plug_GetNoticeElement
 
 
 // on dom ready --------------------------------------------------------------------------------------------------------
 (function($) {
     $('.manual-update-action-button').on('click', function(e) {
         e.preventDefault();
-        bbfse_plugin_manualUpdateAjax();
+        bbfse_plug_manualUpdateAjax();
     });
 })(jQuery);

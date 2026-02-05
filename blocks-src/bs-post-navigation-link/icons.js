@@ -1,7 +1,7 @@
 /**
  * Bootstrap post navigation link block icons.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 

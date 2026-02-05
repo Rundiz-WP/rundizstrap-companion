@@ -2,12 +2,17 @@
 /**
  * Render contents for Bootstrap search block.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @author Vee W.
  * 
  * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
+
+
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 
 /* @var $attributes array Block attributes. */
@@ -19,13 +24,13 @@ $field_markup = '';
 $buttonClass = 'btn btn-primary';
 $buttonPosition = 'button-outside';
 $buttonUseIcon = false;
-$buttonText = __('Search', 'bbfse-plugin');
+$buttonText = __('Search', 'bbfse-plug');
 $placeholderText = '';
 $forNavbar = (isset($attributes['forNavbar']) && true === $attributes['forNavbar'] ? true : false);
 
 if (isset($attributes)) {
     if (isset($attributes['showLabel']) && true === $attributes['showLabel']) {
-        $searchLabel = __('Search', 'bbfse-plugin');
+        $searchLabel = __('Search', 'bbfse-plug');
         if (isset($attributes['label']) && is_string($attributes['label']) && '' !== $attributes['label']) {
             $searchLabel = $attributes['label'];
         }
@@ -33,7 +38,7 @@ if (isset($attributes)) {
         if (false === $forNavbar) {
             $field_markup .= '<div class="row">';
             $field_markup .= '<div class="col-12">';
-            $field_markup .= '<label class="form-label" for="bbfse-plugin-blocks-bs-search-input">' . wp_kses_post($searchLabel) . '</label>';
+            $field_markup .= '<label class="form-label" for="bbfse-plug-blocks-bs-search-input">' . wp_kses_post($searchLabel) . '</label>';
             $field_markup .= '</div>';
             $field_markup .= '</div><!-- .row -->';
         }
@@ -69,12 +74,12 @@ if (isset($attributes)) {
     }
 }// endif; $attributes
 
-$input_field = '<input id="bbfse-plugin-blocks-bs-search-input" class="form-control';
+$input_field = '<input id="bbfse-plug-blocks-bs-search-input" class="form-control';
 if (true === $forNavbar && 'button-group-input' !== $buttonPosition && 'no-button' !== $buttonPosition) {
     $input_field .= ' me-2';
 }
 $input_field .= '" type="search" name="s" value="' . get_search_query() . '" placeholder="' . esc_attr($placeholderText) . '"' .
-    ' aria-label="' . esc_attr__('Search', 'bbfse-plugin') . '" required>';
+    ' aria-label="' . esc_attr__('Search', 'bbfse-plug') . '" required>';
 $button_search = '<button class="' . esc_attr($buttonClass) . '" type="submit">' . wp_kses_post($buttonText) . '</button>';
 
 if ('button-group-input' === $buttonPosition) {

@@ -17,14 +17,14 @@
     },
     "icon": "admin-comments",
     "keywords": ["bootstrap", "comment", "form"],
-    "name": "bbfse-plugin/blocks-bs-comment-form",
+    "name": "bbfse-plug/blocks-bs-comment-form",
     "render": "file:./render.php",
     "style": "file:./style-index.css",
     "supports": {
         "html": false,
         "className": true
     },
-    "textdomain": "bbfse-plugin",
+    "textdomain": "bbfse-plug",
     "title": "Bootstrap comment form",
     "usesContext": ["postId", "postType"],
     "version": "0.0.1"

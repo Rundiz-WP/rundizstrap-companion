@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
-"POT-Creation-Date: 2026-02-05T23:17:15+07:00\n"
-"PO-Revision-Date: 2026-02-05 23:17+0700\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plug\n"
+"POT-Creation-Date: 2026-02-06T00:18:44+07:00\n"
+"PO-Revision-Date: 2026-02-06 00:19+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -18,23 +18,23 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #. Plugin Name of the plugin
-#: bbfse-plugin.php
-msgid "Bootstrap Basic FSE Plugin"
-msgstr "ปลั๊กอิน Bootstrap Basic FSE"
+#: bbfse-plug.php
+msgid "Bootstrap Basic FSE plug"
+msgstr "Bootstrap Basic FSE plug"
 
 #. Description of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid ""
 "A plugin that contain blocks for Bootstrap Basic FSE theme. All blocks based on Bootstrap CSS."
 msgstr "ปลั๊กอินที่มีบล็อกสำหรับธีม Bootstrap Basic FSE. บล็อกทั้งหมดสร้างขึ้นจาก CSS ของ Bootstrap."
 
 #. Author of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid "Vee Winch"
 msgstr ""
 
 #. Author URI of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid "https://rundiz.com"
 msgstr ""
 
@@ -108,12 +108,12 @@ msgstr "สำเร็จแล้ว"
 msgid "Dismiss"
 msgstr "รับทราบ"
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:282 blocks/bs-pagination/render.php:111
+#: App/Controllers/Admin/Plugins/Upgrader.php:282 blocks/bs-pagination/render.php:116
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next"
 msgstr "ถัดไป"
 
-#: App/Controllers/Admin/Settings.php:52 App/Views/admin/settings_v.php:12
+#: App/Controllers/Admin/Settings.php:52 App/Views/admin/settings_v.php:16
 msgid "Bootstrap Basic FSE Plugin settings"
 msgstr "ตั้งค่าปลั๊กอิน Bootstrap Basic FSE"
 
@@ -145,141 +145,113 @@ msgstr "ไม่พบไฟล์ views (%s)."
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: App/Libraries/RundizSettings.php:736 assets/js/blocks/shared/keyValueControl.js:86
-#: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
+#: App/Libraries/RundizSettings.php:736
 msgid "Remove"
 msgstr "เอาออก"
 
-#: App/Views/admin/Plugins/Upgrader_v.php:12
+#: App/Views/admin/Plugins/Upgrader_v.php:15
 msgid "Manual update"
 msgstr "อัปเดตด้วยตนเอง"
 
 #. translators: %d Number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:20
+#: App/Views/admin/Plugins/Upgrader_v.php:23
 #, php-format
 msgid "There are total %d actions for this manual update, please continue step by step."
 msgstr "การอัปเดตด้วยตนเองครั้งนี้มีทั้งหมด %d ขั้นตอน, โปรดดำเนินการต่อทีละขั้นตอน."
 
 #. translators: %1$s The number of already run action, %2$d The number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:25
+#: App/Views/admin/Plugins/Upgrader_v.php:28
 #, php-format
 msgid "You are running %1$s of %2$d."
 msgstr "คุณกำลังใช้งาน %1$s ของ %2$d."
 
-#: App/Views/admin/Plugins/Upgrader_v.php:29
+#: App/Views/admin/Plugins/Upgrader_v.php:32
 msgid "Start"
 msgstr "เริ่ม"
 
-#: App/Views/admin/readsettings_v.php:10
+#: App/Views/admin/readsettings_v.php:15
 msgid "Example of how to access settings values in option db."
 msgstr "ตัวอย่างวิธีการเข้าถึงค่าการตั้งค่าในฐานข้อมูล option."
 
 #. translators: %s PHP code.
-#: App/Views/admin/readsettings_v.php:15
+#: App/Views/admin/readsettings_v.php:20
 #, php-format
 msgid "Call to %s"
 msgstr "เรียกไปยัง %s"
 
 #. translators: %s PHP code.
-#: App/Views/admin/readsettings_v.php:20
+#: App/Views/admin/readsettings_v.php:25
 #, php-format
 msgid ""
 "Access this variable as global %s. This variable will be change, up to config in AppTrait."
 msgstr "เข้าถึงตัวแปรนี้โดยใช้ global %s. ตัวแปรนี้จะเปลี่ยนแปลงไปตามการตั้งค่าใน AppTrait."
 
-#: App/Views/admin/readsettings_v.php:23
+#: App/Views/admin/readsettings_v.php:28
 msgid "Now, you can use this variable to access its array key anywhere."
 msgstr "ตอนนี้คุณสามารถใช้ตัวแปรนี้เพื่อเข้าถึงคีย์ของอาร์เรย์ได้ทุกที่."
 
-#: blocks/bs-comment-form/render.php:47
+#: blocks/bs-comment-form/render.php:52
 msgid "Name"
 msgstr "ชื่อ"
 
-#: blocks/bs-comment-form/render.php:51
+#: blocks/bs-comment-form/render.php:56
 msgid "Email"
 msgstr "อีเมล"
 
-#: blocks/bs-comment-form/render.php:55
+#: blocks/bs-comment-form/render.php:60
 msgid "Website"
 msgstr "เว็บไซต์"
 
-#: blocks/bs-comment-form/render.php:65
+#: blocks/bs-comment-form/render.php:70
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr "บันทึกชื่อ อีเมล และเว็บไซต์ของฉันลงในเบราว์เซอร์นี้สำหรับการแสดงความคิดเห็นครั้งต่อไป."
 
-#: blocks/bs-comment-form/render.php:75 blocks/bs-comment-form/index.js:1
+#: blocks/bs-comment-form/render.php:80 blocks/bs-comment-form/index.js:1
 msgid "Comment"
 msgstr "ความคิดเห็น"
 
-#: blocks/bs-comment-form/render.php:82
+#: blocks/bs-comment-form/render.php:87
 msgid "Your email address will not be published."
 msgstr "ที่อยู่อีเมลของคุณจะไม่ถูกเผยแพร่."
 
-#: blocks/bs-navbar-navigation/render.php:47 blocks/bs-navbar-navigation/render.php:60
+#: blocks/bs-navbar-navigation/render.php:52 blocks/bs-navbar-navigation/render.php:65
 msgid "This navigation is empty."
 msgstr "เมนูนำทางนี้ว่างเปล่า"
 
-#: blocks/bs-pagination/render.php:108 blocks/bs-pagination/index.js:1
+#: blocks/bs-pagination/render.php:113 blocks/bs-pagination/index.js:1
 msgid "Next »"
 msgstr "ถัดไป »"
 
-#: blocks/bs-pagination/render.php:269 blocks/bs-pagination/index.js:1
+#: blocks/bs-pagination/render.php:274 blocks/bs-pagination/index.js:1
 msgid "« Previous"
 msgstr "« ก่อนหน้า"
 
-#: blocks/bs-pagination/render.php:272 blocks/bs-post-navigation-link/index.js:1
+#: blocks/bs-pagination/render.php:277 blocks/bs-post-navigation-link/index.js:1
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: blocks/bs-pagination/render.php:384
+#: blocks/bs-pagination/render.php:389
 msgid "Pagination"
 msgstr "การแบ่งหน้า"
 
-#: blocks/bs-post-navigation-link/render.php:45
+#: blocks/bs-post-navigation-link/render.php:50
 msgctxt "label for next post link"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: blocks/bs-post-navigation-link/render.php:45
+#: blocks/bs-post-navigation-link/render.php:50
 msgctxt "label for previous post link"
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: blocks/bs-post-navigation-link/render.php:50 blocks/bs-navbar-navigation/index.js:1
+#: blocks/bs-post-navigation-link/render.php:55 blocks/bs-navbar-navigation/index.js:1
 msgid "(no title)"
 msgstr "(ไม่มีไตเติล)"
 
-#: blocks/bs-search/render.php:22 blocks/bs-search/render.php:28 blocks/bs-search/render.php:77
+#: blocks/bs-search/render.php:27 blocks/bs-search/render.php:33 blocks/bs-search/render.php:82
 #: blocks/bs-search/index.js:1
 msgid "Search"
 msgstr "ค้นหา"
-
-#: assets/js/blocks/shared/keyValueControl.js:71 blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
-msgid "Key"
-msgstr "คีย์"
-
-#: assets/js/blocks/shared/keyValueControl.js:76 blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
-msgid "Value"
-msgstr "ค่า"
-
-#: assets/js/blocks/shared/keyValueControl.js:91 blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
-msgid "Add attribute"
-msgstr "เพิ่มแอตทริบิวต์"
 
 #: blocks/bs-button/index.js:1
 msgid "Default"
@@ -386,6 +358,10 @@ msgstr "ชื่อ"
 msgctxt "Button type"
 msgid "Type"
 msgstr "Type"
+
+#: blocks/bs-button/index.js:1
+msgid "Value"
+msgstr "ค่า"
 
 #: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
 #: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
@@ -1060,14 +1036,3 @@ msgstr "หา"
 msgctxt "block title"
 msgid "Bootstrap search form"
 msgstr "แบบฟอร์มค้นหา Bootstrap"
-
-#, php-format
-#~ msgid ""
-#~ "You are using PHP %1$s which does not meet minimum requirement. Please consider upgrade PHP "
-#~ "version or contact plugin author for this help.<br><br>Minimum requirement:<br>PHP %2$s"
-#~ msgstr ""
-#~ "คุณกำลังใช้ PHP %1$s ซึ่งไม่ตรงตามข้อกำหนดขั้นต่ำ. โปรดพิจารณาอัปเกรดเวอร์ชัน PHP "
-#~ "หรือติดต่อผู้พัฒนาปลั๊กอินเพื่อขอความช่วยเหลือ.<br><br>ข้อกำหนดขั้นต่ำ:<br>PHP %2$s"
-
-#~ msgid "Minimum requirement of PHP version does not meet."
-#~ msgstr "รุ่นของ PHP ไม่ตรงตามความต้องการขั้นต่ำ."

@@ -2,24 +2,24 @@
 /**
  * Uninstall or delete the plugin.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Controllers\Admin\Plugins;
+namespace BBFSEPlug\App\Controllers\Admin\Plugins;
 
-if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Uninstallation')) {
+if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Uninstallation')) {
     /**
      * Plugin uninstallation and site deletion (hard delete) hooks class.
      * 
      * @since 0.0.1
      */
-    class Uninstallation implements \BBFSEPlugin\App\Controllers\ControllerInterface
+    class Uninstallation implements \BBFSEPlug\App\Controllers\ControllerInterface
     {
 
 
-        use \BBFSEPlugin\App\AppTrait;
+        use \BBFSEPlug\App\AppTrait;
 
 
         /**
@@ -43,7 +43,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Uninstallati
         public function registerHooks()
         {
             // register uninstall hook. MUST be static method or function.
-            register_uninstall_hook(BBFSEPLUGIN_FILE, ['\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Uninstallation', 'uninstall']);
+            register_uninstall_hook(BBFSEPLUG_FILE, ['\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Uninstallation', 'uninstall']);
 
             if (is_multisite()) {
                 // hook on deleted site.
@@ -120,7 +120,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Uninstallati
         /**
          * Drop tables that was created with this plugin.
          * 
-         * Only tables that was created in `BBFSEPlugin\App\Models\PluginDbStructure->get()` method will be drop here.
+         * Only tables that was created in `BBFSEPlug\App\Models\PluginDbStructure->get()` method will be drop here.
          * 
          * @since 0.0.1
          * @global \wpdb $wpdb
@@ -131,7 +131,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Uninstallati
             global $wpdb;
             $wpdb->show_errors();
 
-            $PluginDbStructure = new \BBFSEPlugin\App\Models\PluginDbStructure();
+            $PluginDbStructure = new \BBFSEPlug\App\Models\PluginDbStructure();
             $schemas = $PluginDbStructure->get();
             unset($PluginDbStructure);
 

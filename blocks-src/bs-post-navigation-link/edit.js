@@ -1,7 +1,7 @@
 /**
  * Bootstrap post navigation link block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -47,9 +47,9 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
 
     const isNext = type === 'next';
     const defaultRel = (isNext ? 'next' : 'prev');
-    const defaultLabel = (isNext ? __('Next', 'bbfse-plugin') : __('Previous', 'bbfse-plugin'));
+    const defaultLabel = (isNext ? __('Next', 'bbfse-plug') : __('Previous', 'bbfse-plug'));
     const isObjectEmpty = (obj) => Object.keys(obj || {}).length === 0;
-    const previewTitle = __('An example title', 'bbfse-plugin');
+    const previewTitle = __('An example title', 'bbfse-plug');
 
     const taxonomies = useSelect(
         (select) => {
@@ -62,7 +62,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
     );
 
     const taxonomyOptions = [
-        { label: __('Unfiltered (default)', 'bbfse-plugin'), value: '' },
+        { label: __('Unfiltered (default)', 'bbfse-plug'), value: '' },
         ...((taxonomies ?? [])
             .filter(({ visibility }) => !!visibility?.publicly_queryable)
             .map((item) => ({ label: item.name, value: item.slug }))),
@@ -81,7 +81,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plugin')}
+                    label={__('Settings', 'bbfse-plug')}
                     resetAll={() => {
                         setAttributes({
                             showTitle: false,
@@ -91,49 +91,49 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     }}
                 >
                     <ToolsPanelItem
-                        label={__('Display the title as a link', 'bbfse-plugin')}
+                        label={__('Display the title as a link', 'bbfse-plug')}
                         isShownByDefault
                         hasValue={() => !!showTitle}
                         onDeselect={() => setAttributes({ showTitle: false })}
                     >
                         <ToggleControl
                             __nextHasNoMarginBottom
-                            label={__('Display the title as a link', 'bbfse-plugin')}
-                            help={__('This will be replace custom label.', 'bbfse-plugin')}
+                            label={__('Display the title as a link', 'bbfse-plug')}
+                            help={__('This will be replace custom label.', 'bbfse-plug')}
                             checked={!!showTitle}
                             onChange={() => setAttributes({ showTitle: !showTitle })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Prepend text/HTML', 'bbfse-plugin')}
+                        label={__('Prepend text/HTML', 'bbfse-plug')}
                         isShownByDefault
                         hasValue={() => prependTextHtml !== ''}
                         onDeselect={() => setAttributes({ prependTextHtml: '' })}
                     >
                         <TextControl
-                            label={__('Prepend text/HTML', 'bbfse-plugin')}
+                            label={__('Prepend text/HTML', 'bbfse-plug')}
                             value={prependTextHtml}
                             onChange={(value) => setAttributes({ prependTextHtml: value })}
-                            help={__('Text or HTML to prepend before the link text.', 'bbfse-plugin')}
+                            help={__('Text or HTML to prepend before the link text.', 'bbfse-plug')}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Append text/HTML', 'bbfse-plugin')}
+                        label={__('Append text/HTML', 'bbfse-plug')}
                         isShownByDefault
                         hasValue={() => appendTextHtml !== ''}
                         onDeselect={() => setAttributes({ appendTextHtml: '' })}
                     >
                         <TextControl
-                            label={__('Append text/HTML', 'bbfse-plugin')}
+                            label={__('Append text/HTML', 'bbfse-plug')}
                             value={appendTextHtml}
                             onChange={(value) => setAttributes({ appendTextHtml: value })}
-                            help={__('Text or HTML to append after the link text.', 'bbfse-plugin')}
+                            help={__('Text or HTML to append after the link text.', 'bbfse-plug')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Link Attributes', 'bbfse-plugin')}
+                    label={__('Link Attributes', 'bbfse-plug')}
                     resetAll={() => {
                         setAttributes({
                             rel: '',
@@ -142,25 +142,25 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     }}
                 >
                     <ToolsPanelItem
-                        label={__('Rel', 'bbfse-plugin')}
+                        label={__('Rel', 'bbfse-plug')}
                         isShownByDefault
                         hasValue={() => rel !== ''}
                         onDeselect={() => setAttributes({ rel: '' })}
                     >
                         <TextControl
-                            label={__('Rel', 'bbfse-plugin')}
+                            label={__('Rel', 'bbfse-plug')}
                             value={rel}
                             onChange={(value) => setAttributes({ rel: value })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Tab index', 'bbfse-plugin')}
+                        label={__('Tab index', 'bbfse-plug')}
                         isShownByDefault
                         hasValue={() => tabindex !== ''}
                         onDeselect={() => setAttributes({ tabindex: '' })}
                     >
                         <TextControl
-                            label={__('Tab index', 'bbfse-plugin')}
+                            label={__('Tab index', 'bbfse-plug')}
                             value={tabindex}
                             onChange={(value) => setAttributes({ tabindex: value })}
                         />
@@ -168,7 +168,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Data and Aria Attributes', 'bbfse-plugin')}
+                    label={__('Data and Aria Attributes', 'bbfse-plug')}
                     resetAll={() => setAttributes({
                         dataAttributes: {},
                         ariaAttributes: {},
@@ -176,24 +176,24 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 >
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plugin')}
+                        label={__('Data attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plugin') + ' '}
+                            label={__('Data attributes', 'bbfse-plug') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plugin')}
+                        label={__('Aria attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plugin') + ' '}
+                            label={__('Aria attributes', 'bbfse-plug') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -205,11 +205,11 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 <SelectControl
                     __next40pxDefaultSize
                     __nextHasNoMarginBottom
-                    label={__('Filter by taxonomy', 'bbfse-plugin')}
+                    label={__('Filter by taxonomy', 'bbfse-plug')}
                     value={taxonomy}
                     options={taxonomyOptions}
                     onChange={(value) => setAttributes({ taxonomy: value })}
-                    help={__('Only link to posts that have the same taxonomy terms as the current post. For example the same tags or categories.', 'bbfse-plugin')}
+                    help={__('Only link to posts that have the same taxonomy terms as the current post. For example the same tags or categories.', 'bbfse-plug')}
                 />
             </InspectorControls>
 
@@ -223,7 +223,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     <RichText
                         tagName="span"
                         identifier="label"
-                        aria-label={(isNext ? __('Next post', 'bbfse-plugin') : __('Previous post', 'bbfse-plugin'))}
+                        aria-label={(isNext ? __('Next post', 'bbfse-plug') : __('Previous post', 'bbfse-plug'))}
                         placeholder={defaultLabel}
                         value={label}
                         withoutInteractiveFormatting

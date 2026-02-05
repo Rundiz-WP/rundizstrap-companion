@@ -2,24 +2,24 @@
 /**
  * Activate the plugin action.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Controllers\Admin\Plugins;
+namespace BBFSEPlug\App\Controllers\Admin\Plugins;
 
-if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Activation')) {
+if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Activation')) {
     /**
      * Plugin activation and new site activation hooks class.
      * 
      * @since 0.0.1
      */
-    class Activation implements \BBFSEPlugin\App\Controllers\ControllerInterface
+    class Activation implements \BBFSEPlug\App\Controllers\ControllerInterface
     {
 
 
-        use \BBFSEPlugin\App\AppTrait;
+        use \BBFSEPlug\App\AppTrait;
 
 
         /**
@@ -38,7 +38,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Activation')
                 wp_die(
                     sprintf(
                         // translators: %1$s Current WordPress version, %2$s Required WordPress version.
-                        esc_html__('Your WordPress version does not meet the minimum requirement. (%1$s < %2$s).', 'bbfse-plugin'), 
+                        esc_html__('Your WordPress version does not meet the minimum requirement. (%1$s < %2$s).', 'bbfse-plug'), 
                         get_bloginfo('version'), // phpcs:ignore
                         '6.0' // phpcs:ignore
                     )
@@ -48,7 +48,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Activation')
 
             // In case that you do not want to "network activate", remove comments the code below.
             if (is_multisite() && $network_wide) {
-                wp_die(esc_html__('Unable to network activate, please activate per site only.', 'bbfse-plugin'));
+                wp_die(esc_html__('Unable to network activate, please activate per site only.', 'bbfse-plug'));
                 exit(1);
             }
 
@@ -109,14 +109,14 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Activation')
 
 
         /**
-         * If there is at least one or more table from `BBFSEPlugin\App\Models\PluginDbStructure->get()` method then create or alter using WordPress's `dbDelta()`.
+         * If there is at least one or more table from `BBFSEPlug\App\Models\PluginDbStructure->get()` method then create or alter using WordPress's `dbDelta()`.
          *
          * @since 0.0.1
          * @global \wpdb $wpdb WordPress DB class.
          */
         private function activateCreateAlterTables()
         {
-            $PluginDbStructure = new \BBFSEPlugin\App\Models\PluginDbStructure();
+            $PluginDbStructure = new \BBFSEPlug\App\Models\PluginDbStructure();
             $schemas = $PluginDbStructure->get();
             unset($PluginDbStructure);
 
@@ -187,7 +187,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Activation')
         public function registerHooks()
         {
             // register activate hook
-            register_activation_hook(BBFSEPLUGIN_FILE, [$this, 'activate']);
+            register_activation_hook(BBFSEPLUG_FILE, [$this, 'activate']);
 
             if (is_multisite()) {
                 // hook on create new site (for multisite installation).

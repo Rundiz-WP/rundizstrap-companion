@@ -3,7 +3,7 @@
  * 
  * This block was created by ChatGPT 5.2 Codex.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 

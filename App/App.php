@@ -2,15 +2,15 @@
 /**
  * Main app class. Extend this class if you want to use any method of this class.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App;
+namespace BBFSEPlug\App;
 
 
-if (!class_exists('\\BBFSEPlugin\\App\\App')) {
+if (!class_exists('\\BBFSEPlug\\App\\App')) {
     /**
      * Plugin application main entry class.
      * 
@@ -27,7 +27,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\App')) {
          */
         public function loadLanguage()
         {
-            load_plugin_textdomain('bbfse-plugin', false, dirname(plugin_basename(BBFSEPLUGIN_FILE)) . '/languages/');
+            load_plugin_textdomain('bbfse-plug', false, dirname(plugin_basename(BBFSEPLUG_FILE)) . '/languages/');
         }// loadLanguage
 
 

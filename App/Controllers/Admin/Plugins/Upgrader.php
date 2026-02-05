@@ -2,23 +2,23 @@
 /**
  * Upgrade or update the plugin action.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Controllers\Admin\Plugins;
-if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
+namespace BBFSEPlug\App\Controllers\Admin\Plugins;
+if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
     /**
      * Plugin upgrader class.
      *
      * @since 0.0.1
      */
-    class Upgrader implements \BBFSEPlugin\App\Controllers\ControllerInterface
+    class Upgrader implements \BBFSEPlug\App\Controllers\ControllerInterface
     {
 
 
-        use \BBFSEPlugin\App\AppTrait;
+        use \BBFSEPlug\App\AppTrait;
 
 
         /**
@@ -48,10 +48,10 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
             // phpcs:ignore WordPress.Security
             if (isset($_SERVER['REQUEST_METHOD']) && strtolower($_SERVER['REQUEST_METHOD']) === 'post' && isset($_POST) && !empty($_POST)) {
                 // if method POST and there is POST data.
-                if (check_ajax_referer('bbfse_plugin_nonce', 'security', false) === false) {
+                if (check_ajax_referer('bbfse_plug_nonce', 'security', false) === false) {
                     status_header(403);
                     wp_die(
-                        esc_html(__('Please reload this page and try again.', 'bbfse-plugin')), 
+                        esc_html(__('Please reload this page and try again.', 'bbfse-plug')), 
                         '', 
                         ['response' => 403]
                     );
@@ -59,7 +59,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
 
                 $updateKey = filter_input(INPUT_POST, 'updateKey', FILTER_SANITIZE_NUMBER_INT);
 
-                $Loader = new \BBFSEPlugin\App\Libraries\Loader();
+                $Loader = new \BBFSEPlug\App\Libraries\Loader();
                 $manualUpdateClasses = $Loader->getManualUpdateClasses();
                 $maxManualUpdateVersion = 0;
                 unset($Loader);
@@ -79,7 +79,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                             if (is_array($lastError) && array_key_exists('message', $lastError) && is_scalar($lastError['message'])) {
                                 $errorMessage = $lastError['message'];
                             } else {
-                                $errorMessage = __('An error has been occur, cannot continue manual update. Please contact plugin author.', 'bbfse-plugin');
+                                $errorMessage = __('An error has been occur, cannot continue manual update. Please contact plugin author.', 'bbfse-plug');
                             }
                         }
                         unset($lastError);
@@ -96,17 +96,17 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                         $output['formResultClass'] = 'notice-success';
                         if (array_key_exists(($updateKey + 1), $manualUpdateClasses)) {
                             $output['nextRunKey'] = ($updateKey + 1);
-                            $output['formResultMsg'] = __('Success, please click next to continue update.', 'bbfse-plugin');
+                            $output['formResultMsg'] = __('Success, please click next to continue update.', 'bbfse-plug');
                         } else {
                             $output['nextRunKey'] = 'end';
-                            $output['formResultMsg'] = __('All manual update completed successfully. This page will be no longer available until there is next manual update.', 'bbfse-plugin');
+                            $output['formResultMsg'] = __('All manual update completed successfully. This page will be no longer available until there is next manual update.', 'bbfse-plug');
 
                             $currentConfig = $this->getOptions();
                             $currentConfig['rdsfw_manual_update_version'] = $maxManualUpdateVersion;
                             $this->saveOptions($currentConfig);
                             unset($currentConfig);
 
-                            delete_transient('bbfse_plugin_updated');
+                            delete_transient('bbfse_plug_updated');
                         }
                     } else {
                         // if contain error.
@@ -118,7 +118,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                 } else {
                     status_header(501);
                     $output['formResultClass'] = 'notice-error';
-                    $output['formResultMsg'] = __('Unable to run update, there is no update classes to run.', 'bbfse-plugin');
+                    $output['formResultMsg'] = __('Unable to run update, there is no update classes to run.', 'bbfse-plug');
                 }
 
                 unset($manualUpdateClasses, $maxManualUpdateVersion, $updateKey);
@@ -153,9 +153,9 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
          */
         public function detectPluginUpdate()
         {
-            if (get_transient('bbfse_plugin_updated') && current_user_can('update_plugins')) {
+            if (get_transient('bbfse_plug_updated') && current_user_can('update_plugins')) {
                 // if there is updated transient
-                $Loader = new \BBFSEPlugin\App\Libraries\Loader();
+                $Loader = new \BBFSEPlug\App\Libraries\Loader();
 
                 if ($Loader->haveManualUpdate() === true) {
                     // if found that there are manual update in this new version of code.
@@ -163,13 +163,13 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                     // -------------------------------------------------------------------------------------
                     // display link to manual update page.
                     // phpcs:ignore WordPress.Security.NonceVerification
-                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && 'bbfse-plugin-manual-update' !== $_REQUEST['page'])) {
+                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && 'bbfse-plug-manual-update' !== $_REQUEST['page'])) {
                         $manualUpdateNotice = '<div class="notice notice-warning is-dismissible">
                             <p>' .
                                 sprintf(
                                     // translators: %1$s Open link, %2$s Close link.
-                                    __('The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'bbfse-plugin'),
-                                    '<a href="' . esc_attr(network_admin_url('index.php?page=bbfse-plugin-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
+                                    __('The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'bbfse-plug'),
+                                    '<a href="' . esc_attr(network_admin_url('index.php?page=bbfse-plug-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
                                     '</a>'
                                 ) .
                             '</p>
@@ -191,12 +191,12 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                         add_action('admin_menu', [$this, 'displayManualUpdateMenu']);
                     }
 
-                    add_action('wp_ajax_bbfse_plugin_manualUpdate', [$this, 'ajaxManualUpdate']);
+                    add_action('wp_ajax_bbfse_plug_manualUpdate', [$this, 'ajaxManualUpdate']);
                     // end display link to manual update page.
                     // -------------------------------------------------------------------------------------
                 } else {
                     // if don't have any manual update.
-                    delete_transient('bbfse_plugin_updated');
+                    delete_transient('bbfse_plug_updated');
                 }// endif;
 
                 unset($Loader);
@@ -211,7 +211,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
          */
         public function displayManualUpdateMenu()
         {
-            $hook_suffix = add_dashboard_page(__('Bootstrap Basic FSE Plugin update', 'bbfse-plugin'), __('Bootstrap Basic FSE Plugin update', 'bbfse-plugin'), 'update_plugins', 'bbfse-plugin-manual-update', [$this, 'displayManualUpdatePage']);
+            $hook_suffix = add_dashboard_page(__('Bootstrap Basic FSE Plugin update', 'bbfse-plug'), __('Bootstrap Basic FSE Plugin update', 'bbfse-plug'), 'update_plugins', 'bbfse-plug-manual-update', [$this, 'displayManualUpdatePage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -233,7 +233,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
 
             $output = [];
 
-            $Loader = new \BBFSEPlugin\App\Libraries\Loader();
+            $Loader = new \BBFSEPlug\App\Libraries\Loader();
             $output['manualUpdateClasses'] = $Loader->getManualUpdateClasses();
 
             $Loader->loadView('admin/Plugins/Upgrader_v', $output);
@@ -270,20 +270,20 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
             }
 
             wp_localize_script(
-                'bbfse-plugin-handle-rd-settings-manual-update',
+                'bbfse-plug-handle-rd-settings-manual-update',
                 'RdSettingsManualUpdate',
                 [
                     'alreadyRunUpdateKey' => '',
                     'alreadyRunUpdateTotal' => 0,
                     'completed' => 'false',
-                    'nonce' => wp_create_nonce('bbfse_plugin_nonce'),
-                    'txtCompleted' => __('Completed', 'bbfse-plugin'),
-                    'txtDismissNotice' => __('Dismiss', 'bbfse-plugin'),
-                    'txtNext' => __('Next', 'bbfse-plugin'),
+                    'nonce' => wp_create_nonce('bbfse_plug_nonce'),
+                    'txtCompleted' => __('Completed', 'bbfse-plug'),
+                    'txtDismissNotice' => __('Dismiss', 'bbfse-plug'),
+                    'txtNext' => __('Next', 'bbfse-plug'),
                 ]
             );
 
-            wp_enqueue_script('bbfse-plugin-handle-rd-settings-manual-update');
+            wp_enqueue_script('bbfse-plug-handle-rd-settings-manual-update');
         }// registerScripts
 
 
@@ -299,7 +299,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
                 return;
             }
 
-            wp_enqueue_style('bbfse-plugin-bootstrap-icons');
+            wp_enqueue_style('bbfse-plug-bootstrap-icons');
         }// registerStyles
 
 
@@ -322,12 +322,12 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Upgrader')) 
         {
             if (is_array($hook_extra) && array_key_exists('action', $hook_extra) && array_key_exists('type', $hook_extra) && array_key_exists('plugins', $hook_extra)) {
                 if ('update' === $hook_extra['action'] && 'plugin' === $hook_extra['type'] && is_array($hook_extra['plugins']) && !empty($hook_extra['plugins'])) {
-                    $this_plugin = plugin_basename(BBFSEPLUGIN_FILE);
+                    $this_plugin = plugin_basename(BBFSEPLUG_FILE);
                     foreach ($hook_extra['plugins'] as $key => $plugin) {
                         if ($this_plugin === $plugin) {
                             // if this plugin is in the updated plugins.
                             // set transient to let it run later. this transient will be called and run in `detectPluginUpdate()` method.
-                            set_transient('bbfse_plugin_updated', 1);
+                            set_transient('bbfse_plug_updated', 1);
                             break;
                         }
                     }// endforeach;

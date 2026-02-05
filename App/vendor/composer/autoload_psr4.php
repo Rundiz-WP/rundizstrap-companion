@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname(dirname($vendorDir));
 
 return array(
-    'BBFSEPlugin\\' => array($baseDir . '/'),
+    'BBFSEPlug\\' => array($baseDir . '/'),
 );

@@ -2,14 +2,14 @@
 /**
  * Loader class. This class will load anything for example: views, template, configuration file.
  *
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Libraries;
+namespace BBFSEPlug\App\Libraries;
 
-if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\Loader')) {
+if (!class_exists('\\BBFSEPlug\\App\\Libraries\\Loader')) {
     /**
      * Loader class for load template, view file, etc.
      * 
@@ -19,7 +19,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\Loader')) {
     {
 
 
-        use \BBFSEPlugin\App\AppTrait;
+        use \BBFSEPlug\App\AppTrait;
 
 
         /**
@@ -30,24 +30,24 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\Loader')) {
 
         /**
          * Automatic look into those controllers and register to the main App class to make it works.<br>
-         * The controllers that will be register must implement BBFSEPlugin\App\Controllers\ControllerInterface to have registerHooks() method in it, otherwise it will be skipped.
+         * The controllers that will be register must implement BBFSEPlug\App\Controllers\ControllerInterface to have registerHooks() method in it, otherwise it will be skipped.
          * 
          * @since 0.0.1
          */
         public function autoRegisterControllers()
         {
-            $this_plugin_dir = dirname(BBFSEPLUGIN_FILE);
+            $this_plugin_dir = dirname(BBFSEPLUG_FILE);
             $file_list = $this->getClassFileList($this_plugin_dir . DIRECTORY_SEPARATOR . 'App' . DIRECTORY_SEPARATOR . 'Controllers');
 
             if (is_array($file_list)) {
                 foreach ($file_list as $file) {
-                    $this_file_classname = '\\BBFSEPlugin' . str_replace([$this_plugin_dir, '.php', '/'], ['', '', '\\'], $file);
+                    $this_file_classname = '\\BBFSEPlug$1' . str_replace([$this_plugin_dir, '.php', '/'], ['', '', '\\'], $file);
                     if (class_exists($this_file_classname)) {
                         $TestClass = new \ReflectionClass($this_file_classname);
                         if (
                             !$TestClass->isAbstract() && 
                             !$TestClass->isTrait() && 
-                            $TestClass->implementsInterface('\\BBFSEPlugin\\App\\Controllers\\ControllerInterface')
+                            $TestClass->implementsInterface('\\BBFSEPlug\\App\\Controllers\\ControllerInterface')
                         ) {
                             $ControllerClass = new $this_file_classname();
                             if (method_exists($ControllerClass, 'registerHooks')) {
@@ -122,19 +122,19 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\Loader')) {
             }
             unset($config_values);
 
-            $this_plugin_dir = dirname(BBFSEPLUGIN_FILE);
+            $this_plugin_dir = dirname(BBFSEPLUG_FILE);
             $file_list = $this->getClassFileList($this_plugin_dir . DIRECTORY_SEPARATOR . 'App' . DIRECTORY_SEPARATOR . 'Update' . DIRECTORY_SEPARATOR . 'Manual');
 
             if (is_array($file_list) && !empty($file_list)) {
                 foreach ($file_list as $file) {
-                    $this_file_classname = '\\BBFSEPlugin' . str_replace([$this_plugin_dir, '.php', '/'], ['', '', '\\'], $file);
+                    $this_file_classname = '\\BBFSEPlug$1' . str_replace([$this_plugin_dir, '.php', '/'], ['', '', '\\'], $file);
                     if (class_exists($this_file_classname)) {
                         $TestClass = new \ReflectionClass($this_file_classname);
                         if (
                             !$TestClass->isAbstract() && 
                             !$TestClass->isTrait() && 
                             !$TestClass->isInterface() &&
-                            $TestClass->implementsInterface('\\BBFSEPlugin\\App\\Update\\Manual\\ManualUpdateInterface') &&
+                            $TestClass->implementsInterface('\\BBFSEPlug\\App\\Update\\Manual\\ManualUpdateInterface') &&
                             $TestClass->hasProperty('manual_update_version') &&
                             $TestClass->hasMethod('run')
                         ) {
@@ -229,7 +229,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\Loader')) {
                 throw new \Exception(
                     sprintf(
                         // translators: %s: Template path.
-                        esc_html(__('The views file was not found (%s).', 'bbfse-plugin')), 
+                        esc_html(__('The views file was not found (%s).', 'bbfse-plug')), 
                         str_replace(['\\', '/'], '/', $templateFile)// phpcs:ignore WordPress.Security.EscapeOutput
                     )
                 );

@@ -1,7 +1,7 @@
 /**
  * Bootstrap post navigation link block variations.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -14,8 +14,8 @@ import { nextIcon, previousIcon } from './icons.js';
 const variations = [
     {
         name: 'post-previous',
-        title: __('Bootstrap Previous Post', 'bbfse-plugin'),
-        description: __('Displays the post link that precedes the current post in Bootstrap style.', 'bbfse-plugin'),
+        title: __('Bootstrap Previous Post', 'bbfse-plug'),
+        description: __('Displays the post link that precedes the current post in Bootstrap style.', 'bbfse-plug'),
         icon: previousIcon,
         attributes: { 
             type: 'previous',
@@ -26,15 +26,15 @@ const variations = [
             attributes: {
                 className: 'btn btn-secondary',
                 type: 'previous',
-                label: __('Previous post', 'bbfse-plugin'),
+                label: __('Previous post', 'bbfse-plug'),
             }
         },
     },
     {
         isDefault: true,
         name: 'post-next',
-        title: __('Bootstrap Next Post', 'bbfse-plugin'),
-        description: __('Displays the post link that follows the current post in Bootstrap style.', 'bbfse-plugin'),
+        title: __('Bootstrap Next Post', 'bbfse-plug'),
+        description: __('Displays the post link that follows the current post in Bootstrap style.', 'bbfse-plug'),
         icon: nextIcon,
         attributes: { 
             type: 'next',
@@ -45,7 +45,7 @@ const variations = [
             attributes: {
                 className: 'btn btn-secondary',
                 type: 'next',
-                label: __('Next post', 'bbfse-plugin'),
+                label: __('Next post', 'bbfse-plug'),
             }
         },
     },

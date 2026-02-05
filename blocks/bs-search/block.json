@@ -47,12 +47,12 @@
     "bootstrap",
     "find"
   ],
-  "name": "bbfse-plugin/blocks-bs-search",
+  "name": "bbfse-plug/blocks-bs-search",
   "render": "file:./render.php",
   "supports": {
     "className": true
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap search form",
   "version": "0.0.1"
 }

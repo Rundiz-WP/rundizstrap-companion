@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar responsive wrapper block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @author Vee W.
  */
@@ -74,12 +74,12 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 {/* PanelBody provides the collapsible toggle */}
                 <PanelBody 
-                    title={__('Navbar responsive wrapper Settings', 'bbfse-plugin')} 
+                    title={__('Navbar responsive wrapper Settings', 'bbfse-plug')} 
                     initialOpen={ true }
                 >
                     {/* ToolsPanel provides the reset functionality */}
                     <ToolsPanel
-                        label={__('Navbar responsive wrapper', 'bbfse-plugin')}
+                        label={__('Navbar responsive wrapper', 'bbfse-plug')}
                         resetAll={() => setAttributes({
                             wrapperStyle: wrapperDefaultStyle,
                             dataAttributes: {},
@@ -89,17 +89,17 @@ export default function Edit({ attributes, setAttributes }) {
                     >
                         <div style={{color: 'rgb(117,117,117)', fontSize: '12px', gridColumn: '1 / -1', padding: '0px'}}>
                             <p>
-                                {__('Please note that the preview will not display with styles so that editing can work.', 'bbfse-plugin')}
+                                {__('Please note that the preview will not display with styles so that editing can work.', 'bbfse-plug')}
                             </p>
                         </div>
                         <ToolsPanelItem
                             hasValue={() => wrapperStyle !== wrapperDefaultStyle}
-                            label={__('Wrapper style', 'bbfse-plugin')}
+                            label={__('Wrapper style', 'bbfse-plug')}
                             onDeselect={() => setAttributes({ wrapperStyle: wrapperDefaultStyle })}
                             isShownByDefault
                         >
                             <SelectControl
-                                label={__('Wrapper style', 'bbfse-plugin')}
+                                label={__('Wrapper style', 'bbfse-plug')}
                                 value={wrapperStyle}
                                 options={[
                                     { label: 'collapse', value: 'collapse' },
@@ -110,24 +110,24 @@ export default function Edit({ attributes, setAttributes }) {
                         </ToolsPanelItem>
                         <ToolsPanelItem
                             hasValue={() => !isObjectEmpty(dataAttributes)}
-                            label={__('Data attributes', 'bbfse-plugin')}
+                            label={__('Data attributes', 'bbfse-plug')}
                             onDeselect={() => setAttributes({ dataAttributes: {} })}
                             isShownByDefault
                         >
                             <KeyValueControl
-                                label={__('Data attributes', 'bbfse-plugin') + ' '}
+                                label={__('Data attributes', 'bbfse-plug') + ' '}
                                 value={dataAttributes}
                                 onChange={(value) => setAttributes({ dataAttributes: value })}
                             />
                         </ToolsPanelItem>
                         <ToolsPanelItem
                             hasValue={() => !isObjectEmpty(ariaAttributes)}
-                            label={__('Aria attributes', 'bbfse-plugin')}
+                            label={__('Aria attributes', 'bbfse-plug')}
                             onDeselect={() => setAttributes({ ariaAttributes: {} })}
                             isShownByDefault
                         >
                             <KeyValueControl
-                                label={__('Aria attributes', 'bbfse-plugin') + ' '}
+                                label={__('Aria attributes', 'bbfse-plug') + ' '}
                                 value={ariaAttributes}
                                 onChange={(value) => setAttributes({ ariaAttributes: value })}
                             />
@@ -137,10 +137,10 @@ export default function Edit({ attributes, setAttributes }) {
                 {('offcanvas' === wrapperStyle) && (
                     <>
                         <PanelBody 
-                            title={__('Offcanvas Settings', 'bbfse-plugin')} 
+                            title={__('Offcanvas Settings', 'bbfse-plug')} 
                         >
                             <ToolsPanel
-                                label={__('Navbar responsive offcanvas', 'bbfse-plugin')}
+                                label={__('Navbar responsive offcanvas', 'bbfse-plug')}
                                 resetAll={() => setAttributes({
                                     offcanvasHeaderClassName: offcanvasHeaderDefaultClassName,
                                     offcanvasHeaderTitleIDName: offcanvasHeaderTitleDefaultIDName,
@@ -154,29 +154,29 @@ export default function Edit({ attributes, setAttributes }) {
                             >
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderClassName !== offcanvasHeaderDefaultClassName}
-                                    label={__('Offcanvas header Class', 'bbfse-plugin')}
+                                    label={__('Offcanvas header Class', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderClassName: offcanvasHeaderDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header Class', 'bbfse-plugin')}
+                                        label={__('Offcanvas header Class', 'bbfse-plug')}
                                         value={offcanvasHeaderClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderClassName: value })}
                                         help={sprintf(
                                             /* translators: %1$s the offcanvas default class name. */
-                                            __('Default is %1$s.', 'bbfse-plugin'),
+                                            __('Default is %1$s.', 'bbfse-plug'),
                                             offcanvasHeaderDefaultClassName
                                         )}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleIDName !== offcanvasHeaderTitleDefaultIDName}
-                                    label={__('Offcanvas header title ID', 'bbfse-plugin')}
+                                    label={__('Offcanvas header title ID', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleIDName: offcanvasHeaderTitleDefaultIDName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title ID', 'bbfse-plugin')}
+                                        label={__('Offcanvas header title ID', 'bbfse-plug')}
                                         value={offcanvasHeaderTitleIDName}
                                         onChange={(value) => {
                                             // Real-time sanitization on every keystroke
@@ -191,87 +191,87 @@ export default function Edit({ attributes, setAttributes }) {
 
                                             setAttributes({ offcanvasHeaderTitleIDName: sanitized });
                                         }}
-                                        help={__('HTML id attribute on offcanvas header title', 'bbfse-plugin')}
+                                        help={__('HTML id attribute on offcanvas header title', 'bbfse-plug')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleClassName !== offcanvasHeaderTitleDefaultClassName}
-                                    label={__('Offcanvas header title Class', 'bbfse-plugin')}
+                                    label={__('Offcanvas header title Class', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleClassName: offcanvasHeaderTitleDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title Class', 'bbfse-plugin')}
+                                        label={__('Offcanvas header title Class', 'bbfse-plug')}
                                         value={offcanvasHeaderTitleClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderTitleClassName: value })}
                                         help={sprintf(
-                                            __('Default is %1$s.', 'bbfse-plugin'),
+                                            __('Default is %1$s.', 'bbfse-plug'),
                                             offcanvasHeaderTitleDefaultClassName
                                         )}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleText !== offcanvasHeaderTitleDefaultText}
-                                    label={__('Offcanvas header title text', 'bbfse-plugin')}
+                                    label={__('Offcanvas header title text', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleText: offcanvasHeaderTitleDefaultText })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title text', 'bbfse-plugin')}
+                                        label={__('Offcanvas header title text', 'bbfse-plug')}
                                         value={offcanvasHeaderTitleText}
                                         onChange={(value) => setAttributes({ offcanvasHeaderTitleText: value })}
-                                        help={__('You can use text or HTML. This will be display inside offcanvas title.', 'bbfse-plugin')}
+                                        help={__('You can use text or HTML. This will be display inside offcanvas title.', 'bbfse-plug')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderCloseBtnClassName !== offcanvasHeaderCloseBtnDefaultClassName}
-                                    label={__('Close button additional Class', 'bbfse-plugin')}
+                                    label={__('Close button additional Class', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnClassName: offcanvasHeaderCloseBtnDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Close button additional Class', 'bbfse-plugin')}
+                                        label={__('Close button additional Class', 'bbfse-plug')}
                                         value={offcanvasHeaderCloseBtnClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnClassName: value })}
-                                        help={__('This will be additional class next to main close button class.', 'bbfse-plugin')}
+                                        help={__('This will be additional class next to main close button class.', 'bbfse-plug')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => !isObjectEmpty(offcanvasHeaderCloseBtnDataAttributes)}
-                                    label={__('Close button data attributes', 'bbfse-plugin')}
+                                    label={__('Close button data attributes', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: {} })}
                                     isShownByDefault
                                 >
                                     <KeyValueControl
-                                        label={__('Close button data attributes', 'bbfse-plugin') + ' '}
+                                        label={__('Close button data attributes', 'bbfse-plug') + ' '}
                                         value={offcanvasHeaderCloseBtnDataAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: value })}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => !isObjectEmpty(offcanvasHeaderCloseBtnAriaAttributes)}
-                                    label={__('Close button aria attributes', 'bbfse-plugin')}
+                                    label={__('Close button aria attributes', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: {} })}
                                     isShownByDefault
                                 >
                                     <KeyValueControl
-                                        label={__('Close button aria attributes', 'bbfse-plugin') + ' '}
+                                        label={__('Close button aria attributes', 'bbfse-plug') + ' '}
                                         value={offcanvasHeaderCloseBtnAriaAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: value })}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasBodyClassName !== offcanvasBodyDefaultClassName}
-                                    label={__('Offcanvas body Class', 'bbfse-plugin')}
+                                    label={__('Offcanvas body Class', 'bbfse-plug')}
                                     onDeselect={() => setAttributes({ offcanvasBodyClassName: offcanvasBodyDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas body Class', 'bbfse-plugin')}
+                                        label={__('Offcanvas body Class', 'bbfse-plug')}
                                         value={offcanvasBodyClassName}
                                         onChange={(value) => setAttributes({ offcanvasBodyClassName: value })}
                                         help={sprintf(
-                                            __('Default is %1$s.', 'bbfse-plugin'),
+                                            __('Default is %1$s.', 'bbfse-plug'),
                                             offcanvasBodyDefaultClassName
                                         )}
                                     />

@@ -1,7 +1,7 @@
 /**
  * Bootstrap comment form block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -27,7 +27,7 @@ export default function Edit({ attributes, setAttributes }) {
         <div {...useBlockProps({ className: 'comment-respond' })}>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Comment Form Settings', 'bbfse-plugin')}
+                    label={__('Comment Form Settings', 'bbfse-plug')}
                     resetAll={() => {
                         setAttributes({
                             buttonClassName: buttonClassDefault,
@@ -36,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => buttonClassName !== buttonClassDefault}
-                        label={__('Button class', 'bbfse-plugin')}
+                        label={__('Button class', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 buttonClassName: buttonClassDefault,
@@ -45,10 +45,10 @@ export default function Edit({ attributes, setAttributes }) {
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Button class', 'bbfse-plugin')}
+                            label={__('Button class', 'bbfse-plug')}
                             value={buttonClassName}
                             onChange={(value) => setAttributes({ buttonClassName: value })}
-                            help={__('Replace submit button class, e.g. btn btn-outline-primary', 'bbfse-plugin')}
+                            help={__('Replace submit button class, e.g. btn btn-outline-primary', 'bbfse-plug')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
@@ -56,18 +56,18 @@ export default function Edit({ attributes, setAttributes }) {
 
             <Disabled>
                 <h3 className="comment-reply-title">
-                    {__('Leave a Reply', 'bbfse-plugin')}
+                    {__('Leave a Reply', 'bbfse-plug')}
                 </h3>
                 <form className="comment-form mb-4">
                     <div className="mb-3">
                         <label className="form-label">
-                            {__('Comment', 'bbfse-plugin')}
+                            {__('Comment', 'bbfse-plug')}
                         </label>
                         <textarea className="form-control" rows="8"></textarea>
                     </div>
 
                     <p className="form-submit">
-                        <input className={submitButtonClass} type="submit" value={__('Post Comment', 'bbfse-plugin')} />
+                        <input className={submitButtonClass} type="submit" value={__('Post Comment', 'bbfse-plug')} />
                     </p>
                 </form>
             </Disabled>

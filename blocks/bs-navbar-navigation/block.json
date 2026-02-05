@@ -30,10 +30,10 @@
     "navigation",
     "menu"
   ],
-  "name": "bbfse-plugin/blocks-bs-navbar-navigation",
+  "name": "bbfse-plug/blocks-bs-navbar-navigation",
   "parent": [
-    "bbfse-plugin/blocks-bs-navbar-container",
-    "bbfse-plugin/blocks-bs-navbar-responsive-wrapper"
+    "bbfse-plug/blocks-bs-navbar-container",
+    "bbfse-plug/blocks-bs-navbar-responsive-wrapper"
   ],
   "render": "file:./render.php",
   "supports": {
@@ -41,7 +41,7 @@
     "className": true,
     "html": false
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap navbar navigation",
   "version": "0.0.1"
 }

@@ -2,14 +2,14 @@
 /**
  * The manual update for running new version of code.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Update\Manual;
+namespace BBFSEPlug\App\Update\Manual;
 
-if (!interface_exists('\\BBFSEPlugin\\App\\Update\\Manual\\ManualUpdateInterface')) {
+if (!interface_exists('\\BBFSEPlug\\App\\Update\\Manual\\ManualUpdateInterface')) {
     interface ManualUpdateInterface
     {
 

@@ -2,16 +2,16 @@
 /**
  * Bootstrap navbar navigation walker.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @license http://opensource.org/licenses/MIT MIT
  */
 
 
-namespace BBFSEPlugin\App\Libraries;
+namespace BBFSEPlug\App\Libraries;
 
 
-if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalker')) {
+if (!class_exists('\\BBFSEPlug\\App\\Libraries\\BootstrapNavbarNavigationWalker')) {
     /**
      * Build Bootstrap navbar navigation HTML from Navigation blocks.
      * 
@@ -117,7 +117,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
             $attrs = ($block['attrs'] ?? []);
             $label = ($attrs['label'] ?? '');
             if ('' === trim($label)) {
-                $label = __('Home', 'bbfse-plugin');
+                $label = __('Home', 'bbfse-plug');
             }
 
             $item = [
@@ -514,7 +514,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\BootstrapNavbarNavigationWalke
             $output = '';
 
             foreach ($items as $item) {
-                $label = (isset($item['label']) && '' !== trim($item['label']) ? $item['label'] : __('(Untitled)', 'bbfse-plugin'));
+                $label = (isset($item['label']) && '' !== trim($item['label']) ? $item['label'] : __('(Untitled)', 'bbfse-plug'));
                 $label = wp_kses_post($label);
 
                 $url = (isset($item['url']) && '' !== trim($item['url']) ? $item['url'] : '#');

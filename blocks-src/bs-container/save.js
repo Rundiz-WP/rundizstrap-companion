@@ -1,7 +1,7 @@
 /**
  * Bootstrap container block save component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @author Vee W.
  */

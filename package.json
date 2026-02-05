@@ -1,5 +1,5 @@
 {
-    "name": "bbfse-plugin",
+    "name": "bbfse-plug",
     "version": "0.0.1",
     "description": "The WordPress Blocks for Bootstrap Basic FSE theme based on latest Bootstrap.",
     "private": true,
@@ -8,7 +8,7 @@
         "build": "wpdev build",
         "buildBlocks": "wp-scripts build --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
         "langPot": "wp i18n make-pot . --exclude=\"assets/vendor,App/vendor,blocks-src,languages,node_modules,node_tasks,*.css,*.svg,*.eot,*.woff,*.woff2,*.ttf,*.txt,*.pot\"",
-        "langJson": "wp i18n make-json languages/bbfse-plugin-th.po --no-purge --pretty-print",
+        "langJson": "wp i18n make-json languages/bbfse-plug-th.po --no-purge --pretty-print",
         "watch": "wpdev watch",
         "watchBlocks": "wp-scripts start --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
         "pack": "wpdev pack --packtype=dev prod",
@@ -26,7 +26,7 @@
     "author": "Vee W.",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Rundiz-WP/bbfse-plugin/issues"
+        "url": "https://github.com/Rundiz-WP/bbfse-plug/issues"
     },
     "homepage": "",
     "dependencies": {

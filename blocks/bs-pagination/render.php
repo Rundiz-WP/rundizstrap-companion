@@ -2,7 +2,7 @@
 /**
  * Render contents for Bootstrap pagination block.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * 
  * @link https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/query-pagination-previous/index.php Source code has been copied from here.
@@ -13,12 +13,17 @@
  */
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 /* @var $attributes array Block attributes. */
 /* @var $content string Block default content. */
 /* @var $block \WP_Block Block instance. */
 
 
-if (!function_exists('bbfse_plugin_block_bsPagination_generateOutputHTML')) {
+if (!function_exists('bbfse_plug_block_bsPagination_generateOutputHTML')) {
     /**
      * Generate output HTML string.
      * 
@@ -29,7 +34,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_generateOutputHTML')) {
      * @param array $pageResult Rendered array of each page result.
      * @return string
      */
-    function bbfse_plugin_block_bsPagination_generateOutputHTML(array $attributes, string $content, \WP_Block $block, array $pageResult): string
+    function bbfse_plug_block_bsPagination_generateOutputHTML(array $attributes, string $content, \WP_Block $block, array $pageResult): string
     {
         // retrieve setting from block instance.
         $enhanced_pagination = isset($block->context['enhancedPagination']) && $block->context['enhancedPagination'];
@@ -84,11 +89,11 @@ if (!function_exists('bbfse_plugin_block_bsPagination_generateOutputHTML')) {
         $output .= '</ul>';
 
         return $output;
-    }// bbfse_plugin_block_bsPagination_generateOutputHTML
+    }// bbfse_plug_block_bsPagination_generateOutputHTML
 }// endif;
 
 
-if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
+if (!function_exists('bbfse_plug_block_bsPagination_renderPageNext')) {
     /**
      * Render pagination next page.
      * 
@@ -98,17 +103,17 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
      * @param \WP_Block $block Block instance.
      * @return array
      */
-    function bbfse_plugin_block_bsPagination_renderPageNext(array $attributes, string $content, \WP_Block $block): array
+    function bbfse_plug_block_bsPagination_renderPageNext(array $attributes, string $content, \WP_Block $block): array
     {
         $page_key = (isset($block->context['queryId']) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page');
         $enhanced_pagination = isset($block->context['enhancedPagination']) && $block->context['enhancedPagination'];
         $max_page = (isset($block->context['query']['pages']) ? (int) $block->context['query']['pages'] : 0);
         $page = (empty($_GET[$page_key]) ? 1 : (int) $_GET[$page_key]);// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        $wrapper_attributes = 'class="wp-block-bbfse-plugin-blocks-bs-pagination page-link"';
-        $default_label = __('Next »', 'bbfse-plugin');
+        $wrapper_attributes = 'class="wp-block-bbfse-plug-blocks-bs-pagination page-link"';
+        $default_label = __('Next »', 'bbfse-plug');
         $label_text = (isset($attributes['nextText']) && !empty($attributes['nextText']) ? wp_kses_post($attributes['nextText']) : $default_label);
         $label = $label_text;
-        $wrapper_attributes .= ' aria-label="' . __('Next', 'bbfse-plugin') . '"';
+        $wrapper_attributes .= ' aria-label="' . __('Next', 'bbfse-plug') . '"';
 
         /* @var $wp_query \WP_Query */
         global $wp_query;
@@ -136,7 +141,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
             remove_filter('next_posts_link_attributes', $filter_link_attributes);
             if ('' === $content || !is_scalar($content)) {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
                     $wrapper_attributes,
                     $label
                 );
@@ -147,14 +152,14 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
 
             if ($block_query && $block_max_pages !== $page) {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link" href="%1$s" %2$s>%3$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link" href="%1$s" %2$s>%3$s</a>',
                     esc_url(add_query_arg($page_key, $page + 1)),
                     $wrapper_attributes,
                     $label
                 );
             } else {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
                     $wrapper_attributes,
                     $label
                 );
@@ -167,7 +172,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
             if ($p->next_tag(
                 [
                     'tag_name' => 'a',
-                    'class_name' => 'wp-block-bbfse-plugin-blocks-bs-pagination',
+                    'class_name' => 'wp-block-bbfse-plug-blocks-bs-pagination',
                 ]
             )) {
                 $p->set_attribute('data-wp-key', 'query-pagination-next');
@@ -179,11 +184,11 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNext')) {
         }
 
         return [$content];
-    }// bbfse_plugin_block_bsPagination_renderPageNext
+    }// bbfse_plug_block_bsPagination_renderPageNext
 }// endif;
 
 
-if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNumbers')) {
+if (!function_exists('bbfse_plug_block_bsPagination_renderPageNumbers')) {
     /**
      * Render pagination numbers.
      * 
@@ -193,7 +198,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNumbers')) {
      * @param \WP_Block $block Block instance.
      * @return array
      */
-    function bbfse_plugin_block_bsPagination_renderPageNumbers(array $attributes, string $content, \WP_Block $block): array
+    function bbfse_plug_block_bsPagination_renderPageNumbers(array $attributes, string $content, \WP_Block $block): array
     {
         // setting pagination query values (not settings from admin page). ------------------------------------
         $page_key = (isset($block->context['queryId']) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page');
@@ -244,12 +249,12 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPageNumbers')) {
         $paginate_args['total'] = $total;
         // end setting pagination query values (not settings from admin page). --------------------------------
 
-        return BBFSEPlugin\App\Libraries\WPOverride\GeneralTemplate::paginate_links($paginate_args);
-    }// bbfse_plugin_block_bsPagination_render_pageNumbers
+        return BBFSEPlug\App\Libraries\WPOverride\GeneralTemplate::paginate_links($paginate_args);
+    }// bbfse_plug_block_bsPagination_render_pageNumbers
 }// endif;
 
 
-if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
+if (!function_exists('bbfse_plug_block_bsPagination_renderPagePrevious')) {
     /**
      * Render pagination previous page.
      * 
@@ -259,17 +264,17 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
      * @param \WP_Block $block Block instance.
      * @return array
      */
-    function bbfse_plugin_block_bsPagination_renderPagePrevious(array $attributes, string $content, \WP_Block $block): array
+    function bbfse_plug_block_bsPagination_renderPagePrevious(array $attributes, string $content, \WP_Block $block): array
     {
         $page_key = (isset($block->context['queryId']) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page');
         $enhanced_pagination = isset($block->context['enhancedPagination']) && $block->context['enhancedPagination'];
         $max_page = (isset($block->context['query']['pages']) ? (int) $block->context['query']['pages'] : 0);
         $page = (empty($_GET[$page_key]) ? 1 : (int) $_GET[$page_key]);// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-        $wrapper_attributes = 'class="wp-block-bbfse-plugin-blocks-bs-pagination  page-link"';
-        $default_label = __('« Previous', 'bbfse-plugin');
+        $wrapper_attributes = 'class="wp-block-bbfse-plug-blocks-bs-pagination  page-link"';
+        $default_label = __('« Previous', 'bbfse-plug');
         $label_text = (isset($attributes['previousText']) && !empty($attributes['previousText']) ? wp_kses_post($attributes['previousText']) : $default_label);
         $label = $label_text;
-        $wrapper_attributes .= ' aria-label="' . __('Previous', 'bbfse-plugin') . '"';
+        $wrapper_attributes .= ' aria-label="' . __('Previous', 'bbfse-plug') . '"';
 
         /* @var $wp_query \WP_Query */
         global $wp_query;
@@ -292,7 +297,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
             remove_filter('previous_posts_link_attributes', $filter_link_attributes);
             if ('' === $content || !is_scalar($content)) {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
                     $wrapper_attributes,
                     $label
                 );
@@ -305,14 +310,14 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
 
             if (1 < $page && $page <= $total) {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link" href="%1$s" %2$s>%3$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link" href="%1$s" %2$s>%3$s</a>',
                     esc_url(add_query_arg($page_key, $page - 1)),
                     $wrapper_attributes,
                     $label
                 );
             } else {
                 $content = sprintf(
-                    '<a class="wp-block-bbfse-plugin-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
+                    '<a class="wp-block-bbfse-plug-blocks-bs-pagination page-link disabled" %1$s>%2$s</a>',
                     $wrapper_attributes,
                     $label
                 );
@@ -324,7 +329,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
             if ($p->next_tag(
                 [
                     'tag_name' => 'a',
-                    'class_name' => 'wp-block-bbfse-plugin-blocks-bs-pagination',
+                    'class_name' => 'wp-block-bbfse-plug-blocks-bs-pagination',
                 ]
             )) {
                 $p->set_attribute('data-wp-key', 'query-pagination-previous');
@@ -336,7 +341,7 @@ if (!function_exists('bbfse_plugin_block_bsPagination_renderPagePrevious')) {
         }
 
         return [$content];
-    }// bbfse_plugin_block_bsPagination_renderPagePrevious
+    }// bbfse_plug_block_bsPagination_renderPagePrevious
 }// endif;
 
 
@@ -346,21 +351,21 @@ $pageResult = [];
 if (true === $showPreviousNext) {
     $pageResult = array_merge(
         $pageResult, 
-        bbfse_plugin_block_bsPagination_renderPagePrevious(($attributes ?? []), ($content ?? ''), $block)
+        bbfse_plug_block_bsPagination_renderPagePrevious(($attributes ?? []), ($content ?? ''), $block)
     );
 }// endif; $showPreviousNext previous page.
 
 if (isset($attributes['showPageNumbers']) && true === $attributes['showPageNumbers']) {
     $pageResult = array_merge(
         $pageResult, 
-        bbfse_plugin_block_bsPagination_renderPageNumbers(($attributes ?? []), ($content ?? ''), $block)
+        bbfse_plug_block_bsPagination_renderPageNumbers(($attributes ?? []), ($content ?? ''), $block)
     );
 }// endif; $showPageNumbers
 
 if (true === $showPreviousNext) {
     $pageResult = array_merge(
         $pageResult, 
-        bbfse_plugin_block_bsPagination_renderPageNext(($attributes ?? []), ($content ?? ''), $block)
+        bbfse_plug_block_bsPagination_renderPageNext(($attributes ?? []), ($content ?? ''), $block)
     );
 }// endif; $showPreviousNext next page.
 unset($showPreviousNext);
@@ -374,14 +379,14 @@ if (empty($pageResult)) {
 } else {
     // if page result is not empty.
     // starting to build pagination HTML.
-    $output = bbfse_plugin_block_bsPagination_generateOutputHTML(($attributes ?? []), ($content ?? ''), $block, $pageResult);
+    $output = bbfse_plug_block_bsPagination_generateOutputHTML(($attributes ?? []), ($content ?? ''), $block, $pageResult);
     unset($pageResult);
 
     // get wrapper attributes.
     $wrapper_attributes = get_block_wrapper_attributes();
 
     printf(
-        '<nav %1$s aria-label="' . esc_attr__('Pagination', 'bbfse-plugin') . '">%2$s</nav>',
+        '<nav %1$s aria-label="' . esc_attr__('Pagination', 'bbfse-plug') . '">%2$s</nav>',
         $wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         $output// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     );

@@ -33,16 +33,16 @@
     "navbar",
     "toggler"
   ],
-  "name": "bbfse-plugin/blocks-bs-navbar-toggler-button",
+  "name": "bbfse-plug/blocks-bs-navbar-toggler-button",
   "parent": [
-    "bbfse-plugin/blocks-bs-navbar-container"
+    "bbfse-plug/blocks-bs-navbar-container"
   ],
   "supports": {
     "html": false,
     "className": true,
     "anchor": true
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap Navbar Toggler Button",
   "version": "0.0.1"
 }

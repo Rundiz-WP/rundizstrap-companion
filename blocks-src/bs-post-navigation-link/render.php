@@ -2,13 +2,18 @@
 /**
  * Render contents for Bootstrap post navigation link block.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * 
  * @link https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src/post-navigation-link Source reference.
  * 
  * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
  */
+
+
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 
 /* @var $attributes array Block attributes. */
@@ -42,12 +47,12 @@ unset($attTaxonomy);
 $linkText = '';
 $label = (isset($attributes['label']) && is_string($attributes['label']) ? $attributes['label'] : '');
 $showTitle = (isset($attributes['showTitle']) && is_bool($attributes['showTitle']) ? $attributes['showTitle'] : false);
-$defaultLabel = ('next' === $attType ? _x('Next', 'label for next post link', 'bbfse-plugin') : _x('Previous', 'label for previous post link', 'bbfse-plugin'));
+$defaultLabel = ('next' === $attType ? _x('Next', 'label for next post link', 'bbfse-plug') : _x('Previous', 'label for previous post link', 'bbfse-plug'));
 
 if (true === $showTitle) {
     $postTitle = get_the_title($adjacentPost);
     if (!is_string($postTitle) || '' === trim($postTitle)) {
-        $postTitle = __('(no title)', 'bbfse-plugin');
+        $postTitle = __('(no title)', 'bbfse-plug');
     }
     $linkText .= esc_html($postTitle);
     unset($postTitle);
@@ -71,7 +76,7 @@ if ('' !== $appendTextHtml) {
 unset($appendTextHtml);
 
 $classes = [
-    'wp-block-bbfse-plugin-blocks-bs-post-navigation-link',
+    'wp-block-bbfse-plug-blocks-bs-post-navigation-link',
     'post-navigation-link-' . $attType,
 ];
 if (isset($attributes['className']) && is_string($attributes['className']) && '' !== trim($attributes['className'])) {

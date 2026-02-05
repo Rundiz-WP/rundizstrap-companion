@@ -2,35 +2,35 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
+"Project-Id-Version: Bootstrap Basic FSE plug 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plug\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T23:17:15+07:00\n"
+"POT-Creation-Date: 2026-02-06T00:18:44+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: bbfse-plugin\n"
+"X-Domain: bbfse-plug\n"
 
 #. Plugin Name of the plugin
-#: bbfse-plugin.php
-msgid "Bootstrap Basic FSE Plugin"
+#: bbfse-plug.php
+msgid "Bootstrap Basic FSE plug"
 msgstr ""
 
 #. Description of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid "A plugin that contain blocks for Bootstrap Basic FSE theme. All blocks based on Bootstrap CSS."
 msgstr ""
 
 #. Author of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid "Vee Winch"
 msgstr ""
 
 #. Author URI of the plugin
-#: bbfse-plugin.php
+#: bbfse-plug.php
 msgid "https://rundiz.com"
 msgstr ""
 
@@ -97,13 +97,13 @@ msgid "Dismiss"
 msgstr ""
 
 #: App/Controllers/Admin/Plugins/Upgrader.php:282
-#: blocks/bs-pagination/render.php:111
+#: blocks/bs-pagination/render.php:116
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next"
 msgstr ""
 
 #: App/Controllers/Admin/Settings.php:52
-#: App/Views/admin/settings_v.php:12
+#: App/Views/admin/settings_v.php:16
 msgid "Bootstrap Basic FSE Plugin settings"
 msgstr ""
 
@@ -136,167 +136,118 @@ msgid "Upload"
 msgstr ""
 
 #: App/Libraries/RundizSettings.php:736
-#: assets/js/blocks/shared/keyValueControl.js:86
-#: blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1
-#: blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1
 msgid "Remove"
 msgstr ""
 
-#: App/Views/admin/Plugins/Upgrader_v.php:12
+#: App/Views/admin/Plugins/Upgrader_v.php:15
 msgid "Manual update"
 msgstr ""
 
 #. translators: %d Number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:20
+#: App/Views/admin/Plugins/Upgrader_v.php:23
 #, php-format
 msgid "There are total %d actions for this manual update, please continue step by step."
 msgstr ""
 
 #. translators: %1$s The number of already run action, %2$d The number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:25
+#: App/Views/admin/Plugins/Upgrader_v.php:28
 #, php-format
 msgid "You are running %1$s of %2$d."
 msgstr ""
 
-#: App/Views/admin/Plugins/Upgrader_v.php:29
+#: App/Views/admin/Plugins/Upgrader_v.php:32
 msgid "Start"
 msgstr ""
 
-#: App/Views/admin/readsettings_v.php:10
-msgid "Example of how to access settings values in option db."
-msgstr ""
-
-#. translators: %s PHP code.
 #: App/Views/admin/readsettings_v.php:15
-#, php-format
-msgid "Call to %s"
+msgid "Example of how to access settings values in option db."
 msgstr ""
 
 #. translators: %s PHP code.
 #: App/Views/admin/readsettings_v.php:20
 #, php-format
+msgid "Call to %s"
+msgstr ""
+
+#. translators: %s PHP code.
+#: App/Views/admin/readsettings_v.php:25
+#, php-format
 msgid "Access this variable as global %s. This variable will be change, up to config in AppTrait."
 msgstr ""
 
-#: App/Views/admin/readsettings_v.php:23
+#: App/Views/admin/readsettings_v.php:28
 msgid "Now, you can use this variable to access its array key anywhere."
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:47
+#: blocks/bs-comment-form/render.php:52
 msgid "Name"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:51
+#: blocks/bs-comment-form/render.php:56
 msgid "Email"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:55
+#: blocks/bs-comment-form/render.php:60
 msgid "Website"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:65
+#: blocks/bs-comment-form/render.php:70
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:75
+#: blocks/bs-comment-form/render.php:80
 #: blocks/bs-comment-form/index.js:1
 msgid "Comment"
 msgstr ""
 
-#: blocks/bs-comment-form/render.php:82
+#: blocks/bs-comment-form/render.php:87
 msgid "Your email address will not be published."
 msgstr ""
 
-#: blocks/bs-navbar-navigation/render.php:47
-#: blocks/bs-navbar-navigation/render.php:60
+#: blocks/bs-navbar-navigation/render.php:52
+#: blocks/bs-navbar-navigation/render.php:65
 msgid "This navigation is empty."
 msgstr ""
 
-#: blocks/bs-pagination/render.php:108
+#: blocks/bs-pagination/render.php:113
 #: blocks/bs-pagination/index.js:1
 msgid "Next »"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:269
+#: blocks/bs-pagination/render.php:274
 #: blocks/bs-pagination/index.js:1
 msgid "« Previous"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:272
+#: blocks/bs-pagination/render.php:277
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Previous"
 msgstr ""
 
-#: blocks/bs-pagination/render.php:384
+#: blocks/bs-pagination/render.php:389
 msgid "Pagination"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:45
+#: blocks/bs-post-navigation-link/render.php:50
 msgctxt "label for next post link"
 msgid "Next"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:45
+#: blocks/bs-post-navigation-link/render.php:50
 msgctxt "label for previous post link"
 msgid "Previous"
 msgstr ""
 
-#: blocks/bs-post-navigation-link/render.php:50
+#: blocks/bs-post-navigation-link/render.php:55
 #: blocks/bs-navbar-navigation/index.js:1
 msgid "(no title)"
 msgstr ""
 
-#: blocks/bs-search/render.php:22
-#: blocks/bs-search/render.php:28
-#: blocks/bs-search/render.php:77
+#: blocks/bs-search/render.php:27
+#: blocks/bs-search/render.php:33
+#: blocks/bs-search/render.php:82
 #: blocks/bs-search/index.js:1
 msgid "Search"
-msgstr ""
-
-#: assets/js/blocks/shared/keyValueControl.js:71
-#: blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1
-#: blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1
-msgid "Key"
-msgstr ""
-
-#: assets/js/blocks/shared/keyValueControl.js:76
-#: blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1
-#: blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1
-msgid "Value"
-msgstr ""
-
-#: assets/js/blocks/shared/keyValueControl.js:91
-#: blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1
-#: blocks/bs-container/index.js:1
-#: blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1
-#: blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1
-#: blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1
-msgid "Add attribute"
 msgstr ""
 
 #: blocks/bs-button/index.js:1
@@ -407,6 +358,10 @@ msgstr ""
 #: blocks/bs-button/index.js:1
 msgctxt "Button type"
 msgid "Type"
+msgstr ""
+
+#: blocks/bs-button/index.js:1
+msgid "Value"
 msgstr ""
 
 #: blocks/bs-button/index.js:1

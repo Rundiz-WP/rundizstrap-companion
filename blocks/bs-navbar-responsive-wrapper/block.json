@@ -60,9 +60,9 @@
     "collapse",
     "offcanvas"
   ],
-  "name": "bbfse-plugin/blocks-bs-navbar-responsive-wrapper",
+  "name": "bbfse-plug/blocks-bs-navbar-responsive-wrapper",
   "parent": [
-    "bbfse-plugin/blocks-bs-navbar-container"
+    "bbfse-plug/blocks-bs-navbar-container"
   ],
   "supports": {
     "align": true,
@@ -70,7 +70,7 @@
     "html": false,
     "className": true
   },
-  "textdomain": "bbfse-plugin",
+  "textdomain": "bbfse-plug",
   "title": "Bootstrap navbar responsive wrapper",
   "version": "0.0.1"
 }

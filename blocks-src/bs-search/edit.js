@@ -1,7 +1,7 @@
 /**
  * Bootstrap search block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @author Vee W.
  */
@@ -85,10 +85,10 @@ export default function Edit({attributes, setAttributes}) {
             setAttributes({buttonClass: 'btn btn-primary'});
         }
         if (!attributes.label) {
-            setAttributes({label: __('Search', 'bbfse-plugin')});
+            setAttributes({label: __('Search', 'bbfse-plug')});
         }
         if (!attributes.buttonText) {
-            setAttributes({buttonText: __('Search', 'bbfse-plugin')});
+            setAttributes({buttonText: __('Search', 'bbfse-plug')});
         }
     }, [attributes, buttonClass, buttonText, forNavbar, showLabel, setAttributes]);
 
@@ -96,15 +96,15 @@ export default function Edit({attributes, setAttributes}) {
     const buttonRef = useRef();
     const buttonPositionControls = [
         {
-            label: __('Button outside', 'bbfse-plugin'),
+            label: __('Button outside', 'bbfse-plug'),
             value: 'button-outside',
         },
         {
-            label: __('Button group with input', 'bbfse-plugin'),
+            label: __('Button group with input', 'bbfse-plug'),
             value: 'button-group-input',
         },
         {
-            label: __('No button', 'bbfse-plugin'),
+            label: __('No button', 'bbfse-plug'),
             value: 'no-button',
         },
     ];
@@ -117,7 +117,7 @@ export default function Edit({attributes, setAttributes}) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plugin')}
+                    label={__('Settings', 'bbfse-plug')}
                     resetAll={() => {
                         setAttributes({
                             forNavbar: false,
@@ -129,7 +129,7 @@ export default function Edit({attributes, setAttributes}) {
                 >
                     <ToolsPanelItem
                         hasValue={() => forNavbar}
-                        label={__('For navbar', 'bbfse-plugin')}
+                        label={__('For navbar', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 forNavbar: false,
@@ -139,7 +139,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={forNavbar}
-                            label={__('For navbar', 'bbfse-plugin')}
+                            label={__('For navbar', 'bbfse-plug')}
                             onChange={ (value) =>
                                 setAttributes({
                                     forNavbar: value,
@@ -150,7 +150,7 @@ export default function Edit({attributes, setAttributes}) {
                     {!forNavbar && (
                         <ToolsPanelItem
                             hasValue={() => showLabel}
-                            label={__('Show label', 'bbfse-plugin')}
+                            label={__('Show label', 'bbfse-plug')}
                             onDeselect={() => {
                                 setAttributes({
                                     showLabel: false,
@@ -160,7 +160,7 @@ export default function Edit({attributes, setAttributes}) {
                         >
                             <ToggleControl
                                 checked={showLabel}
-                                label={__('Show label', 'bbfse-plugin')}
+                                label={__('Show label', 'bbfse-plug')}
                                 onChange={ (value) =>
                                     setAttributes({
                                         showLabel: value,
@@ -171,7 +171,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => buttonPosition !== buttonDefaultPosition}
-                        label={__('Button position', 'bbfse-plugin')}
+                        label={__('Button position', 'bbfse-plug')}
                         onDeselect={() => {
                             setAttributes({
                                 buttonPosition: buttonDefaultPosition,
@@ -182,7 +182,7 @@ export default function Edit({attributes, setAttributes}) {
                         <SelectControl
                             value={buttonPosition}
                             __next40pxDefaultSize
-                            label={__('Button position', 'bbfse-plugin')}
+                            label={__('Button position', 'bbfse-plug')}
                             onChange={(value) => {
                                 setAttributes({
                                     buttonPosition: value,
@@ -195,7 +195,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                                 hasValue={() => !buttonUseIconDefault}
-                                label={__('Button use icon', 'bbfse-plugin')}
+                                label={__('Button use icon', 'bbfse-plug')}
                                 onDeselect={() => {
                                     setAttributes({
                                         buttonUseIcon: buttonUseIconDefault,
@@ -205,7 +205,7 @@ export default function Edit({attributes, setAttributes}) {
                             >
                                 <ToggleControl
                                     checked={buttonUseIcon}
-                                    label={__('Button use icon', 'bbfse-plugin')}
+                                    label={__('Button use icon', 'bbfse-plug')}
                                     onChange={ (value) =>
                                         setAttributes({
                                             buttonUseIcon: value,
@@ -215,7 +215,7 @@ export default function Edit({attributes, setAttributes}) {
                             </ToolsPanelItem>
                             <ToolsPanelItem
                                 hasValue={() => buttonClass !== buttonDefaultClass}
-                                label={__('Button classes', 'bbfse-plugin')}
+                                label={__('Button classes', 'bbfse-plug')}
                                 onDeselect={() => {
                                     setAttributes({
                                         buttonClass: buttonDefaultClass,
@@ -224,7 +224,7 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Button classes', 'bbfse-plugin')}
+                                    label={__('Button classes', 'bbfse-plug')}
                                     value={buttonClass}
                                     onChange={
                                         (buttonClass) => setAttributes({buttonClass})
@@ -248,9 +248,9 @@ export default function Edit({attributes, setAttributes}) {
             <input
                 type="search"
                 className={(classNameValue)}
-                aria-label={__('Optional placeholder text', 'bbfse-plugin')}
+                aria-label={__('Optional placeholder text', 'bbfse-plug')}
                 placeholder={
-                    placeholderText ? undefined : __('Optional placeholder…', 'bbfse-plugin')
+                    placeholderText ? undefined : __('Optional placeholder…', 'bbfse-plug')
                 }
                 value={placeholderText}
                 onChange={(event) =>
@@ -281,7 +281,7 @@ export default function Edit({attributes, setAttributes}) {
                     <button
                         type="button"
                         className={buttonClasses}
-                        aria-label={__('Search', 'bbfse-plugin')}
+                        aria-label={__('Search', 'bbfse-plug')}
                     >
                         <i className="bi bi-search" aria-hidden="true"></i>
                     </button>
@@ -294,8 +294,8 @@ export default function Edit({attributes, setAttributes}) {
                 <RichText
                     identifier="buttonText"
                     className={buttonClasses}
-                    aria-label={__('Button text', 'bbfse-plugin')}
-                    placeholder={__('Add button text…', 'bbfse-plugin')}
+                    aria-label={__('Button text', 'bbfse-plug')}
+                    placeholder={__('Add button text…', 'bbfse-plug')}
                     withoutInteractiveFormatting
                     value={buttonTextValue}
                     onChange={(html) =>
@@ -320,8 +320,8 @@ export default function Edit({attributes, setAttributes}) {
                         <div class="col-12">
                             <RichText
                                 identifier="label"
-                                aria-label={__('Label text', 'bbfse-plugin')}
-                                placeholder={__('Add label…', 'bbfse-plugin')}
+                                aria-label={__('Label text', 'bbfse-plug')}
+                                placeholder={__('Add label…', 'bbfse-plug')}
                                 withoutInteractiveFormatting
                                 value={label}
                                 onChange={(html) => setAttributes({label: html})}

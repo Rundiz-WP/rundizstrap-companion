@@ -2,17 +2,17 @@
 /**
  * Rundiz Settings class.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Libraries;
+namespace BBFSEPlug\App\Libraries;
 
 /**
  * Rundiz Settings class for render pre-setup values. This will render tabs, form fields and content in each tabs.
  */
-if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\RundizSettings')) {
+if (!class_exists('\\BBFSEPlug\\App\\Libraries\\RundizSettings')) {
     /**
      * Rundiz Settings class.
      */
@@ -39,7 +39,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\RundizSettings')) {
                 wp_die('Settings configuration file was not set.');
             }
 
-            $loader = new \BBFSEPlugin\App\Libraries\Loader();
+            $loader = new \BBFSEPlug\App\Libraries\Loader();
             return $loader->loadConfig($setting_file);
         }// getConfigFile
 
@@ -732,8 +732,8 @@ if (!class_exists('\\BBFSEPlugin\\App\\Libraries\\RundizSettings')) {
                 }
                 $output .= '</div>' . "\n";
             }
-            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'bbfse-plugin') . '" data-input_target="' . $field_name . '">' . "\n";
-            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'bbfse-plugin') . '" data-input_target="' . $field_name . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'bbfse-plug') . '" data-input_target="' . $field_name . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'bbfse-plug') . '" data-input_target="' . $field_name . '">' . "\n";
 
             unset($field_name, $field_values, $preview_mode);
             return $output;

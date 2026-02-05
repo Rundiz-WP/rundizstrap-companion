@@ -2,20 +2,20 @@
 /**
  * Deactivate the plugin action.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
 
-namespace BBFSEPlugin\App\Controllers\Admin\Plugins;
+namespace BBFSEPlug\App\Controllers\Admin\Plugins;
 
-if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Deactivation')) {
+if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Deactivation')) {
     /**
      * Plugin deactivation hook class.
      * 
      * @since 0.0.1
      */
-    class Deactivation implements \BBFSEPlugin\App\Controllers\ControllerInterface
+    class Deactivation implements \BBFSEPlug\App\Controllers\ControllerInterface
     {
 
 
@@ -60,7 +60,7 @@ if (!class_exists('\\BBFSEPlugin\\App\\Controllers\\Admin\\Plugins\\Deactivation
         public function registerHooks()
         {
             // register deactivate hook
-            register_deactivation_hook(BBFSEPLUGIN_FILE, [$this, 'deactivate']);
+            register_deactivation_hook(BBFSEPLUG_FILE, [$this, 'deactivate']);
         }// registerHooks
 
 

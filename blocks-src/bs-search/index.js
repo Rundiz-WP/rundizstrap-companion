@@ -1,7 +1,7 @@
 /**
  * Bootstrap search block JS.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  * @author Vee W.
  */

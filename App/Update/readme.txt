@@ -22,9 +22,9 @@ The update class MUST have `run()` method to run the update code.
 Example:
 ```
 <?php
-namespace BBFSEPlugin\App\Update\Manual;
+namespace BBFSEPlug\App\Update\Manual;
 
-class V1Sub1 implements \BBFSEPlugin\App\Update\Manual\ManualUpdateInterface
+class V1Sub1 implements \BBFSEPlug\App\Update\Manual\ManualUpdateInterface
 {
 
 

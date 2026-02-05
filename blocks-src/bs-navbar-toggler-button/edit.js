@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar toggler button block edit component.
  * 
- * @package bbfse-plugin
+ * @package bbfse-plug
  * @since 0.0.1
  */
 
@@ -39,7 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Button Settings', 'bbfse-plugin')}
+                    label={__('Button Settings', 'bbfse-plug')}
                     resetAll={() => setAttributes({
                         dataAttributes: {},
                         ariaAttributes: {}
@@ -47,12 +47,12 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plugin')}
+                        label={__('Data attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plugin') + ' '}
+                            label={__('Data attributes', 'bbfse-plug') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
@@ -60,12 +60,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plugin')}
+                        label={__('Aria attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plugin') + ' '}
+                            label={__('Aria attributes', 'bbfse-plug') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -73,7 +73,7 @@ export default function Edit({ attributes, setAttributes }) {
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Icon Settings', 'bbfse-plugin')}
+                    label={__('Icon Settings', 'bbfse-plug')}
                     resetAll={() => setAttributes({
                         iconClassName: '',
                         iconDataAttributes: {},
@@ -82,26 +82,26 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => iconClassName !== ''}
-                        label={__('Icon Additional Class(es)', 'bbfse-plugin')}
+                        label={__('Icon Additional Class(es)', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ iconClassName: '' })}
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Icon Additional Class(es)', 'bbfse-plugin')}
+                            label={__('Icon Additional Class(es)', 'bbfse-plug')}
                             value={iconClassName}
                             onChange={(value) => setAttributes({ iconClassName: value })}
-                            help={__('Add additional classes to the icon span.', 'bbfse-plugin')}
+                            help={__('Add additional classes to the icon span.', 'bbfse-plug')}
                         />
                     </ToolsPanelItem>
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(iconDataAttributes)}
-                        label={__('Icon data attributes', 'bbfse-plugin')}
+                        label={__('Icon data attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ iconDataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Icon data attributes', 'bbfse-plugin') + ' '}
+                            label={__('Icon data attributes', 'bbfse-plug') + ' '}
                             value={iconDataAttributes}
                             onChange={(value) => setAttributes({ iconDataAttributes: value })}
                         />
@@ -109,12 +109,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(iconAriaAttributes)}
-                        label={__('Icon aria attributes', 'bbfse-plugin')}
+                        label={__('Icon aria attributes', 'bbfse-plug')}
                         onDeselect={() => setAttributes({ iconAriaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Icon aria attributes', 'bbfse-plugin') + ' '}
+                            label={__('Icon aria attributes', 'bbfse-plug') + ' '}
                             value={iconAriaAttributes}
                             onChange={(value) => setAttributes({ iconAriaAttributes: value })}
                         />
