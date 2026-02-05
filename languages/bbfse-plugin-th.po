@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plugin\n"
-"POT-Creation-Date: 2026-02-05T01:46:23+07:00\n"
-"PO-Revision-Date: 2026-02-05 01:46+0700\n"
+"POT-Creation-Date: 2026-02-05T14:29:58+07:00\n"
+"PO-Revision-Date: 2026-02-05 14:30+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -114,7 +114,7 @@ msgstr "ก่อนหน้า"
 msgid "(no title)"
 msgstr "(ไม่มีไตเติล)"
 
-#: blocks/bs-search/render.php:20 blocks/bs-search/render.php:25 blocks/bs-search/index.js:1
+#: blocks/bs-search/render.php:20 blocks/bs-search/render.php:26 blocks/bs-search/index.js:1
 msgid "Search"
 msgstr "ค้นหา"
 
@@ -638,6 +638,10 @@ msgstr "กลุ่มของปุ่มพร้อมช่องป้อ
 #: blocks/bs-search/index.js:1
 msgid "No button"
 msgstr "ไม่มีปุ่ม"
+
+#: blocks/bs-search/index.js:1
+msgid "For navbar"
+msgstr "สำหรับแถบนำทาง"
 
 #: blocks/bs-search/index.js:1
 msgid "Show label"
