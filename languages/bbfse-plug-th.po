@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plug\n"
-"POT-Creation-Date: 2026-02-06T00:52:02+07:00\n"
-"PO-Revision-Date: 2026-02-06 00:52+0700\n"
+"POT-Creation-Date: 2026-02-06T10:28:29+07:00\n"
+"PO-Revision-Date: 2026-02-06 10:29+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -38,43 +38,48 @@ msgstr ""
 msgid "https://rundiz.com"
 msgstr ""
 
-#: App/AppTrait.php:140
+#: App/AppTrait.php:141
 msgid "Settings configuration file was not set."
 msgstr "ไฟล์การกำหนดค่าการตั้งค่าไม่ได้ถูกตั้งค่าไว้."
 
+#: App/Controllers/Admin/Appearance/PluginHelp.php:37
+#: App/Views/admin/Appearance/pluginHelp_v.php:16
+msgid "BBFSE Plug help"
+msgstr "ความช่วยเหลือของ BBFSE Plug"
+
 #. translators: %s The DB version of this plugin.
-#: App/Controllers/Admin/Plugins.php:91
+#: App/Controllers/Admin/Plugins.php:92
 #, php-format
 msgid "DB version %s"
 msgstr "รุ่นฐานข้อมูล %s"
 
-#: App/Controllers/Admin/Plugins.php:95
+#: App/Controllers/Admin/Plugins.php:96
 msgid "Donate"
 msgstr "บริจาค"
 
 #. translators: %1$s Current WordPress version, %2$s Required WordPress version.
-#: App/Controllers/Admin/Plugins/Activation.php:41
+#: App/Controllers/Admin/Plugins/Activation.php:42
 #, php-format
 msgid "Your WordPress version does not meet the minimum requirement. (%1$s < %2$s)."
 msgstr "เวอร์ชัน WordPress ของคุณไม่ตรงความต้องการขั้นต่ำ (%1$s < %2$s)."
 
-#: App/Controllers/Admin/Plugins/Activation.php:51
+#: App/Controllers/Admin/Plugins/Activation.php:52
 msgid "Unable to network activate, please activate per site only."
 msgstr "ไม่สามารถเปิดใช้งานผ่านเครือข่ายได้, โปรดเปิดใช้งานทีละไซต์เท่านั้น."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:54
+#: App/Controllers/Admin/Plugins/Upgrader.php:56
 msgid "Please reload this page and try again."
 msgstr "โปรดรีเฟรชหน้านี้แล้วลองใหม่อีกครั้ง."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:82
+#: App/Controllers/Admin/Plugins/Upgrader.php:84
 msgid "An error has been occur, cannot continue manual update. Please contact plugin author."
 msgstr "เกิดข้อผิดพลาดขึ้น, ไม่สามารถดำเนินการอัปเดตด้วยตนเองต่อได้. โปรดติดต่อผู้พัฒนาปลั๊กอิน."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:99
+#: App/Controllers/Admin/Plugins/Upgrader.php:101
 msgid "Success, please click next to continue update."
 msgstr "สำเร็จแล้ว โปรดคลิกถัดไปเพื่อดำเนินการอัปเดตต่อ."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:102
+#: App/Controllers/Admin/Plugins/Upgrader.php:104
 msgid ""
 "All manual update completed successfully. This page will be no longer available until there is "
 "next manual update."
@@ -82,12 +87,12 @@ msgstr ""
 "การอัปเดตด้วยตนเองทั้งหมดเสร็จสมบูรณ์แล้ว. "
 "หน้าเว็บนี้จะไม่สามารถใช้งานได้อีกต่อไปจนกว่าจะมีการอัปเดตด้วยตนเองครั้งต่อไป."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:121
+#: App/Controllers/Admin/Plugins/Upgrader.php:123
 msgid "Unable to run update, there is no update classes to run."
 msgstr "ไม่สามารถดำเนินการอัปเดตได้, เนื่องจากไม่มีคลาสสำหรับการอัปเดตให้เรียกใช้."
 
 #. translators: %1$s Open link, %2$s Close link.
-#: App/Controllers/Admin/Plugins/Upgrader.php:171
+#: App/Controllers/Admin/Plugins/Upgrader.php:173
 #, php-format
 msgid ""
 "The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please "
@@ -96,34 +101,34 @@ msgstr ""
 "ปลั๊กอิน Bootstrap Basic FSE เพิ่งได้รับการอัปเกรดและจำเป็นต้องอัปเดตด้วยตนเอง. โปรดดำเนินการต่อที่ "
 "%1$sหน้าอัปเดตปลั๊กอิน%2$s."
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:214
+#: App/Controllers/Admin/Plugins/Upgrader.php:216
 msgid "Bootstrap Basic FSE Plugin update"
 msgstr "อัปเดตปลั๊กอิน Bootstrap Basic FSE"
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:280
+#: App/Controllers/Admin/Plugins/Upgrader.php:282
 msgid "Completed"
 msgstr "สำเร็จแล้ว"
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:281
+#: App/Controllers/Admin/Plugins/Upgrader.php:283
 msgid "Dismiss"
 msgstr "รับทราบ"
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:282 blocks/bs-pagination/render.php:116
+#: App/Controllers/Admin/Plugins/Upgrader.php:284 blocks/bs-pagination/render.php:116
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next"
 msgstr "ถัดไป"
 
-#: App/Controllers/Admin/Settings.php:52 App/Views/admin/settings_v.php:16
+#: App/Controllers/Admin/Settings.php:53 App/Views/admin/settings_v.php:16
 msgid "Bootstrap Basic FSE Plugin settings"
 msgstr "ตั้งค่าปลั๊กอิน Bootstrap Basic FSE"
 
 #. translators: %1$s Open link, %2$s Close link.
-#: App/Controllers/Admin/Settings.php:78
+#: App/Controllers/Admin/Settings.php:79
 #, php-format
 msgid "The manual update is required, please %1$supdate first%2$s."
 msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรด %1$supdate ก่อน%2$s."
 
-#: App/Controllers/Admin/Settings.php:86
+#: App/Controllers/Admin/Settings.php:87
 msgid "The manual update is required, please tell administrator to update first."
 msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรดแจ้งให้ผู้ดูแลระบบทำการอัปเดตก่อน."
 
@@ -136,22 +141,81 @@ msgid "(Untitled)"
 msgstr "(ไม่มีไตเติล)"
 
 #. translators: %s: Template path.
-#: App/Libraries/Loader.php:232
+#: App/Libraries/Loader.php:233
 #, php-format
 msgid "The views file was not found (%s)."
 msgstr "ไม่พบไฟล์ views (%s)."
 
-#: App/Libraries/RundizSettings.php:735
+#: App/Libraries/RundizSettings.php:733
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: App/Libraries/RundizSettings.php:736 assets/js/blocks/shared/keyValueControl.js:86
+#: App/Libraries/RundizSettings.php:734 assets/js/blocks/shared/keyValueControl.js:86
 #: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
 #: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
 #: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
 #: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
 msgid "Remove"
 msgstr "เอาออก"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:20
+msgid "Navbar"
+msgstr "แถบนำทาง"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:45
+msgid "The navbar consists of 4 parts."
+msgstr "แถบนำทางประกอบด้วย 4 ส่วน."
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:47
+msgid "Bootstrap navbar container"
+msgstr "คอนเทนเนอร์แถบนำทาง Bootstrap"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:48
+msgid "Bootstrap navbar toggler button"
+msgstr "ปุ่มสลับแถบนำทาง Bootstrap"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:49
+msgid "Bootstrap navbar responsive wrapper"
+msgstr "ตัวหุ้มแถบนำทาง Bootstrap ที่ตอบสนองต่อขนาดหน้าจอ"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:50
+msgid "Bootstrap navbar navigation"
+msgstr "การนำทางด้วยแถบนำทาง Bootstrap"
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:52
+msgid "Navbar brand"
+msgstr "แบรนด์ของแถบนำทาง"
+
+#. translators: %1$s navbar-brand class.
+#: App/Views/admin/Appearance/pluginHelp_v.php:56
+#, php-format
+msgid ""
+"To use %1$s, you can use WordPress core row block and add class %1$s to it. Then you can add "
+"site logo, site title into row."
+msgstr ""
+"ในการใช้ %1$s, คุณสามารถใช้บล็อกแถว (row) หลักของ WordPress และเพิ่มคลาส %1$s เข้าไป. "
+"จากนั้นคุณสามารถเพิ่มโลโก้เว็บไซต์และชื่อเว็บไซต์ลงในแถว (row) ได้."
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:60
+msgid "Navbar dropdown"
+msgstr "แถบนำทางแบบดรอปดาวน์"
+
+#. translators: %1$s dropdown divider class, %2$s Navigation.
+#: App/Views/admin/Appearance/pluginHelp_v.php:64
+#, php-format
+msgid "To use dropdown menu divider, add class %1$s to sub menu item in %2$s in the site editor."
+msgstr "ในการใช้ตัวแบ่งเมนูแบบดรอปดาวน์, ให้เพิ่มคลาส %1$s ให้กับรายการเมนูย่อยใน %2$s ในโปรแกรมแก้ไขไซต์."
+
+#: App/Views/admin/Appearance/pluginHelp_v.php:66 App/Views/admin/Appearance/pluginHelp_v.php:74
+#: blocks/bs-navbar-navigation/index.js:1
+msgid "Navigation"
+msgstr "การนำทาง"
+
+#. translators: %1$s dropdown header class, %2$s Navigation.
+#: App/Views/admin/Appearance/pluginHelp_v.php:72
+#, php-format
+msgid "To use dropdown menu header, add class %1$s to sub menu item in %2$s in the site editor."
+msgstr "ในการใช้ส่วนหัวเมนูแบบดรอปดาวน์, ให้เพิ่มคลาส %1$s ให้กับรายการเมนูย่อยใน %2$s ในโปรแกรมแก้ไขไซต์."
 
 #: App/Views/admin/Plugins/Upgrader_v.php:15
 msgid "Manual update"
@@ -485,10 +549,6 @@ msgstr "อัตโนมัติ: รายการแรกที่พบ"
 #: blocks/bs-navbar-navigation/index.js:1
 msgid "Navigation Settings"
 msgstr "การตั้งค่าการนำทาง"
-
-#: blocks/bs-navbar-navigation/index.js:1
-msgid "Navigation"
-msgstr "การนำทาง"
 
 #: blocks/bs-navbar-navigation/index.js:1
 msgid "Select a Navigation post or leave auto to use the first available."
@@ -1060,3 +1120,12 @@ msgstr "หา"
 msgctxt "block title"
 msgid "Bootstrap search form"
 msgstr "แบบฟอร์มค้นหา Bootstrap"
+
+#~ msgid "Bootstrap navbar container."
+#~ msgstr "คอนเทนเนอร์แถบนำทาง Bootstrap."
+
+#~ msgid "Bootstrap navbar responsive wrapper."
+#~ msgstr "ตัวหุ้มแถบนำทาง Bootstrap ที่ตอบสนองต่อขนาดหน้าจอ."
+
+#~ msgid "Bootstrap navbar navigation."
+#~ msgstr "การนำทางด้วยแถบนำทาง Bootstrap."
