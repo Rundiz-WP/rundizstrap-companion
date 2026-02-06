@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bootstrap Basic FSE Plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bbfse-plug\n"
-"POT-Creation-Date: 2026-02-06T23:20:37+07:00\n"
-"PO-Revision-Date: 2026-02-06 23:20+0700\n"
+"POT-Creation-Date: 2026-02-06T23:44:28+07:00\n"
+"PO-Revision-Date: 2026-02-06 23:46+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -41,6 +41,22 @@ msgstr ""
 #: App/AppTrait.php:141
 msgid "Settings configuration file was not set."
 msgstr "ไฟล์การกำหนดค่าการตั้งค่าไม่ได้ถูกตั้งค่าไว้."
+
+#: App/config/settings.php:22
+msgid "General"
+msgstr "ทั่วไป"
+
+#: App/config/settings.php:25
+msgid "If checked, these assets may be not enqueue if there is a hook altered its value."
+msgstr "หากเลือกตัวเลือกนี้, ไฟล์เหล่านี้อาจจะไม่ถูกเพิ่มเข้าไปในคิว ถ้ามีฮุกที่เปลี่ยนแปลงค่าของมัน."
+
+#: App/config/settings.php:30
+msgid "Enqueue Bootstrap CSS, JS, icons"
+msgstr "เพิ่ม CSS, JS และไอคอนของ Bootstrap ลงในคิว"
+
+#: App/config/settings.php:34
+msgid "Enqueue Bootstrap"
+msgstr "เพิ่มคิว Bootstrap"
 
 #: App/Controllers/Admin/Appearance/PluginHelp.php:37
 #: App/Views/admin/Appearance/pluginHelp_v.php:16
@@ -118,9 +134,9 @@ msgstr "รับทราบ"
 msgid "Next"
 msgstr "ถัดไป"
 
-#: App/Controllers/Admin/Settings.php:53 App/Views/admin/settings_v.php:16
-msgid "Bootstrap Basic FSE Plugin settings"
-msgstr "ตั้งค่าปลั๊กอิน Bootstrap Basic FSE"
+#: App/Controllers/Admin/Settings.php:53
+msgid "BBFSE Plug"
+msgstr "BBFSE Plug"
 
 #. translators: %1$s Open link, %2$s Close link.
 #: App/Controllers/Admin/Settings.php:79
@@ -275,6 +291,10 @@ msgstr "เข้าถึงตัวแปรนี้โดยใช้ globa
 #: App/Views/admin/readsettings_v.php:28
 msgid "Now, you can use this variable to access its array key anywhere."
 msgstr "ตอนนี้คุณสามารถใช้ตัวแปรนี้เพื่อเข้าถึงคีย์ของอาร์เรย์ได้ทุกที่."
+
+#: App/Views/admin/settings_v.php:16
+msgid "Bootstrap Basic FSE Plugin settings"
+msgstr "ตั้งค่าปลั๊กอิน Bootstrap Basic FSE"
 
 #: blocks/bs-comment-form/render.php:52
 msgid "Name"

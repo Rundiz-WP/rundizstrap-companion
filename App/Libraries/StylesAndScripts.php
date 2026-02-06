@@ -20,6 +20,9 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\StylesAndScripts')) {
     {
 
 
+        use \BBFSEPlug\App\AppTrait;
+
+
         /**
          * Enqueue admin styles and scripts.
          *
@@ -58,6 +61,13 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\StylesAndScripts')) {
          */
         public function enqueueStylesAndScripts()
         {
+            $this->getOptions();
+            global $bbfse_plug_optname;
+            if (isset($bbfse_plug_optname['bbfse_plug_enqueue_assets']) && '1' !== strval($bbfse_plug_optname['bbfse_plug_enqueue_assets'])) {
+                // if setting was set to not enqueue.
+                return;
+            }
+
             /**
              * Filter that this plugin should enqueue Bootstrap CSS, icons, JS or not.
              * 

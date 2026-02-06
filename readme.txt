@@ -44,7 +44,7 @@ I try to update to the latest version and currently it is Bootstrap 5.
 
 = I need help about how to use it? =
 
-If you have capability to edit theme, you can access help page under Appearance menu in admin page.
+If you have capability to edit theme option, you can access help page under Appearance menu in admin page.
 
 == Screenshots ==
 

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-06T23:20:37+07:00\n"
+"POT-Creation-Date: 2026-02-06T23:44:28+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bbfse-plug\n"
@@ -36,6 +36,22 @@ msgstr ""
 
 #: App/AppTrait.php:141
 msgid "Settings configuration file was not set."
+msgstr ""
+
+#: App/config/settings.php:22
+msgid "General"
+msgstr ""
+
+#: App/config/settings.php:25
+msgid "If checked, these assets may be not enqueue if there is a hook altered its value."
+msgstr ""
+
+#: App/config/settings.php:30
+msgid "Enqueue Bootstrap CSS, JS, icons"
+msgstr ""
+
+#: App/config/settings.php:34
+msgid "Enqueue Bootstrap"
 msgstr ""
 
 #: App/Controllers/Admin/Appearance/PluginHelp.php:37
@@ -108,8 +124,7 @@ msgid "Next"
 msgstr ""
 
 #: App/Controllers/Admin/Settings.php:53
-#: App/Views/admin/settings_v.php:16
-msgid "Bootstrap Basic FSE Plugin settings"
+msgid "BBFSE Plug"
 msgstr ""
 
 #. translators: %1$s Open link, %2$s Close link.
@@ -261,6 +276,10 @@ msgstr ""
 
 #: App/Views/admin/readsettings_v.php:28
 msgid "Now, you can use this variable to access its array key anywhere."
+msgstr ""
+
+#: App/Views/admin/settings_v.php:16
+msgid "Bootstrap Basic FSE Plugin settings"
 msgstr ""
 
 #: blocks/bs-comment-form/render.php:52

@@ -14,4 +14,27 @@ if (!defined('ABSPATH')) {
     exit();
 }
 
-return [];
+return [
+    'tab_style' => 'vertical',
+    'setting_tabs' => [
+        [
+            'icon' => 'bi bi-sliders',
+            'title' => __('General', 'bbfse-plug'),
+            'fields' => [
+                [
+                    'description' => __('If checked, these assets may be not enqueue if there is a hook altered its value.', 'bbfse-plug'),
+                    'options' => [
+                        [
+                            'default' => '1',
+                            'id' => 'bbfse_plug_enqueue_assets',
+                            'title' => __('Enqueue Bootstrap CSS, JS, icons', 'bbfse-plug'),
+                            'value' => '1',
+                        ],
+                    ],
+                    'title' => __('Enqueue Bootstrap', 'bbfse-plug'),
+                    'type' => 'checkbox',
+                ],
+            ],
+        ],// end general fields
+    ],
+];

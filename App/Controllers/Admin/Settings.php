@@ -50,7 +50,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
          */
         public function pluginSettingsMenu()
         {
-            $hook_suffix = add_options_page(__('Bootstrap Basic FSE Plugin settings', 'bbfse-plug'), __('Bootstrap Basic FSE Plugin settings', 'bbfse-plug'), 'manage_options', 'bbfse-plug-settings', [$this, 'pluginSettingsPage']);
+            $hook_suffix = add_options_page(__('BBFSE Plug', 'bbfse-plug'), __('BBFSE Plug', 'bbfse-plug'), 'manage_options', 'bbfse-plug-settings', [$this, 'pluginSettingsPage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -145,8 +145,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
          */
         public function registerHooks()
         {
-            // currently, there is no settings to use.
-            //add_action('admin_menu', [$this, 'pluginSettingsMenu']);
+            add_action('admin_menu', [$this, 'pluginSettingsMenu']);
         }// registerHooks
 
 
