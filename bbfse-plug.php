@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BBFSE plug
  * Plugin URI:
- * Description: A plugin that contain blocks for Bootstrap Basic FSE theme. All blocks based on Bootstrap CSS.
+ * Description: A plugin that contains blocks for the Bootstrap Basic FSE theme. All blocks are based on Bootstrap CSS.
  * Version: 0.0.1
  * Requires at least: 6.1
  * Requires PHP: 8.0

@@ -9,13 +9,13 @@ Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
-A plugin that contain blocks for Bootstrap Basic FSE theme. All blocks based on Bootstrap CSS.
+A plugin that contains blocks for the Bootstrap Basic FSE theme that help you customize your site in your style. All blocks are based on Bootstrap CSS.
 
 == Description ==
 
-A WordPress plugin that contain many blocks for build your Bootstrap Basic FSE theme or you can use with any Bootstrap 5 themes.
+A WordPress plugin that contains many blocks to build your Bootstrap Basic FSE theme, or you can use it with any Bootstrap 5 themes.
 
-You can manually set CSS class(es) by refer from Bootstrap document.
+You can manually set CSS class(es) by referring to the Bootstrap document.
 
 Supported custom HTML attributes like `data-*`, `aria-*` in most blocks.
 
@@ -39,17 +39,17 @@ Tested up to PHP 8.5.
 
 == Frequently Asked Questions ==
 
-= What version of Bootstrap you use? =
+= What version of Bootstrap do you use? =
 
-I try to update to the latest version and currently it is Bootstrap 5.
+I try to update to the latest version, and currently it is Bootstrap 5.
 
-= Does navbar work with WordPress navigation management? =
+= Does the navbar work with WordPress navigation management? =
 
-Yes, it's working with WordPress navigation management in site editor. But it does not supported all WordPress core blocks.
+Yes, it's working with WordPress navigation management in the Site Editor. But it does not support all WordPress core blocks.
 
-= I need more help about how to use it. =
+= I need more help with how to use it. =
 
-If you have capability to edit theme option, you can access help page under Appearance menu in admin page.
+If you have the capability to edit theme options, you can access the help page under the Appearance menu in the admin page.
 
 == Screenshots ==
 
@@ -61,7 +61,7 @@ If you have capability to edit theme option, you can access help page under Appe
 6. Pagination for list posts
 7. Navbar container
 8. Navbar toggler button
-9. Navbar responsive wrapper. (You can choose it as collapse, or offcanvas but additional HTML attributes may need depend on Bootstrap guideline.)
+9. Navbar responsive wrapper. (You can choose it as a collapse, or offcanvas, but additional HTML attributes may be needed depending on the Bootstrap guidelines.)
 10. Navbar navigation
 11. Button
 12. Comment form
