@@ -82,13 +82,13 @@
     },
     "icon": "button",
     "keywords": ["bootstrap", "button", "link"],
-    "name": "bbfse-plug/blocks-bs-button",
+    "name": "rundizstrap-companion/blocks-bs-button",
     "supports": {
         "html": false,
         "className": true,
         "anchor": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap button",
     "version": "0.0.1"
 }

@@ -2,7 +2,7 @@
 /**
  * Render contents for Bootstrap post navigation link block.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * 
  * @link https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src/post-navigation-link Source reference.
@@ -56,12 +56,12 @@ if (!function_exists('bbfse_plug_block_bsPostNavigationLink_render')) {
         $linkText = '';
         $label = (isset($attributes['label']) && is_string($attributes['label']) ? $attributes['label'] : '');
         $showTitle = (isset($attributes['showTitle']) && is_bool($attributes['showTitle']) ? $attributes['showTitle'] : false);
-        $defaultLabel = ('next' === $attType ? _x('Next', 'label for next post link', 'bbfse-plug') : _x('Previous', 'label for previous post link', 'bbfse-plug'));
+        $defaultLabel = ('next' === $attType ? _x('Next', 'label for next post link', 'rundizstrap-companion') : _x('Previous', 'label for previous post link', 'rundizstrap-companion'));
 
         if (true === $showTitle) {
             $postTitle = get_the_title($adjacentPost);
             if (!is_string($postTitle) || '' === trim($postTitle)) {
-                $postTitle = __('(no title)', 'bbfse-plug');
+                $postTitle = __('(no title)', 'rundizstrap-companion');
             }
             $linkText .= esc_html($postTitle);
             unset($postTitle);
@@ -85,7 +85,7 @@ if (!function_exists('bbfse_plug_block_bsPostNavigationLink_render')) {
         unset($appendTextHtml);
 
         $classes = [
-            'wp-block-bbfse-plug-blocks-bs-post-navigation-link',
+            'wp-block-rundizstrap-companion-blocks-bs-post-navigation-link',
             'post-navigation-link-' . $attType,
         ];
         if (isset($attributes['className']) && is_string($attributes['className']) && '' !== trim($attributes['className'])) {

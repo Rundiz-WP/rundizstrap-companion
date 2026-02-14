@@ -1,7 +1,7 @@
 /**
  * Bootstrap pagination block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -75,8 +75,8 @@ export default function Edit({attributes, setAttributes}) {
         alignment,
     } = attributes;
 
-    const paginationDefaultPreviousText = __('« Previous', 'bbfse-plug');
-    const paginationDefaultNextText = __('Next »', 'bbfse-plug');
+    const paginationDefaultPreviousText = __('« Previous', 'rundizstrap-companion');
+    const paginationDefaultNextText = __('Next »', 'rundizstrap-companion');
     const paginationDefaultNumberOfPages = 2;
 
     useEffect(() => {
@@ -90,15 +90,15 @@ export default function Edit({attributes, setAttributes}) {
 
     const alignmentOptions = [
         {
-            label: __('Default (Start)', 'bbfse-plug'),
+            label: __('Default (Start)', 'rundizstrap-companion'),
             value: '',
         },
         {
-            label: __('Center', 'bbfse-plug'),
+            label: __('Center', 'rundizstrap-companion'),
             value: 'justify-content-center',
         },
         {
-            label: __('End', 'bbfse-plug'),
+            label: __('End', 'rundizstrap-companion'),
             value: 'justify-content-end',
         },
     ];
@@ -107,7 +107,7 @@ export default function Edit({attributes, setAttributes}) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plug')}
+                    label={__('Settings', 'rundizstrap-companion')}
                     resetAll={() => {
                         setAttributes({
                             showPreviousNext: true,
@@ -122,7 +122,7 @@ export default function Edit({attributes, setAttributes}) {
                 >
                     <ToolsPanelItem
                         hasValue={() => !showPreviousNext}
-                        label={__('Show previous/next buttons', 'bbfse-plug')}
+                        label={__('Show previous/next buttons', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 showPreviousNext: true,
@@ -132,7 +132,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={showPreviousNext}
-                            label={__('Show previous/next buttons', 'bbfse-plug')}
+                            label={__('Show previous/next buttons', 'rundizstrap-companion')}
                             onChange={(value) =>
                                 setAttributes({
                                     showPreviousNext: value,
@@ -144,7 +144,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                                 hasValue={() => previousText !== paginationDefaultPreviousText}
-                                label={__('Previous button text', 'bbfse-plug')}
+                                label={__('Previous button text', 'rundizstrap-companion')}
                                 onDeselect={() => {
                                     setAttributes({
                                         previousText: paginationDefaultPreviousText,
@@ -153,8 +153,8 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Previous button text/HTML', 'bbfse-plug')}
-                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-left"></i>', 'bbfse-plug')}
+                                    label={__('Previous button text/HTML', 'rundizstrap-companion')}
+                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-left"></i>', 'rundizstrap-companion')}
                                     value={previousText}
                                     onChange={
                                         (previousText) => setAttributes({previousText})
@@ -163,7 +163,7 @@ export default function Edit({attributes, setAttributes}) {
                             </ToolsPanelItem>
                             <ToolsPanelItem
                                 hasValue={() => nextText !== paginationDefaultNextText}
-                                label={__('Next button text', 'bbfse-plug')}
+                                label={__('Next button text', 'rundizstrap-companion')}
                                 onDeselect={() => {
                                     setAttributes({
                                         nextText: paginationDefaultNextText,
@@ -172,8 +172,8 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Next button text/HTML', 'bbfse-plug')}
-                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-right"></i>', 'bbfse-plug')}
+                                    label={__('Next button text/HTML', 'rundizstrap-companion')}
+                                    help={__('You can use HTML for icons, e.g. <i class="bi bi-chevron-right"></i>', 'rundizstrap-companion')}
                                     value={nextText}
                                     onChange={
                                         (nextText) => setAttributes({nextText})
@@ -184,7 +184,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => !showPageNumbers}
-                        label={__('Show page numbers', 'bbfse-plug')}
+                        label={__('Show page numbers', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 showPageNumbers: true,
@@ -194,7 +194,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={showPageNumbers}
-                            label={__('Show page numbers', 'bbfse-plug')}
+                            label={__('Show page numbers', 'rundizstrap-companion')}
                             onChange={(value) =>
                                 setAttributes({
                                     showPageNumbers: value,
@@ -206,7 +206,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                             hasValue={() => numberOfPages !== paginationDefaultNumberOfPages}
-                            label={__('Number of adjacent pages', 'bbfse-plug')}
+                            label={__('Number of adjacent pages', 'rundizstrap-companion')}
                             onDeselect={() => {
                                 setAttributes({
                                     numberOfPages: paginationDefaultNumberOfPages,
@@ -215,8 +215,8 @@ export default function Edit({attributes, setAttributes}) {
                             isShownByDefault
                             >
                                 <RangeControl
-                                    label={__('Number of adjacent pages', 'bbfse-plug')}
-                                    help={__('Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible.', 'bbfse-plug')}
+                                    label={__('Number of adjacent pages', 'rundizstrap-companion')}
+                                    help={__('Specify how many links can appear before and after the current page number. Links to the first, current and last page are always visible.', 'rundizstrap-companion')}
                                     value={numberOfPages}
                                     onChange={(value) => setAttributes({numberOfPages: value})}
                                     min={0}
@@ -227,7 +227,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => '' !== alignment}
-                        label={__('Alignment', 'bbfse-plug')}
+                        label={__('Alignment', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 alignment: '',
@@ -238,7 +238,7 @@ export default function Edit({attributes, setAttributes}) {
                         <SelectControl
                             value={alignment}
                             __next40pxDefaultSize
-                            label={__('Alignment', 'bbfse-plug')}
+                            label={__('Alignment', 'rundizstrap-companion')}
                             onChange={(value) => {
                                 setAttributes({
                                     alignment: value,
@@ -249,7 +249,7 @@ export default function Edit({attributes, setAttributes}) {
                     </ToolsPanelItem>
                     <ToolsPanelItem
                         hasValue={() => '' !== additionalClass}
-                        label={__('Additional CSS class', 'bbfse-plug')}
+                        label={__('Additional CSS class', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 additionalClass: '',
@@ -258,8 +258,8 @@ export default function Edit({attributes, setAttributes}) {
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Additional CSS class', 'bbfse-plug')}
-                            help={__('Add extra CSS classes to the pagination container.', 'bbfse-plug')}
+                            label={__('Additional CSS class', 'rundizstrap-companion')}
+                            help={__('Add extra CSS classes to the pagination container.', 'rundizstrap-companion')}
                             value={additionalClass}
                             onChange={
                                 (additionalClass) => setAttributes({additionalClass})
@@ -329,7 +329,7 @@ export default function Edit({attributes, setAttributes}) {
         }
 
         return (
-            <nav aria-label={__('Page navigation preview', 'bbfse-plug')}>
+            <nav aria-label={__('Page navigation preview', 'rundizstrap-companion')}>
                 <ul className={paginationClasses}>
                     {pageItems}
                 </ul>

@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar container block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -48,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Navbar Settings', 'bbfse-plug')}
+                    label={__('Navbar Settings', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
                         tagName: 'nav',
                         dataAttributes: {},
@@ -57,12 +57,12 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => tagName !== 'nav'}
-                        label={__('Tag Name', 'bbfse-plug')}
+                        label={__('Tag Name', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ tagName: 'nav' })}
                         isShownByDefault
                     >
                         <SelectControl
-                            label={__('Tag Name', 'bbfse-plug')}
+                            label={__('Tag Name', 'rundizstrap-companion')}
                             value={tagName}
                             options={[
                                 { label: 'nav', value: 'nav' },
@@ -75,12 +75,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plug')}
+                        label={__('Data attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plug') + ' '}
+                            label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
@@ -88,12 +88,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plug')}
+                        label={__('Aria attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plug') + ' '}
+                            label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -101,7 +101,7 @@ export default function Edit({ attributes, setAttributes }) {
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Container Settings', 'bbfse-plug')}
+                    label={__('Container Settings', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
                         containerTagName: 'div',
                         containerClassName: 'container-fluid',
@@ -111,12 +111,12 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => containerTagName !== 'div'}
-                        label={__('Container Tag Name', 'bbfse-plug')}
+                        label={__('Container Tag Name', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ containerTagName: 'div' })}
                         isShownByDefault
                     >
                         <SelectControl
-                            label={__('Container Tag Name', 'bbfse-plug')}
+                            label={__('Container Tag Name', 'rundizstrap-companion')}
                             value={containerTagName}
                             options={[
                                 { label: 'div', value: 'div' },
@@ -128,26 +128,26 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => containerClassName !== 'container-fluid'}
-                        label={__('Container Class', 'bbfse-plug')}
+                        label={__('Container Class', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ containerClassName: 'container-fluid' })}
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Container Class', 'bbfse-plug')}
+                            label={__('Container Class', 'rundizstrap-companion')}
                             value={containerClassName}
                             onChange={(value) => setAttributes({ containerClassName: value })}
-                            help={__('Default is container-fluid. You can change to container, container-lg, etc.', 'bbfse-plug')}
+                            help={__('Default is container-fluid. You can change to container, container-lg, etc.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(containerDataAttributes)}
-                        label={__('Container data attributes', 'bbfse-plug')}
+                        label={__('Container data attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ containerDataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Container data attributes', 'bbfse-plug') + ' '}
+                            label={__('Container data attributes', 'rundizstrap-companion') + ' '}
                             value={containerDataAttributes}
                             onChange={(value) => setAttributes({ containerDataAttributes: value })}
                         />
@@ -155,12 +155,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(containerAriaAttributes)}
-                        label={__('Container aria attributes', 'bbfse-plug')}
+                        label={__('Container aria attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ containerAriaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Container aria attributes', 'bbfse-plug') + ' '}
+                            label={__('Container aria attributes', 'rundizstrap-companion') + ' '}
                             value={containerAriaAttributes}
                             onChange={(value) => setAttributes({ containerAriaAttributes: value })}
                         />

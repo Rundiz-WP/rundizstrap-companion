@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar responsive wrapper block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @author Vee W.
  */
@@ -74,12 +74,12 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 {/* PanelBody provides the collapsible toggle */}
                 <PanelBody 
-                    title={__('Navbar responsive wrapper Settings', 'bbfse-plug')} 
+                    title={__('Navbar responsive wrapper Settings', 'rundizstrap-companion')} 
                     initialOpen={ true }
                 >
                     {/* ToolsPanel provides the reset functionality */}
                     <ToolsPanel
-                        label={__('Navbar responsive wrapper', 'bbfse-plug')}
+                        label={__('Navbar responsive wrapper', 'rundizstrap-companion')}
                         resetAll={() => setAttributes({
                             wrapperStyle: wrapperDefaultStyle,
                             dataAttributes: {},
@@ -89,17 +89,17 @@ export default function Edit({ attributes, setAttributes }) {
                     >
                         <div style={{color: 'rgb(117,117,117)', fontSize: '12px', gridColumn: '1 / -1', padding: '0px'}}>
                             <p>
-                                {__('Please note that the preview will not display with styles so that editing can work.', 'bbfse-plug')}
+                                {__('Please note that the preview will not display with styles so that editing can work.', 'rundizstrap-companion')}
                             </p>
                         </div>
                         <ToolsPanelItem
                             hasValue={() => wrapperStyle !== wrapperDefaultStyle}
-                            label={__('Wrapper style', 'bbfse-plug')}
+                            label={__('Wrapper style', 'rundizstrap-companion')}
                             onDeselect={() => setAttributes({ wrapperStyle: wrapperDefaultStyle })}
                             isShownByDefault
                         >
                             <SelectControl
-                                label={__('Wrapper style', 'bbfse-plug')}
+                                label={__('Wrapper style', 'rundizstrap-companion')}
                                 value={wrapperStyle}
                                 options={[
                                     { label: 'collapse', value: 'collapse' },
@@ -110,24 +110,24 @@ export default function Edit({ attributes, setAttributes }) {
                         </ToolsPanelItem>
                         <ToolsPanelItem
                             hasValue={() => !isObjectEmpty(dataAttributes)}
-                            label={__('Data attributes', 'bbfse-plug')}
+                            label={__('Data attributes', 'rundizstrap-companion')}
                             onDeselect={() => setAttributes({ dataAttributes: {} })}
                             isShownByDefault
                         >
                             <KeyValueControl
-                                label={__('Data attributes', 'bbfse-plug') + ' '}
+                                label={__('Data attributes', 'rundizstrap-companion') + ' '}
                                 value={dataAttributes}
                                 onChange={(value) => setAttributes({ dataAttributes: value })}
                             />
                         </ToolsPanelItem>
                         <ToolsPanelItem
                             hasValue={() => !isObjectEmpty(ariaAttributes)}
-                            label={__('Aria attributes', 'bbfse-plug')}
+                            label={__('Aria attributes', 'rundizstrap-companion')}
                             onDeselect={() => setAttributes({ ariaAttributes: {} })}
                             isShownByDefault
                         >
                             <KeyValueControl
-                                label={__('Aria attributes', 'bbfse-plug') + ' '}
+                                label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                                 value={ariaAttributes}
                                 onChange={(value) => setAttributes({ ariaAttributes: value })}
                             />
@@ -137,10 +137,10 @@ export default function Edit({ attributes, setAttributes }) {
                 {('offcanvas' === wrapperStyle) && (
                     <>
                         <PanelBody 
-                            title={__('Offcanvas Settings', 'bbfse-plug')} 
+                            title={__('Offcanvas Settings', 'rundizstrap-companion')} 
                         >
                             <ToolsPanel
-                                label={__('Navbar responsive offcanvas', 'bbfse-plug')}
+                                label={__('Navbar responsive offcanvas', 'rundizstrap-companion')}
                                 resetAll={() => setAttributes({
                                     offcanvasHeaderClassName: offcanvasHeaderDefaultClassName,
                                     offcanvasHeaderTitleIDName: offcanvasHeaderTitleDefaultIDName,
@@ -154,29 +154,29 @@ export default function Edit({ attributes, setAttributes }) {
                             >
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderClassName !== offcanvasHeaderDefaultClassName}
-                                    label={__('Offcanvas header Class', 'bbfse-plug')}
+                                    label={__('Offcanvas header Class', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderClassName: offcanvasHeaderDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header Class', 'bbfse-plug')}
+                                        label={__('Offcanvas header Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderClassName: value })}
                                         help={sprintf(
                                             /* translators: %1$s the offcanvas default class name. */
-                                            __('Default is %1$s.', 'bbfse-plug'),
+                                            __('Default is %1$s.', 'rundizstrap-companion'),
                                             offcanvasHeaderDefaultClassName
                                         )}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleIDName !== offcanvasHeaderTitleDefaultIDName}
-                                    label={__('Offcanvas header title ID', 'bbfse-plug')}
+                                    label={__('Offcanvas header title ID', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleIDName: offcanvasHeaderTitleDefaultIDName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title ID', 'bbfse-plug')}
+                                        label={__('Offcanvas header title ID', 'rundizstrap-companion')}
                                         value={offcanvasHeaderTitleIDName}
                                         onChange={(value) => {
                                             // Real-time sanitization on every keystroke
@@ -191,87 +191,87 @@ export default function Edit({ attributes, setAttributes }) {
 
                                             setAttributes({ offcanvasHeaderTitleIDName: sanitized });
                                         }}
-                                        help={__('HTML id attribute on offcanvas header title', 'bbfse-plug')}
+                                        help={__('HTML id attribute on offcanvas header title', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleClassName !== offcanvasHeaderTitleDefaultClassName}
-                                    label={__('Offcanvas header title Class', 'bbfse-plug')}
+                                    label={__('Offcanvas header title Class', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleClassName: offcanvasHeaderTitleDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title Class', 'bbfse-plug')}
+                                        label={__('Offcanvas header title Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderTitleClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderTitleClassName: value })}
                                         help={sprintf(
-                                            __('Default is %1$s.', 'bbfse-plug'),
+                                            __('Default is %1$s.', 'rundizstrap-companion'),
                                             offcanvasHeaderTitleDefaultClassName
                                         )}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderTitleText !== offcanvasHeaderTitleDefaultText}
-                                    label={__('Offcanvas header title text', 'bbfse-plug')}
+                                    label={__('Offcanvas header title text', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderTitleText: offcanvasHeaderTitleDefaultText })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas header title text', 'bbfse-plug')}
+                                        label={__('Offcanvas header title text', 'rundizstrap-companion')}
                                         value={offcanvasHeaderTitleText}
                                         onChange={(value) => setAttributes({ offcanvasHeaderTitleText: value })}
-                                        help={__('You can use text or HTML. This will be display inside offcanvas title.', 'bbfse-plug')}
+                                        help={__('You can use text or HTML. This will be display inside offcanvas title.', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasHeaderCloseBtnClassName !== offcanvasHeaderCloseBtnDefaultClassName}
-                                    label={__('Close button additional Class', 'bbfse-plug')}
+                                    label={__('Close button additional Class', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnClassName: offcanvasHeaderCloseBtnDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Close button additional Class', 'bbfse-plug')}
+                                        label={__('Close button additional Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderCloseBtnClassName}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnClassName: value })}
-                                        help={__('This will be additional class next to main close button class.', 'bbfse-plug')}
+                                        help={__('This will be additional class next to main close button class.', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => !isObjectEmpty(offcanvasHeaderCloseBtnDataAttributes)}
-                                    label={__('Close button data attributes', 'bbfse-plug')}
+                                    label={__('Close button data attributes', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: {} })}
                                     isShownByDefault
                                 >
                                     <KeyValueControl
-                                        label={__('Close button data attributes', 'bbfse-plug') + ' '}
+                                        label={__('Close button data attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnDataAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: value })}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => !isObjectEmpty(offcanvasHeaderCloseBtnAriaAttributes)}
-                                    label={__('Close button aria attributes', 'bbfse-plug')}
+                                    label={__('Close button aria attributes', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: {} })}
                                     isShownByDefault
                                 >
                                     <KeyValueControl
-                                        label={__('Close button aria attributes', 'bbfse-plug') + ' '}
+                                        label={__('Close button aria attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnAriaAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: value })}
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
                                     hasValue={() => offcanvasBodyClassName !== offcanvasBodyDefaultClassName}
-                                    label={__('Offcanvas body Class', 'bbfse-plug')}
+                                    label={__('Offcanvas body Class', 'rundizstrap-companion')}
                                     onDeselect={() => setAttributes({ offcanvasBodyClassName: offcanvasBodyDefaultClassName })}
                                     isShownByDefault
                                 >
                                     <TextControl
-                                        label={__('Offcanvas body Class', 'bbfse-plug')}
+                                        label={__('Offcanvas body Class', 'rundizstrap-companion')}
                                         value={offcanvasBodyClassName}
                                         onChange={(value) => setAttributes({ offcanvasBodyClassName: value })}
                                         help={sprintf(
-                                            __('Default is %1$s.', 'bbfse-plug'),
+                                            __('Default is %1$s.', 'rundizstrap-companion'),
                                             offcanvasBodyDefaultClassName
                                         )}
                                     />

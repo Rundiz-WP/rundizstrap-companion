@@ -1,7 +1,7 @@
 /**
  * Bootstrap post navigation link block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -47,9 +47,9 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
 
     const isNext = type === 'next';
     const defaultRel = (isNext ? 'next' : 'prev');
-    const defaultLabel = (isNext ? __('Next', 'bbfse-plug') : __('Previous', 'bbfse-plug'));
+    const defaultLabel = (isNext ? __('Next', 'rundizstrap-companion') : __('Previous', 'rundizstrap-companion'));
     const isObjectEmpty = (obj) => Object.keys(obj || {}).length === 0;
-    const previewTitle = __('An example title', 'bbfse-plug');
+    const previewTitle = __('An example title', 'rundizstrap-companion');
 
     const taxonomies = useSelect(
         (select) => {
@@ -62,7 +62,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
     );
 
     const taxonomyOptions = [
-        { label: __('Unfiltered (default)', 'bbfse-plug'), value: '' },
+        { label: __('Unfiltered (default)', 'rundizstrap-companion'), value: '' },
         ...((taxonomies ?? [])
             .filter(({ visibility }) => !!visibility?.publicly_queryable)
             .map((item) => ({ label: item.name, value: item.slug }))),
@@ -81,7 +81,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plug')}
+                    label={__('Settings', 'rundizstrap-companion')}
                     resetAll={() => {
                         setAttributes({
                             showTitle: false,
@@ -91,49 +91,49 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     }}
                 >
                     <ToolsPanelItem
-                        label={__('Display the title as a link', 'bbfse-plug')}
+                        label={__('Display the title as a link', 'rundizstrap-companion')}
                         isShownByDefault
                         hasValue={() => !!showTitle}
                         onDeselect={() => setAttributes({ showTitle: false })}
                     >
                         <ToggleControl
                             __nextHasNoMarginBottom
-                            label={__('Display the title as a link', 'bbfse-plug')}
-                            help={__('This will be replace custom label.', 'bbfse-plug')}
+                            label={__('Display the title as a link', 'rundizstrap-companion')}
+                            help={__('This will be replace custom label.', 'rundizstrap-companion')}
                             checked={!!showTitle}
                             onChange={() => setAttributes({ showTitle: !showTitle })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Prepend text/HTML', 'bbfse-plug')}
+                        label={__('Prepend text/HTML', 'rundizstrap-companion')}
                         isShownByDefault
                         hasValue={() => prependTextHtml !== ''}
                         onDeselect={() => setAttributes({ prependTextHtml: '' })}
                     >
                         <TextControl
-                            label={__('Prepend text/HTML', 'bbfse-plug')}
+                            label={__('Prepend text/HTML', 'rundizstrap-companion')}
                             value={prependTextHtml}
                             onChange={(value) => setAttributes({ prependTextHtml: value })}
-                            help={__('Text or HTML to prepend before the link text.', 'bbfse-plug')}
+                            help={__('Text or HTML to prepend before the link text.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Append text/HTML', 'bbfse-plug')}
+                        label={__('Append text/HTML', 'rundizstrap-companion')}
                         isShownByDefault
                         hasValue={() => appendTextHtml !== ''}
                         onDeselect={() => setAttributes({ appendTextHtml: '' })}
                     >
                         <TextControl
-                            label={__('Append text/HTML', 'bbfse-plug')}
+                            label={__('Append text/HTML', 'rundizstrap-companion')}
                             value={appendTextHtml}
                             onChange={(value) => setAttributes({ appendTextHtml: value })}
-                            help={__('Text or HTML to append after the link text.', 'bbfse-plug')}
+                            help={__('Text or HTML to append after the link text.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Link Attributes', 'bbfse-plug')}
+                    label={__('Link Attributes', 'rundizstrap-companion')}
                     resetAll={() => {
                         setAttributes({
                             rel: '',
@@ -142,26 +142,26 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     }}
                 >
                     <ToolsPanelItem
-                        label={__('Rel', 'bbfse-plug')}
+                        label={__('Rel', 'rundizstrap-companion')}
                         isShownByDefault
                         hasValue={() => rel !== ''}
                         onDeselect={() => setAttributes({ rel: '' })}
                     >
                         <TextControl
-                            label={__('Rel', 'bbfse-plug')}
+                            label={__('Rel', 'rundizstrap-companion')}
                             value={rel}
                             onChange={(value) => setAttributes({ rel: value })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
-                        label={__('Tab index', 'bbfse-plug')}
+                        label={__('Tab index', 'rundizstrap-companion')}
                         isShownByDefault
                         hasValue={() => Number.isInteger(tabindex)}
                         onDeselect={() => setAttributes({ tabindex: undefined })}
                     >
                         <TextControl
                             type="number"
-                            label={__('Tab index', 'bbfse-plug')}
+                            label={__('Tab index', 'rundizstrap-companion')}
                             value={Number.isInteger(tabindex) ? tabindex : ''}
                             onChange={(value) => {
                                 if (value === '') {
@@ -179,7 +179,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 </ToolsPanel>
 
                 <ToolsPanel
-                    label={__('Data and Aria Attributes', 'bbfse-plug')}
+                    label={__('Data and Aria Attributes', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
                         dataAttributes: {},
                         ariaAttributes: {},
@@ -187,24 +187,24 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 >
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plug')}
+                        label={__('Data attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plug') + ' '}
+                            label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plug')}
+                        label={__('Aria attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plug') + ' '}
+                            label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -216,11 +216,11 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                 <SelectControl
                     __next40pxDefaultSize
                     __nextHasNoMarginBottom
-                    label={__('Filter by taxonomy', 'bbfse-plug')}
+                    label={__('Filter by taxonomy', 'rundizstrap-companion')}
                     value={taxonomy}
                     options={taxonomyOptions}
                     onChange={(value) => setAttributes({ taxonomy: value })}
-                    help={__('Only link to posts that have the same taxonomy terms as the current post. For example the same tags or categories.', 'bbfse-plug')}
+                    help={__('Only link to posts that have the same taxonomy terms as the current post. For example the same tags or categories.', 'rundizstrap-companion')}
                 />
             </InspectorControls>
 
@@ -234,7 +234,7 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
                     <RichText
                         tagName="span"
                         identifier="label"
-                        aria-label={(isNext ? __('Next post', 'bbfse-plug') : __('Previous post', 'bbfse-plug'))}
+                        aria-label={(isNext ? __('Next post', 'rundizstrap-companion') : __('Previous post', 'rundizstrap-companion'))}
                         placeholder={defaultLabel}
                         value={label}
                         withoutInteractiveFormatting

@@ -3,7 +3,7 @@
  * 
  * This block was created by Google Antigravity model Gemini 3 Pro.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

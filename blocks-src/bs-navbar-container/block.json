@@ -36,14 +36,14 @@
     "editorScript": "file:./index.js",
     "icon": "layout",
     "keywords": ["bootstrap", "navbar", "container"],
-    "name": "bbfse-plug/blocks-bs-navbar-container",
+    "name": "rundizstrap-companion/blocks-bs-navbar-container",
     "supports": {
         "align": true,
         "anchor": true,
         "html": false,
         "className": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap navbar container",
     "version": "0.0.1"
 }

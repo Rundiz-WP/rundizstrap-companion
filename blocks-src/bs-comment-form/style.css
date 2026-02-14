@@ -1,11 +1,11 @@
 /**
  * Bootstrap comment form block style.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
 
-.wp-block-bbfse-plug-blocks-bs-comment-form .comment-reply-title small {
+.wp-block-rundizstrap-companion-blocks-bs-comment-form .comment-reply-title small {
     margin-left: 12px;
 }

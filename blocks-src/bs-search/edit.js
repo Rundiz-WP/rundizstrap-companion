@@ -1,7 +1,7 @@
 /**
  * Bootstrap search block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @author Vee W.
  */
@@ -85,10 +85,10 @@ export default function Edit({attributes, setAttributes}) {
             setAttributes({buttonClass: 'btn btn-primary'});
         }
         if (!attributes.label) {
-            setAttributes({label: __('Search', 'bbfse-plug')});
+            setAttributes({label: __('Search', 'rundizstrap-companion')});
         }
         if (!attributes.buttonText) {
-            setAttributes({buttonText: __('Search', 'bbfse-plug')});
+            setAttributes({buttonText: __('Search', 'rundizstrap-companion')});
         }
     }, [attributes, buttonClass, buttonText, forNavbar, showLabel, setAttributes]);
 
@@ -96,15 +96,15 @@ export default function Edit({attributes, setAttributes}) {
     const buttonRef = useRef();
     const buttonPositionControls = [
         {
-            label: __('Button outside', 'bbfse-plug'),
+            label: __('Button outside', 'rundizstrap-companion'),
             value: 'button-outside',
         },
         {
-            label: __('Button group with input', 'bbfse-plug'),
+            label: __('Button group with input', 'rundizstrap-companion'),
             value: 'button-group-input',
         },
         {
-            label: __('No button', 'bbfse-plug'),
+            label: __('No button', 'rundizstrap-companion'),
             value: 'no-button',
         },
     ];
@@ -117,7 +117,7 @@ export default function Edit({attributes, setAttributes}) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Settings', 'bbfse-plug')}
+                    label={__('Settings', 'rundizstrap-companion')}
                     resetAll={() => {
                         setAttributes({
                             forNavbar: false,
@@ -129,7 +129,7 @@ export default function Edit({attributes, setAttributes}) {
                 >
                     <ToolsPanelItem
                         hasValue={() => forNavbar}
-                        label={__('For navbar', 'bbfse-plug')}
+                        label={__('For navbar', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 forNavbar: false,
@@ -139,7 +139,7 @@ export default function Edit({attributes, setAttributes}) {
                     >
                         <ToggleControl
                             checked={forNavbar}
-                            label={__('For navbar', 'bbfse-plug')}
+                            label={__('For navbar', 'rundizstrap-companion')}
                             onChange={ (value) =>
                                 setAttributes({
                                     forNavbar: value,
@@ -150,7 +150,7 @@ export default function Edit({attributes, setAttributes}) {
                     {!forNavbar && (
                         <ToolsPanelItem
                             hasValue={() => showLabel}
-                            label={__('Show label', 'bbfse-plug')}
+                            label={__('Show label', 'rundizstrap-companion')}
                             onDeselect={() => {
                                 setAttributes({
                                     showLabel: false,
@@ -160,7 +160,7 @@ export default function Edit({attributes, setAttributes}) {
                         >
                             <ToggleControl
                                 checked={showLabel}
-                                label={__('Show label', 'bbfse-plug')}
+                                label={__('Show label', 'rundizstrap-companion')}
                                 onChange={ (value) =>
                                     setAttributes({
                                         showLabel: value,
@@ -171,7 +171,7 @@ export default function Edit({attributes, setAttributes}) {
                     )}
                     <ToolsPanelItem
                         hasValue={() => buttonPosition !== buttonDefaultPosition}
-                        label={__('Button position', 'bbfse-plug')}
+                        label={__('Button position', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 buttonPosition: buttonDefaultPosition,
@@ -182,7 +182,7 @@ export default function Edit({attributes, setAttributes}) {
                         <SelectControl
                             value={buttonPosition}
                             __next40pxDefaultSize
-                            label={__('Button position', 'bbfse-plug')}
+                            label={__('Button position', 'rundizstrap-companion')}
                             onChange={(value) => {
                                 setAttributes({
                                     buttonPosition: value,
@@ -195,7 +195,7 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <ToolsPanelItem
                                 hasValue={() => !buttonUseIconDefault}
-                                label={__('Button use icon', 'bbfse-plug')}
+                                label={__('Button use icon', 'rundizstrap-companion')}
                                 onDeselect={() => {
                                     setAttributes({
                                         buttonUseIcon: buttonUseIconDefault,
@@ -205,7 +205,7 @@ export default function Edit({attributes, setAttributes}) {
                             >
                                 <ToggleControl
                                     checked={buttonUseIcon}
-                                    label={__('Button use icon', 'bbfse-plug')}
+                                    label={__('Button use icon', 'rundizstrap-companion')}
                                     onChange={ (value) =>
                                         setAttributes({
                                             buttonUseIcon: value,
@@ -215,7 +215,7 @@ export default function Edit({attributes, setAttributes}) {
                             </ToolsPanelItem>
                             <ToolsPanelItem
                                 hasValue={() => buttonClass !== buttonDefaultClass}
-                                label={__('Button classes', 'bbfse-plug')}
+                                label={__('Button classes', 'rundizstrap-companion')}
                                 onDeselect={() => {
                                     setAttributes({
                                         buttonClass: buttonDefaultClass,
@@ -224,7 +224,7 @@ export default function Edit({attributes, setAttributes}) {
                                 isShownByDefault
                             >
                                 <TextControl
-                                    label={__('Button classes', 'bbfse-plug')}
+                                    label={__('Button classes', 'rundizstrap-companion')}
                                     value={buttonClass}
                                     onChange={
                                         (buttonClass) => setAttributes({buttonClass})
@@ -248,9 +248,9 @@ export default function Edit({attributes, setAttributes}) {
             <input
                 type="search"
                 className={(classNameValue)}
-                aria-label={__('Optional placeholder text', 'bbfse-plug')}
+                aria-label={__('Optional placeholder text', 'rundizstrap-companion')}
                 placeholder={
-                    placeholderText ? undefined : __('Optional placeholder…', 'bbfse-plug')
+                    placeholderText ? undefined : __('Optional placeholder…', 'rundizstrap-companion')
                 }
                 value={placeholderText}
                 onChange={(event) =>
@@ -281,7 +281,7 @@ export default function Edit({attributes, setAttributes}) {
                     <button
                         type="button"
                         className={buttonClasses}
-                        aria-label={__('Search', 'bbfse-plug')}
+                        aria-label={__('Search', 'rundizstrap-companion')}
                     >
                         <i className="bi bi-search" aria-hidden="true"></i>
                     </button>
@@ -294,8 +294,8 @@ export default function Edit({attributes, setAttributes}) {
                 <RichText
                     identifier="buttonText"
                     className={buttonClasses}
-                    aria-label={__('Button text', 'bbfse-plug')}
-                    placeholder={__('Add button text…', 'bbfse-plug')}
+                    aria-label={__('Button text', 'rundizstrap-companion')}
+                    placeholder={__('Add button text…', 'rundizstrap-companion')}
                     withoutInteractiveFormatting
                     value={buttonTextValue}
                     onChange={(html) =>
@@ -320,8 +320,8 @@ export default function Edit({attributes, setAttributes}) {
                         <div class="col-12">
                             <RichText
                                 identifier="label"
-                                aria-label={__('Label text', 'bbfse-plug')}
-                                placeholder={__('Add label…', 'bbfse-plug')}
+                                aria-label={__('Label text', 'rundizstrap-companion')}
+                                placeholder={__('Add label…', 'rundizstrap-companion')}
                                 withoutInteractiveFormatting
                                 value={label}
                                 onChange={(html) => setAttributes({label: html})}

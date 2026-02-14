@@ -29,16 +29,16 @@
     "example": false,
     "icon": "menu",
     "keywords": ["bootstrap", "navbar", "toggler"],
-    "name": "bbfse-plug/blocks-bs-navbar-toggler-button",
+    "name": "rundizstrap-companion/blocks-bs-navbar-toggler-button",
     "parent": [
-        "bbfse-plug/blocks-bs-navbar-container"
+        "rundizstrap-companion/blocks-bs-navbar-container"
     ],
     "supports": {
         "html": false,
         "className": true,
         "anchor": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap Navbar Toggler Button",
     "version": "0.0.1"
 }

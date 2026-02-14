@@ -21,7 +21,7 @@
     "example": false,
     "icon": "layout",
     "keywords": ["bootstrap", "container", "layout", "wrapper"],
-    "name": "bbfse-plug/blocks-bs-container",
+    "name": "rundizstrap-companion/blocks-bs-container",
     "supports": {
         "anchor": true,
         "ariaLabel": true,
@@ -37,7 +37,7 @@
         "dimensions": false,
         "background": false
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap layout container",
     "version": "0.0.1"
 }

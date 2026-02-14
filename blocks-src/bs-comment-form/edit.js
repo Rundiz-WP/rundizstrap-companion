@@ -1,7 +1,7 @@
 /**
  * Bootstrap comment form block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -27,7 +27,7 @@ export default function Edit({ attributes, setAttributes }) {
         <div {...useBlockProps({ className: 'comment-respond' })}>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Comment Form Settings', 'bbfse-plug')}
+                    label={__('Comment Form Settings', 'rundizstrap-companion')}
                     resetAll={() => {
                         setAttributes({
                             buttonClassName: buttonClassDefault,
@@ -36,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => buttonClassName !== buttonClassDefault}
-                        label={__('Button class', 'bbfse-plug')}
+                        label={__('Button class', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
                                 buttonClassName: buttonClassDefault,
@@ -45,10 +45,10 @@ export default function Edit({ attributes, setAttributes }) {
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Button class', 'bbfse-plug')}
+                            label={__('Button class', 'rundizstrap-companion')}
                             value={buttonClassName}
                             onChange={(value) => setAttributes({ buttonClassName: value })}
-                            help={__('Replace submit button class, e.g. btn btn-outline-primary', 'bbfse-plug')}
+                            help={__('Replace submit button class, e.g. btn btn-outline-primary', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
@@ -56,18 +56,18 @@ export default function Edit({ attributes, setAttributes }) {
 
             <Disabled>
                 <h3 className="comment-reply-title">
-                    {__('Leave a Reply', 'bbfse-plug')}
+                    {__('Leave a Reply', 'rundizstrap-companion')}
                 </h3>
                 <form className="comment-form mb-4">
                     <div className="mb-3">
                         <label className="form-label">
-                            {__('Comment', 'bbfse-plug')}
+                            {__('Comment', 'rundizstrap-companion')}
                         </label>
                         <textarea className="form-control" rows="8"></textarea>
                     </div>
 
                     <p className="form-submit">
-                        <input className={submitButtonClass} type="submit" value={__('Post Comment', 'bbfse-plug')} />
+                        <input className={submitButtonClass} type="submit" value={__('Post Comment', 'rundizstrap-companion')} />
                     </p>
                 </form>
             </Disabled>

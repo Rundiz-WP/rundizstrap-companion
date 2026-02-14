@@ -2,7 +2,7 @@
 /**
  * Render contents for Bootstrap navbar navigation block.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * 
  * phpcs:disable Squiz.Commenting.BlockComment.NoNewLine
@@ -59,7 +59,7 @@ if (!function_exists('bbfse_plug_block_bsNavbarNavigation_render')) {
 
         if (!$navigationPost) {
             if ($isBlockEditor) {
-                $output .= esc_html__('This navigation is empty.', 'bbfse-plug');
+                $output .= esc_html__('This navigation is empty.', 'rundizstrap-companion');
             }
             unset($navigationPost);
             return $output;
@@ -72,7 +72,7 @@ if (!function_exists('bbfse_plug_block_bsNavbarNavigation_render')) {
 
         if (empty($items)) {
             if ($isBlockEditor) {
-                $output .= esc_html__('This navigation is empty.', 'bbfse-plug');
+                $output .= esc_html__('This navigation is empty.', 'rundizstrap-companion');
             }
             if (defined('WP_DEBUG') && WP_DEBUG === true) {
                 // if enabled debug.

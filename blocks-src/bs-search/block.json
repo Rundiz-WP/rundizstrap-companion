@@ -44,12 +44,12 @@
     },
     "icon": "search",
     "keywords": ["bootstrap", "find"],
-    "name": "bbfse-plug/blocks-bs-search",
+    "name": "rundizstrap-companion/blocks-bs-search",
     "render": "file:./render.php",
     "supports": {
         "className": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap search form",
     "version": "0.0.1"
 }

@@ -21,7 +21,7 @@
     "example": false,
     "icon": "layout",
     "keywords": ["bootstrap", "column", "layout", "wrapper"],
-    "name": "bbfse-plug/blocks-bs-column",
+    "name": "rundizstrap-companion/blocks-bs-column",
     "supports": {
         "anchor": true,
         "ariaLabel": true,
@@ -37,7 +37,7 @@
         "dimensions": false,
         "background": false
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap layout column",
     "version": "0.0.1"
 }

@@ -53,9 +53,9 @@
     "editorScript": "file:./index.js",
     "icon": "layout",
     "keywords": ["bootstrap", "navbar", "responsive", "wrapper", "collapse", "offcanvas"],
-    "name": "bbfse-plug/blocks-bs-navbar-responsive-wrapper",
+    "name": "rundizstrap-companion/blocks-bs-navbar-responsive-wrapper",
     "parent": [
-        "bbfse-plug/blocks-bs-navbar-container"
+        "rundizstrap-companion/blocks-bs-navbar-container"
     ],
     "supports": {
         "align": true,
@@ -63,7 +63,7 @@
         "html": false,
         "className": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap navbar responsive wrapper",
     "version": "0.0.1"
 }

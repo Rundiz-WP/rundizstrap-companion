@@ -40,13 +40,13 @@
     "example": false,
     "icon": "editor-code",
     "keywords": ["div", "custom div", "customizable", "wrapper", "element", "semantic", "layout"],
-    "name": "bbfse-plug/blocks-bbfse-plug-div",
+    "name": "rundizstrap-companion/blocks-rundizstrap-companion-div",
     "supports": {
         "html": false,
         "className": true,
         "anchor": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Customizable div",
     "version": "0.0.1"
 }

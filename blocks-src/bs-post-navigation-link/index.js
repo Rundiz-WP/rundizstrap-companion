@@ -1,7 +1,7 @@
 /**
  * Bootstrap post navigation link block JS.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -27,7 +27,7 @@ registerBlockType(metadata.name, {
         attributes: {
             className: 'btn btn-secondary',
             type: 'next',
-            label: __('Bootstrap Next Post', 'bbfse-plug'),
+            label: __('Bootstrap Next Post', 'rundizstrap-companion'),
         }
     },
 });

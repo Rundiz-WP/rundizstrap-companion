@@ -21,7 +21,7 @@
     "example": false,
     "icon": "layout",
     "keywords": ["bootstrap", "row", "layout", "wrapper"],
-    "name": "bbfse-plug/blocks-bs-row",
+    "name": "rundizstrap-companion/blocks-bs-row",
     "supports": {
         "anchor": true,
         "ariaLabel": true,
@@ -37,7 +37,7 @@
         "dimensions": false,
         "background": false
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap layout row",
     "version": "0.0.1"
 }

@@ -41,12 +41,12 @@
     },
     "icon": "leftright",
     "keywords": ["bootstrap", "pager", "pages", "pagination"],
-    "name": "bbfse-plug/blocks-bs-pagination",
+    "name": "rundizstrap-companion/blocks-bs-pagination",
     "render": "file:./render.php",
     "supports": {
         "className": true
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap pagination",
     "usesContext": ["queryId", "query", "enhancedPagination"],
     "version": "0.0.1"

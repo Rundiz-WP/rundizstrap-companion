@@ -1,7 +1,7 @@
 /**
  * Bootstrap comment form block JS.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @author ChatGPT 5.2 Codex
  */

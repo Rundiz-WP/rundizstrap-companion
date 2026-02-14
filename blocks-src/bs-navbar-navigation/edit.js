@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar navigation block edit component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -54,14 +54,14 @@ export default function Edit({ attributes, setAttributes }) {
 
     const navigationOptions = [
         {
-            label: __('Auto: first available', 'bbfse-plug'),
+            label: __('Auto: first available', 'rundizstrap-companion'),
             value: 0
         }
     ];
 
     if (Array.isArray(navigationPosts)) {
         navigationPosts.forEach((post) => {
-            const title = post?.title?.rendered ? decodeEntities(post.title.rendered) : __('(no title)', 'bbfse-plug');
+            const title = post?.title?.rendered ? decodeEntities(post.title.rendered) : __('(no title)', 'rundizstrap-companion');
             navigationOptions.push({
                 label: title,
                 value: post.id
@@ -79,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
         <>
             <InspectorControls>
                 <ToolsPanel
-                    label={__('Navigation Settings', 'bbfse-plug')}
+                    label={__('Navigation Settings', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
                         navigationRef: 0,
                         dataAttributes: {},
@@ -89,7 +89,7 @@ export default function Edit({ attributes, setAttributes }) {
                 >
                     <ToolsPanelItem
                         hasValue={() => navigationRef !== 0}
-                        label={__('Navigation', 'bbfse-plug')}
+                        label={__('Navigation', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ navigationRef: 0 })}
                         isShownByDefault
                     >
@@ -98,38 +98,38 @@ export default function Edit({ attributes, setAttributes }) {
                         )}
                         {navigationPosts !== null && (
                             <SelectControl
-                                label={__('Navigation', 'bbfse-plug')}
+                                label={__('Navigation', 'rundizstrap-companion')}
                                 value={navigationRef}
                                 options={navigationOptions}
                                 onChange={(value) => setAttributes({ navigationRef: parseInt(value, 10) || 0 })}
-                                help={__('Select a Navigation post or leave auto to use the first available.', 'bbfse-plug')}
+                                help={__('Select a Navigation post or leave auto to use the first available.', 'rundizstrap-companion')}
                             />
                         )}
                         <div>
                             <ExternalLink href={createNavigationUrl}>
-                                {__('Create a new navigation', 'bbfse-plug')}
+                                {__('Create a new navigation', 'rundizstrap-companion')}
                             </ExternalLink>
                         </div>
                         <div>
                             <ExternalLink href={manageNavigationUrl}>
-                                {__('Manage all navigations', 'bbfse-plug')}
+                                {__('Manage all navigations', 'rundizstrap-companion')}
                             </ExternalLink>
                         </div>
                         {Array.isArray(navigationPosts) && navigationPosts.length === 0 && (
                             <Notice status="warning" isDismissible={false}>
-                                {__('No Navigation posts found. Create one in the Site Editor > Navigation.', 'bbfse-plug')}
+                                {__('No Navigation posts found. Create one in the Site Editor > Navigation.', 'rundizstrap-companion')}
                             </Notice>
                         )}
                     </ToolsPanelItem>
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(dataAttributes)}
-                        label={__('Data attributes', 'bbfse-plug')}
+                        label={__('Data attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Data attributes', 'bbfse-plug') + ' '}
+                            label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
                         />
@@ -137,12 +137,12 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !isObjectEmpty(ariaAttributes)}
-                        label={__('Aria attributes', 'bbfse-plug')}
+                        label={__('Aria attributes', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
                         <KeyValueControl
-                            label={__('Aria attributes', 'bbfse-plug') + ' '}
+                            label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
                         />
@@ -150,15 +150,15 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <ToolsPanelItem
                         hasValue={() => !!dropdownClassName}
-                        label={__('Dropdown menu class', 'bbfse-plug')}
+                        label={__('Dropdown menu class', 'rundizstrap-companion')}
                         onDeselect={() => setAttributes({ dropdownClassName: '' })}
                         isShownByDefault
                     >
                         <TextControl
-                            label={__('Dropdown menu class', 'bbfse-plug')}
+                            label={__('Dropdown menu class', 'rundizstrap-companion')}
                             value={dropdownClassName}
                             onChange={(value) => setAttributes({ dropdownClassName: value })}
-                            help={__('Additional classes for dropdown menu. The base class `dropdown-menu` is always applied.', 'bbfse-plug')}
+                            help={__('Additional classes for dropdown menu. The base class `dropdown-menu` is always applied.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
@@ -168,7 +168,7 @@ export default function Edit({ attributes, setAttributes }) {
                 {Array.isArray(navigationPosts) && navigationPosts.length === 0 ? (
                     <div className="nav-item">
                         <span className="nav-link">
-                            {__('No Navigation posts found to preview.', 'bbfse-plug')}
+                            {__('No Navigation posts found to preview.', 'rundizstrap-companion')}
                         </span>
                     </div>
                 ) : (

@@ -1,7 +1,7 @@
 /**
  * Bootstrap navbar responsive wrapper block save component.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @author Vee W.
  */

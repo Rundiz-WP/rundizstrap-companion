@@ -25,10 +25,10 @@
     "example": {},
     "icon": "menu",
     "keywords": ["bootstrap", "navbar", "navigation", "menu"],
-    "name": "bbfse-plug/blocks-bs-navbar-navigation",
+    "name": "rundizstrap-companion/blocks-bs-navbar-navigation",
     "parent": [
-        "bbfse-plug/blocks-bs-navbar-container",
-        "bbfse-plug/blocks-bs-navbar-responsive-wrapper"
+        "rundizstrap-companion/blocks-bs-navbar-container",
+        "rundizstrap-companion/blocks-bs-navbar-responsive-wrapper"
     ],
     "render": "file:./render.php",
     "supports": {
@@ -36,7 +36,7 @@
         "className": true,
         "html": false
     },
-    "textdomain": "bbfse-plug",
+    "textdomain": "rundizstrap-companion",
     "title": "Bootstrap navbar navigation",
     "version": "0.0.1"
 }
