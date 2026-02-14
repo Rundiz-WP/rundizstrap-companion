@@ -72,11 +72,17 @@ If you have the capability to edit theme options, you can access the help page u
 
 == Changelog ==
 
+= 0.0.3 =
+2026-02-14
+
+* Renamed from BBFSE Plug -> rundizstrap-companion.
+
 = 0.0.1 =
 2026-02-06
 
 * The beginning.
-* Original source is at https://github.com/Rundiz-WP/bbfse-plug
+* Renamed from Bootstrap Basic FSE Plugin -> BBFSE Plug.
+* Original source is at https://github.com/Rundiz-WP/rundizstrap-companion
 
 == Upgrade Notice ==
 

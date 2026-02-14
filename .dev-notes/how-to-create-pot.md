@@ -9,6 +9,6 @@ Convert to JSON to make block i18n supported.
 * Translate text and save into .po (+.mo)
 * Run this command:
     ```
-    wp i18n make-json languages/bbfse-plug-th.po --no-purge --pretty-print
+    wp i18n make-json languages/rundizstrap-companion-th.po --no-purge --pretty-print
     ```
     Or via comment `npm run langJson`

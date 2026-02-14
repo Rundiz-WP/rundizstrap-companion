@@ -95,7 +95,7 @@
         <properties>
             <!-- Value: replace the text domain used. -->
             <property name="text_domain" type="array">
-                <element value="bbfse-plug" />
+                <element value="rundizstrap-companion" />
             </property>
         </properties>
         <!--exclude name="WordPress.WP.I18n.MissingArgDomain"></exclude--><!-- comment out this line if you want to use `__('WordPress core translation text')`, or `esc_html('Text')` -->
