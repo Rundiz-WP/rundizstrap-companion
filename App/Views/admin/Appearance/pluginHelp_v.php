@@ -28,17 +28,17 @@ if (!defined('ABSPATH')) {
              *              where key is unique name (use alpha-numeric, dash, underscore only) 
              *              and value is tab name.
              */
-            $bbfsePluginAdditionalTabs = apply_filters('bbfse_plug_help_tabpane', []);
-            if (is_array($bbfsePluginAdditionalTabs) || is_iterable($bbfsePluginAdditionalTabs)) {
-                foreach ($bbfsePluginAdditionalTabs as $bbfsePlugKey => $bbfsePlugValue) {
+            $rundizstrapCompanionAdditionalTabs = apply_filters('bbfse_plug_help_tabpane', []);
+            if (is_array($rundizstrapCompanionAdditionalTabs) || is_iterable($rundizstrapCompanionAdditionalTabs)) {
+                foreach ($rundizstrapCompanionAdditionalTabs as $rundizstrapCompanionKey => $rundizstrapCompanionValue) {
                     echo '<li>';
-                    echo '<a href="#' . sanitize_html_class($bbfsePlugKey) . '">';
-                    echo '<span class="tab-text">' . esc_html($bbfsePlugValue) . '</span>';
+                    echo '<a href="#' . sanitize_html_class($rundizstrapCompanionKey) . '">';
+                    echo '<span class="tab-text">' . esc_html($rundizstrapCompanionValue) . '</span>';
                     echo '</a>';
                     echo '</li>' . PHP_EOL;
                 }// endforeach;
-                unset($bbfsePlugKey, $bbfsePlugValue);
-            }// endif; $bbfsePluginAdditionalTabs
+                unset($rundizstrapCompanionKey, $rundizstrapCompanionValue);
+            }// endif; $rundizstrapCompanionAdditionalTabs
             ?> 
         </ul>
         <div class="tab-content">
@@ -87,9 +87,9 @@ if (!defined('ABSPATH')) {
                 ?></p>
             </div><!-- #tabs-01 -->
             <?php
-            if (is_array($bbfsePluginAdditionalTabs) || is_iterable($bbfsePluginAdditionalTabs)) {
-                foreach ($bbfsePluginAdditionalTabs as $bbfsePlugKey => $bbfsePlugValue) {
-                    echo '<div id="' . sanitize_html_class($bbfsePlugKey) . '">' . PHP_EOL;
+            if (is_array($rundizstrapCompanionAdditionalTabs) || is_iterable($rundizstrapCompanionAdditionalTabs)) {
+                foreach ($rundizstrapCompanionAdditionalTabs as $rundizstrapCompanionKey => $rundizstrapCompanionValue) {
+                    echo '<div id="' . sanitize_html_class($rundizstrapCompanionKey) . '">' . PHP_EOL;
                     /**
                      * Display help tab content in the "BBFSE Plug" plugin help page.
                      * 
@@ -98,13 +98,13 @@ if (!defined('ABSPATH')) {
                      * 
                      * @since 0.0.1
                      */
-                    do_action('bbfse_plug_help_tabcontent_' . $bbfsePlugKey);
+                    do_action('bbfse_plug_help_tabcontent_' . $rundizstrapCompanionKey);
                     echo PHP_EOL;
                     echo '</div>' . PHP_EOL;
                 }// endforeach;
-                unset($bbfsePlugKey, $bbfsePlugValue);
-            }// endif; $bbfsePluginAdditionalTabs
-            unset($bbfsePluginAdditionalTabs);
+                unset($rundizstrapCompanionKey, $rundizstrapCompanionValue);
+            }// endif; $rundizstrapCompanionAdditionalTabs
+            unset($rundizstrapCompanionAdditionalTabs);
             ?> 
         </div><!-- .tab-content -->
     </div><!-- .rd-settings-tabs -->

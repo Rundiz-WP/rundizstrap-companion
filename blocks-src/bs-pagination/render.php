@@ -346,49 +346,49 @@ if (!function_exists('bbfse_plug_block_bsPagination_renderPagePrevious')) {
 
 
 // call to create pagination result in array format. -------------------------------------------------------------
-$bbfsePlugShowPreviousNext = (isset($attributes['showPreviousNext']) && is_bool($attributes['showPreviousNext']) ? $attributes['showPreviousNext'] : true);
-$bbfsePlugPageResult = [];
-if (true === $bbfsePlugShowPreviousNext) {
-    $bbfsePlugPageResult = array_merge(
-        $bbfsePlugPageResult, 
+$rundizstrapCompanionShowPreviousNext = (isset($attributes['showPreviousNext']) && is_bool($attributes['showPreviousNext']) ? $attributes['showPreviousNext'] : true);
+$rundizstrapCompanionPageResult = [];
+if (true === $rundizstrapCompanionShowPreviousNext) {
+    $rundizstrapCompanionPageResult = array_merge(
+        $rundizstrapCompanionPageResult, 
         bbfse_plug_block_bsPagination_renderPagePrevious(($attributes ?? []), ($content ?? ''), $block)
     );
-}// endif; $bbfsePlugShowPreviousNext previous page.
+}// endif; $rundizstrapCompanionShowPreviousNext previous page.
 
 if (isset($attributes['showPageNumbers']) && true === $attributes['showPageNumbers']) {
-    $bbfsePlugPageResult = array_merge(
-        $bbfsePlugPageResult, 
+    $rundizstrapCompanionPageResult = array_merge(
+        $rundizstrapCompanionPageResult, 
         bbfse_plug_block_bsPagination_renderPageNumbers(($attributes ?? []), ($content ?? ''), $block)
     );
 }// endif; $showPageNumbers
 
-if (true === $bbfsePlugShowPreviousNext) {
-    $bbfsePlugPageResult = array_merge(
-        $bbfsePlugPageResult, 
+if (true === $rundizstrapCompanionShowPreviousNext) {
+    $rundizstrapCompanionPageResult = array_merge(
+        $rundizstrapCompanionPageResult, 
         bbfse_plug_block_bsPagination_renderPageNext(($attributes ?? []), ($content ?? ''), $block)
     );
-}// endif; $bbfsePlugShowPreviousNext next page.
-unset($bbfsePlugShowPreviousNext);
+}// endif; $rundizstrapCompanionShowPreviousNext next page.
+unset($rundizstrapCompanionShowPreviousNext);
 // end call to create pagination result in array format. --------------------------------------------------------
 
-if (empty($bbfsePlugPageResult)) {
+if (empty($rundizstrapCompanionPageResult)) {
     // if page result is empty.
     // do nothing here.
-    unset($bbfsePlugPageResult);
+    unset($rundizstrapCompanionPageResult);
     return;
 } else {
     // if page result is not empty.
     // starting to build pagination HTML.
-    $bbfsePlugOutput = bbfse_plug_block_bsPagination_generateOutputHTML(($attributes ?? []), ($content ?? ''), $block, $bbfsePlugPageResult);
-    unset($bbfsePlugPageResult);
+    $rundizstrapCompanionOutput = bbfse_plug_block_bsPagination_generateOutputHTML(($attributes ?? []), ($content ?? ''), $block, $rundizstrapCompanionPageResult);
+    unset($rundizstrapCompanionPageResult);
 
     // get wrapper attributes.
-    $bbfsePlug_wrapper_attributes = get_block_wrapper_attributes();
+    $rundizstrapCompanion_wrapper_attributes = get_block_wrapper_attributes();
 
     printf(
         '<nav %1$s aria-label="' . esc_attr__('Pagination', 'rundizstrap-companion') . '">%2$s</nav>',
-        $bbfsePlug_wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        $bbfsePlugOutput// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        $rundizstrapCompanion_wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        $rundizstrapCompanionOutput// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     );
-    unset($bbfsePlugOutput, $bbfsePlug_wrapper_attributes);
+    unset($rundizstrapCompanionOutput, $rundizstrapCompanion_wrapper_attributes);
 }

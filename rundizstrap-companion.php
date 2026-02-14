@@ -30,13 +30,13 @@ if (!defined('BBFSEPLUG_FILE')) {
 
 if (!defined('BBFSEPLUG_VERSION')) {
     // if not defined constant version.
-    $bbfsePlugData = (function_exists('get_file_data') ? get_file_data(__FILE__, ['Version' => 'Version']) : null);
-    $bbfsePlugVersion = (isset($bbfsePlugData['Version']) ? $bbfsePlugData['Version'] : date('Ym')); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
-    unset($bbfsePlugData);
+    $rundizstrapCompanionData = (function_exists('get_file_data') ? get_file_data(__FILE__, ['Version' => 'Version']) : null);
+    $rundizstrapCompanionVersion = (isset($rundizstrapCompanionData['Version']) ? $rundizstrapCompanionData['Version'] : date('Ym')); // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+    unset($rundizstrapCompanionData);
 
-    define('BBFSEPLUG_VERSION', $bbfsePlugVersion);
+    define('BBFSEPLUG_VERSION', $rundizstrapCompanionVersion);
 
-    unset($bbfsePlugVersion);
+    unset($rundizstrapCompanionVersion);
 }
 
 
@@ -45,6 +45,6 @@ require_once 'App/vendor/autoload.php';
 
 
 // initialize plugin app main class.
-$bbfsePlugApp = new \BBFSEPlug\App\App();
-$bbfsePlugApp->run();
-unset($bbfsePlugApp);
+$rundizstrapCompanionApp = new \BBFSEPlug\App\App();
+$rundizstrapCompanionApp->run();
+unset($rundizstrapCompanionApp);

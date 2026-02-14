@@ -32,15 +32,15 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Appearance\\PluginHelp'
          *
          * @since 0.0.1
          */
-        public function bbfsePlugHelpMenu()
+        public function setupHelpMenu()
         {
-            $hook_suffix = add_theme_page(__('BBFSE Plug help', 'rundizstrap-companion'), __('BBFSE Plug help', 'rundizstrap-companion'), 'edit_theme_options', 'rundizstrap-companion-help', [$this, 'bbfsePlugHelpPage']);
+            $hook_suffix = add_theme_page(__('BBFSE Plug help', 'rundizstrap-companion'), __('BBFSE Plug help', 'rundizstrap-companion'), 'edit_theme_options', 'rundizstrap-companion-help', [$this, 'displayHelpPage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
             }
             unset($hook_suffix);
-        }// bbfsePlugHelpMenu
+        }// setupHelpMenu
 
 
         /**
@@ -48,12 +48,12 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Appearance\\PluginHelp'
          *
          * @since 0.0.1
          */
-        public function bbfsePlugHelpPage()
+        public function displayHelpPage()
         {
             $Loader = new \BBFSEPlug\App\Libraries\Loader();
             $Loader->loadView('admin/Appearance/pluginHelp_v');
             unset($Loader);
-        }// bbfsePlugHelpPage
+        }// displayHelpPage
 
 
         /**
@@ -92,7 +92,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Appearance\\PluginHelp'
          */
         public function registerHooks()
         {
-            add_action('admin_menu', [$this, 'bbfsePlugHelpMenu']);
+            add_action('admin_menu', [$this, 'setupHelpMenu']);
         }// registerHooks
 
 
