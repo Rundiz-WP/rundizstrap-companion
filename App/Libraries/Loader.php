@@ -2,7 +2,7 @@
 /**
  * Loader class. This class will load anything for example: views, template, configuration file.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -230,7 +230,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\Loader')) {
                 throw new \Exception(
                     sprintf(
                         // translators: %s: Template path.
-                        esc_html(__('The views file was not found (%s).', 'bbfse-plug')), 
+                        esc_html(__('The views file was not found (%s).', 'rundizstrap-companion')), 
                         str_replace(['\\', '/'], '/', $templateFile)// phpcs:ignore WordPress.Security.EscapeOutput
                     )
                 );

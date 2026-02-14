@@ -2,7 +2,7 @@
 /**
  * Rundiz Settings class.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -730,8 +730,8 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\RundizSettings')) {
                 }
                 $output .= '</div>' . "\n";
             }
-            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'bbfse-plug') . '" data-input_target="' . $field_name . '">' . "\n";
-            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'bbfse-plug') . '" data-input_target="' . $field_name . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'rundizstrap-companion') . '" data-input_target="' . $field_name . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'rundizstrap-companion') . '" data-input_target="' . $field_name . '">' . "\n";
 
             unset($field_name, $field_values, $preview_mode);
             return $output;

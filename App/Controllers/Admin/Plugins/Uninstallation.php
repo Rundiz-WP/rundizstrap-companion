@@ -2,7 +2,7 @@
 /**
  * Uninstall or delete the plugin.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

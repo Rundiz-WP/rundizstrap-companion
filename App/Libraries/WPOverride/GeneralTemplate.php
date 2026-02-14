@@ -2,7 +2,7 @@
 /**
  * Override WordPress core **wp-includes/general-template.php**.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @license http://opensource.org/licenses/MIT MIT
  * 

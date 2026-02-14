@@ -2,7 +2,7 @@
 /**
  * The manual update for running new version of code.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

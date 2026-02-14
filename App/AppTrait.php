@@ -2,7 +2,7 @@
 /**
  * Main app trait for common works.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -138,7 +138,7 @@ if (!trait_exists('\\BBFSEPlug\\App\\AppTrait')) {
             } else {
                 // if there is no config value about config file.
                 wp_die(
-                    esc_html(__('Settings configuration file was not set.', 'bbfse-plug'))
+                    esc_html(__('Settings configuration file was not set.', 'rundizstrap-companion'))
                 );
                 exit;
             }

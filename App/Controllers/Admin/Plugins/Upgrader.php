@@ -2,7 +2,7 @@
 /**
  * Upgrade or update the plugin action.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -39,7 +39,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
         {
             if (!current_user_can('update_plugins')) {
                 wp_die(
-                    esc_html(__('You do not have permission to access this page.', 'bbfse-plug')), 
+                    esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')), 
                     '', 
                     ['response' => 403]
                 );
@@ -53,7 +53,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                 if (check_ajax_referer('bbfse_plug_nonce', 'security', false) === false) {
                     status_header(403);
                     wp_die(
-                        esc_html(__('Please reload this page and try again.', 'bbfse-plug')), 
+                        esc_html(__('Please reload this page and try again.', 'rundizstrap-companion')), 
                         '', 
                         ['response' => 403]
                     );
@@ -81,7 +81,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                             if (is_array($lastError) && array_key_exists('message', $lastError) && is_scalar($lastError['message'])) {
                                 $errorMessage = $lastError['message'];
                             } else {
-                                $errorMessage = __('An error has been occur, cannot continue manual update. Please contact plugin author.', 'bbfse-plug');
+                                $errorMessage = __('An error has been occur, cannot continue manual update. Please contact plugin author.', 'rundizstrap-companion');
                             }
                         }
                         unset($lastError);
@@ -98,10 +98,10 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                         $output['formResultClass'] = 'notice-success';
                         if (array_key_exists(($updateKey + 1), $manualUpdateClasses)) {
                             $output['nextRunKey'] = ($updateKey + 1);
-                            $output['formResultMsg'] = __('Success, please click next to continue update.', 'bbfse-plug');
+                            $output['formResultMsg'] = __('Success, please click next to continue update.', 'rundizstrap-companion');
                         } else {
                             $output['nextRunKey'] = 'end';
-                            $output['formResultMsg'] = __('All manual update completed successfully. This page will be no longer available until there is next manual update.', 'bbfse-plug');
+                            $output['formResultMsg'] = __('All manual update completed successfully. This page will be no longer available until there is next manual update.', 'rundizstrap-companion');
 
                             $currentConfig = $this->getOptions();
                             $currentConfig['rdsfw_manual_update_version'] = $maxManualUpdateVersion;
@@ -120,7 +120,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                 } else {
                     status_header(501);
                     $output['formResultClass'] = 'notice-error';
-                    $output['formResultMsg'] = __('Unable to run update, there is no update classes to run.', 'bbfse-plug');
+                    $output['formResultMsg'] = __('Unable to run update, there is no update classes to run.', 'rundizstrap-companion');
                 }
 
                 unset($manualUpdateClasses, $maxManualUpdateVersion, $updateKey);
@@ -165,13 +165,13 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                     // -------------------------------------------------------------------------------------
                     // display link to manual update page.
                     // phpcs:ignore WordPress.Security.NonceVerification
-                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && 'bbfse-plug-manual-update' !== $_REQUEST['page'])) {
+                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && 'rundizstrap-companion-manual-update' !== $_REQUEST['page'])) {
                         $manualUpdateNotice = '<div class="notice notice-warning is-dismissible">
                             <p>' .
                                 sprintf(
                                     // translators: %1$s Open link, %2$s Close link.
-                                    __('The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'bbfse-plug'),
-                                    '<a href="' . esc_attr(network_admin_url('index.php?page=bbfse-plug-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
+                                    __('The Bootstrap Basic FSE Plugin is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'rundizstrap-companion'),
+                                    '<a href="' . esc_attr(network_admin_url('index.php?page=rundizstrap-companion-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
                                     '</a>'
                                 ) .
                             '</p>
@@ -213,7 +213,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
          */
         public function displayManualUpdateMenu()
         {
-            $hook_suffix = add_dashboard_page(__('Bootstrap Basic FSE Plugin update', 'bbfse-plug'), __('Bootstrap Basic FSE Plugin update', 'bbfse-plug'), 'update_plugins', 'bbfse-plug-manual-update', [$this, 'displayManualUpdatePage']);
+            $hook_suffix = add_dashboard_page(__('Bootstrap Basic FSE Plugin update', 'rundizstrap-companion'), __('Bootstrap Basic FSE Plugin update', 'rundizstrap-companion'), 'update_plugins', 'rundizstrap-companion-manual-update', [$this, 'displayManualUpdatePage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -230,7 +230,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
         public function displayManualUpdatePage()
         {
             if (!current_user_can('update_plugins')) {
-                wp_die(esc_html(__('You do not have permission to access this page.', 'bbfse-plug')));
+                wp_die(esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')));
             }
 
             $output = [];
@@ -272,20 +272,20 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
             }
 
             wp_localize_script(
-                'bbfse-plug-handle-rd-settings-manual-update',
+                'rundizstrap-companion-handle-rd-settings-manual-update',
                 'RdSettingsManualUpdate',
                 [
                     'alreadyRunUpdateKey' => '',
                     'alreadyRunUpdateTotal' => 0,
                     'completed' => 'false',
                     'nonce' => wp_create_nonce('bbfse_plug_nonce'),
-                    'txtCompleted' => __('Completed', 'bbfse-plug'),
-                    'txtDismissNotice' => __('Dismiss', 'bbfse-plug'),
-                    'txtNext' => __('Next', 'bbfse-plug'),
+                    'txtCompleted' => __('Completed', 'rundizstrap-companion'),
+                    'txtDismissNotice' => __('Dismiss', 'rundizstrap-companion'),
+                    'txtNext' => __('Next', 'rundizstrap-companion'),
                 ]
             );
 
-            wp_enqueue_script('bbfse-plug-handle-rd-settings-manual-update');
+            wp_enqueue_script('rundizstrap-companion-handle-rd-settings-manual-update');
         }// registerScripts
 
 
@@ -301,7 +301,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Upgrader')) {
                 return;
             }
 
-            wp_enqueue_style('bbfse-plug-bootstrap-icons');
+            wp_enqueue_style('rundizstrap-companion-bootstrap-icons');
         }// registerStyles
 
 

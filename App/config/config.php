@@ -3,7 +3,7 @@
  * RundizSettings framework configuration file.
  * Do not rename this file. Read the comment carefully before change any config values.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

@@ -10,10 +10,10 @@
  * Author URI: https://rundiz.com
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
- * Text Domain: bbfse-plug
+ * Text Domain: rundizstrap-companion
  * Domain Path: /languages/
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  */
 
 

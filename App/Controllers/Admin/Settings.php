@@ -2,7 +2,7 @@
 /**
  * Add settings sub menu and page into the Settings menu.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -50,7 +50,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
          */
         public function pluginSettingsMenu()
         {
-            $hook_suffix = add_options_page(__('BBFSE Plug', 'bbfse-plug'), __('BBFSE Plug', 'bbfse-plug'), 'manage_options', 'bbfse-plug-settings', [$this, 'pluginSettingsPage']);
+            $hook_suffix = add_options_page(__('BBFSE Plug', 'rundizstrap-companion'), __('BBFSE Plug', 'rundizstrap-companion'), 'manage_options', 'rundizstrap-companion-settings', [$this, 'pluginSettingsPage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -68,7 +68,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
         {
             // check permission.
             if (!current_user_can('manage_options')) {
-                wp_die(esc_html(__('You do not have permission to access this page.', 'bbfse-plug')));
+                wp_die(esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')));
             }
 
             if (get_transient('bbfse_plug_updated')) {
@@ -76,15 +76,15 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
                     wp_die(
                         sprintf(
                             // translators: %1$s Open link, %2$s Close link.
-                            __('The manual update is required, please %1$supdate first%2$s.', 'bbfse-plug'), // phpcs:ignore
-                            '<a href="' . esc_attr(network_admin_url('index.php?page=bbfse-plug-manual-update')) . '">', 
+                            __('The manual update is required, please %1$supdate first%2$s.', 'rundizstrap-companion'), // phpcs:ignore
+                            '<a href="' . esc_attr(network_admin_url('index.php?page=rundizstrap-companion-manual-update')) . '">', 
                             '</a>'
                         )
                     );
                 } else {
                     wp_die(
                         esc_html(
-                            __('The manual update is required, please tell administrator to update first.', 'bbfse-plug')
+                            __('The manual update is required, please tell administrator to update first.', 'rundizstrap-companion')
                         )
                     );
                 }
@@ -127,7 +127,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
                 $output['save_result'] = $this->saveOptions($options_values);
 
                 $output['form_result_class'] = 'notice-success';
-                $output['form_result_msg'] = __('Settings saved.', 'bbfse-plug');
+                $output['form_result_msg'] = __('Settings saved.', 'rundizstrap-companion');
             }// endif $_POST
 
             $output['settings_page'] = $RundizSettings->getSettingsPage($options_values);
@@ -161,21 +161,21 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Settings')) {
                 return;
             }
 
-            wp_enqueue_style('bbfse-plug-bootstrap-icons');
+            wp_enqueue_style('rundizstrap-companion-bootstrap-icons');
 
-            wp_enqueue_style('bbfse-plug-handle-rd-settings-based-css');
+            wp_enqueue_style('rundizstrap-companion-handle-rd-settings-based-css');
 
-            wp_enqueue_style('bbfse-plug-handle-rd-settings-tabs-css');
-            wp_enqueue_script('bbfse-plug-handle-rd-settings-tabs-js');
+            wp_enqueue_style('rundizstrap-companion-handle-rd-settings-tabs-css');
+            wp_enqueue_script('rundizstrap-companion-handle-rd-settings-tabs-js');
 
             // you can remove some or all of the line below if you don't use it. ---------
             // css & js for code editor.
-            wp_enqueue_style('bbfse-plug-handle-rd-settings-ace-editor-css');
-            wp_enqueue_script('bbfse-plug-handle-ace-editor-js');
-            wp_enqueue_script('bbfse-plug-handle-rd-settings-ace-editor-js');
+            wp_enqueue_style('rundizstrap-companion-handle-rd-settings-ace-editor-css');
+            wp_enqueue_script('rundizstrap-companion-handle-ace-editor-js');
+            wp_enqueue_script('rundizstrap-companion-handle-rd-settings-ace-editor-js');
             // media uploader
-            wp_enqueue_style('bbfse-plug-handle-rd-settings-media-css');
-            wp_enqueue_script('bbfse-plug-handle-rd-settings-media-js');
+            wp_enqueue_style('rundizstrap-companion-handle-rd-settings-media-css');
+            wp_enqueue_script('rundizstrap-companion-handle-rd-settings-media-js');
         }// registerScripts
 
 

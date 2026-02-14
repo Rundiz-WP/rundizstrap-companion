@@ -2,7 +2,7 @@
 /**
  * Hooks into Plugins page.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -42,10 +42,10 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins')) {
             
             if ($plugin === $plugin_file) {
                 //$link = [];
-                //$link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=bbfse-plug-settings')) . '">' . __('Settings') . '</a>';
+                //$link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=rundizstrap-companion-settings')) . '">' . __('Settings') . '</a>';
                 //$actions = array_merge($link, $actions);
                 //unset($link);
-                //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'bbfse-plug') . '</a>';
+                //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'rundizstrap-companion') . '</a>';
             }
             
             return $actions;
@@ -89,11 +89,11 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins')) {
                 $configValues = $this->getOptions();
                 if (is_array($configValues) && array_key_exists('rdsfw_plugin_db_version', $configValues) && is_scalar($configValues['rdsfw_plugin_db_version']) && !empty($configValues['rdsfw_plugin_db_version'])) {
                     /* translators: %s The DB version of this plugin. */
-                    $after_link[] = sprintf(__('DB version %s', 'bbfse-plug'), $configValues['rdsfw_plugin_db_version']);
+                    $after_link[] = sprintf(__('DB version %s', 'rundizstrap-companion'), $configValues['rdsfw_plugin_db_version']);
                 }
                 unset($configValues);
 
-                $after_link[] = '<a href="https://rundiz.com/en/donate/">' . esc_html__('Donate', 'bbfse-plug') . '</a>';
+                $after_link[] = '<a href="https://rundiz.com/en/donate/">' . esc_html__('Donate', 'rundizstrap-companion') . '</a>';
                 $links = array_merge($links, $after_link);
                 unset($after_link);
             }

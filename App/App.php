@@ -2,7 +2,7 @@
 /**
  * Main app class. Extend this class if you want to use any method of this class.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

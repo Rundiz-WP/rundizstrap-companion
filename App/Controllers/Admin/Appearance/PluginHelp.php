@@ -2,7 +2,7 @@
 /**
  * Plugin help page.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -34,7 +34,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Appearance\\PluginHelp'
          */
         public function bbfsePlugHelpMenu()
         {
-            $hook_suffix = add_theme_page(__('BBFSE Plug help', 'bbfse-plug'), __('BBFSE Plug help', 'bbfse-plug'), 'edit_theme_options', 'bbfse-plug-help', [$this, 'bbfsePlugHelpPage']);
+            $hook_suffix = add_theme_page(__('BBFSE Plug help', 'rundizstrap-companion'), __('BBFSE Plug help', 'rundizstrap-companion'), 'edit_theme_options', 'rundizstrap-companion-help', [$this, 'bbfsePlugHelpPage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -80,8 +80,8 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Appearance\\PluginHelp'
                 return;
             }
 
-            wp_enqueue_style('bbfse-plug-handle-rd-settings-tabs-css');
-            wp_enqueue_script('bbfse-plug-handle-rd-settings-tabs-js');
+            wp_enqueue_style('rundizstrap-companion-handle-rd-settings-tabs-css');
+            wp_enqueue_script('rundizstrap-companion-handle-rd-settings-tabs-js');
         }// enqueueStylesScripts
 
 

@@ -2,7 +2,7 @@
 /**
  * Bootstrap navbar navigation walker.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  * @license http://opensource.org/licenses/MIT MIT
  */
@@ -117,7 +117,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\BootstrapNavbarNavigationWalker'
             $attrs = ($block['attrs'] ?? []);
             $label = ($attrs['label'] ?? '');
             if ('' === trim($label)) {
-                $label = __('Home', 'bbfse-plug');
+                $label = __('Home', 'rundizstrap-companion');
             }
 
             $item = [
@@ -514,7 +514,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Libraries\\BootstrapNavbarNavigationWalker'
             $output = '';
 
             foreach ($items as $item) {
-                $label = (isset($item['label']) && '' !== trim($item['label']) ? $item['label'] : __('(Untitled)', 'bbfse-plug'));
+                $label = (isset($item['label']) && '' !== trim($item['label']) ? $item['label'] : __('(Untitled)', 'rundizstrap-companion'));
                 $label = wp_kses_post($label);
 
                 $url = (isset($item['url']) && '' !== trim($item['url']) ? $item['url'] : '#');

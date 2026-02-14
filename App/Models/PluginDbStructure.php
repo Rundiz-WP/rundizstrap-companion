@@ -2,7 +2,7 @@
 /**
  * The plugin database structure for use on activation.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

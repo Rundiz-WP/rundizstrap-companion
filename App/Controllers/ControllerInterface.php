@@ -3,7 +3,7 @@
  * The controller interface.<br>
  * This file contain the interface and required method(s) that is needed to use with auto register controller in the loader library.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

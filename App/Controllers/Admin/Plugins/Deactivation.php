@@ -2,7 +2,7 @@
 /**
  * Deactivate the plugin action.
  * 
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 

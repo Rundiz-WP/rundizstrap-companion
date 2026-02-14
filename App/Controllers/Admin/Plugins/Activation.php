@@ -2,7 +2,7 @@
 /**
  * Activate the plugin action.
  *
- * @package bbfse-plug
+ * @package rundizstrap-companion
  * @since 0.0.1
  */
 
@@ -39,7 +39,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Activation')) 
                 wp_die(
                     sprintf(
                         // translators: %1$s Current WordPress version, %2$s Required WordPress version.
-                        esc_html__('Your WordPress version does not meet the minimum requirement. (%1$s < %2$s).', 'bbfse-plug'), 
+                        esc_html__('Your WordPress version does not meet the minimum requirement. (%1$s < %2$s).', 'rundizstrap-companion'), 
                         get_bloginfo('version'), // phpcs:ignore
                         '6.0' // phpcs:ignore
                     )
@@ -49,7 +49,7 @@ if (!class_exists('\\BBFSEPlug\\App\\Controllers\\Admin\\Plugins\\Activation')) 
 
             // In case that you do not want to "network activate", remove comments the code below.
             if (is_multisite() && $network_wide) {
-                wp_die(esc_html__('Unable to network activate, please activate per site only.', 'bbfse-plug'));
+                wp_die(esc_html__('Unable to network activate, please activate per site only.', 'rundizstrap-companion'));
                 exit(1);
             }
 
