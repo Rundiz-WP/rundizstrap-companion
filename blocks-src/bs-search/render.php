@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 }
 
 
-if (!function_exists('bbfse_plug_block_bsSearch_render')) {
+if (!function_exists('rundizstrap_companion_block_bsSearch_render')) {
     /**
      * Render contents for Bootstrap search block.
      *
@@ -26,7 +26,7 @@ if (!function_exists('bbfse_plug_block_bsSearch_render')) {
      * @param mixed  $block Block instance.
      * @return string
      */
-    function bbfse_plug_block_bsSearch_render(array $attributes, string $content = '', $block = null): string
+    function rundizstrap_companion_block_bsSearch_render(array $attributes, string $content = '', $block = null): string
     {
         $wrapper_attributes = '';
         $field_markup = '';
@@ -130,11 +130,11 @@ if (!function_exists('bbfse_plug_block_bsSearch_render')) {
             $wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             $field_markup // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         );
-    }// bbfse_plug_block_bsSearch_render
+    }// rundizstrap_companion_block_bsSearch_render
 }// endif;
 
 // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo bbfse_plug_block_bsSearch_render(
+echo rundizstrap_companion_block_bsSearch_render(
     ($attributes ?? []),
     ((isset($content) && is_string($content)) ? $content : ''),
     ($block ?? null)
