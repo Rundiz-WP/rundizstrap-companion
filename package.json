@@ -1,6 +1,6 @@
 {
     "name": "bbfse-plug",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "The WordPress Blocks for Bootstrap Basic FSE theme based on latest Bootstrap.",
     "private": true,
     "type": "module",

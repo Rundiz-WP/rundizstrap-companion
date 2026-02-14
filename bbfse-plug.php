@@ -3,7 +3,7 @@
  * Plugin Name: BBFSE plug
  * Plugin URI: https://rundiz.com/en/blog/articles-en/wordpress-plugins-themes
  * Description: A plugin that contains blocks for the Bootstrap Basic FSE theme. All blocks are based on Bootstrap CSS.
- * Version: 0.0.1
+ * Version: 0.0.2
  * Requires at least: 6.1
  * Requires PHP: 8.0
  * Author: Vee Winch

@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
