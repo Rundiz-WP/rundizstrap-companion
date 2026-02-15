@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-15T00:43:02+07:00\n"
+"POT-Creation-Date: 2026-02-15T09:22:13+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: rundizstrap-companion\n"
@@ -837,7 +837,7 @@ msgid "Bootstrap Previous Post"
 msgstr ""
 
 #: blocks/bs-post-navigation-link/index.js:1
-msgid "Displays the post link that precedes the current post in Bootstrap style."
+msgid "Displays the post link that precedes the current post in Bootstrap style. This block is in the RundizStrap Companion."
 msgstr ""
 
 #: blocks/bs-post-navigation-link/index.js:1
@@ -849,7 +849,7 @@ msgid "Bootstrap Next Post"
 msgstr ""
 
 #: blocks/bs-post-navigation-link/index.js:1
-msgid "Displays the post link that follows the current post in Bootstrap style."
+msgid "Displays the post link that follows the current post in Bootstrap style. This block is in the RundizStrap Companion."
 msgstr ""
 
 #: blocks/bs-post-navigation-link/index.js:1

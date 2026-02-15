@@ -15,7 +15,7 @@ const variations = [
     {
         name: 'post-previous',
         title: __('Bootstrap Previous Post', 'rundizstrap-companion'),
-        description: __('Displays the post link that precedes the current post in Bootstrap style.', 'rundizstrap-companion'),
+        description: __('Displays the post link that precedes the current post in Bootstrap style. This block is in the RundizStrap Companion.', 'rundizstrap-companion'),
         icon: previousIcon,
         attributes: { 
             type: 'previous',
@@ -34,7 +34,7 @@ const variations = [
         isDefault: true,
         name: 'post-next',
         title: __('Bootstrap Next Post', 'rundizstrap-companion'),
-        description: __('Displays the post link that follows the current post in Bootstrap style.', 'rundizstrap-companion'),
+        description: __('Displays the post link that follows the current post in Bootstrap style. This block is in the RundizStrap Companion.', 'rundizstrap-companion'),
         icon: nextIcon,
         attributes: { 
             type: 'next',

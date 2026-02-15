@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RundizStrap Companion 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rundizstrap-companion\n"
-"POT-Creation-Date: 2026-02-15T00:43:02+07:00\n"
-"PO-Revision-Date: 2026-02-15 00:43+0700\n"
+"POT-Creation-Date: 2026-02-15T09:22:13+07:00\n"
+"PO-Revision-Date: 2026-02-15 09:25+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -808,8 +808,10 @@ msgid "Bootstrap Previous Post"
 msgstr "Bootstrap โพสต์ก่อนหน้า"
 
 #: blocks/bs-post-navigation-link/index.js:1
-msgid "Displays the post link that precedes the current post in Bootstrap style."
-msgstr "แสดงลิงก์ของโพสต์ก่อนหน้าโพสต์ปัจจุบันในรูปแบบ Bootstrap."
+msgid ""
+"Displays the post link that precedes the current post in Bootstrap style. This block is in the "
+"RundizStrap Companion."
+msgstr "แสดงลิงก์โพสต์ที่อยู่ก่อนหน้าโพสต์ปัจจุบันในรูปแบบ Bootstrap. บล็อกนี้อยู่ในปลั๊กอิน RundizStrap Companion."
 
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Previous post"
@@ -820,8 +822,10 @@ msgid "Bootstrap Next Post"
 msgstr "Bootstrap โพสต์ถัดไป"
 
 #: blocks/bs-post-navigation-link/index.js:1
-msgid "Displays the post link that follows the current post in Bootstrap style."
-msgstr "แสดงลิงก์โพสต์ที่ต่อจากโพสต์ปัจจุบันในรูปแบบ Bootstrap."
+msgid ""
+"Displays the post link that follows the current post in Bootstrap style. This block is in the "
+"RundizStrap Companion."
+msgstr "แสดงลิงก์โพสต์ที่ต่อจากโพสต์ปัจจุบันในรูปแบบ Bootstrap. บล็อกนี้อยู่ในปลั๊กอิน RundizStrap Companion."
 
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next post"
@@ -1008,7 +1012,7 @@ msgstr "คอลัมน์เลย์เอาต์ Bootstrap"
 #: blocks/bs-comment-form/block.json
 msgctxt "block description"
 msgid "Display post comment form in Bootstrap style. This block is in the RundizStrap Companion."
-msgstr "แสดงแบบฟอร์มแสดงความคิดเห็นในสไตล์ Bootstrap. บล็อกนี้อยู่ในปลั๊กอิน RundizStrap Companion."
+msgstr "แสดงฟอร์มแสดงความคิดเห็นในสไตล์ Bootstrap. บล็อกนี้อยู่ในปลั๊กอิน RundizStrap Companion."
 
 #: blocks/bs-comment-form/block.json
 msgctxt "block keyword"
@@ -1023,7 +1027,7 @@ msgstr "ฟอร์ม"
 #: blocks/bs-comment-form/block.json
 msgctxt "block title"
 msgid "Bootstrap comment form"
-msgstr "แบบฟอร์มแสดงความคิดเห็น Bootstrap"
+msgstr "ฟอร์มแสดงความคิดเห็น Bootstrap"
 
 #: blocks/bs-container/block.json
 msgctxt "block description"
@@ -1196,7 +1200,7 @@ msgstr "หา"
 #: blocks/bs-search/block.json
 msgctxt "block title"
 msgid "Bootstrap search form"
-msgstr "แบบฟอร์มค้นหา Bootstrap"
+msgstr "ฟอร์มค้นหา Bootstrap"
 
 #: blocks/rundizstrap-companion-div/block.json
 msgctxt "block description"
@@ -1233,3 +1237,9 @@ msgstr "ความหมาย"
 msgctxt "block title"
 msgid "Customizable div"
 msgstr "แท็ก div ที่ปรับแต่งได้"
+
+#~ msgid "Displays the post link that precedes the current post in Bootstrap style."
+#~ msgstr "แสดงลิงก์ของโพสต์ก่อนหน้าโพสต์ปัจจุบันในรูปแบบ Bootstrap."
+
+#~ msgid "Displays the post link that follows the current post in Bootstrap style."
+#~ msgstr "แสดงลิงก์โพสต์ที่ต่อจากโพสต์ปัจจุบันในรูปแบบ Bootstrap."
