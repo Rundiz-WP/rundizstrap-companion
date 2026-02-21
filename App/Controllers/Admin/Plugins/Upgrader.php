@@ -170,7 +170,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
                             <p>' .
                                 sprintf(
                                     // translators: %1$s Open link, %2$s Close link.
-                                    __('The RundizStrap Companion is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'rundizstrap-companion'),
+                                    esc_html__('The RundizStrap Companion is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'rundizstrap-companion'),
                                     '<a href="' . esc_attr(network_admin_url('index.php?page=rundizstrap-companion-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
                                     '</a>'
                                 ) .
@@ -178,9 +178,11 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
                         </div>';
 
                         add_action('admin_notices', function () use ($manualUpdateNotice) {
+                            // the line below will be echo out custom HTML. So, it cannot be and must not escape or the result will be broken.
                             echo $manualUpdateNotice . "\n";// phpcs:ignore WordPress.Security.EscapeOutput
                         });
                         add_action('network_admin_notices', function () use ($manualUpdateNotice) {
+                            // the line below will be echo out custom HTML. So, it cannot be and must not escape or the result will be broken.
                             echo $manualUpdateNotice . "\n";// phpcs:ignore WordPress.Security.EscapeOutput
                         });
 

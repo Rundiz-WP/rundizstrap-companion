@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
         // phpcs:ignore Generic.WhiteSpace.ScopeIndent.IncorrectExact
     ?> 
     <div class="notice is-dismissible <?php echo esc_attr($form_result_class); ?>">
-        <p><?php echo $form_result_msg; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+        <p><?php echo esc_html($form_result_msg); ?></p>
     </div>
     <?php // phpcs:ignore Generic.WhiteSpace.ScopeIndent.Incorrect
     }
@@ -40,6 +40,7 @@ if (!defined('ABSPATH')) {
         <?php 
         wp_nonce_field(); 
         if (isset($settings_page)) {
+            // the line below will be echo out HTML of settings page. It is not from user input and cannot/must not be escape, otherwise the result will be broken.
             echo $settings_page; // phpcs:ignore
         } 
         submit_button(); 
