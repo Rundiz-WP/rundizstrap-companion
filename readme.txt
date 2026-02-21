@@ -37,6 +37,9 @@ Available blocks:
 
 Tested up to PHP 8.5.
 
+The original source code is on GitHub ( https://github.com/Rundiz-WP/rundizstrap-companion ). 
+It contains the original source of blocks before compile/build and blocks that are already built, the build tools via Node package (package.json).
+
 == Frequently Asked Questions ==
 
 = What version of Bootstrap do you use? =
