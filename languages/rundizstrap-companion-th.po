@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RundizStrap Companion 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rundizstrap-companion\n"
-"POT-Creation-Date: 2026-02-22T01:21:22+07:00\n"
-"PO-Revision-Date: 2026-02-22 01:21+0700\n"
+"POT-Creation-Date: 2026-02-22T03:47:37+07:00\n"
+"PO-Revision-Date: 2026-02-22 03:48+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -259,6 +259,26 @@ msgstr "ในการใช้ตัวแบ่งเมนูแบบดร
 #, php-format
 msgid "To use dropdown menu header, add class %1$s to sub menu item in manage navigation page."
 msgstr "ในการใช้ส่วนหัวเมนูแบบดรอปดาวน์, ให้เพิ่มคลาส %1$s ให้กับรายการเมนูย่อยในหน้าจัดการการนำทาง."
+
+#: App/Views/admin/Plugins/Upgrader_v.php:15
+msgid "Manual update"
+msgstr "อัปเดตด้วยตนเอง"
+
+#. translators: %d Number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:23
+#, php-format
+msgid "There are total %d actions for this manual update, please continue step by step."
+msgstr "การอัปเดตด้วยตนเองครั้งนี้มีทั้งหมด %d ขั้นตอน, โปรดดำเนินการต่อทีละขั้นตอน."
+
+#. translators: %1$s The number of already run action, %2$d The number of total actions.
+#: App/Views/admin/Plugins/Upgrader_v.php:28
+#, php-format
+msgid "You are running %1$s of %2$d."
+msgstr "คุณกำลังใช้งาน %1$s ของ %2$d."
+
+#: App/Views/admin/Plugins/Upgrader_v.php:32
+msgid "Start"
+msgstr "เริ่ม"
 
 #: App/Views/admin/readsettings_v.php:15
 msgid "Example of how to access settings values in option db."
@@ -1222,20 +1242,6 @@ msgstr "ความหมาย"
 msgctxt "block title"
 msgid "Customizable div"
 msgstr "แท็ก div ที่ปรับแต่งได้"
-
-#~ msgid "Manual update"
-#~ msgstr "อัปเดตด้วยตนเอง"
-
-#, php-format
-#~ msgid "There are total %d actions for this manual update, please continue step by step."
-#~ msgstr "การอัปเดตด้วยตนเองครั้งนี้มีทั้งหมด %d ขั้นตอน, โปรดดำเนินการต่อทีละขั้นตอน."
-
-#, php-format
-#~ msgid "You are running %1$s of %2$d."
-#~ msgstr "คุณกำลังใช้งาน %1$s ของ %2$d."
-
-#~ msgid "Start"
-#~ msgstr "เริ่ม"
 
 #~ msgid "Displays the post link that precedes the current post in Bootstrap style."
 #~ msgstr "แสดงลิงก์ของโพสต์ก่อนหน้าโพสต์ปัจจุบันในรูปแบบ Bootstrap."
