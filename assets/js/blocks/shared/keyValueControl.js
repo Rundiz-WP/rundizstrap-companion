@@ -23,9 +23,15 @@ import {
 
 /**
  * Key-Value input control.
+ * 
  * @since 0.0.1
+ * @param {Object} props Component props.
+ * @param {string} props.label The label text.
+ * @param {object} props.value Key-value object.
+ * @param {object} props.onChange The onchange callback.
+ * @param {string} props.prefix attribute prefix. For example: `aria-`, `data-`.
  */
-export default function KeyValueControl ({ label, value, onChange }) {
+export default function KeyValueControl ({ label, value, onChange, prefix = '' }) {
     // Ensure value is an object
     const attributes = value || {};
     const [localAttributes, setLocalAttributes] = useState([]);
@@ -37,7 +43,7 @@ export default function KeyValueControl ({ label, value, onChange }) {
     }, [value]);
 
     const toSanitizedAttributesObject = (items) => items.reduce((obj, item) => {
-        const sanitizedKey = sanitizeAttributeKey(item.key);
+        const sanitizedKey = sanitizeAttributeKey(item.key, prefix);
 
         if (!sanitizedKey) {
             return obj;
@@ -55,7 +61,7 @@ export default function KeyValueControl ({ label, value, onChange }) {
 
         // Check duplicate keys using sanitized format to prevent collisions.
         const keys = newAttributes
-            .map((attr) => sanitizeAttributeKey(attr.key))
+            .map((attr) => sanitizeAttributeKey(attr.key, prefix))
             .filter((key) => key !== '');
         const hasDuplicates = keys.some((key, i) => keys.indexOf(key) !== i);
 

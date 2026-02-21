@@ -14,7 +14,7 @@ export const ALLOWED_ATTRIBUTE_PREFIXES = ['data-', 'aria-'];
  *
  * @since 0.0.4
  * @param {string} key Attribute key.
- * @param {string} prefix Attribute prefix to strip.
+ * @param {string} prefix Attribute prefix to strip. For example: `aria-`, `data-`.
  * @returns {string}
  */
 export function sanitizeAttributeKey(key, prefix = '') {
@@ -33,7 +33,13 @@ export function sanitizeAttributeKey(key, prefix = '') {
         sanitizedKey = sanitizedKey.slice(normalizedPrefix.length);
     }
 
-    sanitizedKey = sanitizedKey.replace(/[^a-z0-9_-]/g, '');
+    // MDN dataset name chars: letters, numbers, dashes, periods, colons, underscores.
+    // Keep aria keys stricter to common aria-* naming.
+    if (normalizedPrefix === 'aria-' || normalizedPrefix === 'aria') {
+        sanitizedKey = sanitizedKey.replace(/[^a-z0-9_-]/g, '');
+    } else {
+        sanitizedKey = sanitizedKey.replace(/[^a-z0-9._:-]/g, '');
+    }
 
     return sanitizedKey;
 }
@@ -46,7 +52,7 @@ export function sanitizeAttributeKey(key, prefix = '') {
  * and remove only control characters.
  *
  * @since 0.0.4
- * @param {*} value Attribute value.
+ * @param {string} value Attribute value.
  * @returns {string}
  */
 export function sanitizeAttributeValue(value) {
