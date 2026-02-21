@@ -87,6 +87,7 @@
     "link"
   ],
   "name": "rundizstrap-companion/blocks-bs-button",
+  "render": "file:./render.php",
   "supports": {
     "html": false,
     "className": true,

@@ -2,14 +2,14 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: RundizStrap Companion 0.0.3\n"
+"Project-Id-Version: RundizStrap Companion 0.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rundizstrap-companion\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-21T15:11:37+07:00\n"
+"POT-Creation-Date: 2026-02-22T01:21:22+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: rundizstrap-companion\n"
@@ -168,7 +168,7 @@ msgid "Upload"
 msgstr ""
 
 #: App/Libraries/RundizSettings.php:734
-#: assets/js/blocks/shared/keyValueControl.js:86
+#: assets/js/blocks/shared/keyValueControl.js:105
 #: blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1
 #: blocks/bs-container/index.js:1
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: assets/js/blocks/shared/keyValueControl.js:71
+#: assets/js/blocks/shared/keyValueControl.js:90
 #: blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1
 #: blocks/bs-container/index.js:1
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: assets/js/blocks/shared/keyValueControl.js:76
+#: assets/js/blocks/shared/keyValueControl.js:95
 #: blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1
 #: blocks/bs-container/index.js:1
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: assets/js/blocks/shared/keyValueControl.js:91
+#: assets/js/blocks/shared/keyValueControl.js:110
 #: blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1
 #: blocks/bs-container/index.js:1
@@ -497,6 +497,11 @@ msgstr ""
 #: blocks/bs-button/index.js:1
 msgctxt "Button type"
 msgid "Type"
+msgstr ""
+
+#: blocks/bs-button/index.js:1
+msgctxt "Button value"
+msgid "Value"
 msgstr ""
 
 #: blocks/bs-button/index.js:1

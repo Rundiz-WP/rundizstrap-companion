@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RundizStrap Companion 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rundizstrap-companion\n"
-"POT-Creation-Date: 2026-02-21T15:11:37+07:00\n"
-"PO-Revision-Date: 2026-02-21 15:11+0700\n"
+"POT-Creation-Date: 2026-02-22T01:21:22+07:00\n"
+"PO-Revision-Date: 2026-02-22 01:21+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -175,7 +175,7 @@ msgstr "ไม่พบไฟล์ views (%s)."
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: App/Libraries/RundizSettings.php:734 assets/js/blocks/shared/keyValueControl.js:86
+#: App/Libraries/RundizSettings.php:734 assets/js/blocks/shared/keyValueControl.js:105
 #: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
 #: blocks/bs-navbar-container/index.js:1 blocks/bs-navbar-navigation/index.js:1
 #: blocks/bs-navbar-responsive-wrapper/index.js:1 blocks/bs-navbar-toggler-button/index.js:1
@@ -347,7 +347,7 @@ msgstr "(ไม่มีไตเติล)"
 msgid "Search"
 msgstr "ค้นหา"
 
-#: assets/js/blocks/shared/keyValueControl.js:71 blocks/bs-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:90 blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
 #: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
 #: blocks/bs-navbar-toggler-button/index.js:1 blocks/bs-post-navigation-link/index.js:1
@@ -355,7 +355,7 @@ msgstr "ค้นหา"
 msgid "Key"
 msgstr "Key"
 
-#: assets/js/blocks/shared/keyValueControl.js:76 blocks/bs-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:95 blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
 #: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
 #: blocks/bs-navbar-toggler-button/index.js:1 blocks/bs-post-navigation-link/index.js:1
@@ -363,13 +363,13 @@ msgstr "Key"
 msgid "Value"
 msgstr "ค่า"
 
-#: assets/js/blocks/shared/keyValueControl.js:91 blocks/bs-button/index.js:1
+#: assets/js/blocks/shared/keyValueControl.js:110 blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
 #: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
 #: blocks/bs-navbar-toggler-button/index.js:1 blocks/bs-post-navigation-link/index.js:1
 #: blocks/bs-row/index.js:1 blocks/rundizstrap-companion-div/index.js:1
 msgid "Add attribute"
-msgstr "เพิ่มแอตทริบิวต์ aria"
+msgstr "เพิ่มแอตทริบิวต์"
 
 #: blocks/bs-button/index.js:1
 msgid "Default"
@@ -477,6 +477,11 @@ msgstr "ชื่อ"
 msgctxt "Button type"
 msgid "Type"
 msgstr "Type"
+
+#: blocks/bs-button/index.js:1
+msgctxt "Button value"
+msgid "Value"
+msgstr "ค่า (value)"
 
 #: blocks/bs-button/index.js:1 blocks/bs-column/index.js:1 blocks/bs-container/index.js:1
 #: blocks/bs-post-navigation-link/index.js:1 blocks/bs-row/index.js:1
