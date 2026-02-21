@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-15T09:22:13+07:00\n"
+"POT-Creation-Date: 2026-02-21T15:11:37+07:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: rundizstrap-companion\n"
@@ -86,7 +86,7 @@ msgid "Unable to network activate, please activate per site only."
 msgstr ""
 
 #: App/Controllers/Admin/Plugins/Upgrader.php:42
-#: App/Controllers/Admin/Plugins/Upgrader.php:233
+#: App/Controllers/Admin/Plugins/Upgrader.php:235
 #: App/Controllers/Admin/Settings.php:71
 msgid "You do not have permission to access this page."
 msgstr ""
@@ -117,19 +117,19 @@ msgstr ""
 msgid "The RundizStrap Companion is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s."
 msgstr ""
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:216
+#: App/Controllers/Admin/Plugins/Upgrader.php:218
 msgid "Bootstrap Basic FSE Plugin update"
 msgstr ""
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:282
+#: App/Controllers/Admin/Plugins/Upgrader.php:284
 msgid "Completed"
 msgstr ""
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:283
+#: App/Controllers/Admin/Plugins/Upgrader.php:285
 msgid "Dismiss"
 msgstr ""
 
-#: App/Controllers/Admin/Plugins/Upgrader.php:284
+#: App/Controllers/Admin/Plugins/Upgrader.php:286
 #: blocks/bs-pagination/render.php:116
 #: blocks/bs-post-navigation-link/index.js:1
 msgid "Next"
@@ -248,26 +248,6 @@ msgstr ""
 #: App/Views/admin/Appearance/pluginHelp_v.php:84
 #, php-format
 msgid "To use dropdown menu header, add class %1$s to sub menu item in manage navigation page."
-msgstr ""
-
-#: App/Views/admin/Plugins/Upgrader_v.php:15
-msgid "Manual update"
-msgstr ""
-
-#. translators: %d Number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:23
-#, php-format
-msgid "There are total %d actions for this manual update, please continue step by step."
-msgstr ""
-
-#. translators: %1$s The number of already run action, %2$d The number of total actions.
-#: App/Views/admin/Plugins/Upgrader_v.php:28
-#, php-format
-msgid "You are running %1$s of %2$d."
-msgstr ""
-
-#: App/Views/admin/Plugins/Upgrader_v.php:32
-msgid "Start"
 msgstr ""
 
 #: App/Views/admin/readsettings_v.php:15
