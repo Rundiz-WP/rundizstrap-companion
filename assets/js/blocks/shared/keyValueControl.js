@@ -15,8 +15,15 @@ import {
 
 import { useEffect, useState } from '@wordpress/element';
 
+import {
+    sanitizeAttributeKey,
+    sanitizeAttributeValue,
+} from './sanitizeAttributes.js';
+
+
 /**
  * Key-Value input control.
+ * @since 0.0.1
  */
 export default function KeyValueControl ({ label, value, onChange }) {
     // Ensure value is an object
@@ -29,21 +36,31 @@ export default function KeyValueControl ({ label, value, onChange }) {
         setLocalAttributes(attrsArray);
     }, [value]);
 
+    const toSanitizedAttributesObject = (items) => items.reduce((obj, item) => {
+        const sanitizedKey = sanitizeAttributeKey(item.key);
+
+        if (!sanitizedKey) {
+            return obj;
+        }
+
+        obj[sanitizedKey] = sanitizeAttributeValue(item.val);
+
+        return obj;
+    }, {});
+
     const updateAttribute = (index, field, newValue) => {
         const newAttributes = [...localAttributes];
         newAttributes[index][field] = newValue;
         setLocalAttributes(newAttributes);
 
-        // Check for duplicate keys
-        const keys = newAttributes.map(attr => attr.key);
+        // Check duplicate keys using sanitized format to prevent collisions.
+        const keys = newAttributes
+            .map((attr) => sanitizeAttributeKey(attr.key))
+            .filter((key) => key !== '');
         const hasDuplicates = keys.some((key, i) => keys.indexOf(key) !== i);
 
         if (!hasDuplicates) {
-            const attrObject = newAttributes.reduce((obj, item) => {
-                if (item.key) obj[item.key] = item.val;
-                return obj;
-            }, {});
-            onChange(attrObject);
+            onChange(toSanitizedAttributesObject(newAttributes));
         }
     };
 
@@ -55,11 +72,7 @@ export default function KeyValueControl ({ label, value, onChange }) {
     const removeAttribute = (index) => {
         const newAttributes = localAttributes.filter((_, i) => i !== index);
         setLocalAttributes(newAttributes);
-        const attrObject = newAttributes.reduce((obj, item) => {
-            if (item.key) obj[item.key] = item.val;
-            return obj;
-        }, {});
-        onChange(attrObject);
+        onChange(toSanitizedAttributesObject(newAttributes));
     };
 
     return (

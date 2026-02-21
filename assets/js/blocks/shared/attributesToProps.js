@@ -6,21 +6,43 @@
  */
 
 
+import {
+    ALLOWED_ATTRIBUTE_PREFIXES,
+    sanitizeAttributeKey,
+    sanitizeAttributeValue,
+} from './sanitizeAttributes.js';
+
+
 /**
  * Convert attribute objects to props with prefixes (e.g., data-, aria-).
  *
+ * @since 0.0.1
  * @param {Object} attributes Key-value pairs.
  * @param {string} prefix Prefix like 'data-' or 'aria-'.
  * @returns {Object} Props object.
  */
 export default function attributesToProps(attributes, prefix) {
     const props = {};
-    if (attributes) {
-        Object.entries(attributes).forEach(([key, value]) => {
-            if (key) {
-                props[`${prefix}${key}`] = value;
-            }
-        });
+
+    if (!attributes) {
+        return props;
     }
+
+    const normalizedPrefix = String(prefix || '').toLowerCase();
+
+    if (!ALLOWED_ATTRIBUTE_PREFIXES.includes(normalizedPrefix)) {
+        return props;
+    }
+
+    Object.entries(attributes).forEach(([key, value]) => {
+        const sanitizedKey = sanitizeAttributeKey(key, normalizedPrefix);
+
+        if (!sanitizedKey) {
+            return;
+        }
+
+        props[`${normalizedPrefix}${sanitizedKey}`] = sanitizeAttributeValue(value);
+    });
+
     return props;
 }
