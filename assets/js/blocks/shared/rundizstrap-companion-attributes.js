@@ -1,5 +1,5 @@
 /**
- * Attributes to props for common use in blocks.
+ * Attributes functional for common use in blocks.
  * 
  * @package rundizstrap-companion
  * @since 0.0.1
@@ -21,7 +21,7 @@ import {
  * @param {string} prefix Prefix like 'data-' or 'aria-'.
  * @returns {Object} Props object.
  */
-export default function attributesToProps(attributes, prefix) {
+export default function rundizstrap_companion_attribute_to_props(attributes, prefix) {
     const props = {};
 
     if (!attributes) {
@@ -45,4 +45,4 @@ export default function attributesToProps(attributes, prefix) {
     });
 
     return props;
-}
+}// rundizstrap_companion_attribute_to_props

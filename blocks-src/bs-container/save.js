@@ -8,7 +8,7 @@
 
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 /**
  * Save component for Bootstrap container block.
@@ -21,8 +21,8 @@ import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.j
 export default function save({ attributes: { tagName: Tag = 'div', dataAttributes, ariaAttributes } }) {
     // No hardcoded class. relying on attributes.className which WP handles automatically.
     const blockProps = useBlockProps.save({
-        ...attributesToProps(dataAttributes, 'data-'),
-        ...attributesToProps(ariaAttributes, 'aria-'),
+        ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
 
     const innerBlocksProps = useInnerBlocksProps.save(blockProps);

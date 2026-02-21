@@ -9,7 +9,7 @@
 
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 export default function Save({attributes}) {
     const {
@@ -44,15 +44,15 @@ export default function Save({attributes}) {
     const blockProps = useBlockProps.save({
         className: getWrapperClasses(),
         ...extraProps,
-        ...attributesToProps(dataAttributes, 'data-'),
-        ...attributesToProps(ariaAttributes, 'aria-'),
+        ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
 
     const closeButtonProps = {
         className: 'btn-close' + (offcanvasHeaderCloseBtnClassName ? ' ' + offcanvasHeaderCloseBtnClassName : ''),
         'type': 'button',
-        ...attributesToProps(offcanvasHeaderCloseBtnDataAttributes, 'data-'),
-        ...attributesToProps(offcanvasHeaderCloseBtnAriaAttributes, 'aria-'),
+        ...rundizstrap_companion_attribute_to_props(offcanvasHeaderCloseBtnDataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(offcanvasHeaderCloseBtnAriaAttributes, 'aria-'),
     };
     
     // ──────────────────────────────────────────────────────────────

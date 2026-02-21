@@ -28,7 +28,7 @@ import { store as coreDataStore } from '@wordpress/core-data';
 
 import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 
 export default function Edit({ context: { postType }, attributes, setAttributes }) {
@@ -72,8 +72,8 @@ export default function Edit({ context: { postType }, attributes, setAttributes 
         className: 'post-navigation-link-' + type,
         rel: (rel ? rel : defaultRel),
         ...(Number.isInteger(tabindex) ? { tabIndex: tabindex } : {}),
-        ...attributesToProps(dataAttributes, 'data-'),
-        ...attributesToProps(ariaAttributes, 'aria-'),
+        ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
         onClick: (event) => event.preventDefault(),
     });
 

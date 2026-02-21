@@ -8,7 +8,7 @@
 
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 export default function Save({ attributes }) {
     const {
@@ -28,14 +28,14 @@ export default function Save({ attributes }) {
     const TagName = tagName;
     const ContainerTagName = containerTagName;
 
-    const outerDataProps = attributesToProps(dataAttributes, 'data-');
-    const outerAriaProps = attributesToProps(ariaAttributes, 'aria-');
+    const outerDataProps = rundizstrap_companion_attribute_to_props(dataAttributes, 'data-');
+    const outerAriaProps = rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-');
 
     // Merge outer attributes into blockProps
     Object.assign(blockProps, outerDataProps, outerAriaProps);
 
-    const innerDataProps = attributesToProps(containerDataAttributes, 'data-');
-    const innerAriaProps = attributesToProps(containerAriaAttributes, 'aria-');
+    const innerDataProps = rundizstrap_companion_attribute_to_props(containerDataAttributes, 'data-');
+    const innerAriaProps = rundizstrap_companion_attribute_to_props(containerAriaAttributes, 'aria-');
 
     // Construct inner props
     const innerProps = {

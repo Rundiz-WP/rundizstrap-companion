@@ -7,7 +7,7 @@
 
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 /**
  * Save component for Bootstrap row block.
@@ -21,8 +21,8 @@ export default function save({ attributes: { tagName: Tag = 'div', dataAttribute
     // Merge 'row' class with WordPress auto-generated classes.
     const blockProps = useBlockProps.save({
         className: 'row',
-        ...attributesToProps(dataAttributes, 'data-'),
-        ...attributesToProps(ariaAttributes, 'aria-'),
+        ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
 
     // Single-level output: apply innerBlocksProps to the same element.

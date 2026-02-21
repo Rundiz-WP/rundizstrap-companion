@@ -7,7 +7,7 @@
 
 import { useBlockProps } from '@wordpress/block-editor';
 
-import attributesToProps from '../../assets/js/blocks/shared/attributesToProps.js';
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
 export default function Save({ attributes }) {
     const {
@@ -33,8 +33,8 @@ export default function Save({ attributes }) {
     const TagName = tagName === 'a' ? 'a' : 'button';
 
     const blockProps = useBlockProps.save();
-    const dataProps = attributesToProps(dataAttributes, 'data-');
-    const ariaProps = attributesToProps(ariaAttributes, 'aria-');
+    const dataProps = rundizstrap_companion_attribute_to_props(dataAttributes, 'data-');
+    const ariaProps = rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-');
 
     const commonProps = {
         ...blockProps,
