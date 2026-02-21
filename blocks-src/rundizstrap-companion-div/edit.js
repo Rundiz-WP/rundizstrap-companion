@@ -29,6 +29,7 @@ import { useSelect } from '@wordpress/data';
 import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
 
 import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
+import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 import { BLOCKLV_TAG_NAME_OPTIONS, rundizstrap_companion_sanitizeTagName } from '../../assets/js/blocks/shared/rundizstrap-companion-tag-block-level.js';
 
 const DEFAULT_TAG_NAME = 'div';
@@ -82,6 +83,10 @@ export default function Edit({ attributes, setAttributes, clientId }) {
         ariaAttributes,
     } = attributes;
     const TagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const sanitizedAccesskey = rundizstrap_companion_sanitize_text_field(accesskey);
+    const sanitizedLang = rundizstrap_companion_sanitize_text_field(lang);
+    const sanitizedRole = rundizstrap_companion_sanitize_text_field(role);
+    const sanitizedTitle = rundizstrap_companion_sanitize_text_field(title);
 
     const { hasInnerBlocks } = useSelect(
         (select) => {
@@ -100,11 +105,11 @@ export default function Edit({ attributes, setAttributes, clientId }) {
 
     const blockProps = useBlockProps({
         ref,
-        ...(accesskey ? { accessKey: accesskey } : {}),
-        ...(lang ? { lang } : {}),
-        ...(role ? { role } : {}),
+        ...(sanitizedAccesskey ? { accessKey: sanitizedAccesskey } : {}),
+        ...(sanitizedLang ? { lang: sanitizedLang } : {}),
+        ...(sanitizedRole ? { role: sanitizedRole } : {}),
         ...(Number.isInteger(tabindex) ? { tabIndex: tabindex } : {}),
-        ...(title ? { title } : {}),
+        ...(sanitizedTitle ? { title: sanitizedTitle } : {}),
         ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
         ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
@@ -150,7 +155,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Accesskey', 'HTML attribute', 'rundizstrap-companion')}
                             value={accesskey}
-                            onChange={(value) => setAttributes({ accesskey: value })}
+                            onChange={(value) => setAttributes({ accesskey: rundizstrap_companion_sanitize_text_field(value) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -162,7 +167,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Lang', 'HTML attribute', 'rundizstrap-companion')}
                             value={lang}
-                            onChange={(value) => setAttributes({ lang: value })}
+                            onChange={(value) => setAttributes({ lang: rundizstrap_companion_sanitize_text_field(value) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -174,7 +179,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Role', 'HTML attribute', 'rundizstrap-companion')}
                             value={role}
-                            onChange={(value) => setAttributes({ role: value })}
+                            onChange={(value) => setAttributes({ role: rundizstrap_companion_sanitize_text_field(value) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -193,9 +198,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                                     return;
                                 }
 
-                                const parsedValue = Number(value);
-                                if (Number.isInteger(parsedValue)) {
-                                    setAttributes({ tabindex: parsedValue });
+                                if (/^-?\d+$/.test(value)) {
+                                    setAttributes({ tabindex: parseInt(value, 10) });
                                 }
                             }}
                         />
@@ -209,7 +213,7 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Title', 'HTML attribute', 'rundizstrap-companion')}
                             value={title}
-                            onChange={(value) => setAttributes({ title: value })}
+                            onChange={(value) => setAttributes({ title: rundizstrap_companion_sanitize_text_field(value) })}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>

@@ -8,6 +8,7 @@
 import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 
 import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
+import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 import { rundizstrap_companion_sanitizeTagName } from '../../assets/js/blocks/shared/rundizstrap-companion-tag-block-level.js';
 
 const DEFAULT_TAG_NAME = 'div';
@@ -31,13 +32,17 @@ export default function Save({ attributes }) {
         ariaAttributes,
     } = attributes;
     const Tag = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const sanitizedAccesskey = rundizstrap_companion_sanitize_text_field(accesskey);
+    const sanitizedLang = rundizstrap_companion_sanitize_text_field(lang);
+    const sanitizedRole = rundizstrap_companion_sanitize_text_field(role);
+    const sanitizedTitle = rundizstrap_companion_sanitize_text_field(title);
 
     const blockProps = useBlockProps.save({
-        ...(accesskey ? { accessKey: accesskey } : {}),
-        ...(lang ? { lang } : {}),
-        ...(role ? { role } : {}),
+        ...(sanitizedAccesskey ? { accessKey: sanitizedAccesskey } : {}),
+        ...(sanitizedLang ? { lang: sanitizedLang } : {}),
+        ...(sanitizedRole ? { role: sanitizedRole } : {}),
         ...(Number.isInteger(tabindex) ? { tabIndex: tabindex } : {}),
-        ...(title ? { title } : {}),
+        ...(sanitizedTitle ? { title: sanitizedTitle } : {}),
         ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
         ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
