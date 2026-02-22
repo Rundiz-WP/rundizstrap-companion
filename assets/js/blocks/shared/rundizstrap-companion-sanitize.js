@@ -40,6 +40,32 @@ export function rundizstrap_companion_sanitize_html_class(classname, fallback = 
 
 
 /**
+ * Sanitize whitespace-separated class names.
+ *
+ * @since 0.0.4
+ * @param {string} classNames Input class string.
+ * @param {boolean} keepTrailingSpace Keep one trailing space while typing.
+ * @returns {string}
+ */
+export function rundizstrap_companion_sanitize_html_class_list(classNames, keepTrailingSpace = false) {
+    const stringValue = (typeof classNames === 'string' ? classNames : '');
+    const hasTrailingSpace = /\s$/.test(stringValue);
+
+    const sanitizedClassNames = stringValue
+        .split(/\s+/)
+        .map((item) => rundizstrap_companion_sanitize_html_class(item))
+        .filter((item) => item !== '')
+        .join(' ');
+
+    if (keepTrailingSpace && hasTrailingSpace && sanitizedClassNames !== '') {
+        return sanitizedClassNames + ' ';
+    }
+
+    return sanitizedClassNames;
+}// rundizstrap_companion_sanitize_html_class_list
+
+
+/**
  * Sanitize text similarly to WordPress `sanitize_text_field()` internals
  * (`_sanitize_text_fields( $str, false )`), without UTF-8 validation.
  *

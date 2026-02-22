@@ -34,6 +34,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 import metadata from './block.json';
 
 import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
+import { rundizstrap_companion_sanitize_html_class_list } from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 
 
 export default function Edit({ attributes, setAttributes }) {
@@ -133,6 +134,7 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
+                            prefix="data-"
                         />
                     </ToolsPanelItem>
 
@@ -146,6 +148,7 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
+                            prefix="aria-"
                         />
                     </ToolsPanelItem>
 
@@ -158,7 +161,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <TextControl
                             label={__('Dropdown menu class', 'rundizstrap-companion')}
                             value={dropdownClassName}
-                            onChange={(value) => setAttributes({ dropdownClassName: value })}
+                            onChange={(value) => setAttributes({ dropdownClassName: rundizstrap_companion_sanitize_html_class_list(value, true) })}
                             help={__('Additional classes for dropdown menu. The base class `dropdown-menu` is always applied.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>

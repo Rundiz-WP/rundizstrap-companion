@@ -16,6 +16,7 @@ if (!defined('ABSPATH')) {
 
 
 use RundizstrapCompanion\App\Libraries\BootstrapNavbarNavigationWalker;
+use RundizstrapCompanion\App\Libraries\Sanitize;
 
 
 if (!function_exists('rundizstrap_companion_block_bsNavbarNavigation_render')) {
@@ -85,15 +86,27 @@ if (!function_exists('rundizstrap_companion_block_bsNavbarNavigation_render')) {
         }
 
         $className = 'navbar-nav';
+        $Sanitize = new Sanitize();
+        $sanitizedDataAttributes = rundizstrap_companion_block_bsNavbarNavigation_sanitizeCustomAttributes(
+            ($attributes['dataAttributes'] ?? []),
+            'data-',
+            $Sanitize
+        );
+        $sanitizedAriaAttributes = rundizstrap_companion_block_bsNavbarNavigation_sanitizeCustomAttributes(
+            ($attributes['ariaAttributes'] ?? []),
+            'aria-',
+            $Sanitize
+        );
+        $dropdownClassName = (isset($attributes['dropdownClassName']) && is_string($attributes['dropdownClassName']) ? sanitize_text_field($attributes['dropdownClassName']) : '');
 
         $wrapper_attributes = get_block_wrapper_attributes([
             'class' => $className,
         ]);
-        $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString(($attributes['dataAttributes'] ?? []), 'data-');
-        $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString(($attributes['ariaAttributes'] ?? []), 'aria-');
+        $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString($sanitizedDataAttributes, 'data-');
+        $wrapper_attributes .= BootstrapNavbarNavigationWalker::attributesToString($sanitizedAriaAttributes, 'aria-');
 
         $walker = new BootstrapNavbarNavigationWalker();
-        $walker->setDropdownClassName(($attributes['dropdownClassName'] ?? ''));
+        $walker->setDropdownClassName($dropdownClassName);
 
         $output .= PHP_EOL;// keep new line.
         $output .= sprintf(
@@ -105,9 +118,48 @@ if (!function_exists('rundizstrap_companion_block_bsNavbarNavigation_render')) {
         );
         $output .= PHP_EOL;// keep new line.
 
-        unset($blocks, $className, $items, $navigationPost, $navigationRef, $walker, $wrapper_attributes);
+        unset($blocks, $className, $dropdownClassName, $items, $navigationPost, $navigationRef, $sanitizedAriaAttributes, $sanitizedDataAttributes, $Sanitize, $walker, $wrapper_attributes);
         return $output;
     }// rundizstrap_companion_block_bsNavbarNavigation_render
+}// endif;
+
+
+if (!function_exists('rundizstrap_companion_block_bsNavbarNavigation_sanitizeCustomAttributes')) {
+    /**
+     * Sanitize custom data/aria attributes.
+     *
+     * @since 0.0.4
+     * @param mixed    $attributeValues Custom attributes input.
+     * @param string   $attributePrefix Attribute prefix. For example: `data-`, `aria-`.
+     * @param Sanitize $Sanitize Sanitize class instance.
+     * @return array
+     */
+    function rundizstrap_companion_block_bsNavbarNavigation_sanitizeCustomAttributes($attributeValues, string $attributePrefix, Sanitize $Sanitize): array
+    {
+        $output = [];
+
+        if (!is_array($attributeValues)) {
+            return $output;
+        }
+
+        foreach ($attributeValues as $key => $value) {
+            if (!is_string($key) || '' === trim($key)) {
+                continue;
+            }
+            if (is_array($value) || is_object($value)) {
+                continue;
+            }
+
+            $sanitizedKey = $Sanitize->attributeKey($key, $attributePrefix);
+            if ('' === $sanitizedKey) {
+                continue;
+            }
+
+            $output[$sanitizedKey] = $Sanitize->attributeValue((string) $value);
+        }// endforeach;
+
+        return $output;
+    }// rundizstrap_companion_block_bsNavbarNavigation_sanitizeCustomAttributes
 }// endif;
 
 
