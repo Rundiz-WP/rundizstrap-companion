@@ -27,7 +27,7 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
      */
     function rundizstrap_companion_block_bsCommentForm_render(array $attributes, string $content = '', $block = null): string
     {
-        if (!isset($block->context['postId'])) {
+        if (!is_object($block) || !isset($block->context['postId'])) {
             return '';
         }
 
@@ -62,15 +62,15 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
         $fields = [
             'author' => '<div class="mb-3 comment-form-author">'
                 . '<label class="form-label" for="author">' . esc_html__('Name', 'rundizstrap-companion') . ($requireNameEmail ? ' <span class="required">*</span>' : '') . '</label>'
-                . '<input id="author" class="form-control" type="text" name="author" value="' . esc_attr($commenter['comment_author']) . '" size="30"' . $ariaRequired . ' />'
+                . '<input id="author" class="form-control" type="text" name="author" value="' . esc_attr($commenter['comment_author'] ?? '') . '" size="30"' . $ariaRequired . ' />'
                 . '</div>',
             'email' => '<div class="mb-3 comment-form-email">'
                 . '<label class="form-label" for="email">' . esc_html__('Email', 'rundizstrap-companion') . ($requireNameEmail ? ' <span class="required">*</span>' : '') . '</label>'
-                . '<input id="email" class="form-control" type="email" name="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30"' . $ariaRequired . ' />'
+                . '<input id="email" class="form-control" type="email" name="email" value="' . esc_attr($commenter['comment_author_email'] ?? '') . '" size="30"' . $ariaRequired . ' />'
                 . '</div>',
             'url' => '<div class="mb-3 comment-form-url">'
                 . '<label class="form-label" for="url">' . esc_html__('Website', 'rundizstrap-companion') . '</label>'
-                . '<input id="url" class="form-control" type="url" name="url" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" />'
+                . '<input id="url" class="form-control" type="url" name="url" value="' . esc_attr($commenter['comment_author_url'] ?? '') . '" size="30" />'
                 . '</div>',
         ];
         unset($ariaRequired, $requireNameEmail);
@@ -108,6 +108,9 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
         ob_start();
         comment_form($commentFormArgs, $postId);
         $form = ob_get_clean();
+        if (!is_string($form)) {
+            $form = '';
+        }
         unset($commentFormArgs, $postId);
 
         // Keep core behavior: apply wrapper block classes to the root `#respond`.

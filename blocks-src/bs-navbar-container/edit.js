@@ -21,7 +21,7 @@ import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rund
 
 import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
-import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+import { rundizstrap_companion_sanitize_html_class_list } from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 
 import {
     rundizstrap_companion_blockLevelTagNameOptions,
@@ -52,7 +52,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
     const SanitizedContainerTagName = rundizstrap_companion_sanitizeTagName(containerTagName, DEFAULT_CONTAINER_TAG_NAME);
-    const sanitizedContainerClassName = rundizstrap_companion_sanitize_text_field(containerClassName);
+    const sanitizedContainerClassName = rundizstrap_companion_sanitize_html_class_list(containerClassName || '');
 
     const blockProps = useBlockProps({
         className: 'navbar',
@@ -155,7 +155,8 @@ export default function Edit({ attributes, setAttributes }) {
                         <TextControl
                             label={__('Container Class', 'rundizstrap-companion')}
                             value={containerClassName}
-                            onChange={(value) => setAttributes({ containerClassName: rundizstrap_companion_sanitize_text_field(value) })}
+                            onChange={(value) => setAttributes({ containerClassName: rundizstrap_companion_sanitize_html_class_list(value, true) })}
+                            onBlur={() => setAttributes({ containerClassName: rundizstrap_companion_sanitize_html_class_list(containerClassName || '') })}
                             help={__('Default is container-fluid. You can change to container, container-lg, etc.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>

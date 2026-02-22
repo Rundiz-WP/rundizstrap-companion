@@ -16,12 +16,14 @@ import {
     __experimentalToolsPanel as ToolsPanel,
     __experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
+import { rundizstrap_companion_sanitize_html_class_list } from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 
 
 export default function Edit({ attributes, setAttributes }) {
     const { buttonClassName } = attributes;
     const buttonClassDefault = 'btn btn-primary';
-    const submitButtonClass = (buttonClassName && buttonClassName.trim() ? buttonClassName.trim() : buttonClassDefault);
+    const sanitizedButtonClassName = rundizstrap_companion_sanitize_html_class_list(buttonClassName || '');
+    const submitButtonClass = (sanitizedButtonClassName && sanitizedButtonClassName.trim() ? sanitizedButtonClassName.trim() : buttonClassDefault);
 
     return (
         <div {...useBlockProps({ className: 'comment-respond' })}>
@@ -47,7 +49,8 @@ export default function Edit({ attributes, setAttributes }) {
                         <TextControl
                             label={__('Button class', 'rundizstrap-companion')}
                             value={buttonClassName}
-                            onChange={(value) => setAttributes({ buttonClassName: value })}
+                            onChange={(value) => setAttributes({ buttonClassName: rundizstrap_companion_sanitize_html_class_list(value, true) })}
+                            onBlur={() => setAttributes({ buttonClassName: rundizstrap_companion_sanitize_html_class_list(buttonClassName || '') })}
                             help={__('Replace submit button class, e.g. btn btn-outline-primary', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>

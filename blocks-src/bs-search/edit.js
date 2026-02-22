@@ -54,6 +54,8 @@ import {
     __experimentalToolsPanelItem as ToolsPanelItem,
 } from '@wordpress/components';
 
+import { rundizstrap_companion_sanitize_html_class_list } from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -113,6 +115,16 @@ export default function Edit({attributes, setAttributes}) {
     const buttonUseIconDefault = false;
     const buttonDefaultPosition = 'button-outside';
     const buttonDefaultClass = 'btn btn-primary';
+    const allowedButtonPositions = buttonPositionControls.map((item) => item.value);
+    const sanitizeButtonPosition = (value) => {
+        const positionValue = (typeof value === 'string' ? value : '');
+        if (allowedButtonPositions.includes(positionValue)) {
+            return positionValue;
+        }
+        return buttonDefaultPosition;
+    };
+    const sanitizedButtonPosition = sanitizeButtonPosition(buttonPosition);
+    const sanitizedButtonClass = rundizstrap_companion_sanitize_html_class_list(buttonClass || '');
 
     // controls has been copied from WordPress core search block.
     const controls = (
@@ -172,7 +184,7 @@ export default function Edit({attributes, setAttributes}) {
                         </ToolsPanelItem>
                     )}
                     <ToolsPanelItem
-                        hasValue={() => buttonPosition !== buttonDefaultPosition}
+                        hasValue={() => sanitizedButtonPosition !== buttonDefaultPosition}
                         label={__('Button position', 'rundizstrap-companion')}
                         onDeselect={() => {
                             setAttributes({
@@ -182,18 +194,18 @@ export default function Edit({attributes, setAttributes}) {
                         isShownByDefault
                     >
                         <SelectControl
-                            value={buttonPosition}
+                            value={sanitizedButtonPosition}
                             __next40pxDefaultSize
                             label={__('Button position', 'rundizstrap-companion')}
                             onChange={(value) => {
                                 setAttributes({
-                                    buttonPosition: value,
+                                    buttonPosition: sanitizeButtonPosition(value),
                                 });
                             }}
                             options={buttonPositionControls}
                         />
                     </ToolsPanelItem>
-                    {('no-button' !== buttonPosition) && (
+                    {('no-button' !== sanitizedButtonPosition) && (
                         <>
                             <ToolsPanelItem
                                 hasValue={() => !buttonUseIconDefault}
@@ -228,9 +240,8 @@ export default function Edit({attributes, setAttributes}) {
                                 <TextControl
                                     label={__('Button classes', 'rundizstrap-companion')}
                                     value={buttonClass}
-                                    onChange={
-                                        (buttonClass) => setAttributes({buttonClass})
-                                    }
+                                    onChange={(value) => setAttributes({ buttonClass: rundizstrap_companion_sanitize_html_class_list(value, true) })}
+                                    onBlur={() => setAttributes({ buttonClass: rundizstrap_companion_sanitize_html_class_list(buttonClass || '') })}
                                 />
                             </ToolsPanelItem>
                         </>
@@ -243,7 +254,7 @@ export default function Edit({attributes, setAttributes}) {
     // render text field has been copied from WordPress core search block.
     const renderTextField = () => {
         let classNameValue = 'form-control';
-        if (true === forNavbar && ('button-group-input' !== buttonPosition && 'no-button' !== buttonPosition)) {
+        if (true === forNavbar && ('button-group-input' !== sanitizedButtonPosition && 'no-button' !== sanitizedButtonPosition)) {
             classNameValue += ' me-2';
         }
         return (
@@ -266,8 +277,8 @@ export default function Edit({attributes, setAttributes}) {
     // render button has been copied from WordPress core search block.
     const renderButton = () => {
         let buttonClasses = buttonDefaultClass;
-        if (buttonClass) {
-            buttonClasses = buttonClass;
+        if (sanitizedButtonClass) {
+            buttonClasses = sanitizedButtonClass;
         }
 
         const isButtonUseIcon = (buttonUseIcon === true);
@@ -334,7 +345,7 @@ export default function Edit({attributes, setAttributes}) {
             )}
             {!forNavbar ? (
                 <>
-                    {('button-group-input' === buttonPosition) ? (
+                    {('button-group-input' === sanitizedButtonPosition) ? (
                         <>
                             <div class="input-group">
                                 {renderTextField()}
@@ -345,11 +356,11 @@ export default function Edit({attributes, setAttributes}) {
                         <>
                             <div class="row g-3">
                                 <div
-                                    className={'no-button' === buttonPosition ? 'col-12' : 'col'}
+                                    className={'no-button' === sanitizedButtonPosition ? 'col-12' : 'col'}
                                 >
                                     {renderTextField()}
                                 </div>
-                                {('no-button' !== buttonPosition) && (
+                                {('no-button' !== sanitizedButtonPosition) && (
                                     <>
                                         <div class="col-auto">
                                             {renderButton()}
@@ -362,7 +373,7 @@ export default function Edit({attributes, setAttributes}) {
                 </>
             ) : (
                 <>
-                    {('button-group-input' === buttonPosition) ? (
+                    {('button-group-input' === sanitizedButtonPosition) ? (
                         <>
                             <div class="input-group">
                                 {renderTextField()}
@@ -372,7 +383,7 @@ export default function Edit({attributes, setAttributes}) {
                     ) : (
                         <>
                             {renderTextField()} 
-                            {('no-button' !== buttonPosition) && (
+                            {('no-button' !== sanitizedButtonPosition) && (
                                 <>{renderButton()}</>
                             )}
                         </>

@@ -10,7 +10,7 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
-import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+import { rundizstrap_companion_sanitize_html_class_list } from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 
 import { rundizstrap_companion_sanitizeTagName } from '../../assets/js/blocks/shared/rundizstrap-companion-tag-block-level.js';
 
@@ -33,7 +33,7 @@ export default function Save({ attributes }) {
 
     const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
     const SanitizedContainerTagName = rundizstrap_companion_sanitizeTagName(containerTagName, DEFAULT_CONTAINER_TAG_NAME);
-    const sanitizedContainerClassName = rundizstrap_companion_sanitize_text_field(containerClassName);
+    const sanitizedContainerClassName = rundizstrap_companion_sanitize_html_class_list(containerClassName || '');
 
     const blockProps = useBlockProps.save({
         className: 'navbar'
