@@ -159,7 +159,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Accesskey', 'HTML attribute', 'rundizstrap-companion')}
                             value={accesskey}
-                            onChange={(value) => setAttributes({ accesskey: rundizstrap_companion_sanitize_text_field(value) })}
+                            onChange={(value) => setAttributes({ accesskey: value })}
+                            onBlur={() => setAttributes({ accesskey: rundizstrap_companion_sanitize_text_field(accesskey) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -171,7 +172,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Lang', 'HTML attribute', 'rundizstrap-companion')}
                             value={lang}
-                            onChange={(value) => setAttributes({ lang: rundizstrap_companion_sanitize_text_field(value) })}
+                            onChange={(value) => setAttributes({ lang: value })}
+                            onBlur={() => setAttributes({ lang: rundizstrap_companion_sanitize_text_field(lang) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -183,7 +185,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Role', 'HTML attribute', 'rundizstrap-companion')}
                             value={role}
-                            onChange={(value) => setAttributes({ role: rundizstrap_companion_sanitize_text_field(value) })}
+                            onChange={(value) => setAttributes({ role: value })}
+                            onBlur={() => setAttributes({ role: rundizstrap_companion_sanitize_text_field(role) })}
                         />
                     </ToolsPanelItem>
                     <ToolsPanelItem
@@ -217,7 +220,8 @@ export default function Edit({ attributes, setAttributes, clientId }) {
                         <TextControl
                             label={_x('Title', 'HTML attribute', 'rundizstrap-companion')}
                             value={title}
-                            onChange={(value) => setAttributes({ title: rundizstrap_companion_sanitize_text_field(value) })}
+                            onChange={(value) => setAttributes({ title: value })}
+                            onBlur={() => setAttributes({ title: rundizstrap_companion_sanitize_text_field(title) })}
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
