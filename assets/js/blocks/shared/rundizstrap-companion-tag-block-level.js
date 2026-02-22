@@ -10,6 +10,7 @@ export const rundizstrap_companion_blockLevelTagNameOptions = [
     'div',
     'header',
     'main',
+    'nav',
     'section',
     'article',
     'aside',
