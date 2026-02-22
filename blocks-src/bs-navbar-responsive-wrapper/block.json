@@ -54,6 +54,7 @@
     "icon": "layout",
     "keywords": ["bootstrap", "navbar", "responsive", "wrapper", "collapse", "offcanvas"],
     "name": "rundizstrap-companion/blocks-bs-navbar-responsive-wrapper",
+    "render": "file:./render.php",
     "parent": [
         "rundizstrap-companion/blocks-bs-navbar-container"
     ],
