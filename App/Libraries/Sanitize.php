@@ -83,6 +83,22 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Sanitize')) {
             return $sanitizedValue;
         }// attributeValue
 
+
+        /**
+         * Sanitize class name or multiple class names at once.
+         *
+         * @link https://developer.wordpress.org/reference/functions/sanitize_html_class/ Target function that this method will call.
+         * @since 0.0.4
+         * @param string $className The classname to be sanitized.
+         * @return string The sanitized value.
+         */
+        public function classNames(string $className): string
+        {
+            $classTokens = preg_split('/\s+/', trim($className)) ?: [];
+            $classTokens = array_filter(array_map('sanitize_html_class', $classTokens));
+            return implode(' ', $classTokens);
+        }// classNames
+
     
     }// Sanitize
 }
