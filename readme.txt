@@ -88,7 +88,6 @@ If you have the capability to edit theme options, you can access the help page u
 2026-02-15
 
 * Renamed from BBFSE Plug -> RundizStrap Companion.
-* Original source is at https://github.com/Rundiz-WP/rundizstrap-companion
 
 = 0.0.1 =
 2026-02-06
