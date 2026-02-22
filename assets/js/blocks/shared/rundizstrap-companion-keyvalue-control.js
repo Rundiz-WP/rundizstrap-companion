@@ -54,20 +54,22 @@ export default function RundizStrapCompanionKeyValueCtrl ({ label, value, onChan
         return obj;
     }, {});
 
-    const updateAttribute = (index, field, newValue) => {
-        const newAttributes = [...localAttributes];
-        newAttributes[index][field] = newValue;
-        setLocalAttributes(newAttributes);
-
+    const commitAttributes = (items) => {
         // Check duplicate keys using sanitized format to prevent collisions.
-        const keys = newAttributes
+        const keys = items
             .map((attr) => rundizstrap_companion_sanitizeAttributeKey(attr.key, prefix))
             .filter((key) => key !== '');
         const hasDuplicates = keys.some((key, i) => keys.indexOf(key) !== i);
 
         if (!hasDuplicates) {
-            onChange(toSanitizedAttributesObject(newAttributes));
+            onChange(toSanitizedAttributesObject(items));
         }
+    };
+
+    const updateAttribute = (index, field, newValue) => {
+        const newAttributes = [...localAttributes];
+        newAttributes[index][field] = newValue;
+        setLocalAttributes(newAttributes);
     };
 
     const addAttribute = () => {
@@ -90,11 +92,13 @@ export default function RundizStrapCompanionKeyValueCtrl ({ label, value, onChan
                         placeholder={__('Key', 'rundizstrap-companion')}
                         value={attr.key}
                         onChange={(val) => updateAttribute(index, 'key', val)}
+                        onBlur={() => commitAttributes(localAttributes)}
                     />
                     <TextControl
                         placeholder={__('Value', 'rundizstrap-companion')}
                         value={attr.val}
                         onChange={(val) => updateAttribute(index, 'val', val)}
+                        onBlur={() => commitAttributes(localAttributes)}
                     />
                     <Button
                         size="small"
