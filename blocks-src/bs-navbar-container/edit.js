@@ -19,6 +19,25 @@ import {
 
 import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
+import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
+
+import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+
+import {
+    rundizstrap_companion_blockLevelTagNameOptions,
+    rundizstrap_companion_sanitizeTagName
+} from '../../assets/js/blocks/shared/rundizstrap-companion-tag-block-level.js';
+
+
+const DEFAULT_TAG_NAME = 'nav';
+
+const DEFAULT_CONTAINER_TAG_NAME = 'div';
+
+const BLOCK_LEVEL_TAG_NAME_OPTIONS = rundizstrap_companion_blockLevelTagNameOptions.map((item) => ({
+    label: '<' + item + '>',
+    value: item,
+}));
+
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -31,16 +50,21 @@ export default function Edit({ attributes, setAttributes }) {
         containerAriaAttributes
     } = attributes;
 
+    const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const SanitizedContainerTagName = rundizstrap_companion_sanitizeTagName(containerTagName, DEFAULT_CONTAINER_TAG_NAME);
+    const sanitizedContainerClassName = rundizstrap_companion_sanitize_text_field(containerClassName);
+
     const blockProps = useBlockProps({
-        className: 'navbar'
+        className: 'navbar',
+        ...rundizstrap_companion_attribute_to_props(dataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-'),
     });
 
     const innerBlocksProps = useInnerBlocksProps({
-        className: containerClassName
+        className: sanitizedContainerClassName,
+        ...rundizstrap_companion_attribute_to_props(containerDataAttributes, 'data-'),
+        ...rundizstrap_companion_attribute_to_props(containerAriaAttributes, 'aria-'),
     });
-
-    const TagName = tagName;
-    const ContainerTagName = containerTagName;
 
     // Helper to check if objects are empty
     const isObjectEmpty = (obj) => Object.keys(obj || {}).length === 0;
@@ -51,26 +75,22 @@ export default function Edit({ attributes, setAttributes }) {
                 <ToolsPanel
                     label={__('Navbar Settings', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
-                        tagName: 'nav',
+                        tagName: DEFAULT_TAG_NAME,
                         dataAttributes: {},
                         ariaAttributes: {}
                     })}
                 >
                     <ToolsPanelItem
-                        hasValue={() => tagName !== 'nav'}
+                        hasValue={() => tagName !== DEFAULT_TAG_NAME}
                         label={__('Tag Name', 'rundizstrap-companion')}
-                        onDeselect={() => setAttributes({ tagName: 'nav' })}
+                        onDeselect={() => setAttributes({ tagName: DEFAULT_TAG_NAME })}
                         isShownByDefault
                     >
                         <SelectControl
                             label={__('Tag Name', 'rundizstrap-companion')}
-                            value={tagName}
-                            options={[
-                                { label: 'nav', value: 'nav' },
-                                { label: 'div', value: 'div' },
-                                { label: 'header', value: 'header' },
-                            ]}
-                            onChange={(value) => setAttributes({ tagName: value })}
+                            value={SanitizedTagName}
+                            options={BLOCK_LEVEL_TAG_NAME_OPTIONS}
+                            onChange={(value) => setAttributes({ tagName: rundizstrap_companion_sanitizeTagName(value, DEFAULT_TAG_NAME) })}
                         />
                     </ToolsPanelItem>
 
@@ -84,6 +104,7 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
+                            prefix="data-"
                         />
                     </ToolsPanelItem>
 
@@ -97,6 +118,7 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
+                            prefix="aria-"
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
@@ -104,26 +126,23 @@ export default function Edit({ attributes, setAttributes }) {
                 <ToolsPanel
                     label={__('Container Settings', 'rundizstrap-companion')}
                     resetAll={() => setAttributes({
-                        containerTagName: 'div',
+                        containerTagName: DEFAULT_CONTAINER_TAG_NAME,
                         containerClassName: 'container-fluid',
                         containerDataAttributes: {},
                         containerAriaAttributes: {}
                     })}
                 >
                     <ToolsPanelItem
-                        hasValue={() => containerTagName !== 'div'}
+                        hasValue={() => containerTagName !== DEFAULT_CONTAINER_TAG_NAME}
                         label={__('Container Tag Name', 'rundizstrap-companion')}
-                        onDeselect={() => setAttributes({ containerTagName: 'div' })}
+                        onDeselect={() => setAttributes({ containerTagName: DEFAULT_CONTAINER_TAG_NAME })}
                         isShownByDefault
                     >
                         <SelectControl
                             label={__('Container Tag Name', 'rundizstrap-companion')}
-                            value={containerTagName}
-                            options={[
-                                { label: 'div', value: 'div' },
-                                { label: 'section', value: 'section' },
-                            ]}
-                            onChange={(value) => setAttributes({ containerTagName: value })}
+                            value={SanitizedContainerTagName}
+                            options={BLOCK_LEVEL_TAG_NAME_OPTIONS}
+                            onChange={(value) => setAttributes({ containerTagName: rundizstrap_companion_sanitizeTagName(value, DEFAULT_CONTAINER_TAG_NAME) })}
                         />
                     </ToolsPanelItem>
 
@@ -136,7 +155,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <TextControl
                             label={__('Container Class', 'rundizstrap-companion')}
                             value={containerClassName}
-                            onChange={(value) => setAttributes({ containerClassName: value })}
+                            onChange={(value) => setAttributes({ containerClassName: rundizstrap_companion_sanitize_text_field(value) })}
                             help={__('Default is container-fluid. You can change to container, container-lg, etc.', 'rundizstrap-companion')}
                         />
                     </ToolsPanelItem>
@@ -151,6 +170,7 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Container data attributes', 'rundizstrap-companion') + ' '}
                             value={containerDataAttributes}
                             onChange={(value) => setAttributes({ containerDataAttributes: value })}
+                            prefix="data-"
                         />
                     </ToolsPanelItem>
 
@@ -164,14 +184,15 @@ export default function Edit({ attributes, setAttributes }) {
                             label={__('Container aria attributes', 'rundizstrap-companion') + ' '}
                             value={containerAriaAttributes}
                             onChange={(value) => setAttributes({ containerAriaAttributes: value })}
+                            prefix="aria-"
                         />
                     </ToolsPanelItem>
                 </ToolsPanel>
             </InspectorControls>
 
-            <TagName {...blockProps}>
-                <ContainerTagName {...innerBlocksProps} />
-            </TagName>
+            <SanitizedTagName {...blockProps}>
+                <SanitizedContainerTagName {...innerBlocksProps} />
+            </SanitizedTagName>
         </>
     );
 }// Edit

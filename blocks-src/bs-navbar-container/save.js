@@ -10,6 +10,15 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 import rundizstrap_companion_attribute_to_props from '../../assets/js/blocks/shared/rundizstrap-companion-attributes.js';
 
+import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+
+import { rundizstrap_companion_sanitizeTagName } from '../../assets/js/blocks/shared/rundizstrap-companion-tag-block-level.js';
+
+
+const DEFAULT_TAG_NAME = 'nav';
+
+const DEFAULT_CONTAINER_TAG_NAME = 'div';
+
 
 export default function Save({ attributes }) {
     const {
@@ -22,12 +31,13 @@ export default function Save({ attributes }) {
         containerAriaAttributes
     } = attributes;
 
+    const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const SanitizedContainerTagName = rundizstrap_companion_sanitizeTagName(containerTagName, DEFAULT_CONTAINER_TAG_NAME);
+    const sanitizedContainerClassName = rundizstrap_companion_sanitize_text_field(containerClassName);
+
     const blockProps = useBlockProps.save({
         className: 'navbar'
     });
-
-    const TagName = tagName;
-    const ContainerTagName = containerTagName;
 
     const outerDataProps = rundizstrap_companion_attribute_to_props(dataAttributes, 'data-');
     const outerAriaProps = rundizstrap_companion_attribute_to_props(ariaAttributes, 'aria-');
@@ -40,16 +50,16 @@ export default function Save({ attributes }) {
 
     // Construct inner props
     const innerProps = {
-        className: containerClassName,
+        className: sanitizedContainerClassName,
         ...innerDataProps,
         ...innerAriaProps
     };
 
     return (
-        <TagName {...blockProps}>
-            <ContainerTagName {...innerProps}>
+        <SanitizedTagName {...blockProps}>
+            <SanitizedContainerTagName {...innerProps}>
                 <InnerBlocks.Content />
-            </ContainerTagName>
-        </TagName>
+            </SanitizedContainerTagName>
+        </SanitizedTagName>
     );
 }// Save
