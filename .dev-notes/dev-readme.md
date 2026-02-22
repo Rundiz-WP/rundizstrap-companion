@@ -27,4 +27,5 @@
 
 ### Before commit
 * Update plugin's version number in **readme.txt**, plugin's file **.php**.
+* Update change log in **readme.txt**.
 * Run command `npm run pack` to pack files into zip and store in folder **.dist**. The plugin version will also write into package.json.

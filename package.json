@@ -1,6 +1,6 @@
 {
     "name": "rundizstrap-companion",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "The WordPress Blocks for Bootstrap Basic FSE theme based on latest Bootstrap.",
     "private": true,
     "type": "module",

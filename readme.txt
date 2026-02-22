@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -74,6 +74,12 @@ If you have the capability to edit theme options, you can access the help page u
 16. Plugin help page
 
 == Changelog ==
+
+= 0.0.5 =
+2026-02-23
+
+* Fix deprecated in blocks.
+* Update all blocks to sanitize and escape.
 
 = 0.0.4 =
 2026-02-21
