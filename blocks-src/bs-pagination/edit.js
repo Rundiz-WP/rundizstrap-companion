@@ -29,12 +29,16 @@ import {
     useBlockProps,
 } from '@wordpress/block-editor';
 
+import { safeHTML } from '@wordpress/dom';
+
 /**
  * Element is a package that builds on top of React and provide a set of utilities to work with React components and React elements.
  * 
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/
  */
 import { useEffect } from '@wordpress/element';
+
+import rundizstrap_companion_sanitize_text_field from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
 
 /**
  * Imports the necessary components that will be used to create
@@ -276,9 +280,14 @@ export default function Edit({attributes, setAttributes}) {
     if (alignment) {
         paginationClasses += ' ' + alignment;
     }
-    if (additionalClass) {
-        paginationClasses += ' ' + additionalClass;
+
+    const sanitizedAdditionalClass = rundizstrap_companion_sanitize_text_field(additionalClass || '');
+    if (sanitizedAdditionalClass) {
+        paginationClasses += ' ' + sanitizedAdditionalClass;
     }
+
+    const sanitizedPreviousHtml = safeHTML(previousText || paginationDefaultPreviousText);
+    const sanitizedNextHtml = safeHTML(nextText || paginationDefaultNextText);
 
     // render a preview of the pagination.
     const renderPreview = () => {
@@ -288,7 +297,7 @@ export default function Edit({attributes, setAttributes}) {
         if (showPreviousNext) {
             pageItems.push(
                 <li key="prev" className="page-item disabled">
-                    <span className="page-link" dangerouslySetInnerHTML={{__html: previousText || paginationDefaultPreviousText}} />
+                    <span className="page-link" dangerouslySetInnerHTML={{ __html: sanitizedPreviousHtml }} />
                 </li>
             );
         }
@@ -323,7 +332,7 @@ export default function Edit({attributes, setAttributes}) {
         if (showPreviousNext) {
             pageItems.push(
                 <li key="next" className="page-item">
-                    <span className="page-link" dangerouslySetInnerHTML={{__html: nextText || paginationDefaultNextText}} />
+                    <span className="page-link" dangerouslySetInnerHTML={{ __html: sanitizedNextHtml }} />
                 </li>
             );
         }

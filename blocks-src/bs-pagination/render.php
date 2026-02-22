@@ -110,10 +110,10 @@ if (!function_exists('rundizstrap_companion_block_bsPagination_renderPageNext'))
         $max_page = (isset($block->context['query']['pages']) ? (int) $block->context['query']['pages'] : 0);
         $page = (empty($_GET[$page_key]) ? 1 : (int) $_GET[$page_key]);// phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $wrapper_attributes = 'class="wp-block-rundizstrap-companion-blocks-bs-pagination page-link"';
-        $default_label = __('Next »', 'rundizstrap-companion');
+        $default_label = esc_html__('Next »', 'rundizstrap-companion');
         $label_text = (isset($attributes['nextText']) && !empty($attributes['nextText']) ? wp_kses_post($attributes['nextText']) : $default_label);
         $label = $label_text;
-        $wrapper_attributes .= ' aria-label="' . __('Next', 'rundizstrap-companion') . '"';
+        $wrapper_attributes .= ' aria-label="' . esc_attr__('Next', 'rundizstrap-companion') . '"';
 
         /* @var $wp_query \WP_Query */
         global $wp_query;
@@ -209,10 +209,16 @@ if (!function_exists('rundizstrap_companion_block_bsPagination_renderPageNumbers
         global $wp_query;
         $current = intval(max(1, $page));
         $total = (!$max_page || $max_page > $wp_query->max_num_pages ? $wp_query->max_num_pages : $max_page);
+        $mid_size = 2;
+        if (isset($attributes['numberOfPages']) && is_numeric($attributes['numberOfPages'])) {
+            // Keep this open so edit.js can add/update min/max in the future.
+            $mid_size = intval($attributes['numberOfPages']);
+        }
+
         $paginate_args = [
             'prev_next' => false,
             'type' => 'array',
-            'mid_size' => (isset($attributes['numberOfPages']) && is_numeric($attributes['numberOfPages']) ? $attributes['numberOfPages'] : 2),
+            'mid_size' => $mid_size,
         ];
 
         if (!isset($block->context['query']['inherit']) || !$block->context['query']['inherit']) {
@@ -271,10 +277,10 @@ if (!function_exists('rundizstrap_companion_block_bsPagination_renderPagePreviou
         $max_page = (isset($block->context['query']['pages']) ? (int) $block->context['query']['pages'] : 0);
         $page = (empty($_GET[$page_key]) ? 1 : (int) $_GET[$page_key]);// phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $wrapper_attributes = 'class="wp-block-rundizstrap-companion-blocks-bs-pagination  page-link"';
-        $default_label = __('« Previous', 'rundizstrap-companion');
+        $default_label = esc_html__('« Previous', 'rundizstrap-companion');
         $label_text = (isset($attributes['previousText']) && !empty($attributes['previousText']) ? wp_kses_post($attributes['previousText']) : $default_label);
         $label = $label_text;
-        $wrapper_attributes .= ' aria-label="' . __('Previous', 'rundizstrap-companion') . '"';
+        $wrapper_attributes .= ' aria-label="' . esc_attr__('Previous', 'rundizstrap-companion') . '"';
 
         /* @var $wp_query \WP_Query */
         global $wp_query;
