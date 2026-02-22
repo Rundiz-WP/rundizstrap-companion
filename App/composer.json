@@ -1,0 +1,9 @@
+{
+    "_comment-read-me": "The real composer.json is at the same level with plugin's readme.txt.",
+    "_comment1": "The composer.json supports config for custom installation path (see https://getcomposer.org/doc/06-config.md#vendor-dir ).",
+    "_comment3": "So, if you are experienced developer and know the code, please go to ../composer.json and inspect the config from there.",
+    "_comment4": "The real composer.json is at the same level with plugin's readme.txt. It was there from the beginning!",
+    "_comment5": "I created this composer.json to let you know and please stop asking for where is composer.json file.",
+    "_comment6": "The reason to change vendor path is to make file structure clean and related. Main PHP application stay in App folder including PHP packages.",
+    "_comment7": "...That's all!"
+}
