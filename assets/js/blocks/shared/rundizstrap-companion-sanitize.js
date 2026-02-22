@@ -18,21 +18,21 @@
  * @param {string} [fallback=''] - The value to return if the sanitization ends up as an empty string.
  * @returns {string} The sanitized value.
  */
-export default function rundizstrap_companion_sanitize_html_class( classname, fallback = '' ) {
+export function rundizstrap_companion_sanitize_html_class(classname, fallback = '') {
     if (typeof(classname) !== 'string') {
         return classname;
     }
 
     // Strip out any percent-encoded characters (e.g. %20, %3A).
-    let sanitized = classname.replace( /%[a-fA-F0-9][a-fA-F0-9]/g, '' );
+    let sanitized = classname.replace(/%[a-fA-F0-9][a-fA-F0-9]/g, '');
 
     // Limit to A-Z, a-z, 0-9, underscore, and hyphen — strip everything else.
-    sanitized = sanitized.replace( /[^A-Za-z0-9_-]/g, '' );
+    sanitized = sanitized.replace(/[^A-Za-z0-9_-]/g, '');
 
     // If the result is empty and a fallback is provided,
     // recursively sanitize the fallback and return it instead.
-    if ( sanitized === '' && fallback ) {
-        return rundizstrap_companion_sanitize_html_class( fallback );
+    if (sanitized === '' && fallback) {
+        return rundizstrap_companion_sanitize_html_class(fallback);
     }
 
     return sanitized;
