@@ -14,6 +14,8 @@ if (!defined('ABSPATH')) {
     exit();
 }
 
+use RundizstrapCompanion\App\Libraries\Sanitize;
+
 
 if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
     /**
@@ -40,15 +42,15 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
             return '';
         }
 
+        $Sanitize = new Sanitize();
+
         $buttonClassName = 'btn btn-primary';
         if (isset($attributes['buttonClassName']) && is_string($attributes['buttonClassName'])) {
-            $buttonClassTokens = preg_split('/\s+/', trim($attributes['buttonClassName'])) ?: [];
-            $buttonClassTokens = array_filter(array_map('sanitize_html_class', $buttonClassTokens));
-            $buttonClassName = implode(' ', $buttonClassTokens);
-            if ('' === $buttonClassName) {
-                $buttonClassName = 'btn btn-primary';
+            $sanitizedButtonClassName = $Sanitize->classNames($attributes['buttonClassName']);
+            if ('' !== $sanitizedButtonClassName) {
+                $buttonClassName = $sanitizedButtonClassName;
             }
-            unset($buttonClassTokens);
+            unset($sanitizedButtonClassName);
         }
 
         $classes = ['comment-respond'];
@@ -103,7 +105,7 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
             'comment_notes_after' => '',
             'submit_field' => '<div class="mb-3">%1$s %2$s</div>',
         ];
-        unset($buttonClassName, $fields);
+        unset($buttonClassName, $fields, $Sanitize);
 
         ob_start();
         comment_form($commentFormArgs, $postId);

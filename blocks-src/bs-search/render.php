@@ -15,6 +15,8 @@ if (!defined('ABSPATH')) {
     exit();
 }
 
+use RundizstrapCompanion\App\Libraries\Sanitize;
+
 
 if (!function_exists('rundizstrap_companion_block_bsSearch_render')) {
     /**
@@ -36,6 +38,7 @@ if (!function_exists('rundizstrap_companion_block_bsSearch_render')) {
         $buttonText = __('Search', 'rundizstrap-companion');
         $placeholderText = '';
         $forNavbar = (isset($attributes['forNavbar']) && true === $attributes['forNavbar'] ? true : false);
+        $Sanitize = new Sanitize();
 
         if (isset($attributes)) {
             if (isset($attributes['showLabel']) && true === $attributes['showLabel']) {
@@ -63,14 +66,11 @@ if (!function_exists('rundizstrap_companion_block_bsSearch_render')) {
             unset($additionalClasses);
 
             if (isset($attributes['buttonClass']) && is_string($attributes['buttonClass']) && '' !== trim($attributes['buttonClass'])) {
-                $buttonClassParts = preg_split('/\s+/', $attributes['buttonClass']);
-                if (is_array($buttonClassParts)) {
-                    $buttonClassParts = array_filter(array_map('sanitize_html_class', $buttonClassParts));
-                    if (!empty($buttonClassParts)) {
-                        $buttonClass = implode(' ', $buttonClassParts);
-                    }
+                $sanitizedButtonClass = $Sanitize->classNames($attributes['buttonClass']);
+                if ('' !== $sanitizedButtonClass) {
+                    $buttonClass = $sanitizedButtonClass;
                 }
-                unset($buttonClassParts);
+                unset($sanitizedButtonClass);
             }
             if (isset($attributes['buttonPosition']) && is_string($attributes['buttonPosition']) && '' !== $attributes['buttonPosition']) {
                 // Sanitize only. Keep this open so edit.js can add/update supported values in the future.
@@ -129,7 +129,7 @@ if (!function_exists('rundizstrap_companion_block_bsSearch_render')) {
                 }
             }
         }// endif; $buttonPosition
-        unset($button_search, $buttonClass, $buttonText, $input_col_class, $input_field, $placeholderText);
+        unset($button_search, $buttonClass, $buttonText, $input_col_class, $input_field, $placeholderText, $Sanitize);
         unset($forNavbar);
 
         return sprintf(
