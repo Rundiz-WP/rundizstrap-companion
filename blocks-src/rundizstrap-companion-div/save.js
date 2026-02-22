@@ -35,7 +35,7 @@ export default function Save({ attributes }) {
         dataAttributes,
         ariaAttributes,
     } = attributes;
-    const Tag = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
     const sanitizedAccesskey = rundizstrap_companion_sanitize_text_field(accesskey);
     const sanitizedLang = rundizstrap_companion_sanitize_text_field(lang);
     const sanitizedRole = rundizstrap_companion_sanitize_text_field(role);
@@ -53,5 +53,5 @@ export default function Save({ attributes }) {
 
     const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-    return <Tag {...innerBlocksProps} />;
+    return <SanitizedTagName {...innerBlocksProps} />;
 }// Save

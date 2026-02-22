@@ -25,7 +25,7 @@ const DEFAULT_TAG_NAME = 'div';
  */
 export default function save({ attributes }) {
     const { tagName, dataAttributes, ariaAttributes } = attributes;
-    const Tag = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
+    const SanitizedTagName = rundizstrap_companion_sanitizeTagName(tagName, DEFAULT_TAG_NAME);
 
     // No hardcoded class. relying on attributes.className which WP handles automatically.
     const blockProps = useBlockProps.save({
@@ -35,5 +35,5 @@ export default function save({ attributes }) {
 
     const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-    return <Tag {...innerBlocksProps} />;
+    return <SanitizedTagName {...innerBlocksProps} />;
 }// save
