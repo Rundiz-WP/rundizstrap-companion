@@ -125,35 +125,51 @@ if (!function_exists('rundizstrap_companion_block_bsNavbarResponsiveWrapper_rend
         if ('offcanvas' === $wrapperStyle) {
             $offcanvasHeaderClassName = 'offcanvas-header';
             if (isset($attributes['offcanvasHeaderClassName']) && is_string($attributes['offcanvasHeaderClassName'])) {
-                $offcanvasHeaderClassName = $attributes['offcanvasHeaderClassName'];
+                $sanitizedOffcanvasHeaderClassName = $Sanitize->classNames($attributes['offcanvasHeaderClassName']);
+                if ('' !== $sanitizedOffcanvasHeaderClassName) {
+                    $offcanvasHeaderClassName = $sanitizedOffcanvasHeaderClassName;
+                }
+                unset($sanitizedOffcanvasHeaderClassName);
             }
 
             $offcanvasHeaderTitleClassName = 'offcanvas-title';
             if (isset($attributes['offcanvasHeaderTitleClassName']) && is_string($attributes['offcanvasHeaderTitleClassName'])) {
-                $offcanvasHeaderTitleClassName = $attributes['offcanvasHeaderTitleClassName'];
+                $sanitizedOffcanvasHeaderTitleClassName = $Sanitize->classNames($attributes['offcanvasHeaderTitleClassName']);
+                if ('' !== $sanitizedOffcanvasHeaderTitleClassName) {
+                    $offcanvasHeaderTitleClassName = $sanitizedOffcanvasHeaderTitleClassName;
+                }
+                unset($sanitizedOffcanvasHeaderTitleClassName);
             }
 
             $titleId = '';
             if (isset($attributes['offcanvasHeaderTitleIDName']) && is_string($attributes['offcanvasHeaderTitleIDName'])) {
-                $titleId = $attributes['offcanvasHeaderTitleIDName'];
+                $titleId = sanitize_text_field($attributes['offcanvasHeaderTitleIDName']);
             }
-            if ('' === $titleId) {
+            if ('' === trim($titleId)) {
                 $titleId = 'navbar-responsive-offcanvas-title-id';
             }
 
-            $offcanvasHeaderTitleText = '';
-            if (isset($attributes['offcanvasHeaderTitleText']) && is_string($attributes['offcanvasHeaderTitleText'])) {
-                $offcanvasHeaderTitleText = $attributes['offcanvasHeaderTitleText'];
+            $offcanvasHeaderTitleHtml = '';
+            if (
+                isset($attributes['offcanvasHeaderTitleHtml']) &&
+                is_string($attributes['offcanvasHeaderTitleHtml']) &&
+                '' !== $attributes['offcanvasHeaderTitleHtml']
+            ) {
+                $offcanvasHeaderTitleHtml = wp_kses_post($attributes['offcanvasHeaderTitleHtml']);
             }
 
             $offcanvasHeaderCloseBtnClassName = '';
             if (isset($attributes['offcanvasHeaderCloseBtnClassName']) && is_string($attributes['offcanvasHeaderCloseBtnClassName'])) {
-                $offcanvasHeaderCloseBtnClassName = $attributes['offcanvasHeaderCloseBtnClassName'];
+                $offcanvasHeaderCloseBtnClassName = $Sanitize->classNames($attributes['offcanvasHeaderCloseBtnClassName']);
             }
 
             $offcanvasBodyClassName = 'offcanvas-body';
             if (isset($attributes['offcanvasBodyClassName']) && is_string($attributes['offcanvasBodyClassName'])) {
-                $offcanvasBodyClassName = $attributes['offcanvasBodyClassName'];
+                $sanitizedOffcanvasBodyClassName = $Sanitize->classNames($attributes['offcanvasBodyClassName']);
+                if ('' !== $sanitizedOffcanvasBodyClassName) {
+                    $offcanvasBodyClassName = $sanitizedOffcanvasBodyClassName;
+                }
+                unset($sanitizedOffcanvasBodyClassName);
             }
 
             if ('' !== $titleId) {
@@ -177,7 +193,7 @@ if (!function_exists('rundizstrap_companion_block_bsNavbarResponsiveWrapper_rend
                 esc_attr($offcanvasHeaderClassName),
                 esc_attr($offcanvasHeaderTitleClassName),
                 ('' !== $titleId ? ' id="' . esc_attr($titleId) . '"' : ''),
-                $offcanvasHeaderTitleText,
+                $offcanvasHeaderTitleHtml,
                 rundizstrap_companion_block_bsNavbarResponsiveWrapper_attributesToString($closeButtonAttributes),
                 esc_attr($offcanvasBodyClassName),
                 $content

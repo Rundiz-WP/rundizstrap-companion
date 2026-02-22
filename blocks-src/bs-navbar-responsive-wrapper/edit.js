@@ -20,6 +20,11 @@ import {
 
 import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
+import {
+    rundizstrap_companion_sanitize_html_class,
+    rundizstrap_companion_sanitize_html_class_list,
+} from '../../assets/js/blocks/shared/rundizstrap-companion-sanitize.js';
+
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -30,7 +35,7 @@ export default function Edit({ attributes, setAttributes }) {
         offcanvasHeaderClassName,
         offcanvasHeaderTitleIDName,
         offcanvasHeaderTitleClassName,
-        offcanvasHeaderTitleText,
+        offcanvasHeaderTitleHtml,
         // offcanvas header close button ---------
         offcanvasHeaderCloseBtnClassName,
         offcanvasHeaderCloseBtnDataAttributes,
@@ -43,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
     const offcanvasHeaderDefaultClassName = 'offcanvas-header';
     const offcanvasHeaderTitleDefaultIDName = '';
     const offcanvasHeaderTitleDefaultClassName = 'offcanvas-title';
-    const offcanvasHeaderTitleDefaultText = '';
+    const offcanvasHeaderTitleDefaultHtml = '';
     const offcanvasHeaderCloseBtnDefaultClassName = '';
     const offcanvasBodyDefaultClassName = 'offcanvas-body';
 
@@ -69,6 +74,10 @@ export default function Edit({ attributes, setAttributes }) {
 
     // Helper to check if objects are empty
     const isObjectEmpty = (obj) => Object.keys(obj || {}).length === 0;
+    const sanitizeClassList = (value, keepTrailingSpace = false) =>
+        rundizstrap_companion_sanitize_html_class_list(String(value || ''), keepTrailingSpace);
+    const sanitizeTitleId = (value) =>
+        rundizstrap_companion_sanitize_html_class(String(value || ''));
 
     return (
         <>
@@ -119,6 +128,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 label={__('Data attributes', 'rundizstrap-companion') + ' '}
                                 value={dataAttributes}
                                 onChange={(value) => setAttributes({ dataAttributes: value })}
+                                prefix="data-"
                             />
                         </ToolsPanelItem>
                         <ToolsPanelItem
@@ -131,6 +141,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                                 value={ariaAttributes}
                                 onChange={(value) => setAttributes({ ariaAttributes: value })}
+                                prefix="aria-"
                             />
                         </ToolsPanelItem>
                     </ToolsPanel>
@@ -146,7 +157,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     offcanvasHeaderClassName: offcanvasHeaderDefaultClassName,
                                     offcanvasHeaderTitleIDName: offcanvasHeaderTitleDefaultIDName,
                                     offcanvasHeaderTitleClassName: offcanvasHeaderTitleDefaultClassName,
-                                    offcanvasHeaderTitleText: offcanvasHeaderTitleDefaultText,
+                                    offcanvasHeaderTitleHtml: offcanvasHeaderTitleDefaultHtml,
                                     offcanvasHeaderCloseBtnClassName: offcanvasHeaderCloseBtnDefaultClassName,
                                     offcanvasHeaderCloseBtnDataAttributes: {},
                                     offcanvasHeaderCloseBtnAriaAttributes: {},
@@ -162,7 +173,8 @@ export default function Edit({ attributes, setAttributes }) {
                                     <TextControl
                                         label={__('Offcanvas header Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderClassName}
-                                        onChange={(value) => setAttributes({ offcanvasHeaderClassName: value })}
+                                        onChange={(value) => setAttributes({ offcanvasHeaderClassName: sanitizeClassList(value, true) })}
+                                        onBlur={() => setAttributes({ offcanvasHeaderClassName: sanitizeClassList(offcanvasHeaderClassName) })}
                                         help={sprintf(
                                             /* translators: %1$s the offcanvas default class name. */
                                             __('Default is %1$s.', 'rundizstrap-companion'),
@@ -179,19 +191,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     <TextControl
                                         label={__('Offcanvas header title ID', 'rundizstrap-companion')}
                                         value={offcanvasHeaderTitleIDName}
-                                        onChange={(value) => {
-                                            // Real-time sanitization on every keystroke
-                                            let sanitized = value
-                                                .replace(/\s+/g, '-') // replace any spaces with single dash
-                                                .replace(/[^a-z0-9_-]/g, ''); // remove all invalid chars (keep only a-z, 0-9, -, _)
-
-                                            // Optional: ensure it starts with a letter, -, or _ (HTML5 allows digit start, but stricter is safer)
-                                            // if (sanitized && !/^[a-z_-]/.test(sanitized)) {
-                                            //     sanitized = sanitized.replace(/^[^a-z_-]+/, '');
-                                            // }
-
-                                            setAttributes({ offcanvasHeaderTitleIDName: sanitized });
-                                        }}
+                                        onChange={(value) => setAttributes({ offcanvasHeaderTitleIDName: sanitizeTitleId(value) })}
                                         help={__('HTML id attribute on offcanvas header title', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
@@ -204,7 +204,8 @@ export default function Edit({ attributes, setAttributes }) {
                                     <TextControl
                                         label={__('Offcanvas header title Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderTitleClassName}
-                                        onChange={(value) => setAttributes({ offcanvasHeaderTitleClassName: value })}
+                                        onChange={(value) => setAttributes({ offcanvasHeaderTitleClassName: sanitizeClassList(value, true) })}
+                                        onBlur={() => setAttributes({ offcanvasHeaderTitleClassName: sanitizeClassList(offcanvasHeaderTitleClassName) })}
                                         help={sprintf(
                                             __('Default is %1$s.', 'rundizstrap-companion'),
                                             offcanvasHeaderTitleDefaultClassName
@@ -212,15 +213,15 @@ export default function Edit({ attributes, setAttributes }) {
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
-                                    hasValue={() => offcanvasHeaderTitleText !== offcanvasHeaderTitleDefaultText}
+                                    hasValue={() => offcanvasHeaderTitleHtml !== offcanvasHeaderTitleDefaultHtml}
                                     label={__('Offcanvas header title text', 'rundizstrap-companion')}
-                                    onDeselect={() => setAttributes({ offcanvasHeaderTitleText: offcanvasHeaderTitleDefaultText })}
+                                    onDeselect={() => setAttributes({ offcanvasHeaderTitleHtml: offcanvasHeaderTitleDefaultHtml })}
                                     isShownByDefault
                                 >
                                     <TextControl
                                         label={__('Offcanvas header title text', 'rundizstrap-companion')}
-                                        value={offcanvasHeaderTitleText}
-                                        onChange={(value) => setAttributes({ offcanvasHeaderTitleText: value })}
+                                        value={offcanvasHeaderTitleHtml}
+                                        onChange={(value) => setAttributes({ offcanvasHeaderTitleHtml: value })}
                                         help={__('You can use text or HTML. This will be display inside offcanvas title.', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
@@ -233,7 +234,8 @@ export default function Edit({ attributes, setAttributes }) {
                                     <TextControl
                                         label={__('Close button additional Class', 'rundizstrap-companion')}
                                         value={offcanvasHeaderCloseBtnClassName}
-                                        onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnClassName: value })}
+                                        onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnClassName: sanitizeClassList(value, true) })}
+                                        onBlur={() => setAttributes({ offcanvasHeaderCloseBtnClassName: sanitizeClassList(offcanvasHeaderCloseBtnClassName) })}
                                         help={__('This will be additional class next to main close button class.', 'rundizstrap-companion')}
                                     />
                                 </ToolsPanelItem>
@@ -247,6 +249,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         label={__('Close button data attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnDataAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: value })}
+                                        prefix="data-"
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
@@ -259,6 +262,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         label={__('Close button aria attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnAriaAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: value })}
+                                        prefix="aria-"
                                     />
                                 </ToolsPanelItem>
                                 <ToolsPanelItem
@@ -270,7 +274,8 @@ export default function Edit({ attributes, setAttributes }) {
                                     <TextControl
                                         label={__('Offcanvas body Class', 'rundizstrap-companion')}
                                         value={offcanvasBodyClassName}
-                                        onChange={(value) => setAttributes({ offcanvasBodyClassName: value })}
+                                        onChange={(value) => setAttributes({ offcanvasBodyClassName: sanitizeClassList(value, true) })}
+                                        onBlur={() => setAttributes({ offcanvasBodyClassName: sanitizeClassList(offcanvasBodyClassName) })}
                                         help={sprintf(
                                             __('Default is %1$s.', 'rundizstrap-companion'),
                                             offcanvasBodyDefaultClassName

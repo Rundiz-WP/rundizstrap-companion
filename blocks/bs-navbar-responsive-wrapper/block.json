@@ -26,7 +26,7 @@
       "type": "string",
       "default": "offcanvas-title"
     },
-    "offcanvasHeaderTitleText": {
+    "offcanvasHeaderTitleHtml": {
       "type": "string",
       "role": "content",
       "default": ""
