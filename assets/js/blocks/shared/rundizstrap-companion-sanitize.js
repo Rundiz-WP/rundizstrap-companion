@@ -43,6 +43,8 @@ export default function rundizstrap_companion_sanitize_html_class( classname, fa
  * Sanitize text similarly to WordPress `sanitize_text_field()` internals
  * (`_sanitize_text_fields( $str, false )`), without UTF-8 validation.
  *
+ * @link https://developer.wordpress.org/reference/functions/sanitize_text_field/ `sanitize_text_field()` function.
+ * @link https://developer.wordpress.org/reference/functions/_sanitize_text_fields/ The function that work for `sanitize_text_field()`.
  * @since 0.0.4
  * @param {string} str Input value.
  * @returns {string}
