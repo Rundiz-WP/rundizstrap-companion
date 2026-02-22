@@ -33,7 +33,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 
 import metadata from './block.json';
 
-import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
+import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
 export default function Edit({ attributes, setAttributes }) {
     const { navigationRef, dataAttributes, ariaAttributes, dropdownClassName } = attributes;
@@ -128,7 +128,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
@@ -141,7 +141,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}

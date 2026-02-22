@@ -27,7 +27,7 @@ import { useRef, useEffect } from '@wordpress/element';
 
 import { useSelect } from '@wordpress/data';
 
-import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
+import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
 /**
  * Render inspector controls for the block.
@@ -153,7 +153,7 @@ function GroupEdit({ attributes, setAttributes, clientId }) {
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
@@ -165,7 +165,7 @@ function GroupEdit({ attributes, setAttributes, clientId }) {
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}

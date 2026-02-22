@@ -31,7 +31,7 @@ import {
  * @param {object} props.onChange The onchange callback.
  * @param {string} props.prefix attribute prefix. For example: `aria-`, `data-`.
  */
-export default function KeyValueControl ({ label, value, onChange, prefix = '' }) {
+export default function RundizStrapCompanionKeyValueCtrl ({ label, value, onChange, prefix = '' }) {
     // Ensure value is an object
     const attributes = value || {};
     const [localAttributes, setLocalAttributes] = useState([]);
@@ -111,4 +111,4 @@ export default function KeyValueControl ({ label, value, onChange, prefix = '' }
             </Button>
         </div>
     );
-};
+};// RundizStrapCompanionKeyValueCtrl

@@ -18,7 +18,7 @@ import {
     __experimentalToolsPanelItem as ToolsPanelItem
 } from '@wordpress/components';
 
-import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
+import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -114,7 +114,7 @@ export default function Edit({ attributes, setAttributes }) {
                             onDeselect={() => setAttributes({ dataAttributes: {} })}
                             isShownByDefault
                         >
-                            <KeyValueControl
+                            <RundizStrapCompanionKeyValueCtrl
                                 label={__('Data attributes', 'rundizstrap-companion') + ' '}
                                 value={dataAttributes}
                                 onChange={(value) => setAttributes({ dataAttributes: value })}
@@ -126,7 +126,7 @@ export default function Edit({ attributes, setAttributes }) {
                             onDeselect={() => setAttributes({ ariaAttributes: {} })}
                             isShownByDefault
                         >
-                            <KeyValueControl
+                            <RundizStrapCompanionKeyValueCtrl
                                 label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                                 value={ariaAttributes}
                                 onChange={(value) => setAttributes({ ariaAttributes: value })}
@@ -242,7 +242,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: {} })}
                                     isShownByDefault
                                 >
-                                    <KeyValueControl
+                                    <RundizStrapCompanionKeyValueCtrl
                                         label={__('Close button data attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnDataAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnDataAttributes: value })}
@@ -254,7 +254,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     onDeselect={() => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: {} })}
                                     isShownByDefault
                                 >
-                                    <KeyValueControl
+                                    <RundizStrapCompanionKeyValueCtrl
                                         label={__('Close button aria attributes', 'rundizstrap-companion') + ' '}
                                         value={offcanvasHeaderCloseBtnAriaAttributes}
                                         onChange={(value) => setAttributes({ offcanvasHeaderCloseBtnAriaAttributes: value })}

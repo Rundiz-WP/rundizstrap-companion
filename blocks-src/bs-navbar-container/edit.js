@@ -17,7 +17,7 @@ import {
     __experimentalToolsPanelItem as ToolsPanelItem
 } from '@wordpress/components';
 
-import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
+import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -79,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
@@ -92,7 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
@@ -146,7 +146,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ containerDataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Container data attributes', 'rundizstrap-companion') + ' '}
                             value={containerDataAttributes}
                             onChange={(value) => setAttributes({ containerDataAttributes: value })}
@@ -159,7 +159,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ containerAriaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Container aria attributes', 'rundizstrap-companion') + ' '}
                             value={containerAriaAttributes}
                             onChange={(value) => setAttributes({ containerAriaAttributes: value })}

@@ -16,7 +16,7 @@ import {
     __experimentalToolsPanelItem as ToolsPanelItem
 } from '@wordpress/components';
 
-import KeyValueControl from '../../assets/js/blocks/shared/keyValueControl.js';
+import RundizStrapCompanionKeyValueCtrl from '../../assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js';
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -51,7 +51,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ dataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Data attributes', 'rundizstrap-companion') + ' '}
                             value={dataAttributes}
                             onChange={(value) => setAttributes({ dataAttributes: value })}
@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ ariaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Aria attributes', 'rundizstrap-companion') + ' '}
                             value={ariaAttributes}
                             onChange={(value) => setAttributes({ ariaAttributes: value })}
@@ -100,7 +100,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ iconDataAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Icon data attributes', 'rundizstrap-companion') + ' '}
                             value={iconDataAttributes}
                             onChange={(value) => setAttributes({ iconDataAttributes: value })}
@@ -113,7 +113,7 @@ export default function Edit({ attributes, setAttributes }) {
                         onDeselect={() => setAttributes({ iconAriaAttributes: {} })}
                         isShownByDefault
                     >
-                        <KeyValueControl
+                        <RundizStrapCompanionKeyValueCtrl
                             label={__('Icon aria attributes', 'rundizstrap-companion') + ' '}
                             value={iconAriaAttributes}
                             onChange={(value) => setAttributes({ iconAriaAttributes: value })}
