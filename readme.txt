@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 0.0.6dev-20260225
+Stable tag: 0.0.6
 Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -79,6 +79,7 @@ If you have the capability to edit theme options, you can access the help page u
 2026-xx-xx
 
 * Fix supports `anchor` not working with dynamic block. ( See bug https://github.com/WordPress/gutenberg/issues/6356 )
+* Update object prefix in App/Controllers/Admin/Plugins/Upgrader.php and its assets/js/Admin/rd-settings-manual-update.js.
 
 = 0.0.5 =
 2026-02-23
