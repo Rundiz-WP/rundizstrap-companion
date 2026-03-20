@@ -101,19 +101,11 @@
                     "destination": "languages"
                 },
                 {
-                    "patterns": "templates/**",
-                    "destination": "templates"
-                },
-                {
                     "patterns": "LICENSE",
                     "destination": "."
                 },
                 {
                     "patterns": "*.json",
-                    "destination": "."
-                },
-                {
-                    "patterns": "*.md",
                     "destination": "."
                 },
                 {
