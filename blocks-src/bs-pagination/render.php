@@ -377,6 +377,7 @@ if (true === $rundizstrap_companion_ShowPreviousNext) {
 unset($rundizstrap_companion_ShowPreviousNext);
 // end call to create pagination result in array format. --------------------------------------------------------
 
+
 if (empty($rundizstrap_companion_PageResult)) {
     // if page result is empty.
     // do nothing here.
@@ -384,6 +385,12 @@ if (empty($rundizstrap_companion_PageResult)) {
     return;
 } else {
     // if page result is not empty.
+    $rundizstrap_companion_customKsesDataFile = dirname(RUNDIZSTRAP_COMPANION_FILE) . '/App/config/kses_data.php';
+    if (!file_exists($rundizstrap_companion_customKsesDataFile)) {
+        error_log('The file ' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $rundizstrap_companion_customKsesDataFile) . 'is not exists.');
+        return;
+    }
+
     // starting to build pagination HTML.
     $rundizstrap_companion_Output = rundizstrap_companion_block_bsPagination_generateOutputHTML(($attributes ?? []), ($content ?? ''), $block, $rundizstrap_companion_PageResult);
     unset($rundizstrap_companion_PageResult);
@@ -391,10 +398,16 @@ if (empty($rundizstrap_companion_PageResult)) {
     // get wrapper attributes.
     $rundizstrap_companion_wrapper_attributes = get_block_wrapper_attributes();
 
-    printf(
-        '<nav %1$s aria-label="' . esc_attr__('Pagination', 'rundizstrap-companion') . '">%2$s</nav>',
-        $rundizstrap_companion_wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-        $rundizstrap_companion_Output// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    $rundizstrap_companion_ksesData = include $rundizstrap_companion_customKsesDataFile;
+    echo wp_kses(
+        sprintf(
+            '<nav %1$s aria-label="' . esc_attr__('Pagination', 'rundizstrap-companion') . '">%2$s</nav>',
+            $rundizstrap_companion_wrapper_attributes, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            $rundizstrap_companion_Output// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        ),
+        $rundizstrap_companion_ksesData
     );
+
     unset($rundizstrap_companion_Output, $rundizstrap_companion_wrapper_attributes);
+    unset($rundizstrap_companion_customKsesDataFile);
 }// endif;

@@ -158,12 +158,19 @@ if (!function_exists('rundizstrap_companion_block_bsButton_render')) {
 }// endif;
 
 
-// The echo below will be render HTML button or something that looks like a button.
-// It cannot escape HTML or the design will break.
-// The input values are already sanitize and escape inside the function above.
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo rundizstrap_companion_block_bsButton_render(
-    ($attributes ?? []),
-    ((isset($content) && is_string($content)) ? $content : ''),
-    ($block ?? null)
-);
+$rundizstrap_companion_customKsesDataFile = dirname(RUNDIZSTRAP_COMPANION_FILE) . '/App/config/kses_data.php';
+if (!file_exists($rundizstrap_companion_customKsesDataFile)) {
+    error_log('The file ' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $rundizstrap_companion_customKsesDataFile) . 'is not exists.');
+    return;
+} else {
+    $rundizstrap_companion_ksesData = include $rundizstrap_companion_customKsesDataFile;
+    // The echo below will be render HTML button or something that looks like a button.
+    echo wp_kses(
+        rundizstrap_companion_block_bsButton_render(
+            ($attributes ?? []),
+            ((isset($content) && is_string($content)) ? $content : ''),
+            ($block ?? null)
+        ),
+        $rundizstrap_companion_ksesData
+    );
+}// endif;

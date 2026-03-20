@@ -154,12 +154,19 @@ if (!function_exists('rundizstrap_companion_block_bsPostNavigationLink_render'))
 }// endif;
 
 
-// The echo below will be render HTML of post navigation (previous post, next post)
-// It cannot escape HTML or the design will break.
-// The input values are already sanitize and escape inside the function above.
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo rundizstrap_companion_block_bsPostNavigationLink_render(
-    ($attributes ?? []),
-    ((isset($content) && is_string($content)) ? $content : ''),
-    ($block ?? null)
-);
+$rundizstrap_companion_customKsesDataFile = dirname(RUNDIZSTRAP_COMPANION_FILE) . '/App/config/kses_data.php';
+if (!file_exists($rundizstrap_companion_customKsesDataFile)) {
+    error_log('The file ' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $rundizstrap_companion_customKsesDataFile) . 'is not exists.');
+    return;
+} else {
+    $rundizstrap_companion_ksesData = include $rundizstrap_companion_customKsesDataFile;
+    // The echo below will be render HTML of post navigation (previous post, next post).
+    echo wp_kses(
+        rundizstrap_companion_block_bsPostNavigationLink_render(
+            ($attributes ?? []),
+            ((isset($content) && is_string($content)) ? $content : ''),
+            ($block ?? null)
+        ),
+        $rundizstrap_companion_ksesData
+    );
+}// endif;
