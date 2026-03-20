@@ -40,6 +40,8 @@ if (!defined('ABSPATH')) {
         wp_nonce_field(); 
         if (isset($settings_page)) {
             if (!is_file(dirname(__DIR__, 2) . '/config/kses_data.php')) {
+                // if not found custom kses data. use custom kses data to make sure it is up to date with modern HTML elements and attributes that will work.
+                // if not found then it should shown the error message, without translation because If this happens to a user from an unknown language, assistance may not be possible.
                 throw new \Exception(esc_html('The file ' . dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'kses_data.php could not be found.'));
             }
             echo wp_kses($settings_page, include dirname(__DIR__, 2) . '/config/kses_data.php');
