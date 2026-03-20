@@ -498,17 +498,17 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                 }
 
                 $output = '<input';
-                $output .= ' id="' . $field_name . '"';
+                $output .= ' id="' . esc_attr($field_name) . '"';
                 if (!isset($fields['input_attributes']['class'])) {
                     $output .= ' class="regular-text"';
                 }
-                $output .= ' type="' . $field_type . '"';
+                $output .= ' type="' . esc_attr($field_type) . '"';
                 $output .= ' value="' . esc_attr($field_value) . '"';
-                $output .= ' name="' . $field_name . '"';
+                $output .= ' name="' . esc_attr($field_name) . '"';
                 if (array_key_exists('input_attributes', $fields) && is_array($fields['input_attributes'])) {
                     foreach ($fields['input_attributes'] as $attribute_name => $attribute_value) {
                         if (!in_array($attribute_name, ['id', 'name', 'type', 'value'], true)) {
-                            $output .= ' ' . $attribute_name . '="' . $attribute_value . '"';
+                            $output .= ' ' . esc_attr($attribute_name) . '="' . esc_attr($attribute_value) . '"';
                         }
                     }
                     unset($attribute_name, $field_type, $attribute_value);
@@ -546,9 +546,9 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                     if (is_array($checkboxes)) {
                         $output .= '<label>';
                         $output .= '<input type="checkbox"';
-                        $output .= ' name="' . $checkbox_id . '"';
+                        $output .= ' name="' . esc_attr($checkbox_id) . '"';
                         if (array_key_exists('value', $checkboxes)) {
-                            $output .= ' value="' . $checkboxes['value'] . '"';
+                            $output .= ' value="' . esc_attr($checkboxes['value']) . '"';
                             if (strpos($checkbox_id, '[') === false) {
                                 // this is not check box array.
                                 if (!is_array($options_values) || (is_array($options_values) && !array_key_exists($checkbox_id, $options_values))) {
@@ -580,7 +580,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                         if (array_key_exists('input_attributes', $checkboxes) && is_array($checkboxes['input_attributes'])) {
                             foreach ($checkboxes['input_attributes'] as $attribute_name => $attribute_value) {
                                 if (!in_array($attribute_name, ['id', 'name', 'type', 'value', 'checked'], true)) {
-                                    $output .= ' ' . $attribute_name . '="' . $attribute_value . '"';
+                                    $output .= ' ' . esc_attr($attribute_name) . '="' . esc_attr($attribute_value) . '"';
                                 }
                             }
                             unset($attribute_name, $attribute_value);
@@ -641,9 +641,9 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                     if (is_array($radio_buttons)) {
                         $output .= '<label>';
                         $output .= '<input type="radio"';
-                        $output .= ' name="' . $field_name . '"';
+                        $output .= ' name="' . esc_attr($field_name) . '"';
                         if (array_key_exists('value', $radio_buttons)) {
-                            $output .= ' value="' . $radio_buttons['value'] . '"';
+                            $output .= ' value="' . esc_attr($radio_buttons['value']) . '"';
                             if (strval($field_value) === strval($radio_buttons['value'])) {
                                 $output .= ' checked="checked"';
                             }
@@ -651,7 +651,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                         if (array_key_exists('input_attributes', $radio_buttons) && is_array($radio_buttons['input_attributes'])) {
                             foreach ($radio_buttons['input_attributes'] as $attribute_name => $attribute_value) {
                                 if (!in_array($attribute_name, ['id', 'name', 'type', 'value', 'checked'], true)) {
-                                    $output .= ' ' . $attribute_name . '="' . $attribute_value . '"';
+                                    $output .= ' ' . esc_attr($attribute_name) . '="' . esc_attr($attribute_value) . '"';
                                 }
                             }
                             unset($attribute_name, $attribute_value);
@@ -713,25 +713,25 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
 
             $output = '';
             if ('preview_all' === $preview_mode || 'preview_url' === $preview_mode || 'no_preview_img' === $preview_mode) {
-                $output = '<input type="text" id="preview-media-url-' . $field_name . '" class="large-text" value="' . (is_array($field_values) && array_key_exists('url', $field_values) ? esc_url($field_values['url']) : '') . '" readonly>' . "\n";
+                $output = '<input type="text" id="preview-media-url-' . esc_attr($field_name) . '" class="large-text" value="' . (is_array($field_values) && array_key_exists('url', $field_values) ? esc_url($field_values['url']) : '') . '" readonly>' . "\n";
             }
-            $output .= '<input type="hidden" id="media-id-' . $field_name . '" name="' . $field_name . '[id]" value="' . (is_array($field_values) && array_key_exists('id', $field_values) ? $field_values['id'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-height-' . $field_name . '" name="' . $field_name . '[height]" value="' . (is_array($field_values) && array_key_exists('height', $field_values) ? $field_values['height'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-width-' . $field_name . '" name="' . $field_name . '[width]" value="' . (is_array($field_values) && array_key_exists('width', $field_values) ? $field_values['width'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-url-' . $field_name . '" name="' . $field_name . '[url]" value="' . (is_array($field_values) && array_key_exists('url', $field_values) ? $field_values['url'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-large-' . $field_name . '" name="' . $field_name . '[large]" value="' . (is_array($field_values) && array_key_exists('large', $field_values) ? $field_values['large'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-medium-' . $field_name . '" name="' . $field_name . '[medium]" value="' . (is_array($field_values) && array_key_exists('medium', $field_values) ? $field_values['medium'] : '') . '">' . "\n";
-            $output .= '<input type="hidden" id="media-thumbnail-' . $field_name . '" name="' . $field_name . '[thumbnail]" value="' . (is_array($field_values) && array_key_exists('thumbnail', $field_values) ? $field_values['thumbnail'] : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-id-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[id]" value="' . (is_array($field_values) && array_key_exists('id', $field_values) ? esc_attr($field_values['id']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-height-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[height]" value="' . (is_array($field_values) && array_key_exists('height', $field_values) ? esc_attr($field_values['height']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-width-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[width]" value="' . (is_array($field_values) && array_key_exists('width', $field_values) ? esc_attr($field_values['width']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-url-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[url]" value="' . (is_array($field_values) && array_key_exists('url', $field_values) ? esc_url($field_values['url']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-large-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[large]" value="' . (is_array($field_values) && array_key_exists('large', $field_values) ? esc_attr($field_values['large']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-medium-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[medium]" value="' . (is_array($field_values) && array_key_exists('medium', $field_values) ? esc_attr($field_values['medium']) : '') . '">' . "\n";
+            $output .= '<input type="hidden" id="media-thumbnail-' . esc_attr($field_name) . '" name="' . esc_attr($field_name) . '[thumbnail]" value="' . (is_array($field_values) && array_key_exists('thumbnail', $field_values) ? esc_attr($field_values['thumbnail']) : '') . '">' . "\n";
             $output .= '<br>' . "\n";
             if ('preview_all' === $preview_mode || 'preview_img' === $preview_mode || 'no_preview_url' === $preview_mode) {
-                $output .= '<div class="image-preview image-preview-' . $field_name . '">';
+                $output .= '<div class="image-preview image-preview-' . esc_attr($field_name) . '">';
                 if (is_array($field_values) && array_key_exists('thumbnail', $field_values) && '' !== $field_values['thumbnail']) {
-                    $output .= '<img src="' . $field_values['thumbnail'] . '" alt="">';
+                    $output .= '<img src="' . esc_attr($field_values['thumbnail']) . '" alt="">';
                 }
                 $output .= '</div>' . "\n";
             }
-            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'rundizstrap-companion') . '" data-input_target="' . $field_name . '">' . "\n";
-            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'rundizstrap-companion') . '" data-input_target="' . $field_name . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . __('Upload', 'rundizstrap-companion') . '" data-input_target="' . esc_attr($field_name) . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . __('Remove', 'rundizstrap-companion') . '" data-input_target="' . esc_attr($field_name) . '">' . "\n";
 
             unset($field_name, $field_values, $preview_mode);
             return $output;
@@ -758,12 +758,12 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
             }
 
             $output = '<select';
-            $output .= ' id="' . $field_name . '"';
-            $output .= ' name="' . $field_name . '"';
+            $output .= ' id="' . esc_attr($field_name) . '"';
+            $output .= ' name="' . esc_attr($field_name) . '"';
             if (array_key_exists('input_attributes', $fields) && is_array($fields['input_attributes'])) {
                 foreach ($fields['input_attributes'] as $attribute_name => $attribute_value) {
                     if (!in_array($attribute_name, ['id', 'name'], true)) {
-                        $output .= ' ' . $attribute_name . '="' . $attribute_value . '"';
+                        $output .= ' ' . esc_attr($attribute_name) . '="' . esc_attr($attribute_value) . '"';
                     }
                 }
                 unset($attribute_name, $field_type, $attribute_value);
@@ -772,9 +772,9 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
             if (array_key_exists('options', $fields)) {
                 foreach ($fields['options'] as $option_key => $option_item1) {
                     if (is_array($option_item1)) {
-                        $output .= '<optgroup label="' . $option_key . '">' . "\n";
+                        $output .= '<optgroup label="' . esc_attr($option_key) . '">' . "\n";
                         foreach ($option_item1 as $option_item2 => $option_item3) {
-                            $output .= '<option value="' . $option_item2 . '"';
+                            $output .= '<option value="' . esc_attr($option_item2) . '"';
                             if (!is_array($field_value) && strval($field_value) === strval($option_item2)) {
                                 $output .= ' selected="selected"';
                             } elseif (is_array($field_value) && in_array($option_item2, $field_value)) {// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
@@ -786,7 +786,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                         }
                         $output .= '</optgroup>' . "\n";
                     } else {
-                        $output .= '<option value="' . $option_key . '"';
+                        $output .= '<option value="' . esc_attr($option_key) . '"';
                         if (!is_array($field_value) && strval($field_value) === strval($option_key)) {
                             $output .= ' selected="selected"';
                         } elseif (is_array($field_value) && in_array($option_key, $field_value)) {// phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict
@@ -826,15 +826,15 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
             }
 
             $output = '<textarea';
-            $output .= ' id="' . $field_name . '"';
+            $output .= ' id="' . esc_attr($field_name) . '"';
             if (!isset($fields['input_attributes']['class'])) {
                 $output .= ' class="large-text"';
             }
-            $output .= ' name="' . $field_name . '"';
+            $output .= ' name="' . esc_attr($field_name) . '"';
             if (array_key_exists('input_attributes', $fields)) {
                 foreach ($fields['input_attributes'] as $attribute_name => $attribute_value) {
                     if (!in_array($attribute_name, ['id', 'name', 'type', 'value'], true)) {
-                        $output .= ' ' . $attribute_name . '="' . $attribute_value . '"';
+                        $output .= ' ' . esc_attr($attribute_name) . '="' . esc_attr($attribute_value) . '"';
                     }
                 }
                 unset($attribute_name, $field_type, $attribute_value);
@@ -848,5 +848,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         }// renderFormTextarea
 
 
-    }
+    }// RundizSettings
 }
