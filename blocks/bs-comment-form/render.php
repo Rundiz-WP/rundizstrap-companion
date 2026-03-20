@@ -109,6 +109,7 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
         unset($buttonClassName, $fields, $Sanitize);
 
         ob_start();
+        // Please note that `comment_form()` will always echo out `<script>` tag.
         comment_form($commentFormArgs, $postId);
         $form = ob_get_clean();
         if (!is_string($form)) {
@@ -120,8 +121,6 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
         $form = str_replace('class="comment-respond"', $wrapperAttributes, $form);
         unset($wrapperAttributes);
 
-        wp_enqueue_script('comment-reply');
-
         return $form;
     }// rundizstrap_companion_block_bsCommentForm_render
 }
@@ -129,8 +128,8 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
 
 // The echo below will be render HTML comment form.
 // It cannot escape HTML or the design will break.
-// The input values are already sanitize and escape inside the function above.
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+// The input values are already escape inside the function above.
+// Please note that `comment_form()` will always echo out `<script>` tag by WordPress. Escape/KSES is not possible here.
 echo rundizstrap_companion_block_bsCommentForm_render(
     ($attributes ?? []),
     ((isset($content) && is_string($content)) ? $content : ''),
