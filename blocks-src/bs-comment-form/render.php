@@ -132,6 +132,7 @@ if (!function_exists('rundizstrap_companion_block_bsCommentForm_render')) {
 // It cannot escape HTML or the design will break.
 // The input values are already escape inside the function above.
 // Please note that `comment_form()` will always echo out `<script>` tag by WordPress. Escape/KSES is not possible here.
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 echo rundizstrap_companion_block_bsCommentForm_render(
     ($attributes ?? []),
     ((isset($content) && is_string($content)) ? $content : ''),

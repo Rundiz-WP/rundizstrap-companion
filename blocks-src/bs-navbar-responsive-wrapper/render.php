@@ -239,6 +239,7 @@ if (!function_exists('rundizstrap_companion_block_bsNavbarResponsiveWrapper_rend
 
 $rundizstrap_companion_customKsesDataFile = dirname(RUNDIZSTRAP_COMPANION_FILE) . '/App/config/kses_data.php';
 if (!file_exists($rundizstrap_companion_customKsesDataFile)) {
+    // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
     error_log('The file ' . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $rundizstrap_companion_customKsesDataFile) . 'is not exists.');
     return;
 } else {

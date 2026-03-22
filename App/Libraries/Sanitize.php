@@ -94,7 +94,10 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Sanitize')) {
          */
         public function classNames(string $className): string
         {
-            $classTokens = preg_split('/\s+/', trim($className)) ?: [];
+            $classTokens = preg_split('/\s+/', trim($className));
+            if (!is_array($classTokens)) {
+                $classTokens = [];
+            }
             $classTokens = array_filter(array_map('sanitize_html_class', $classTokens));
             return implode(' ', $classTokens);
         }// classNames
