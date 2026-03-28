@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsSearch')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsSearch')) {
     /**
      * Bootstrap search class.
      * 
      * @since 0.0.1
      */
-    class BsSearch implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsSearch implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

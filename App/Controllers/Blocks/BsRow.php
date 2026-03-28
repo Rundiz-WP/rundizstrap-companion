@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsRow')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsRow')) {
     /**
      * Bootstrap layout row class.
      * 
      * @since 0.0.1
      */
-    class BsRow implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsRow implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsPostNavigationLink')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsPostNavigationLink')) {
     /**
      * Bootstrap post navigation link class.
      * 
      * @since 0.0.1
      */
-    class BsPostNavigationLink implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsPostNavigationLink implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

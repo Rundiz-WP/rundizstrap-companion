@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsNavbarResponsiveWrapper')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsNavbarResponsiveWrapper')) {
     /**
      * Bootstrap navbar responsive wrapper class.
      * 
      * @since 0.0.1
      */
-    class BsNavbarResponsiveWrapper implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsNavbarResponsiveWrapper implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

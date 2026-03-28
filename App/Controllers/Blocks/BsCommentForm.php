@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsCommentForm')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsCommentForm')) {
     /**
      * Bootstrap comment form class.
      * 
      * @since 0.0.1
      */
-    class BsCommentForm implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsCommentForm implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

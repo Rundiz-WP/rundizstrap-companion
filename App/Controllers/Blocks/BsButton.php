@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsButton')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsButton')) {
     /**
      * Bootstrap button class.
      * 
      * @since 0.0.1
      */
-    class BsButton implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsButton implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

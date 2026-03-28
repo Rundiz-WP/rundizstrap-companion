@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsContainer')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsContainer')) {
     /**
      * Bootstrap layout container class.
      * 
      * @since 0.0.1
      */
-    class BsContainer implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsContainer implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

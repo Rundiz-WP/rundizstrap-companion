@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsNavbarTogglerButton')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsNavbarTogglerButton')) {
     /**
      * Bootstrap navbar toggler button class.
      * 
      * @since 0.0.1
      */
-    class BsNavbarTogglerButton implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsNavbarTogglerButton implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

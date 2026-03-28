@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsColumn')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsColumn')) {
     /**
      * Bootstrap layout column class.
      * 
      * @since 0.0.1
      */
-    class BsColumn implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsColumn implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

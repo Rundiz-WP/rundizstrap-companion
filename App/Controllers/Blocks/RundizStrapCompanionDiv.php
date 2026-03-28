@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\RundizStrapCompanionDiv')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\RundizStrapCompanionDiv')) {
     /**
      * Customizable div block class.
      *
      * @since 0.0.1
      */
-    class RundizStrapCompanionDiv implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class RundizStrapCompanionDiv implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 

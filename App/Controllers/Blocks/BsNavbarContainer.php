@@ -8,16 +8,16 @@
  */
 
 
-namespace RundizStrapCompanion\App\Controllers\Blocks;
+namespace RundizstrapCompanion\App\Controllers\Blocks;
 
 
-if (!class_exists('\\RundizStrapCompanion\\App\\Controllers\\Blocks\\BsNavbarContainer')) {
+if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Blocks\\BsNavbarContainer')) {
     /**
      * Bootstrap navbar container class.
      * 
      * @since 0.0.1
      */
-    class BsNavbarContainer implements \RundizStrapCompanion\App\Controllers\ControllerInterface
+    class BsNavbarContainer implements \RundizstrapCompanion\App\Controllers\ControllerInterface
     {
 
 
