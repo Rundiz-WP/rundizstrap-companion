@@ -36,7 +36,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\StylesAndScripts')) {
 
             // rundiz settings tabs
             wp_register_style('rundizstrap_companion-handle-rd-settings-tabs-css', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/css/Admin/rd-settings-tabs.css', [], RUNDIZSTRAP_COMPANION_VERSION);
-            wp_register_script('rundizstrap_companion-handle-rd-settings-tabs-js', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/js/Admin/rd-settings-tabs.js', ['jquery'], RUNDIZSTRAP_COMPANION_VERSION, true);
+            wp_register_script('rundizstrap_companion-handle-rd-settings-tabs-js', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/js/Admin/rd-settings-tabs.js', [], RUNDIZSTRAP_COMPANION_VERSION, true);
 
             // manual update
             wp_register_script('rundizstrap_companion-handle-rd-settings-manual-update', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/js/Admin/rd-settings-manual-update.js', ['jquery'], RUNDIZSTRAP_COMPANION_VERSION, true);
@@ -49,7 +49,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\StylesAndScripts')) {
 
             // media uploader
             wp_register_style('rundizstrap_companion-handle-rd-settings-media-css', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/css/Admin/rd-settings-media.css', [], RUNDIZSTRAP_COMPANION_VERSION);
-            wp_register_script('rundizstrap_companion-handle-rd-settings-media-js', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/js/Admin/rd-settings-media.js', ['jquery'], RUNDIZSTRAP_COMPANION_VERSION, true);
+            wp_register_script('rundizstrap_companion-handle-rd-settings-media-js', plugin_dir_url(RUNDIZSTRAP_COMPANION_FILE) . 'assets/js/Admin/rd-settings-media.js', [], RUNDIZSTRAP_COMPANION_VERSION, true);
         }// enqueueAdminStylesAndScripts
 
 
@@ -105,7 +105,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\StylesAndScripts')) {
          * Example:  
          * User has plugin AAA installed with this plugin.  
          * The plugin AAA and this plugin use the same CSS (or JS) with same handle name but the plugin AAA's asset version is older.  
-         * The plugin AAA doesn't has CSS class that this plugin has such as `.sattellite-dish-icon`.  
+         * The plugin AAA doesn't has CSS class that this plugin have such as `.sattellite-dish-icon`.  
          * This plugin is using `.sattellite-dish-icon` class but this plugin was loaded after plugin AAA, that means the CSS asset from this plugin will not be loaded.  
          * The asset class that this plugin is using will never work.  
          * To prevent this situation, the asset handle name **must** be more specific to the plugin.

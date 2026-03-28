@@ -4,53 +4,94 @@
 
 
 // on dom ready --------------------------------------------------------------------------------------------------------
-(function($) {
-	$('.upload-media-button').click(function(e) {
-		e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', function(event) {
+        const uploadButton = event.target.closest('.upload-media-button');
+        if (!uploadButton) {
+            return;
+        }
 
-		target_input = $(this).data('input_target');
+        event.preventDefault();
 
-		var image = wp.media({
+        let target_input = uploadButton.dataset.inputTarget;
+        if (!target_input) {
+            console.warn('No data-input-target specified on upload button.', uploadButton);
+            return;
+        }
+
+        const image = wp.media({
 			// mutiple: true if you want to upload multiple files at once
 			multiple: false
-		}).open()
-		.on('select', function(e) {
+        });
+        image.open();
+        image.on('select', function(e) {
 			// This will return the selected image from the Media Uploader, the result is an object
-			var uploaded_image = image.state().get('selection').first();
+		    const uploaded_image = image.state().get('selection').first();
 			// We convert uploaded_image to a JSON object to make accessing it easier
-			var media_json = uploaded_image.toJSON();
-			console.log(media_json);
+            const media_json = uploaded_image.toJSON();
+            console.debug('selected media in JSON format: ', media_json);
+
 			// Let's assign the url value to the input field
-			$('#preview-media-url-'+target_input).val(media_json.url);
-			$('#media-id-'+target_input).val(media_json.id);
-			$('#media-height-'+target_input).val(media_json.height);
-			$('#media-width-'+target_input).val(media_json.width);
-			$('#media-url-'+target_input).val(media_json.url);
-			if (typeof(media_json.sizes) != 'undefined' && typeof(media_json.sizes.large) != 'undefined' && typeof(media_json.sizes.large.url) != 'undefined') {
-				$('#media-large-'+target_input).val(media_json.sizes.large.url);
+            const setInputValue = function(id, value) {
+                const inputElement = document.getElementById(id);
+                if (inputElement) {
+                    inputElement.value = value;
+                }
+            };
+            setInputValue('preview-media-url-' + target_input, media_json.url || '');
+            setInputValue('media-id-' + target_input, media_json.id || '');
+            setInputValue('media-height-' + target_input, media_json.height || '');
+            setInputValue('media-width-' + target_input, media_json.width || '');
+            setInputValue('media-url-' + target_input, media_json.url || '');
+
+            const sizes = media_json.sizes;
+            if (sizes && sizes.large && typeof(sizes.large.url) !== 'undefined') {
+                setInputValue('media-large-' + target_input, sizes.large.url);
 			}
-			if (typeof(media_json.sizes) != 'undefined' && typeof(media_json.sizes.medium) != 'undefined' && typeof(media_json.sizes.medium.url) != 'undefined') {
-				$('#media-medium-'+target_input).val(media_json.sizes.medium.url);
+            if (sizes && sizes.medium && typeof(sizes.medium.url) !== 'undefined') {
+                setInputValue('media-medium-' + target_input, sizes.medium.url);
 			}
-			if (typeof(media_json.sizes) != 'undefined' && typeof(media_json.sizes.thumbnail) != 'undefined' && typeof(media_json.sizes.thumbnail.url) != 'undefined') {
-				$('#media-thumbnail-'+target_input).val(media_json.sizes.thumbnail.url);
-				$('.image-preview-'+target_input).html('<img src="'+media_json.sizes.thumbnail.url+'" alt="">');
+            if (sizes && sizes.thumbnail && typeof(sizes.thumbnail.url) !== 'undefined') {
+                setInputValue('media-thumbnail-' + target_input, sizes.thumbnail.url);
+                const previewElements = document.querySelectorAll('.image-preview-' + target_input);
+                let index = 0;
+                for (index = 0; index < previewElements.length; index++) {
+                    previewElements[index].innerHTML = '<img src="' + sizes.thumbnail.url + '" alt="">';
+                }
 			}
 		});
-	});
+    });// end event click on upload media button.
 
-	$('.remove-media-button').click(function(e) {
-		e.preventDefault();
+    document.addEventListener('click', function (event) {
+        const button = event.target.closest('.remove-media-button');
+        if (!button) {
+            return;
+        }
 
-		target_input = $(this).data('input_target');
-		$('#preview-media-url-'+target_input).val('');
-		$('#media-id-'+target_input).val('');
-		$('#media-height-'+target_input).val('');
-		$('#media-width-'+target_input).val('');
-		$('#media-url-'+target_input).val('');
-		$('#media-large-'+target_input).val('');
-		$('#media-medium-'+target_input).val('');
-		$('#media-thumbnail-'+target_input).val('');
-		$('.image-preview-'+target_input).html('');
-	});
-})(jQuery);
+        event.preventDefault();
+
+        const targetInput = button.dataset.input_target;
+        const ids = [
+            'preview-media-url-',
+            'media-id-',
+            'media-height-',
+            'media-width-',
+            'media-url-',
+            'media-large-',
+            'media-medium-',
+            'media-thumbnail-'
+        ];
+
+        ids.forEach(function (prefix) {
+            const el = document.getElementById(prefix + targetInput);
+            if (el) {
+                el.value = '';
+            }
+        });
+
+        const previews = document.getElementsByClassName('image-preview-' + targetInput);
+        for (let i = 0; i < previews.length; i++) {
+            previews[i].innerHTML = '';
+        }
+    });// end event click on remove media button.
+});// end DOMContentLoaded
