@@ -109,6 +109,10 @@
                     "destination": "."
                 },
                 {
+                    "patterns": "*.md",
+                    "destination": "."
+                },
+                {
                     "patterns": "*.php",
                     "destination": "."
                 },
