@@ -60,7 +60,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
             // Add option to site or multisite -----------------------------
             if (is_multisite()) {
                 // This site is multisite. Add/update options, create/alter tables on all sites.
-                $blog_ids = $wpdb->get_col('SELECT blog_id FROM ' . $wpdb->blogs); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+                $blog_ids = get_sites(['fields' => 'ids', 'number' => 0]);
                 $original_blog_id = get_current_blog_id();
                 if ($blog_ids) {
                     foreach ($blog_ids as $blog_id) {

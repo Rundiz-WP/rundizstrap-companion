@@ -68,7 +68,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Uni
             // delete options.
             if (is_multisite()) {
                 // this is multi site, delete options in all sites.
-                $blog_ids = get_sites(['fields' => 'ids']);
+                $blog_ids = get_sites(['fields' => 'ids', 'number' => 0]);
                 $original_blog_id = get_current_blog_id();
                 if ($blog_ids) {
                     foreach ($blog_ids as $blog_id) {
