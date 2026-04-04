@@ -75,6 +75,11 @@ If you have the capability to edit theme options, you can access the help page u
 
 == Changelog ==
 
+= 1.0.2 =
+2026-xx-xx
+* Update JS to not depend on jQuery.
+* Add mandatory class name to post navigation link block (bs-post-navigation-link) to fix very long post may not be wrapped.
+
 = 1.0.1 =
 2026-04-04
 * Fix activate/deactivate/uninstall process to working on all sites.
