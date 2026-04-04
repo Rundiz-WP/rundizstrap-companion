@@ -53,5 +53,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Models\\PluginDbStructure')) {
         }// get
 
 
-    }
+    }// PluginDbStructure
 }

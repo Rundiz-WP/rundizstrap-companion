@@ -43,5 +43,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Dea
         }// registerHooks
 
 
-    }
+    }// Deactivation
 }

@@ -11,6 +11,9 @@ namespace RundizstrapCompanion\App;
 
 
 if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
+    /**
+     * Main application trait.
+     */
     trait AppTrait
     {
 
@@ -18,26 +21,29 @@ if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
         /**
          * Main option name.
          * 
-         * @var string Set main option name of this plugin. the name should be english, number, underscore, or anycharacters that can be set to variable. for example: 'rundizstrap_companion_optname' will be set to $rundizstrap_companion_optname
-         * @uses call this trait method $this->getOptions(); before access $rundizstrap_companion_optname in global variable.
+         * @var string Set main option name of this plugin. the name should be english, number, underscore, 
+         *              or any characters that can be set to variable. 
+         *              For example: `'rundizstrap_companion_optname'` will be set to `$rundizstrap_companion_optname`
+         * @uses Call the trait method `getOptions();` before access `$rundizstrap_companion_optname` in global variable.
          */
         public $main_option_name = 'rundizstrap_companion_optname';
 
         /**
          * All available options.
          * 
-         * These options will be accessible via main option name variable. for example: options name 'the_name' can call from $rundizstrap_companion_optname['the_name'];.
+         * These options will be accessible via main option name variable. 
+         * For example: options name `'the_name'` can call from `$rundizstrap_companion_optname['the_name'];`.
          * If you want to access this property, please call to `setupAllOptions()` method first.
          * 
-         * @var array Set all options available for this plugin. it must be 2D array (key => default value, key2 => default value, ...)
+         * @var array Set all options available for this plugin. it must be 2D array (`key => default value, key2 => default value, ...`)
          */
         public $all_options = [];
 
         /**
          * The database version.
          * 
-         * If you have no tables to create on activate this plugin or don't use db for this plugin at all then set this to NULL.
-         * If you have tables to create on activate this plugin then set the db version number (string) here and then write create table schema at \RundizstrapCompanion\App\Models\PluginDbStructure->get() method.
+         * If you have no tables to create on activate this plugin or don't use db for this plugin at all then set this to `NULL`.
+         * If you have tables to create on activate this plugin then set the db version number (string) here and then write create table schema at the class & method `\RundizstrapCompanion\App\Models\PluginDbStructure->get()`.
          * Do not access this property directly if not necessary, use `getDbVersion()` method instead.
          * 
          * @var string|null Version number of DB structure.
@@ -67,15 +73,16 @@ if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
          */
         public function getOptions(): array
         {
-            ${$this->main_option_name} = [];
-            global ${$this->main_option_name};
+            $option_name = $this->main_option_name;
+            global ${$option_name};// phpcs:ignore PHPCompatibility.Variables.ForbiddenGlobalVariableVariable.NonBareVariableFound
+            ${$option_name} = [];// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-            $get_option = get_option($this->main_option_name);
+            $get_option = get_option($option_name);
             if (false !== $get_option) {
                 // if option has value.
-                ${$this->main_option_name} = maybe_unserialize($get_option);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+                ${$option_name} = maybe_unserialize($get_option);// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
                 unset($get_option);
-                return (array) ${$this->main_option_name};
+                return (array) ${$option_name};
             }
 
             unset($get_option);
@@ -126,6 +133,8 @@ if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
          * 
          * This will be set all config settings into `all_options` property.
          * You have to call this method if you want to call to `all_options` property.
+         * 
+         * This method will not load saved settings data from DB. The value in settings fields are all default value.
          */
         public function setupAllOptions()
         {
@@ -138,9 +147,9 @@ if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
             } else {
                 // if there is no config value about config file.
                 wp_die(
-                    esc_html(__('Settings configuration file was not set.', 'rundizstrap-companion'))
+                    esc_html__('Settings configuration file was not set.', 'rundizstrap-companion')
                 );
-                exit;
+                exit(1);
             }
             unset($config_values, $loader);
 
@@ -161,5 +170,5 @@ if (!trait_exists('\\RundizstrapCompanion\\App\\AppTrait')) {
         }// setupAllOptions
 
 
-    }
+    }// AppTrait
 }

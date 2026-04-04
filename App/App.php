@@ -27,12 +27,12 @@ if (!class_exists('\\RundizstrapCompanion\\App\\App')) {
          */
         public function run()
         {
-            // class(es)/method(s) that must be called before auto register. ----------------------
+            // Any method that must be called before auto register controllers must be manually write it down here, below this line.
             $StylesAndScripts = new Libraries\StylesAndScripts();
             $StylesAndScripts->manualRegisterHooks();
             unset($StylesAndScripts);
-            // end class(es)/method(s) that must be called before auto register. ------------------
 
+            // Initialize the loader class.
             $Loader = new Libraries\Loader();
             $Loader->autoRegisterControllers();
             unset($Loader);

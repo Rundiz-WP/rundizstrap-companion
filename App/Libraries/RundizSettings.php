@@ -2,10 +2,12 @@
 /**
  * Rundiz Settings class for render pre-setup values. This will render tabs, form fields and content in each tabs.
  * 
- * Last update from Rundiz Plugin Template: 2026-03-27
+ * Last update: 2026-04-04
  * 
  * @package rundizstrap-companion
  * @since 0.0.1
+ * 
+ * phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralDomain
  */
 
 
@@ -27,6 +29,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
 
 
         /**
+         * @var string Translation text domain.
+         * @since 2026-04-04
+         */
+        private $tranlsation_text_domain = 'rundizstrap-companion';
+
+
+        /**
          * Get settings config file and its data.
          * 
          * @return array|false Return settings config data. Return `false` if failed.
@@ -36,7 +45,9 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
             $setting_file = $this->settings_config_file;
 
             if ('' === $setting_file || !is_string($setting_file)) {
-                wp_die('Settings configuration file was not set.');
+                wp_die(
+                    esc_html__('Settings configuration file was not set.', $this->tranlsation_text_domain)
+                );
             }
 
             $loader = new \RundizstrapCompanion\App\Libraries\Loader();
@@ -47,7 +58,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         /**
          * Get settings fields data.
          * 
-         * @since 1.8.4
+         * @since 2025-08-28
          * @return array Return associative array where key is field `id` and value is `\stdClass` of field item.
          */
         protected function getSettingsFields(): array
@@ -280,7 +291,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         /**
          * Check that is configuration file has editor field in it or not.
          * 
-         * @since 1.8.7
+         * @since 2026-03-28
          * @return bool Return `true` if yes, `false` if no.
          */
         public function hasEditor(): bool
@@ -292,7 +303,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         /**
          * Check that is configuration has certain form field type(s) or not.
          * 
-         * @since 1.8.7
+         * @since 2026-03-28
          * @param array|string $type The field type to check. Use array to check multiple field type at once. The field type must match configuration `['fields']['type']`.
          * @return bool Return `true` if yes, `false` if no.
          * @throws \InvalidArgumentException Throw exception if argument type is invalid.
@@ -329,9 +340,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         /**
          * Check that is configuration file has media field in it or not.
          * 
-         * @since 1.8.7
+         * @since 2026-03-28
          * @return bool Return `true` if yes, `false` if no.
-         * @throws \InvalidArgumentException Throw exception if argument type is invalid.
          */
         public function hasMedia(): bool
         {
@@ -817,8 +827,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                 }
                 $output .= '</div>' . "\n";
             }
-            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . esc_attr__('Upload', 'rundizstrap-companion') . '" data-input-target="' . esc_attr($field_name) . '">' . "\n";
-            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . esc_attr__('Remove', 'rundizstrap-companion') . '" data-input-target="' . esc_attr($field_name) . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary upload-media-button" value="' . esc_attr__('Upload', $this->tranlsation_text_domain) . '" data-input-target="' . esc_attr($field_name) . '">' . "\n";
+            $output .= '<input type="button" class="button-secondary remove-media-button" value="' . esc_attr__('Remove', $this->tranlsation_text_domain) . '" data-input-target="' . esc_attr($field_name) . '">' . "\n";
 
             unset($field_name, $field_values, $preview_mode);
             return $output;

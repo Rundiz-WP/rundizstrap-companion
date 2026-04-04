@@ -39,7 +39,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
         {
             if (!current_user_can('update_plugins')) {
                 wp_die(
-                    esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')), 
+                    esc_html__('You do not have permission to access this page.', 'rundizstrap-companion'), 
                     '', 
                     ['response' => 403]
                 );
@@ -53,7 +53,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
                 if (check_ajax_referer('rundizstrap_companion_nonce', 'security', false) === false) {
                     status_header(403);
                     wp_die(
-                        esc_html(__('Please reload this page and try again.', 'rundizstrap-companion')), 
+                        esc_html__('Please reload this page and try again.', 'rundizstrap-companion'), 
                         '', 
                         ['response' => 403]
                     );
@@ -232,7 +232,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
         public function displayManualUpdatePage()
         {
             if (!current_user_can('update_plugins')) {
-                wp_die(esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')));
+                wp_die(esc_html__('You do not have permission to access this page.', 'rundizstrap-companion'));
             }
 
             $output = [];
@@ -347,5 +347,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
         }// updateProcessComplete
 
 
-    }
+    }// Upgrader
 }

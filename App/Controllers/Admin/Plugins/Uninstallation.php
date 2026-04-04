@@ -151,7 +151,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Uni
                             }
                         }
 
-                        $sql = 'DROP TABLE IF EXISTS ' . esc_sql($prefix . $item['tablename']);
+                        $sql = 'DROP TABLE IF EXISTS `' . esc_sql($prefix . $item['tablename']) . '`';
                         $wpdb->query($sql);// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.NotPrepared
                         unset($prefix, $sql);
                     }
@@ -161,5 +161,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Uni
         }// uninstallDropTables
 
 
-    }
+    }// Uninstallation
 }

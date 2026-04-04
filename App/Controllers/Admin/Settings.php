@@ -2,7 +2,7 @@
 /**
  * Add settings sub menu and page into the Settings menu.
  *
- * Last update Rundiz Plugin Template: 2026-03-27
+ * Last update: 2026-03-27
  * 
  * @package rundizstrap-companion
  * @since 0.0.1
@@ -37,6 +37,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
          * then `wp_register_script()`, `wp_localize_script()`, `wp_enqueue_script()` functions will be working fine later.
          * 
          * @link https://wordpress.stackexchange.com/a/76420/41315 Original source code.
+         * @since 2025-10-14
          * @since 0.0.1
          */
         public function callEnqueueHook()
@@ -70,7 +71,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
         {
             // check permission.
             if (!current_user_can('manage_options')) {
-                wp_die(esc_html(__('You do not have permission to access this page.', 'rundizstrap-companion')));
+                wp_die(esc_html__('You do not have permission to access this page.', 'rundizstrap-companion'));
             }
 
             if (get_transient('rundizstrap_companion_updated')) {
@@ -85,9 +86,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
                     );
                 } else {
                     wp_die(
-                        esc_html(
-                            esc_html__('The manual update is required, please tell administrator to update first.', 'rundizstrap-companion')
-                        )
+                        esc_html__('The manual update is required, please tell administrator to update first.', 'rundizstrap-companion')
                     );
                 }
             }

@@ -37,12 +37,15 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
             // So something that will happens on activate plugin.
             if (version_compare(get_bloginfo('version'), '6.0', '<')) {
                 wp_die(
-                    sprintf(
-                        // translators: %1$s Current WordPress version, %2$s Required WordPress version.
-                        esc_html__('Your WordPress version does not meet the minimum requirement. (%1$s < %2$s).', 'rundizstrap-companion'), 
-                        esc_html(get_bloginfo('version')),
-                        '6.0'
-                    )
+                    esc_html(
+                        sprintf(
+                            // translators: %1$s Current WordPress version, %2$s Required WordPress version.
+                            __('Your WordPress version does not meet the requirement. (%1$s < %2$s).', 'rundizstrap-companion'), 
+                            get_bloginfo('version'),
+                            '6.0'
+                        )
+                    ),
+                    esc_html__('Minimum requirement of WordPress version does not meet.', 'rundizstrap-companion')
                 );
                 exit(1);
             }// endif;
@@ -160,7 +163,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
          *
          * This method was called from hook, it must be public and do not call this directly.  
          * On site created, it will be add or update options and create or alter tables even this plugin is not activated on the new site or not network activate.  
-         * On delete site or plugin, these options and tables will be removed via `Uninstallation` class.
+         * This will be fine because on delete site or plugin, these options and tables will be removed via `Uninstallation` class.
          *
          * @link https://codex.wordpress.org/Plugin_API/Action_Reference/wpmu_new_blog Previous hook reference that has been deprecated.
          * @link https://developer.wordpress.org/reference/hooks/wp_initialize_site/ Current hook.
@@ -197,5 +200,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
         }// registerHooks
 
 
-    }
+    }// Activation
 }

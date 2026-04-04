@@ -12,9 +12,7 @@ namespace RundizstrapCompanion\App\Libraries;
 
 if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
     /**
-     * Loader class for load template, view file, etc.
-     * 
-     * @since 0.0.1
+     * Loader class for load template, view file, config file, etc.
      */
     class Loader
     {
@@ -226,12 +224,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
                 return true;
             } else {
                 // if views file was not found.
-                // throw the exception to notice the developers.
+                // Throw the exception to notice the developers. Without translation.
                 throw new \Exception(
-                    sprintf(
-                        // translators: %s: Template path.
-                        esc_html(__('The views file was not found (%s).', 'rundizstrap-companion')), 
-                        str_replace(['\\', '/'], '/', $templateFile)// phpcs:ignore WordPress.Security.EscapeOutput
+                    esc_html(
+                        sprintf(
+                            'The views file was not found (%s).', 
+                            str_replace(['\\', '/'], '/', $templateFile)
+                        )
                     )
                 );
             }

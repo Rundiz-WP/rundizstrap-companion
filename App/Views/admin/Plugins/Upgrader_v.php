@@ -20,12 +20,12 @@ if (!defined('ABSPATH')) {
         <?php wp_nonce_field(); ?> 
         <p><?php printf(
             // translators: %d Number of total actions.
-            esc_html(__('There are total %d actions for this manual update, please continue step by step.', 'rundizstrap-companion')), 
+            esc_html__('There are total %d actions for this manual update, please continue step by step.', 'rundizstrap-companion'), 
             count($manualUpdateClasses)
         ); ?></p>
         <p><?php printf(
             /* translators: %1$s The number of already run action, %2$d The number of total actions. */
-            esc_html(__('You are running %1$s of %2$d.', 'rundizstrap-companion')), 
+            esc_html__('You are running %1$s of %2$d.', 'rundizstrap-companion'), 
             '<span class="already-run-total-action">0</span>', 
             count($manualUpdateClasses)
         ); ?></p>

@@ -21,5 +21,5 @@ if (!interface_exists('\\RundizstrapCompanion\\App\\Update\\Manual\\ManualUpdate
         public function run();
 
 
-    }
+    }// ManualUpdateInterface
 }

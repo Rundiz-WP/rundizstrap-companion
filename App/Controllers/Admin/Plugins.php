@@ -41,10 +41,10 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
             }
             
             if ($plugin === $plugin_file) {
-                //$link = [];
-                //$link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=rundizstrap-companion-settings')) . '">' . __('Settings') . '</a>';
-                //$actions = array_merge($link, $actions);
-                //unset($link);
+                $link = [];
+                $link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=rundizstrap-companion-settings')) . '">' . __('Settings', 'rundizstrap-companion') . '</a>';
+                $actions = array_merge($link, $actions);
+                unset($link);
                 //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'rundizstrap-companion') . '</a>';
             }
             
@@ -87,7 +87,12 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
                 $after_link = [];
 
                 $configValues = $this->getOptions();
-                if (is_array($configValues) && array_key_exists('rdsfw_plugin_db_version', $configValues) && is_scalar($configValues['rdsfw_plugin_db_version']) && !empty($configValues['rdsfw_plugin_db_version'])) {
+                if (
+                    is_array($configValues) && 
+                    array_key_exists('rdsfw_plugin_db_version', $configValues) && 
+                    is_scalar($configValues['rdsfw_plugin_db_version']) && 
+                    !empty($configValues['rdsfw_plugin_db_version'])
+                ) {
                     /* translators: %s The DB version of this plugin. */
                     $after_link[] = sprintf(__('DB version %s', 'rundizstrap-companion'), $configValues['rdsfw_plugin_db_version']);
                 }
@@ -102,5 +107,5 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
         }// rowMeta
 
 
-    }
+    }// Plugins
 }

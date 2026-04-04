@@ -2,6 +2,8 @@
 /**
  * Read setting's view file.
  * 
+ * This file should be comment out completely in your project. It is for checking while development only.
+ 
  * @package rundizstrap-companion
  * @since 0.0.1
  */
@@ -33,4 +35,9 @@ if (!defined('ABSPATH')) {
         echo esc_html(print_r($rundizstrap_companion_optname, true)); // phpcs:ignore WordPress.PHP.DevelopmentFunctions
     }
     ?></pre>
+    <p><?php esc_html_e('To see real data before escape, please use view source to see them below this line.', 'rundizstrap-companion'); ?></p>
+    <!--
+    raw data from DB (below this line):
+    <?php print_r($rundizstrap_companion_optname); // phpcs:ignore WordPress.PHP.DevelopmentFunctions ?> 
+    -->
 </div>
