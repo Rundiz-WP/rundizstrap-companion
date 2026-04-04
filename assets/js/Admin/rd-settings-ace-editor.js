@@ -1,19 +1,31 @@
+/**
+ * Ace editor or code editor.
+ * 
+ * @package rundizstrap-companion
+ */
 
 
 // on dom ready --------------------------------------------------------------------------------------------------------
-(function($) {
+document.addEventListener('DOMContentLoaded', () => {
     let editor = [];
     let textarea_editor = [];
     let textarea_id = [];
 
-    $('.ace-editor').each(function (index) {
-        editor[index] = ace.edit(this);
+    const aceEditors = document.querySelectorAll('.ace-editor');
+    aceEditors.forEach(function (editorElement, index) {
+        editor[index] = ace.edit(editorElement);
 
-        let editor_mode = $(this).data('editor_mode');
-        textarea_id[index] = $(this).data('target_textarea');
-        textarea_editor[index] = $(textarea_id[index]);
+        let editor_mode = editorElement.dataset.editor_mode;
+        textarea_id[index] = editorElement.dataset.target_textarea;
 
-        textarea_editor[index].hide();
+        textarea_editor[index] = null;
+        if (textarea_id[index]) {
+            textarea_editor[index] = document.querySelector(textarea_id[index]);
+        }
+
+        if (textarea_editor[index]) {
+            textarea_editor[index].style.display = 'none';
+        }
 
         editor[index].setOptions({
             maxLines: 'Infinity',
@@ -21,10 +33,18 @@
             theme: 'ace/theme/monokai'
         })
 
-        editor[index].getSession().setValue(textarea_editor[index].val());
+        if (textarea_editor[index]) {
+            editor[index].getSession().setValue(textarea_editor[index].value);
+        } else {
+            editor[index].getSession().setValue('');
+        }
+
         editor[index].getSession().on('change', function (e) {
             console.log('>' + textarea_id[index] + ' had changed');
-            textarea_editor[index].val(editor[index].getSession().getValue());
+
+            if (textarea_editor[index]) {
+                textarea_editor[index].value = editor[index].getSession().getValue();
+            }
         });
-    });
-})(jQuery);
+    });// end forEach()
+});// end dom content loaded

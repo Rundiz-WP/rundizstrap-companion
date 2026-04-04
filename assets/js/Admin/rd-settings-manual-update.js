@@ -1,5 +1,7 @@
 /**
  * Manual update js.
+ * 
+ * @package rundizstrap-companion
  */
 
 
@@ -10,31 +12,77 @@
  */
 function rundizstrap_companion_manualUpdateAjax()
 {
-    var $ = jQuery.noConflict();
+    const formresultPlaceholder = document.querySelector('.form-result-placeholder');
+    const actionButtons = document.querySelector('.manual-update-action-button');
+    const actionPlaceholders = document.querySelector('.manual-update-action-placeholder');
 
-    $('.form-result-placeholder').html('');
-    $('.manual-update-action-button').attr('disabled', 'disabled');
-    $('.manual-update-action-placeholder').html('<i class="bi bi-hourglass"></i>');
+    // clear any placeholders and disable button.
+    if (formresultPlaceholder) {
+        formresultPlaceholder.innerHTML = '';
+    }
+
+    if (actionButtons) {
+        actionButtons.disabled = true;
+    }
+
+    if (actionPlaceholders) {
+        actionPlaceholders.innerHTML = '<i class="bi bi-hourglass"></i>';
+    }
+    // end clear any placeholders and disable button.
 
     if (RundizStrap_companion_settingsManualUpdateObj.completed === 'true') {
-        $('.manual-update-action-button').removeAttr('disabled');
-        $('.manual-update-action-placeholder').html('');
-        return ;
+        // if manual update process is all completed.
+        if (actionButtons) {
+            actionButtons.disabled = true;
+        }
+
+        if (actionPlaceholders) {
+            actionPlaceholders.innerHTML = '';
+        }
+
+        return;
+    }// endif; manual update process is all completed.
+
+    let runUpdateKey;
+    if (RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateKey === '') {
+        runUpdateKey = 0;
+    } else {
+        runUpdateKey = (parseInt(RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateKey) + 1);
     }
 
-    if (RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateKey === '') {
-        var runUpdateKey = 0;
-    } else {
-        var runUpdateKey = (parseInt(RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateKey) + 1);
-    }
-    $.ajax({
-        'url': ajaxurl,
+    // prepare to make AJAX call. ========================================================
+    const formData = new URLSearchParams();
+    formData.append('security', RundizStrap_companion_settingsManualUpdateObj.nonce);
+    formData.append('action', 'rundizstrap_companion_manualUpdate');
+    formData.append('updateKey', runUpdateKey);
+
+    fetch(ajaxurl, {
         'method': 'POST',
-        'data': 'security='+RundizStrap_companion_settingsManualUpdateObj.nonce+'&action=rundizstrap_companion_manualUpdate&updateKey='+runUpdateKey,
-        'dataType': 'json'
+        'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        },
+        'body': formData.toString(),
     })
-    .done(function(data, textStatus, jqXHR) {
-        var response = data;
+    .then(async (rawResponse) => {
+        const contentType = rawResponse.headers.get('Content-Type');
+        let response = null;
+        if (contentType.toLowerCase().includes('application/json')) {
+            response = await rawResponse.json();
+        } else if (contentType.toLowerCase().includes('text/html')) {
+            response = await rawResponse.text();
+        }
+
+        // check and handle HTTP response error. -------------------
+        RundizstrapCompanionAdminCommon.static_ajaxHandleResponseError(response, rawResponse);
+        // end check and handle HTTP response error. ---------------
+
+        if (!rawResponse.ok) {
+            return Promise.reject(response);
+        }
+
+        return response;
+    })
+    .then((response) => {
         if (typeof(response) === 'undefined') {
             response = {};
         }
@@ -43,45 +91,63 @@ function rundizstrap_companion_manualUpdateAjax()
             if (typeof(response.alreadyRunKey) !== 'undefined') {
                 RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateKey = parseInt(response.alreadyRunKey);
             }
+
             RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateTotal++;
-            $('.already-run-total-action').text(RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateTotal);
+
+            const totalActionElements = document.querySelector('.already-run-total-action');
+            if (totalActionElements) {
+                totalActionElements.textContent = RundizStrap_companion_settingsManualUpdateObj.alreadyRunUpdateTotal;
+            }
+
             if (typeof(response.nextRunKey) !== 'undefined') {
                 if (response.nextRunKey !== 'end') {
                     // if not completed, let admin do manual update until completed successfully.
-                    $('.manual-update-action-button').text(RundizStrap_companion_settingsManualUpdateObj.txtNext);
+                    if (actionButtons) {
+                        actionButtons.textContent = RundizStrap_companion_settingsManualUpdateObj.txtNext;
+                    }
                 } else {
                     // if completed.
-                    $('.manual-update-action-button').text(RundizStrap_companion_settingsManualUpdateObj.txtCompleted);
+                    if (actionButtons) {
+                        actionButtons.textContent = RundizStrap_companion_settingsManualUpdateObj.txtCompleted;
+                    }
                     RundizStrap_companion_settingsManualUpdateObj.completed = 'true';
                 }
+
+                if (actionPlaceholders) {
+                    actionPlaceholders.innerHTML = '<i class="bi bi-check-lg"></i>';
+                }
+            }// endif; there is `nextRunKey`.
+
+            if (response.formResultClass && response.formResultMsg) {
+                const noticeHTML = rundizstrap_companion_GetNoticeElement(response.formResultClass, response.formResultMsg);
+                if (formresultPlaceholder) {
+                    formresultPlaceholder.innerHTML = noticeHTML;
+                }
             }
-            $('.manual-update-action-placeholder').html('<i class="bi bi-check-lg"></i>');
         } else {
-            $('.manual-update-action-placeholder').html('');
+            if (actionPlaceholders) {
+                actionPlaceholders.innerHTML = '';
+            }
         }
     })
-    .fail(function(jqXHR, textStatus, errorThrown) {
-        $('.manual-update-action-placeholder').html('');
+    .catch((err) => {
+        if (actionPlaceholders) {
+            actionPlaceholders.innerHTML = '';
+        }
+        console.error(err.message);
+
+        const errorHTML = rundizstrap_companion_GetNoticeElement('notice-error', err.message);
+        if (formresultPlaceholder) {
+            formresultPlaceholder.innerHTML = errorHTML;
+        }
     })
-    .always(function(data, textStatus, jqXHR) {
-        if (typeof(data) !== 'undefined' && typeof(data.responseJSON) !== 'undefined') {
-            var response = data.responseJSON;
-        } else if (typeof(data) !== 'undefined' && typeof(data.responseText) !== 'undefined') {
-            var response = data.responseText;
-        } else {
-            var response = data;
+    .finally(() => {
+        if (actionButtons) {
+            actionButtons.disabled = false;
+            actionButtons.removeAttribute('disabled');
         }
-        if (typeof(response) === 'undefined' || response === null) {
-            response = {};
-        }
-
-        if (typeof(response) !== 'undefined' && typeof(response.formResultClass) !== 'undefined' && typeof(response.formResultMsg) !== 'undefined') {
-            var noticehtml = rundizstrap_companion_GetNoticeElement(response.formResultClass, response.formResultMsg);
-            $('.form-result-placeholder').html(noticehtml);
-        }
-
-        $('.manual-update-action-button').removeAttr('disabled');
     });
+    // end prepare to make AJAX call. ====================================================
 }// rundizstrap_companion_manualUpdateAjax
 
 
@@ -93,27 +159,34 @@ function rundizstrap_companion_manualUpdateAjax()
  * @returns {String}
  */
 function rundizstrap_companion_GetNoticeElement(notice_class, notice_message) {
-    var output = '<div class="'+notice_class+' notice is-dismissible">';
+    let output = `<div class="${notice_class} notice is-dismissible">`;
 
-    if (typeof(notice_message) === 'string') {
-        output += '<p><strong>'+notice_message+'</strong></p>';
-    } else if (typeof(notice_message) === 'object') {
-        jQuery.each(notice_message, function(index, eachMessage) {
-            output += '<p><strong>'+eachMessage+'</strong></p>';
+    if (typeof notice_message === 'string') {
+        output += `<p><strong>${notice_message}</strong></p>`;
+    } else if (notice_message && typeof notice_message === 'object') {
+        Object.values(notice_message).forEach((eachMessage) => {
+            output += `<p><strong>${eachMessage}</strong></p>`;
         });
     }
 
-    output += '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'+RundizStrap_companion_settingsManualUpdateObj.txtDismissNotice+'</span></button>'
-        +'</div>';
+    output += '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'
+        + RundizStrap_companion_settingsManualUpdateObj.txtDismissNotice
+        + '</span></button>'
+        + '</div>';
 
     return output;
 }// rundizstrap_companion_GetNoticeElement
 
 
 // on dom ready --------------------------------------------------------------------------------------------------------
-(function($) {
-    $('.manual-update-action-button').on('click', function(e) {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', (event) => {
+        const button = event.target.closest('.manual-update-action-button');
+        if (!button) {
+            return;
+        }
+
+        event.preventDefault();
         rundizstrap_companion_manualUpdateAjax();
     });
-})(jQuery);
+});
