@@ -50,7 +50,7 @@
     "attributes": {
       "type": "next",
       "label": "Bootstrap Next Post",
-      "className": "btn btn-secondary"
+      "className": "btn btn-secondary text-break"
     },
     "viewportWidth": 350
   },
