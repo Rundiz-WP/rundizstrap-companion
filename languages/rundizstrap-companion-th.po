@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RundizStrap Companion 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rundizstrap-companion\n"
-"POT-Creation-Date: 2026-03-29T14:55:28+07:00\n"
-"PO-Revision-Date: 2026-03-29 14:57+0700\n"
+"POT-Creation-Date: 2026-04-04T18:20:40+07:00\n"
+"PO-Revision-Date: 2026-04-04 18:23+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: th\n"
@@ -18,17 +18,14 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #. Plugin Name of the plugin
-#: rundizstrap-companion.php App/Controllers/Admin/Settings.php:55
+#: rundizstrap-companion.php App/Controllers/Admin/Settings.php:56
 msgid "RundizStrap Companion"
 msgstr "RundizStrap Companion"
 
 #. Plugin URI of the plugin
 #: rundizstrap-companion.php
 msgid "https://rundiz.com/en/blog/articles-en/wordpress-plugins-themes"
-msgstr ""
-"https://rundiz.com/blog/articles/"
-"%e0%b8%9b%e0%b8%a5%e0%b8%b1%e0%b9%8a%e0%b8%81%e0%b8%ad%e0%b8%b4%e0%b8%99%e0%b9%81%e0%b8%a5%e0%b8%b0%e0%b8%98%e0%b8%b5%e0%b8%a1%e0%b8%82%e0%b8%ad%e0%b8%87-"
-"wordpress/"
+msgstr "https://rundiz.com/?p=319"
 
 #. Description of the plugin
 #: rundizstrap-companion.php
@@ -46,7 +43,7 @@ msgstr ""
 msgid "https://rundiz.com"
 msgstr ""
 
-#: App/AppTrait.php:141 App/Controllers/Admin/Settings.php:101
+#: App/AppTrait.php:150 App/Controllers/Admin/Settings.php:100
 msgid "Settings configuration file was not set."
 msgstr "ไฟล์การกำหนดค่าการตั้งค่าไม่ได้ถูกตั้งค่าไว้."
 
@@ -70,28 +67,37 @@ msgstr "เพิ่มคิว Bootstrap"
 msgid "RundizStrap Companion help"
 msgstr "ช่วยเหลือ RundizStrap Companion"
 
+#: App/Controllers/Admin/Plugins.php:45 blocks/bs-pagination/index.js:1
+#: blocks/bs-post-navigation-link/index.js:1 blocks/bs-search/index.js:1
+msgid "Settings"
+msgstr "ตั้งค่า"
+
 #. translators: %s The DB version of this plugin.
-#: App/Controllers/Admin/Plugins.php:92
+#: App/Controllers/Admin/Plugins.php:97
 #, php-format
 msgid "DB version %s"
 msgstr "รุ่นฐานข้อมูล %s"
 
-#: App/Controllers/Admin/Plugins.php:96
+#: App/Controllers/Admin/Plugins.php:101
 msgid "Donate"
 msgstr "บริจาค"
 
 #. translators: %1$s Current WordPress version, %2$s Required WordPress version.
-#: App/Controllers/Admin/Plugins/Activation.php:42
+#: App/Controllers/Admin/Plugins/Activation.php:43
 #, php-format
-msgid "Your WordPress version does not meet the minimum requirement. (%1$s < %2$s)."
+msgid "Your WordPress version does not meet the requirement. (%1$s < %2$s)."
 msgstr "เวอร์ชัน WordPress ของคุณไม่ตรงความต้องการขั้นต่ำ (%1$s < %2$s)."
 
-#: App/Controllers/Admin/Plugins/Activation.php:52
+#: App/Controllers/Admin/Plugins/Activation.php:48
+msgid "Minimum requirement of WordPress version does not meet."
+msgstr "เวอร์ชัน WordPress ไม่ตรงความต้องการขั้นต่ำ."
+
+#: App/Controllers/Admin/Plugins/Activation.php:55
 msgid "Unable to network activate, please activate per site only."
 msgstr "ไม่สามารถเปิดใช้งานผ่านเครือข่ายได้, โปรดเปิดใช้งานทีละไซต์เท่านั้น."
 
 #: App/Controllers/Admin/Plugins/Upgrader.php:42 App/Controllers/Admin/Plugins/Upgrader.php:235
-#: App/Controllers/Admin/Settings.php:73
+#: App/Controllers/Admin/Settings.php:74
 msgid "You do not have permission to access this page."
 msgstr "คุณไม่ได้รับอนุญาตให้เข้าถึงหน้านี้."
 
@@ -146,7 +152,7 @@ msgid "Next"
 msgstr "ถัดไป"
 
 #. translators: %1$s Open link, %2$s Close link.
-#: App/Controllers/Admin/Settings.php:81
+#: App/Controllers/Admin/Settings.php:82
 #, php-format
 msgid "The manual update is required, please %1$supdate first%2$s."
 msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรด %1$supdate ก่อน%2$s."
@@ -155,7 +161,7 @@ msgstr "จำเป็นต้องอัปเดตด้วยตนเอ
 msgid "The manual update is required, please tell administrator to update first."
 msgstr "จำเป็นต้องอัปเดตด้วยตนเอง โปรดแจ้งให้ผู้ดูแลระบบทำการอัปเดตก่อน."
 
-#: App/Controllers/Admin/Settings.php:132
+#: App/Controllers/Admin/Settings.php:131
 msgid "Settings saved."
 msgstr "บันทึกการตั้งค่าแล้ว."
 
@@ -166,25 +172,6 @@ msgstr "หน้าแรก"
 #: App/Libraries/BootstrapNavbarNavigationWalker.php:517
 msgid "(Untitled)"
 msgstr "(ไม่มีไตเติล)"
-
-#. translators: %s: Template path.
-#: App/Libraries/Loader.php:233
-#, php-format
-msgid "The views file was not found (%s)."
-msgstr "ไม่พบไฟล์ views (%s)."
-
-#: App/Libraries/RundizSettings.php:820
-msgid "Upload"
-msgstr "อัปโหลด"
-
-#: App/Libraries/RundizSettings.php:821
-#: assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js:109 blocks/bs-button/index.js:1
-#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
-#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
-#: blocks/bs-navbar-toggler-button/index.js:1 blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-row/index.js:1 blocks/rundizstrap-companion-div/index.js:1
-msgid "Remove"
-msgstr "เอาออก"
 
 #: App/Views/admin/Appearance/pluginHelp_v.php:17
 msgid "Help page for RundizStrap Companion."
@@ -282,25 +269,29 @@ msgstr "คุณกำลังใช้งาน %1$s ของ %2$d."
 msgid "Start"
 msgstr "เริ่ม"
 
-#: App/Views/admin/readsettings_v.php:15
+#: App/Views/admin/readsettings_v.php:17
 msgid "Example of how to access settings values in option db."
 msgstr "ตัวอย่างวิธีการเข้าถึงค่าการตั้งค่าในฐานข้อมูลตัวเลือก."
 
 #. translators: %s PHP code.
-#: App/Views/admin/readsettings_v.php:20
+#: App/Views/admin/readsettings_v.php:22
 #, php-format
 msgid "Call to %s"
 msgstr "เรียกไปยัง %s"
 
 #. translators: %s PHP code.
-#: App/Views/admin/readsettings_v.php:25
+#: App/Views/admin/readsettings_v.php:27
 #, php-format
 msgid "Access this variable as global %s. This variable will be change, up to config in AppTrait."
 msgstr "เข้าถึงตัวแปรนี้โดยใช้ global %s. ตัวแปรนี้จะเปลี่ยนแปลงไปตามการตั้งค่าใน AppTrait."
 
-#: App/Views/admin/readsettings_v.php:28
+#: App/Views/admin/readsettings_v.php:30
 msgid "Now, you can use this variable to access its array key anywhere."
 msgstr "ตอนนี้คุณสามารถใช้ตัวแปรนี้เพื่อเข้าถึงคีย์ของอาร์เรย์ได้ทุกที่."
+
+#: App/Views/admin/readsettings_v.php:38
+msgid "To see real data before escape, please use view source to see them below this line."
+msgstr "หากจะดูข้อมูลจริงก่อน escape, โปรดดูจาก view source โดยดูใต้บรรทัดนี้."
 
 #: App/Views/admin/settings_v.php:15
 msgid "RundizStrap Companion settings"
@@ -330,7 +321,7 @@ msgstr "ความคิดเห็น"
 msgid "Your email address will not be published."
 msgstr "ที่อยู่อีเมลของคุณจะไม่ถูกเผยแพร่."
 
-#: blocks/bs-navbar-navigation/render.php:64 blocks/bs-navbar-navigation/render.php:77
+#: blocks/bs-navbar-navigation/render.php:66 blocks/bs-navbar-navigation/render.php:79
 msgid "This navigation is empty."
 msgstr "เมนูนำทางนี้ว่างเปล่า"
 
@@ -384,6 +375,14 @@ msgstr "Key"
 #: blocks/bs-row/index.js:1 blocks/rundizstrap-companion-div/index.js:1
 msgid "Value"
 msgstr "ค่า"
+
+#: assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js:109 blocks/bs-button/index.js:1
+#: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
+#: blocks/bs-navbar-navigation/index.js:1 blocks/bs-navbar-responsive-wrapper/index.js:1
+#: blocks/bs-navbar-toggler-button/index.js:1 blocks/bs-post-navigation-link/index.js:1
+#: blocks/bs-row/index.js:1 blocks/rundizstrap-companion-div/index.js:1
+msgid "Remove"
+msgstr "เอาออก"
 
 #: assets/js/blocks/shared/rundizstrap-companion-keyvalue-control.js:114 blocks/bs-button/index.js:1
 #: blocks/bs-column/index.js:1 blocks/bs-container/index.js:1 blocks/bs-navbar-container/index.js:1
@@ -745,11 +744,6 @@ msgstr "กลาง"
 #: blocks/bs-pagination/index.js:1
 msgid "End"
 msgstr "จุดสิ้นสุด"
-
-#: blocks/bs-pagination/index.js:1 blocks/bs-post-navigation-link/index.js:1
-#: blocks/bs-search/index.js:1
-msgid "Settings"
-msgstr "ตั้งค่า"
 
 #: blocks/bs-pagination/index.js:1
 msgid "Show previous/next buttons"
@@ -1244,6 +1238,13 @@ msgstr "ความหมาย"
 msgctxt "block title"
 msgid "Customizable div"
 msgstr "แท็ก div ที่ปรับแต่งได้"
+
+#, php-format
+#~ msgid "The views file was not found (%s)."
+#~ msgstr "ไม่พบไฟล์ views (%s)."
+
+#~ msgid "Upload"
+#~ msgstr "อัปโหลด"
 
 #~ msgid "Bootstrap Basic FSE Plugin update"
 #~ msgstr "อัปเดตปลั๊กอิน Bootstrap Basic FSE"

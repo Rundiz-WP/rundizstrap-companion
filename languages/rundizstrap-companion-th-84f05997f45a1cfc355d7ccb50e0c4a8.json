@@ -1,5 +1,5 @@
 {
-    "translation-revision-date": "2026-03-29 14:57+0700",
+    "translation-revision-date": "2026-04-04 18:23+0700",
     "generator": "WP-CLI\/2.12.0",
     "source": "blocks\/bs-search\/index.js",
     "domain": "messages",
@@ -10,11 +10,11 @@
                 "lang": "th",
                 "plural-forms": "nplurals=2; plural=(n != 1);"
             },
-            "Search": [
-                "\u0e04\u0e49\u0e19\u0e2b\u0e32"
-            ],
             "Settings": [
                 "\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32"
+            ],
+            "Search": [
+                "\u0e04\u0e49\u0e19\u0e2b\u0e32"
             ],
             "Button outside": [
                 "\u0e1b\u0e38\u0e48\u0e21\u0e14\u0e49\u0e32\u0e19\u0e19\u0e2d\u0e01"
