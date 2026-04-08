@@ -12,6 +12,11 @@
 namespace RundizstrapCompanion\App\Controllers\Admin;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) {
     /**
      * Admin settings page.

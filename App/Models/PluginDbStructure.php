@@ -10,6 +10,11 @@
 namespace RundizstrapCompanion\App\Models;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Models\\PluginDbStructure')) {
     /**
      * The plugin's database structure class.

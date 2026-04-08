@@ -10,6 +10,11 @@
 namespace RundizstrapCompanion\App\Controllers\Admin\Plugins;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Activation')) {
     /**
      * Plugin activation and new site activation hooks class.

@@ -10,6 +10,11 @@
 namespace RundizstrapCompanion\App\Libraries;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
     /**
      * Loader class for load template, view file, config file, etc.

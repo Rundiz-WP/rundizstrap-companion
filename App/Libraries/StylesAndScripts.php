@@ -10,6 +10,11 @@
 namespace RundizstrapCompanion\App\Libraries;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\StylesAndScripts')) {
     /**
      * Common use styles (CSS) and scripts (JS) class.

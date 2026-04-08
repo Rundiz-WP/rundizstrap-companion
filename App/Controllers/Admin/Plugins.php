@@ -10,6 +10,11 @@
 namespace RundizstrapCompanion\App\Controllers\Admin;
 
 
+if (!defined('ABSPATH')) {
+    exit();
+}
+
+
 if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
     /**
      * Plugin class that will work on admin list plugins page.
@@ -98,7 +103,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
                 }
                 unset($configValues);
 
-                $after_link[] = '<a href="https://rundiz.com/en/donate/">' . esc_html__('Donate', 'rundizstrap-companion') . '</a>';
+                $after_link[] = '<a href="https://rundiz.com/en/donate/" target="donate">' . esc_html__('Donate', 'rundizstrap-companion') . '</a>';
                 $links = array_merge($links, $after_link);
                 unset($after_link);
             }
