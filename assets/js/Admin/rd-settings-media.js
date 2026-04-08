@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         event.preventDefault();
 
-        let target_input = uploadButton.dataset.inputTarget;
-        if (!target_input) {
+        const targetInput = uploadButton.dataset.inputTarget;
+        if (!targetInput) {
             console.warn('No data-input-target specified on upload button.', uploadButton);
             return;
         }
@@ -38,22 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     inputElement.value = value;
                 }
             };
-            setInputValue('preview-media-url-' + target_input, media_json.url || '');
-            setInputValue('media-id-' + target_input, media_json.id || '');
-            setInputValue('media-height-' + target_input, media_json.height || '');
-            setInputValue('media-width-' + target_input, media_json.width || '');
-            setInputValue('media-url-' + target_input, media_json.url || '');
+            setInputValue('preview-media-url-' + targetInput, media_json.url || '');
+            setInputValue('media-id-' + targetInput, media_json.id || '');
+            setInputValue('media-height-' + targetInput, media_json.height || '');
+            setInputValue('media-width-' + targetInput, media_json.width || '');
+            setInputValue('media-url-' + targetInput, media_json.url || '');
 
             const sizes = media_json.sizes;
             if (sizes && sizes.large && typeof(sizes.large.url) !== 'undefined') {
-                setInputValue('media-large-' + target_input, sizes.large.url);
+                setInputValue('media-large-' + targetInput, sizes.large.url);
             }
             if (sizes && sizes.medium && typeof(sizes.medium.url) !== 'undefined') {
-                setInputValue('media-medium-' + target_input, sizes.medium.url);
+                setInputValue('media-medium-' + targetInput, sizes.medium.url);
             }
             if (sizes && sizes.thumbnail && typeof(sizes.thumbnail.url) !== 'undefined') {
-                setInputValue('media-thumbnail-' + target_input, sizes.thumbnail.url);
-                const previewElements = document.querySelectorAll('.image-preview-' + target_input);
+                setInputValue('media-thumbnail-' + targetInput, sizes.thumbnail.url);
+                const previewElements = document.querySelectorAll('.image-preview-' + targetInput);
                 let index = 0;
                 for (index = 0; index < previewElements.length; index++) {
                     previewElements[index].innerHTML = '<img src="' + sizes.thumbnail.url + '" alt="">';
@@ -70,7 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         event.preventDefault();
 
-        const targetInput = button.dataset.input_target;
+        const targetInput = button.dataset.inputTarget;
+        if (!targetInput) {
+            console.warn('No data-input-target specified on remove button.', button);
+            return;
+        }
+
         const ids = [
             'preview-media-url-',
             'media-id-',
