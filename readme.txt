@@ -4,7 +4,7 @@ Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -76,9 +76,12 @@ If you have the capability to edit theme options, you can access the help page u
 == Changelog ==
 
 = 1.0.2 =
-2026-xx-xx
+2026-04-09
 * Update JS to not depend on jQuery.
 * Add mandatory class name to post navigation link block (bs-post-navigation-link) to fix very long post may not be wrapped.
+* Fix incorrect escape URL.
+* Fix incorrect `dataset` in assets/js/Admin/rd-settings-media.js
+* Add check for `ABSPATH` on top of PHP files.
 
 = 1.0.1 =
 2026-04-04
