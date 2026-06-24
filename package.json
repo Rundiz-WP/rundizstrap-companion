@@ -35,6 +35,6 @@
         "bootstrap-icons": "^1.13.1"
     },
     "devDependencies": {
-        "@wordpress/scripts": "^31.3.0"
+        "@wordpress/scripts": "^32.4.1"
     }
 }
