@@ -184,31 +184,6 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
 
 
         /**
-         * Add/update options and create/alter tables on new site created.
-         *
-         * This method was called from hook, it must be public and do not call this directly.  
-         * On site created, it will be add or update options and create or alter tables even this plugin is not activated on the new site or not network activate.  
-         * This will be fine because on delete site or plugin, these options and tables will be removed via `Uninstallation` class.
-         *
-         * @link https://codex.wordpress.org/Plugin_API/Action_Reference/wpmu_new_blog Previous hook reference that has been deprecated.
-         * @link https://developer.wordpress.org/reference/hooks/wp_initialize_site/ Current hook.
-         * @link https://developer.wordpress.org/reference/classes/wp_site/ `\WP_Site` reference.
-         * @since 0.0.1
-         * @param \WP_Site $new_site New site object.
-         * @param array $args Arguments for the initialization.
-         */
-        public function activateNewSite(\WP_Site $new_site, array $args)
-        {
-            switch_to_blog($new_site->blog_id);
-
-            $this->activateCreateAlterTables();
-            $this->activateAddUpdateOption();
-
-            restore_current_blog();
-        }// activateNewSite
-
-
-        /**
          * Get value of `all_options` property. The value of this property is from settings config file, not from DB.
          * 
          * Also setup if it was not set before.
@@ -295,11 +270,6 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
         {
             // register activate hook
             register_activation_hook(RUNDIZSTRAP_COMPANION_FILE, [$this, 'activate']);
-
-            if (is_multisite()) {
-                // hook on create new site (for multisite installation).
-                //add_action('wp_initialize_site', [$this, 'activateNewSite'], 10, 2);
-            }
         }// registerHooks
 
 
