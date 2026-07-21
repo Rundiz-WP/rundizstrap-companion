@@ -5,7 +5,7 @@ Tags: bootstrap
 Tested up to: 7.0
 Requires at least: 6.1
 Requires PHP: 8.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -74,6 +74,10 @@ If you have the capability to edit theme options, you can access the help page u
 16. Plugin help page
 
 == Changelog ==
+
+= 1.0.3 =
+2026-07-21
+* Minor update.
 
 = 1.0.2 =
 2026-04-09
