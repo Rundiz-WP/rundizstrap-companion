@@ -2,10 +2,10 @@
 Contributors: okvee
 Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
-Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 1.0.2
+Requires at least: 6.1
 Requires PHP: 8.0
+Stable tag: 1.0.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 

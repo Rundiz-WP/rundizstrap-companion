@@ -51,7 +51,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Appearance\\
         public function displayHelpPage()
         {
             $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            $Loader->loadView('admin/Appearance/pluginHelp_v');
+            $Loader->loadView('Admin/Appearance/pluginHelp_v');
             unset($Loader);
         }// displayHelpPage
 

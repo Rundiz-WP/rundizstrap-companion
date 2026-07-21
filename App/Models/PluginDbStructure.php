@@ -33,6 +33,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Models\\PluginDbStructure')) {
          * Limitation:  
          * - DO NOT use back tick (`) anywhere because it will be thrown the error.
          * - DO NOT add "IF NOT EXISTS" into "CREATE TABLE" because it will not get an update on structure changed.
+         * - DO NOT use semicolon sign (;) anywhere because it will be thrown the error.
          * 
          * Example:
          * <pre>

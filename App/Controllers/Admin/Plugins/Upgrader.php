@@ -29,6 +29,24 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
 
 
         /**
+         * @var string Upgrader AJAX action name.
+         */
+        private const AJAX_ACTION = 'rundizstrap_companion_manualUpdate';
+
+
+        /**
+         * @var string Upgrader AJAX nonce name.
+         */
+        private const AJAX_NONCE = 'rundizstrap_companion_nonce';
+
+
+        /**
+         * @var string Upgrader menu slug.
+         */
+        public const MENU_SLUG = 'rundizstrap-companion-manual-update';
+
+
+        /**
          * @var string The current admin page.
          * @since 0.0.1
          */
@@ -55,7 +73,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
             // phpcs:ignore WordPress.Security
             if (isset($_SERVER['REQUEST_METHOD']) && strtolower($_SERVER['REQUEST_METHOD']) === 'post' && isset($_POST) && !empty($_POST)) {
                 // if method POST and there is POST data.
-                if (check_ajax_referer('rundizstrap_companion_nonce', 'security', false) === false) {
+                if (check_ajax_referer(static::AJAX_NONCE, 'security', false) === false) {
                     status_header(403);
                     wp_die(
                         esc_html__('Please reload this page and try again.', 'rundizstrap-companion'), 
@@ -66,10 +84,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
 
                 $updateKey = filter_input(INPUT_POST, 'updateKey', FILTER_SANITIZE_NUMBER_INT);
 
-                $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-                $manualUpdateClasses = $Loader->getManualUpdateClasses();
+                $manualUpdateClasses = $this->getLoader()->getManualUpdateClasses();
                 $maxManualUpdateVersion = 0;
-                unset($Loader);
 
                 if (is_array($manualUpdateClasses) && array_key_exists($updateKey, $manualUpdateClasses) && class_exists($manualUpdateClasses[$updateKey])) {
                     $UpdateClass = new $manualUpdateClasses[$updateKey]();
@@ -160,23 +176,27 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
          */
         public function detectPluginUpdate()
         {
+            if (!is_admin()) {
+                // if not admin pages.
+                // no need to work here.
+                return;
+            }
+
             if (get_transient('rundizstrap_companion_updated') && current_user_can('update_plugins')) {
                 // if there is updated transient
-                $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-
-                if ($Loader->haveManualUpdate() === true) {
+                if ($this->getLoader()->haveManualUpdate() === true) {
                     // if found that there are manual update in this new version of code.
                     // display link or redirect to manual update page. (display link is preferred to prevent bad user experience.)
                     // -------------------------------------------------------------------------------------
                     // display link to manual update page.
                     // phpcs:ignore WordPress.Security.NonceVerification
-                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && 'rundizstrap-companion-manual-update' !== $_REQUEST['page'])) {
+                    if (!isset($_REQUEST['page']) || (isset($_REQUEST['page']) && static::MENU_SLUG !== $_REQUEST['page'])) {
                         $manualUpdateNotice = '<div class="notice notice-warning is-dismissible">
                             <p>' .
                                 sprintf(
                                     // translators: %1$s Open link, %2$s Close link.
                                     esc_html__('The RundizStrap Companion is just upgraded and need to be manually update. Please continue to the %1$splugin update page%2$s.', 'rundizstrap-companion'),
-                                    '<a href="' . esc_url(network_admin_url('index.php?page=rundizstrap-companion-manual-update')) . '">', // this link will be auto convert to admin_url if not in multisite installed.
+                                    '<a href="' . esc_url(network_admin_url('index.php?page=' . rawurlencode(static::MENU_SLUG))) . '">', // this link will be auto convert to admin_url if not in multisite installed.
                                     '</a>'
                                 ) .
                             '</p>
@@ -200,15 +220,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
                         add_action('admin_menu', [$this, 'displayManualUpdateMenu']);
                     }
 
-                    add_action('wp_ajax_rundizstrap_companion_manualUpdate', [$this, 'ajaxManualUpdate']);
+                    add_action('wp_ajax_' . static::AJAX_ACTION, [$this, 'ajaxManualUpdate']);
                     // end display link to manual update page.
                     // -------------------------------------------------------------------------------------
                 } else {
                     // if don't have any manual update.
                     delete_transient('rundizstrap_companion_updated');
                 }// endif;
-
-                unset($Loader);
             }// endif;
         }// detectPluginUpdate
 
@@ -220,7 +238,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
          */
         public function displayManualUpdateMenu()
         {
-            $hook_suffix = add_dashboard_page(__('RundizStrap Companion update', 'rundizstrap-companion'), __('RundizStrap Companion update', 'rundizstrap-companion'), 'update_plugins', 'rundizstrap-companion-manual-update', [$this, 'displayManualUpdatePage']);
+            $hook_suffix = add_dashboard_page(__('RundizStrap Companion update', 'rundizstrap-companion'), __('RundizStrap Companion update', 'rundizstrap-companion'), 'update_plugins', static::MENU_SLUG, [$this, 'displayManualUpdatePage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -241,12 +259,10 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
             }
 
             $output = [];
+            $output['manualUpdateClasses'] = $this->getLoader()->getManualUpdateClasses();
 
-            $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            $output['manualUpdateClasses'] = $Loader->getManualUpdateClasses();
-
-            $Loader->loadView('admin/Plugins/Upgrader_v', $output);
-            unset($Loader, $output);
+            $this->getLoader()->loadView('Admin/Plugins/Upgrader_v', $output);
+            unset($output);
         }// displayManualUpdatePage
 
 
@@ -282,20 +298,19 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Upg
                 'rundizstrap_companion-handle-rd-settings-manual-update',
                 'RundizStrap_companion_settingsManualUpdateObj',
                 [
+                    'ajaxAction' => static::AJAX_ACTION,
                     'alreadyRunUpdateKey' => '',
                     'alreadyRunUpdateTotal' => 0,
                     'completed' => 'false',
-                    'nonce' => wp_create_nonce('rundizstrap_companion_nonce'),
+                    'nonce' => wp_create_nonce(static::AJAX_NONCE),
                     'txtCompleted' => __('Completed', 'rundizstrap-companion'),
                     'txtDismissNotice' => __('Dismiss', 'rundizstrap-companion'),
                     'txtNext' => __('Next', 'rundizstrap-companion'),
                 ]
             );
             
-            $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            $manualUpdateClasses = $Loader->getManualUpdateClasses();
-            unset($Loader);
-            wp_add_inline_script('plugin-template-handle-rd-settings-manual-update', 'var manualUpdateClasses = ' . (!empty($manualUpdateClasses) ? wp_json_encode($manualUpdateClasses) : '') . ';');
+            $manualUpdateClasses = $this->getLoader()->getManualUpdateClasses();
+            wp_add_inline_script('rundizstrap_companion-handle-rd-settings-manual-update', 'var manualUpdateClasses = ' . (!empty($manualUpdateClasses) ? wp_json_encode($manualUpdateClasses) : '') . ';');
             unset($manualUpdateClasses);
 
             wp_enqueue_script('rundizstrap_companion-handle-rd-settings-manual-update');

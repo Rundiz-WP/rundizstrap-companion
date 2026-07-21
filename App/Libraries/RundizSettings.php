@@ -2,7 +2,7 @@
 /**
  * Rundiz Settings class for render pre-setup values. This will render tabs, form fields and content in each tabs.
  * 
- * Last update: 2026-04-08
+ * Original source last update: 2026-07-20
  * 
  * @package rundizstrap-companion
  * @since 0.0.1
@@ -25,6 +25,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
      */
     class RundizSettings
     {
+
+
+        /**
+         * @var array<string, array|false> Per-request cache, keyed by config file name.
+         * @since 2026-04-20
+         */
+        private static $loadedConfig = [];
 
 
         /**
@@ -55,8 +62,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                 );
             }
 
+            if (array_key_exists($setting_file, self::$loadedConfig)) {
+                return self::$loadedConfig[$setting_file];
+            }
+
             $loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            return $loader->loadConfig($setting_file);
+            self::$loadedConfig[$setting_file] = $loader->loadConfig($setting_file);
+            return self::$loadedConfig[$setting_file];
         }// getConfigFile
 
 
@@ -110,6 +122,19 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                                     $sanitize_callback = $fields['sanitize_callback'];
                                 }
 
+                                $display_callback = null;
+                                if (array_key_exists('display_callback', $checkboxes)) {
+                                    $display_callback = $checkboxes['display_callback'];
+                                } elseif (array_key_exists('display_callback', $fields)) {
+                                    $display_callback = $fields['display_callback'];
+                                }
+                                $save_callback = null;
+                                if (array_key_exists('save_callback', $checkboxes)) {
+                                    $save_callback = $checkboxes['save_callback'];
+                                } elseif (array_key_exists('save_callback', $fields)) {
+                                    $save_callback = $fields['save_callback'];
+                                }
+
                                 if (array_key_exists('id', $checkboxes)) {
                                     $field = new \stdClass();
                                     $field->type = 'checkbox';
@@ -118,6 +143,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                                     $field->input_attributes = ($checkboxes['input_attributes'] ?? null);
                                     $field->select_options = null;
                                     $field->sanitize_callback = $sanitize_callback;
+                                    $field->save_callback = $save_callback;
+                                    $field->display_callback = $display_callback;
                                     $output[$checkboxes['id']] = $field;
                                     unset($field);
                                 }
@@ -144,11 +171,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                                 $field->input_attributes = ($fields['input_attributes'] ?? null);
                                 $field->select_options = $select_options;
                                 $field->sanitize_callback = ($fields['sanitize_callback'] ?? null);
+                                $field->save_callback = ($fields['save_callback'] ?? null);
+                                $field->display_callback = ($fields['display_callback'] ?? null);
                                 $output[$fields['id']] = $field;
                                 unset($field);
                             }
                         }// endif check field type.
-                        unset($default, $sanitize_callback, $select_options);
+                        unset($default, $display_callback, $save_callback, $sanitize_callback, $select_options);
                     }// endforeach; fields in each tab
                     unset($field_key, $fields);
                 }// endforeach; tabs
@@ -266,18 +295,16 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                     $nameNoSb = preg_replace('/\[.*?\]/', '', $name);
 
                     // phpcs:ignore WordPress.Security.NonceVerification
-                    if (isset($_REQUEST) && is_array($_REQUEST) && isset($_REQUEST[$nameNoSb])) {
+                    if (isset($_POST) && is_array($_POST) && isset($_POST[$nameNoSb])) {
                         // The nonce is already verify in the controller. See App/Controllers/Settings.php method `pluginSettingsPage()`.
                         if (isset($field->sanitize_callback) && is_callable($field->sanitize_callback)) {
                             // The sanitize is already did in the config's callback under array key named `sanitize_callback`.
                             // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput
-                            $value = call_user_func($field->sanitize_callback, wp_unslash($_REQUEST[$nameNoSb]));
+                            $value = call_user_func($field->sanitize_callback, wp_unslash($_POST[$nameNoSb]));
                         } else {
-                            // In this case it is not possible to sanitize because in the config and setting, it is allowed to edit HTML, JS, CSS, or any programming languages.
-                            // It's already safe to escape them in the method `renderFormCodeEditor()` and any `renderFormXXX()` methods.
-                            // The way the data stored in the database is used depends on the plugin that uses this class, and how they escape or filter it.
+                            // If there is no `sanitize_callback` property.
                             // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput
-                            $value = wp_unslash($_REQUEST[$nameNoSb]);
+                            $value = wp_unslash($_POST[$nameNoSb]);
                         }
                         $output[$name] = $value;
                         unset($value);
@@ -352,6 +379,64 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
         {
             return $this->hasField('media');
         }// hasMedia
+
+
+        /**
+         * Process the option `display_callback` from the config file.
+         * 
+         * @since 2026-07-20
+         * @param array $data Associative array data that is ready to display.
+         * @return array Return processed data that is ready to display
+         */
+        public function processDisplayCallback(array $data): array
+        {
+            $fields = $this->getSettingsFields();
+
+            if (is_array($fields)) {
+                foreach ($fields as $name => $field) {
+                    if (!array_key_exists($name, $data)) {
+                        continue;
+                    }
+
+                    if (isset($field->display_callback) && is_callable($field->display_callback)) {
+                        $data[$name] = call_user_func($field->display_callback, $data[$name]);
+                    }
+                }// endforeach;
+                unset($field, $name);
+            }
+            unset($fields);
+
+            return $data;
+        }// processDisplayCallback
+
+
+        /**
+         * Process the option `save_callback` from the config file.
+         * 
+         * @since 2026-07-20
+         * @param array $data Associative array data that is ready to save. These data have got from `getSubmittedData()` method.
+         * @return array Return processed data that is ready to save
+         */
+        public function processSaveCallback(array $data): array
+        {
+            $fields = $this->getSettingsFields();
+
+            if (is_array($fields)) {
+                foreach ($fields as $name => $field) {
+                    if (!array_key_exists($name, $data)) {
+                        continue;
+                    }
+
+                    if (isset($field->save_callback) && is_callable($field->save_callback)) {
+                        $data[$name] = call_user_func($field->save_callback, $data[$name]);
+                    }
+                }// endforeach;
+                unset($field, $name);
+            }
+            unset($fields);
+
+            return $data;
+        }// processSaveCallback
 
 
         /**
@@ -645,6 +730,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                 $output = '<fieldset>' . "\n";
                 $output .= '<legend class="screen-reader-text">' . (array_key_exists('title', $fields) ? $fields['title'] : '') . '</legend>' . "\n";
                 $i = 1;
+                $totalOptions = count($fields['options']);
                 foreach ($fields['options'] as $checkbox_key => $checkboxes) {
                     $checkbox_id = (array_key_exists('id', $checkboxes) ? $checkboxes['id'] : '');
 
@@ -699,7 +785,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                             $output .= '<p class="description">' . $checkboxes['description'] . '</p>';
                         }
 
-                        if (!array_key_exists('description', $checkboxes) && $i < count($fields['options'])) {
+                        if (!array_key_exists('description', $checkboxes) && $i < $totalOptions) {
                             $output .= '<br>' . "\n";
                         }
                         ++$i;
@@ -707,7 +793,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
 
                     unset($checkbox_id, $field_value);
                 }// endforeach;
-                unset($checkbox_key, $checkboxes, $i);
+                unset($checkbox_key, $checkboxes, $i, $totalOptions);
                 $output .= '</fieldset>' . "\n";
             }
 
@@ -742,6 +828,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                 $output = '<fieldset>' . "\n";
                 $output .= '<legend class="screen-reader-text">' . (array_key_exists('title', $fields) ? $fields['title'] : '') . '</legend>' . "\n";
                 $i = 1;
+                $totalOptions = count($fields['options']);
                 foreach ($fields['options'] as $radio_key => $radio_buttons) {
                     if (is_array($radio_buttons)) {
                         $output .= '<label>';
@@ -770,13 +857,13 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\RundizSettings')) {
                             $output .= '<p class="description">' . $radio_buttons['description'] . '</p>';
                         }
 
-                        if (!array_key_exists('description', $radio_buttons) && $i < count($fields['options'])) {
+                        if (!array_key_exists('description', $radio_buttons) && $i < $totalOptions) {
                             $output .= '<br>' . "\n";
                         }
                         ++$i;
                     }
                 }// endforeach;
-                unset($i, $radio_buttons, $radio_key);
+                unset($i, $radio_buttons, $radio_key, $totalOptions);
                 $output .= '</fieldset>' . "\n";
             }
 

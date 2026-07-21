@@ -53,7 +53,7 @@ function rundizstrap_companion_manualUpdateAjax()
     // prepare to make AJAX call. ========================================================
     const formData = new URLSearchParams();
     formData.append('security', RundizStrap_companion_settingsManualUpdateObj.nonce);
-    formData.append('action', 'rundizstrap_companion_manualUpdate');
+    formData.append('action', RundizStrap_companion_settingsManualUpdateObj.ajaxAction);
     formData.append('updateKey', runUpdateKey);
 
     fetch(ajaxurl, {

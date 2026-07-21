@@ -47,7 +47,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins')) {
             
             if ($plugin === $plugin_file) {
                 $link = [];
-                $link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=rundizstrap-companion-settings')) . '">' . __('Settings', 'rundizstrap-companion') . '</a>';
+                $link['settings'] = '<a href="' . esc_url(get_admin_url(null, 'options-general.php?page=' . rawurlencode(Settings::MENU_SLUG))) . '">' . __('Settings', 'rundizstrap-companion') . '</a>';
                 $actions = array_merge($link, $actions);
                 unset($link);
                 //$actions['after_actions'] = '<a href="#" onclick="return false;">' . __('After Actions', 'rundizstrap-companion') . '</a>';

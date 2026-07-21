@@ -25,6 +25,9 @@ if (!class_exists('\\RundizstrapCompanion\\App\\App')) {
     {
 
 
+        use AppTrait;
+
+
         /**
          * Run the WP plugin app.
          * 
@@ -38,9 +41,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\App')) {
             unset($StylesAndScripts);
 
             // Initialize the loader class.
-            $Loader = new Libraries\Loader();
-            $Loader->autoRegisterControllers();
-            unset($Loader);
+            $this->Loader = new Libraries\Loader();
+            $this->Loader->autoRegisterControllers();
         }// run
 
 

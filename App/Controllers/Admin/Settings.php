@@ -2,7 +2,7 @@
 /**
  * Add settings sub menu and page into the Settings menu.
  *
- * Last update: 2026-03-27
+ * Original source last update: 2026-04-11
  * 
  * @package rundizstrap-companion
  * @since 0.0.1
@@ -28,6 +28,12 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
 
 
         use \RundizstrapCompanion\App\AppTrait;
+
+
+        /**
+         * @var string Settings menu slug.
+         */
+        public const MENU_SLUG = 'rundizstrap-companion-settings';
 
 
         /**
@@ -58,7 +64,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
          */
         public function pluginSettingsMenu()
         {
-            $hook_suffix = add_options_page(__('RundizStrap Companion', 'rundizstrap-companion'), __('RundizStrap Companion', 'rundizstrap-companion'), 'manage_options', 'rundizstrap-companion-settings', [$this, 'pluginSettingsPage']);
+            $hook_suffix = add_options_page(__('RundizStrap Companion', 'rundizstrap-companion'), __('RundizStrap Companion', 'rundizstrap-companion'), 'manage_options', static::MENU_SLUG, [$this, 'pluginSettingsPage']);
             if (is_string($hook_suffix)) {
                 $this->hookSuffix = $hook_suffix;
                 add_action('load-' . $hook_suffix, [$this, 'callEnqueueHook']);
@@ -85,7 +91,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
                         sprintf(
                             // translators: %1$s Open link, %2$s Close link.
                             esc_html__('The manual update is required, please %1$supdate first%2$s.', 'rundizstrap-companion'),
-                            '<a href="' . esc_url(network_admin_url('index.php?page=rundizstrap-companion-manual-update')) . '">', 
+                            '<a href="' . esc_url(network_admin_url('index.php?page=' . rawurlencode(Plugins\Upgrader::MENU_SLUG))) . '">', 
                             '</a>'
                         )
                     );
@@ -97,8 +103,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
             }
 
             // load config values to get settings config file.
-            $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            $config_values = $Loader->loadConfig();
+            $config_values = $this->getLoader()->loadConfig();
             if (is_array($config_values) && array_key_exists('rundiz_settings_config_file', $config_values)) {
                 $settings_config_file = $config_values['rundiz_settings_config_file'];
             } else {
@@ -139,8 +144,8 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
             $output['settings_page'] = $RundizSettings->getSettingsPage($options_values);
             unset($RundizSettings, $options_values);
 
-            $Loader->loadView('admin/settings_v', $output);
-            unset($Loader, $output);
+            $this->getLoader()->loadView('Admin/settings_v', $output);
+            unset($output);
         }// pluginSettingsPage
 
 
@@ -167,8 +172,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
                 return;
             }
 
-            $Loader = new \RundizstrapCompanion\App\Libraries\Loader();
-            $config_values = $Loader->loadConfig();
+            $config_values = $this->getLoader()->loadConfig();
             if (is_array($config_values) && array_key_exists('rundiz_settings_config_file', $config_values)) {
                 $settings_config_file = $config_values['rundiz_settings_config_file'];
                 $RundizSettings = new \RundizstrapCompanion\App\Libraries\RundizSettings();
@@ -177,15 +181,20 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Settings')) 
                 $hasMediaField = $RundizSettings->hasMedia();
                 unset($RundizSettings, $settings_config_file);
             }
-            unset($config_values, $Loader);
+            unset($config_values);
 
             if (isset($hasEditorField) && true === $hasEditorField) {
+                // if there is editor field (TinyMCE).
+                // the function call `wp_enqueue_editor()` is required to make tabs 'visual/code' works.
+                // the media assets will be enqueue automatically.
                 wp_enqueue_editor();
-                wp_enqueue_media();
             }
             unset($hasEditorField);
             if (isset($hasMediaField) && true === $hasMediaField) {
-                wp_enqueue_script('jquery');
+                // if there is media field. 
+                // the function call `wp_enqueue_media()` is required 
+                // in case there is no function call to `wp_enqueue_editor()` 
+                // to make sure that JS `wp.media()` will work.
                 wp_enqueue_media();
             }
             unset($hasMediaField);
