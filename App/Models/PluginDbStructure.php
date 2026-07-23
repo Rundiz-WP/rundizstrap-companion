@@ -34,13 +34,14 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Models\\PluginDbStructure')) {
          * - DO NOT use back tick (`) anywhere because it will be thrown the error.
          * - DO NOT add "IF NOT EXISTS" into "CREATE TABLE" because it will not get an update on structure changed.
          * - DO NOT use semicolon sign (;) anywhere because it will be thrown the error.
+         * - Have to have 2 spaces between the words `PRIMARY KEY`.
          * 
          * Example:
          * <pre>
          * $schema[0]['tablename'] = 'rundizstrap_companion_table1';
          * $schema[0]['statement'] = 'CREATE TABLE %PREFIX%%TABLE% (
          * id bigint(20) NOT NULL AUTO_INCREMENT,
-         * PRIMARY KEY (id)
+         * PRIMARY KEY  (id)
          * ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;';// no back tick (`) to prevent error.
          * $schema[0]['is_multisite'] = false;// by default it is set to false (not multisite tables).
          * 

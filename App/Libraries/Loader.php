@@ -1,7 +1,7 @@
 <?php
 /**
  * Loader class. This class will load anything for example: views, template, configuration file.
- *
+ * 
  * @package rundizstrap-companion
  * @since 0.0.1
  */
@@ -73,7 +73,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
 
         /**
          * Get file list that may contain class in specific path.
-         *
+         * 
          * @since 0.0.1
          * @param string $path The full path without trailing slash.
          * @return array Return indexed array of file list.
@@ -113,7 +113,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
 
         /**
          * Check that is this version of app have manual update code?
-         *
+         * 
          * @since 0.0.1
          * @return bool Return `true` if there is manual update, `false` for otherwise.
          */
@@ -212,7 +212,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Libraries\\Loader')) {
 
         /**
          * Load views.
-         *
+         * 
          * @since 0.0.1
          * @param string $view_name View file name, refer from app/Views folder.
          * @param array $data For send data variable to view.

@@ -1,7 +1,7 @@
 <?php
 /**
  * Activate the plugin action.
- *
+ * 
  * @package rundizstrap-companion
  * @since 0.0.1
  */
@@ -45,7 +45,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
 
         /**
          * Activate the plugin by admin on WP plugin page.
-         *
+         * 
          * @link https://developer.wordpress.org/reference/functions/register_activation_hook/ The function `register_activation_hook()` reference.
          * @link https://developer.wordpress.org/reference/hooks/activate_plugin/ The reference about what will be pass to callback of function `register_activation_hook()`.
          * @since 0.0.1
@@ -54,7 +54,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
          */
         public function activate($network_wide)
         {
-            // So something that will happens on activate plugin.
+            // Do something that will happens on activate plugin.
             if (version_compare(get_bloginfo('version'), '6.0', '<')) {
                 wp_die(
                     esc_html(
@@ -138,7 +138,7 @@ if (!class_exists('\\RundizstrapCompanion\\App\\Controllers\\Admin\\Plugins\\Act
 
         /**
          * If there is at least one or more table from `RundizstrapCompanion\App\Models\PluginDbStructure->get()` method then create or alter using WordPress's `dbDelta()`.
-         *
+         * 
          * @since 0.0.1
          * @global \wpdb $wpdb WordPress DB class.
          */
