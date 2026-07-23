@@ -5,7 +5,7 @@ Tags: bootstrap
 Tested up to: 7.0
 Requires at least: 6.1
 Requires PHP: 8.0
-Stable Tag: 1.0.3
+Stable Tag: 1.0.4dev-20260723
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -75,12 +75,19 @@ If you have the capability to edit theme options, you can access the help page u
 
 == Changelog ==
 
+= 1.0.4 =
+xxxx-xx-xx
+
+* Minor performance improved.
+
 = 1.0.3 =
 2026-07-21
+
 * Minor update.
 
 = 1.0.2 =
 2026-04-09
+
 * Update JS to not depend on jQuery.
 * Add mandatory class name to post navigation link block (bs-post-navigation-link) to fix very long post may not be wrapped.
 * Fix incorrect escape URL.
@@ -89,10 +96,12 @@ If you have the capability to edit theme options, you can access the help page u
 
 = 1.0.1 =
 2026-04-04
+
 * Fix activate/deactivate/uninstall process to working on all sites.
 
 = 1.0.0 =
 2026-03-29
+
 * First published on wordpress.org.
 
 view previous version logs on changelog.md

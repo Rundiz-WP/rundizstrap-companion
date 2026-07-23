@@ -1,6 +1,6 @@
 {
     "name": "rundizstrap-companion",
-    "version": "1.0.3",
+    "version": "1.0.4dev-20260723",
     "description": "The WordPress Blocks for RundizStrap theme based on latest Bootstrap.",
     "private": true,
     "type": "module",
