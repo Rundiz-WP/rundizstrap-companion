@@ -1,6 +1,6 @@
 {
     "name": "rundizstrap-companion",
-    "version": "1.0.4dev-20260723",
+    "version": "1.0.4",
     "description": "The WordPress Blocks for RundizStrap theme based on latest Bootstrap.",
     "private": true,
     "type": "module",
@@ -12,7 +12,8 @@
         "watch": "wpdev watch",
         "watchBlocks": "wp-scripts start --webpack-src-dir=\"./blocks-src\" --output-path=\"./blocks\"",
         "pack": "wpdev pack --packtype=dev prod",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "tests": "npm run test"
     },
     "repository": {
         "type": "",

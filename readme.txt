@@ -2,10 +2,10 @@
 Contributors: okvee
 Donate link: https://github.com/sponsors/Rundiz-WP
 Tags: bootstrap
-Tested up to: 7.0
+Tested up to: 7.1
 Requires at least: 6.1
 Requires PHP: 8.0
-Stable Tag: 1.0.4dev-20260723
+Stable Tag: 1.0.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -76,9 +76,10 @@ If you have the capability to edit theme options, you can access the help page u
 == Changelog ==
 
 = 1.0.4 =
-xxxx-xx-xx
+2026-08-16
 
 * Minor performance improved.
+* Fix translation bugs in RundizSettings.php.
 
 = 1.0.3 =
 2026-07-21
