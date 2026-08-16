@@ -56,7 +56,6 @@
 .gitignore export-ignore
 /.img-src export-ignore
 .phpcs.xml.dist export-ignore
-/node_modules export-ignore
 /node_tasks export-ignore
 /package.json export-ignore
 /package-lock.json export-ignore
